@@ -39,11 +39,11 @@ public class AppodealAssetsPostProcess : AssetPostprocessor {
 			}
 		}
 
-		string path = "Assets/Plugins/Ionic.Zip.Unity.dll";
-		PluginImporter ionicPluginImporter = AssetImporter.GetAtPath(path) as PluginImporter;
-		if(!ionicPluginImporter.GetCompatibleWithAnyPlatform()) {
-			ionicPluginImporter.SetCompatibleWithAnyPlatform(true);
-		}
+		//string path = "Assets/Plugins/Ionic.Zip.Unity.dll";
+		//PluginImporter ionicPluginImporter = AssetImporter.GetAtPath(path) as PluginImporter;
+		//if(!ionicPluginImporter.GetCompatibleWithAnyPlatform()) {
+		//	ionicPluginImporter.SetCompatibleWithAnyPlatform(true);
+		//}
 		#endif
 
 
