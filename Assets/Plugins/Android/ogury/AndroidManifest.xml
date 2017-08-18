@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.appodeal.presage.unity">
+  <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="23" />
+  <application>
+	<meta-data android:name="presage_key" android:value="000000"/>
+        <service android:name="io.presage.services.PresageServiceImp"/>
+        <activity android:name="io.presage.activities.PresageActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true">
+            <intent-filter>
+                <action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <receiver android:name="io.presage.receivers.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="io.presage.receivers.BootReceiver.RESTART_SERVICE"/>
+            </intent-filter>
+        </receiver>
+  </application>
+</manifest>
