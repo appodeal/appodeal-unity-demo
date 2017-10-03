@@ -14,8 +14,8 @@ namespace AppodealAds.Unity.Android
 			this.listener = listener;
 		}
 		
-		void onInterstitialLoaded(Boolean isPrecache) {
-			listener.onInterstitialLoaded();
+		void onInterstitialLoaded(bool isPrecache) {
+			listener.onInterstitialLoaded(isPrecache);
 		}
 		
 		void onInterstitialFailedToLoad() {

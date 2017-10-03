@@ -6,7 +6,7 @@ namespace AppodealAds.Unity.Android
 {
 	public class AppodealBannerCallbacks
 #if UNITY_ANDROID
-		: AndroidJavaProxy
+		: AndroidJavaProxy 
 	{
 		IBannerAdListener listener;	
 
@@ -14,8 +14,8 @@ namespace AppodealAds.Unity.Android
 			this.listener = listener;
 		}
 
-		void onBannerLoaded(int height, Boolean isPrecache) {
-			listener.onBannerLoaded();
+		void onBannerLoaded(int height, bool isPrecache) {
+			listener.onBannerLoaded(isPrecache);
 		}
 			
 		void onBannerFailedToLoad() {
@@ -36,4 +36,3 @@ namespace AppodealAds.Unity.Android
 	}
 #endif
 }
-

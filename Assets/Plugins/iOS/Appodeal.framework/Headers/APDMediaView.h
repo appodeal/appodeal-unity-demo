@@ -2,7 +2,7 @@
 //  APDMediaView.h
 //  Appodeal
 //
-//  AppodealSDK version 2.1.0-HOT-FIX-4237
+//  AppodealSDK version 2.1.5-Xcode8
 //
 //  Copyright © 2017 Appodeal, Inc. All rights reserved.
 //
@@ -132,7 +132,7 @@ typedef NS_ENUM(NSInteger, APDMediaViewType) {
  *  Set native ad to media view. If native ad contains video it starts to cache the video and presents it when it becomes visible and the video is ready
  *
  *  @param nativeAd  Nonnul native ad
- *  @param clearView Nonnul controller
+ *  @param controller Nonnul controller
  */
 - (void)setNativeAd:(APDNativeAd *)nativeAd rootViewController:(UIViewController *)controller;
 

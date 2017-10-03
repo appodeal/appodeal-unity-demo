@@ -2,7 +2,7 @@
 //  APDReviewVideo.h
 //  Appodeal
 //
-//  AppodealSDK version 2.1.0-HOT-FIX-4237
+//  AppodealSDK version 2.1.5-Xcode8
 //
 //  Copyright © 2017 Appodeal, Inc. All rights reserved.
 //
@@ -106,7 +106,7 @@
 /*!
  *  Return reward object currencyName as NSString, and amount as NSUInteger
  */
-- (id<APDReward>)rewardForPlacement:(NSString *)placement;
+@property (strong, nonatomic, readonly) id<APDReward> reward;
 
 /*!
  *  Set custom placement name, that you create in the Appodeal Dashboard

@@ -2,7 +2,7 @@
 //  APDInterstital.h
 //  Appodeal
 //
-//  AppodealSDK version 2.1.0-HOT-FIX-4237
+//  AppodealSDK version 2.1.5-Xcode8
 //
 //  Copyright © 2017 Appodeal, Inc. All rights reserved.
 //

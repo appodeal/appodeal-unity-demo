@@ -4,7 +4,7 @@
 
 -(void) interstitialDidLoadAdisPrecache:(BOOL)precache {
     if(self.interstitialDidLoadCallback) {
-        self.interstitialDidLoadCallback();
+        self.interstitialDidLoadCallback(precache);
     }
 }
 

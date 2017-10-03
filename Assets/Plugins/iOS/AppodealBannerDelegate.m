@@ -3,9 +3,9 @@
 @implementation AppodealBannerDelegate
 
 
--(void) bannerDidLoadAdisPrecache:(BOOL)precache {
+-(void) bannerDidLoadAdIsPrecache:(BOOL)precache {
     if(self.bannerDidLoadAdCallback) {
-        self.bannerDidLoadAdCallback();
+        self.bannerDidLoadAdCallback(precache);
     }
 }
 

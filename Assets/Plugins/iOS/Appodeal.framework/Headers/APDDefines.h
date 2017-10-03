@@ -2,7 +2,7 @@
 //  APDDefines.h
 //  Appodeal
 //
-//  AppodealSDK version 2.1.0-HOT-FIX-4237
+//  AppodealSDK version 2.1.5-Xcode8
 //
 //  Copyright © 2017 Appodeal, Inc. All rights reserved.
 //
@@ -435,6 +435,10 @@ typedef NS_ENUM(NSInteger, APDError) {
      */
     APDNetworkingError,
     /*!
+     *  Device is not reachable
+     */
+    APDDeviceNotReachableError,
+    /*!
      *  Errors of this type occur if some network response contains
      *  data of an unsupported/unexpected type
      */
@@ -721,7 +725,8 @@ typedef NS_ENUM(NSUInteger, APDFramework) {
     APDFrameworkCorona,
     APDFrameworkStencyl,
     APDFrameworkSDKBox,
-    APDFrameworkDefold
+    APDFrameworkDefold,
+    APDFrameworkBuildBox
 };
 
 

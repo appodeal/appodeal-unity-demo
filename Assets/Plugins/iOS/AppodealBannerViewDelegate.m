@@ -4,9 +4,8 @@
 
 - (void)bannerViewDidLoadAd:(APDBannerView *)bannerView {
     if(self.bannerViewDidLoadAdCallback) {
-        self.bannerViewDidLoadAdCallback();
+        self.bannerViewDidLoadAdCallback(false);
     }
-    NSLog(@"banner loaded");
 }
 
 - (void)bannerViewDidRefresh:(APDBannerView *)bannerView {
