@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mobvista_offerwall_black">#282828</color>
+    <color name="mobvista_offerwall_blue">#2580d8</color>
+    <color name="mobvista_offerwall_gray">#9a9a9a</color>
+    <color name="mobvista_offerwall_trans_black">#30000000</color>
+    <color name="mobvista_offerwall_white">#FFFFFF</color>
+    <string name="mobvista_offerwall_reward_exit_desc">No rewards earned yet! Complete video to earn rewards ?</string>
+    <string name="mobvista_offerwall_reward_left_btn_text">Stop</string>
+    <string name="mobvista_offerwall_reward_right_btn_text">Resume</string>
+    <string name="mobvista_offerwall_title">Mobvista Offer</string>
+    <style name="reward_warn_dialog" parent="@android:style/Theme.Dialog"> <!-- name是我们在使用时要用到的资源的标志，parent是指当前的样式所继承的父类样式 -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item> <!-- 隐藏标题栏 -->
+        <item name="android:background">#00000000</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground"> @android:color/transparent </item>
+    </style>
+</resources>

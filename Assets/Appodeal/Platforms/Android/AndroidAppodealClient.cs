@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using UnityEngine;
+﻿using UnityEngine;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
 
@@ -185,20 +182,20 @@ namespace AppodealAds.Unity.Android {
 			return getAppodealClass().CallStatic<bool>("canShow", adTypes, placement);
 		}
 		
-		public void setCustomRule(string name, bool value) {
-			getAppodealClass().CallStatic("setCustomRule", name, value);
+        public void setSegmentFilter(string name, bool value) {
+            getAppodealClass().CallStatic("setSegmentFilter", name, value);
 		}
 
-		public void setCustomRule(string name, int value) {
-			getAppodealClass().CallStatic("setCustomRule", name, value);
+        public void setSegmentFilter(string name, int value) {
+            getAppodealClass().CallStatic("setSegmentFilter", name, value);
 		}
 
-		public void setCustomRule(string name, double value) {
-			getAppodealClass().CallStatic("setCustomRule", name, value);
+        public void setSegmentFilter(string name, double value) {
+            getAppodealClass().CallStatic("setSegmentFilter", name, value);
 		}
 
-		public void setCustomRule(string name, string value) {
-			getAppodealClass().CallStatic("setCustomRule", name, value);
+        public void setSegmentFilter(string name, string value) {
+            getAppodealClass().CallStatic("setSegmentFilter", name, value);
 		}
 		
 		public void trackInAppPurchase(double amount, string currency) {

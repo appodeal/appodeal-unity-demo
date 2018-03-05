@@ -139,10 +139,10 @@ namespace AppodealAds.Unity.iOS {
 	#endregion
 		
 	#region Rewarded Video Delegate
-		[MonoPInvokeCallback (typeof (AppodealRewardedVideoCallbacks))]
-		private static void rewardedVideoDidLoadAd() {
+        [MonoPInvokeCallback (typeof (AppodealRewardedVideoDidLoadCallback))]
+        private static void rewardedVideoDidLoadAd(bool isPrecache) {
 			if (AppodealAdsClient.rewardedVideoListener != null) {
-				AppodealAdsClient.rewardedVideoListener.onRewardedVideoLoaded();
+                AppodealAdsClient.rewardedVideoListener.onRewardedVideoLoaded(isPrecache);
 			}
 		}
 		
@@ -351,15 +351,15 @@ namespace AppodealAds.Unity.iOS {
 		public void onResume() { } // handled by SDK
 		
 		public void setSmartBanners(bool value) {
-			AppodealObjCBridge.setSmartBanners(value);
+			AppodealObjCBridge.AppodealSetSmartBanners(value);
 		}
 
 		public void setBannerAnimation(bool value) {
-			AppodealObjCBridge.setBannerAnimation(value);
+            AppodealObjCBridge.AppodealSetBannerAnimation(value);
 		}
 
 		public void setBannerBackground(bool value) {
-			AppodealObjCBridge.setBannerBackground(value);
+            AppodealObjCBridge.AppodealSetBannerBackground(value);
 		}
 
 		public void setTabletBanners(bool value) {
@@ -443,24 +443,24 @@ namespace AppodealAds.Unity.iOS {
 			return AppodealObjCBridge.AppodealGetRewardAmount("");
 		}
 
-		public void setCustomRule(string name, bool value) {
-			AppodealObjCBridge.setCustomSegmentBool(name, value);
+        public void setSegmentFilter(string name, bool value) {
+            AppodealObjCBridge.AppodealSetSegmentFilterBool(name, value);
 		}
 
-		public void setCustomRule(string name, int value)  {
-			AppodealObjCBridge.setCustomSegmentInt(name, value);
+        public void setSegmentFilter(string name, int value)  {
+            AppodealObjCBridge.AppodealSetSegmentFilterInt(name, value);
 		}
 
-		public void setCustomRule(string name, double value)  {
-			AppodealObjCBridge.setCustomSegmentDouble(name, value);
+        public void setSegmentFilter(string name, double value)  {
+            AppodealObjCBridge.AppodealSetSegmentFilterDouble(name, value);
 		}
 
-		public void setCustomRule(string name, string value) {
-			AppodealObjCBridge.setCustomSegmentString(name, value);
+        public void setSegmentFilter(string name, string value) {
+            AppodealObjCBridge.AppodealSetSegmentFilterString(name, value);
 		}
 
-		public void setTriggerOnLoadedOnPrecache(int adTypes, Boolean onLoadedTriggerBoth) {
-			// Not supported for iOS SDK
+		public void setTriggerOnLoadedOnPrecache(int adTypes, bool onLoadedTriggerBoth) {
+            AppodealObjCBridge.AppodealSetTriggerPrecacheCallbacks(onLoadedTriggerBoth);
 		}
 		
 		//User Settings
@@ -495,7 +495,7 @@ namespace AppodealAds.Unity.iOS {
 		}
 
 		public void trackInAppPurchase(double amount, string currency) {
-			AppodealObjCBridge.trackInAppPurchase(amount, currency);
+			AppodealObjCBridge.AppodealTrackInAppPurchase(amount, currency);
 		}
 				
 	}

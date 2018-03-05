@@ -2,9 +2,9 @@
 //  APDSdk.h
 //  Appodeal
 //
-//  AppodealSDK version 2.1.5-Xcode8
+//  AppodealSDK version SDK_VERSION_NUMBER_HEADER
 //
-//  Copyright © 2017 Appodeal, Inc. All rights reserved.
+//  Copyright © 2016 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -36,14 +36,14 @@
  *
  *  @return nil
  */
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype _Nonnull)init NS_UNAVAILABLE;
 
 /*!
  *  Unuvailabale initializer
  *
  *  @return nil
  */
-+ (instancetype)new NS_UNAVAILABLE;
++ (instancetype _Nonnull)new NS_UNAVAILABLE;
 
 /*!
  *  Singleton instance of APDSdk
@@ -58,7 +58,7 @@
  *
  *  @return Singleton instance of APDSdk
  */
-+ (instancetype)sharedSdkWithApiKey:(NSString *)apiKey;
++ (instancetype _Nonnull)sharedSdkWithApiKey:(nonnull NSString *)apiKey;
 
 
 /*!
@@ -72,7 +72,7 @@
  *
  *  @return Instance of APDSdk
  */
-+ (instancetype)sharedSdk;
++ (instancetype _Nonnull)sharedSdk;
 
 /*!
  *  Call this method to specify framework before initialization
@@ -92,7 +92,7 @@
  *
  *  @param pluginVersion - NSString version plugin
  */
-- (void)setPluginVersion:(NSString *)pluginVersion;
+- (void)setPluginVersion:(nonnull NSString *)pluginVersion;
 
 /*!
  *  Initialization of SDK for types
@@ -107,7 +107,7 @@
  *
  *  @param adTypes APDAdTypeInterstitialAd, APDAdTypeBanner, APDAdTypeNativeAd, APDAdTypeRewardedVideo, APDAdTypeMREC
  */
-- (void)initializeForAdTypes:(APDType)adTypes;
+- (void)initializeForAdTypes:(APDAdType)adTypes;
 
 /*!
  *  Check that SDK is initialized for ad type
@@ -122,12 +122,14 @@
  *
  *  @return YES if SDK initialized for this type, or NO if not
  */
-- (BOOL)isInitializedForAdType:(APDType)adType;
+- (BOOL)isInitializedForAdType:(APDAdType)adType;
 
 /*!
- *  If you set YES for this method you get only
- *  test ad with $0 eCPM
+ *  If you set YES to this method you get only
+ *  test ad with 0$ eCPM*
  *  @warning use this method before initilized sdk
+ *  @discussion Objective-C
+ *  @code [[APDSdk sharedSdk] setTestingMode:YES]; @endcode
  *  @discussion Objective-C
  *  @code [[APDSdk sharedSdk] setTesingMode:YES]; @endcode
  *
@@ -136,7 +138,7 @@
  *
  *  @param enabled Boolean flag
  */
-- (void)setTesingMode:(BOOL)enabled;
+- (void)setTestingMode:(BOOL)enabled;
 
 /*!
  *  Set targeting for more relevant ads
@@ -157,7 +159,7 @@
  *
  *  @param userInfo Instance of APDUserInfo class
  */
-- (void)setUserInfo:(APDUserInfo *)userInfo;
+- (void)setUserInfo:(nonnull APDUserInfo *)userInfo;
 
 /*!
  *  If you do not want some ad network to
@@ -171,7 +173,7 @@
  *
  *  @param networkName Appodeal ad network name for example: @"mopub", @"admob"
  */
-- (void)disableUserInfoForNetworkName:(NSString *)networkName;
+- (void)disableUserInfoForNetworkName:(nonnull NSString *)networkName;
 
 /*!
  *  You can set custom rules by using this method.
@@ -182,19 +184,17 @@
  *
  *  @discussion Objective-C
  *  @code
-        NSDictionary * customRule = {@"completedLevels" : CURRENT_NUMBER_OF_COMPLETED_LEVELS};
-        [[APDSdk sharedSdk] setCustomRule: customRule];
+        NSDictionary * segmentFilter = {@"completedLevels" : CURRENT_NUMBER_OF_COMPLETED_LEVELS};
+        [[APDSdk sharedSdk] setSegmentFilter: customRule];
  *  @endcode
  *
  *  @discussion Swift
  *  And then CURRENT_NUMBER_OF_COMPLETED_LEVELS becomes 10 or greater
  *  Your segments settings become available
  *
- *  @param customRule NSDictionary instance with keys that are similar to  keys that you turn on in Appodeal Dashboard's Segment settings block and values of similar types
+ *  @param segmentFilter NSDictionary instance with keys that are similar to  keys that you turn on in Appodeal Dashboard's Segment settings block and values of similar types
  */
-
-- (void)setCustomRule:(NSDictionary *)customRule;
-
+- (void)setSegmentFilter:(nonnull NSDictionary *)segmentFilter;
 
 /*!
  *  Appodeal SDK supports multiple log level for internal logging,
@@ -228,7 +228,7 @@
  */
 - (void)setMinimumFreeMemoryPercentage:(NSUInteger)percentage
                  observeSystemWarnings:(BOOL)observeSystemWarnings
-                             forAdType:(APDType)type;
+                             forAdType:(APDAdType)type;
 
 - (void)setChildDirectedTreatment:(BOOL)childDirectedTreatment;
 
@@ -244,6 +244,6 @@
  *  @param amount   Amount of in-app purchase, for example @0.99
  *  @param currency In-app purchase currency, for example @"USD"
  */
-- (void)trackInAppPurchase:(NSNumber *)amount currency:(NSString *)currency;
+- (void)trackInAppPurchase:(nonnull NSNumber *)amount currency:(nonnull NSString *)currency;
 
 @end

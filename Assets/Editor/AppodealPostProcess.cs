@@ -20,15 +20,14 @@ public class AppodealPostProcess : MonoBehaviour {
 	#endif
 
 	private static string[] frameworkList = new string[] {
-		"Twitter", "AdSupport", "AudioToolbox",
-		"AVFoundation", "CoreFoundation", "CFNetwork",
-		"CoreGraphics", "CoreImage", "CoreMedia",
-		"CoreLocation", "CoreTelephony", "GLKit",
-		"JavaScriptCore", "EventKitUI", "EventKit",
-		"MediaPlayer", "MessageUI", "QuartzCore", 
-		"MobileCoreServices", "Security", "StoreKit",
-		"SystemConfiguration", "Twitter", "UIKit",
-		"CoreBluetooth", "ImageIO"
+        "AdSupport", "AudioToolbox", "AVFoundation", "CFNetwork", "CoreBluetooth",
+        "CoreFoundation", "CoreGraphics", "CoreImage",
+        "CoreLocation", "CoreMedia", "CoreMotion", "CoreTelephony", 
+        "CoreText", "EventKit", "EventKitUI", "GLKit",
+        "ImageIO", "JavaScriptCore", "MediaPlayer", "MessageUI", 
+        "MobileCoreServices", "QuartzCore", "SafariServices", "Security",
+        "Social", "StoreKit", "SystemConfiguration", "Twitter", 
+        "UIKit", "QuartzCore", "WebKit", "WatchConnectivity"
 	};
 
 	private static string[] weakFrameworkList = new string[] {
@@ -71,7 +70,7 @@ public class AppodealPostProcess : MonoBehaviour {
 		AddProjectFrameworks (weakFrameworkList, project, target, true);
 		AddProjectLibs (platformLibs, project, target);
 		project.AddBuildProperty (target, "OTHER_LDFLAGS", "-ObjC");
-		project.AddBuildProperty (target, "ENABLE_BITCODE", "NO");
+		project.AddBuildProperty (target, "ENABLE_BITCODE", "YES");
 		project.AddBuildProperty (target, "LIBRARY_SEARCH_PATHS", "$(SRCROOT)/Libraries");
 
 		string apdFolder = "Adapters";

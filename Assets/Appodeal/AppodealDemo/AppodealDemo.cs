@@ -59,7 +59,7 @@ public class AppodealDemo : MonoBehaviour, IInterstitialAdListener, IBannerAdLis
 		Appodeal.muteVideosIfCallsMuted(true);
 		Appodeal.setAutoCache(Appodeal.INTERSTITIAL, false);
 		
-		Appodeal.initialize (appKey, Appodeal.INTERSTITIAL | Appodeal.BANNER_VIEW | Appodeal.REWARDED_VIDEO);
+		Appodeal.initialize (appKey, Appodeal.INTERSTITIAL | Appodeal.BANNER | Appodeal.REWARDED_VIDEO);
 
 		Appodeal.setBannerCallbacks (this);
 		Appodeal.setInterstitialCallbacks (this);
@@ -202,7 +202,7 @@ public class AppodealDemo : MonoBehaviour, IInterstitialAdListener, IBannerAdLis
 	
 	public void onInterstitialLoaded(bool isPrecache) { 
 		interstitialLabel = "SHOW INTERSTITIAL";
-		Debug.Log("Interstitial loaded"); 
+        Debug.Log("Interstitial loaded, isPrecache:" + isPrecache); 
 	}
 	public void onInterstitialFailedToLoad() { Debug.Log("Interstitial failed to load"); }
 	public void onInterstitialShown() { 
@@ -223,7 +223,7 @@ public class AppodealDemo : MonoBehaviour, IInterstitialAdListener, IBannerAdLis
 	#endregion
 
 	#region Rewarded Video callback handlers
-	public void onRewardedVideoLoaded() { Debug.Log("Rewarded Video loaded"); }
+    public void onRewardedVideoLoaded(bool isPrecache) { Debug.Log("Rewarded Video loaded, isPrecache:" + isPrecache); }
 	public void onRewardedVideoFailedToLoad() { Debug.Log("Rewarded Video failed to load"); }
 	public void onRewardedVideoShown() { Debug.Log("Rewarded Video opened"); }
 	public void onRewardedVideoClosed(bool isFinished) { Debug.Log("Rewarded Video closed, finished:" + isFinished); }

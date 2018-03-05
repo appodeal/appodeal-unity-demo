@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mobvista_reward_black">#ff000000</color>
+    <color name="mobvista_reward_black_transparent">#90000000</color>
+    <color name="mobvista_reward_cta_color">#274f0a</color>
+    <color name="mobvista_reward_end_pager_cta_color">#1e7fda</color>
+    <color name="mobvista_reward_gray">#ff999999</color>
+    <color name="mobvista_reward_green">#5ad70f</color>
+    <color name="mobvista_reward_line_one_color">#2c8e02</color>
+    <color name="mobvista_reward_line_two_color">#79f216</color>
+    <color name="mobvista_reward_six_black_transparent">#60000000</color>
+    <color name="mobvista_reward_white">#FFFFFF</color>
+</resources>

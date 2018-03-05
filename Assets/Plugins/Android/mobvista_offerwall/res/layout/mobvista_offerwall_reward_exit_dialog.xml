@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mobvista_offerwall_reward_dialog_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/mobvista_offerwall_warn" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/mobvista_offerwall_tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:enabled="true"
+        android:lineSpacingExtra="3dp"
+        android:maxLines="3"
+        android:tag="exit_desc"
+        android:text="@string/mobvista_offerwall_reward_exit_desc"
+        android:textColor="@color/mobvista_offerwall_black"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:orientation="horizontal"
+        android:padding="6dp" >
+
+        <TextView
+            android:id="@+id/mobvista_offerwall_reward_dialog_stop_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/mobvista_offerwall_shape_left_btn"
+            android:gravity="center"
+            android:tag="left_btn"
+            android:text="@string/mobvista_offerwall_reward_left_btn_text"
+            android:textColor="@color/mobvista_offerwall_gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mobvista_offerwall_reward_dialog_resume_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/mobvista_offerwall_shape_right_btn"
+            android:gravity="center"
+            android:tag="right_btn"
+            android:text="@string/mobvista_offerwall_reward_right_btn_text"
+            android:textColor="@color/mobvista_offerwall_white"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

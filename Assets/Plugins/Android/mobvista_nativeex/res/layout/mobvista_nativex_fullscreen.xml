@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/mobvista_full_rl_playcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        >
+
+        <RelativeLayout
+            android:id="@+id/mobvista_full_player_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+        </RelativeLayout>
+
+        <!--TextureView
+            android:id="@+id/mobvista_full_surfaceview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            tools:targetApi="ice_cream_sandwich" /-->
+
+        <RelativeLayout
+            android:id="@+id/mobvista_full_rl_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/mobvista_nativex_play_bg"
+            android:visibility="gone"
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/mobvista_nativex_pause" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/mobvista_full_ll_pro_dur"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/mobvista_full_player_parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/mobvista_full_tv_cur_pos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#ffffff" />
+
+            <ProgressBar
+                android:id="@+id/mobvista_full_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/mobvista_nativex_play_progress" />
+
+            <TextView
+                android:id="@+id/mobvista_full_tv_alldur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="00:00"
+                android:textColor="#ffffff" />
+
+            <RelativeLayout
+
+                android:id="@+id/mobvista_full_rl_sound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/mobvista_full_iv_sound"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/mobvista_nativex_sound_open" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- LinearLayout
+            android:id="@+id/mobvista_full_ll_loading"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+        </LinearLayout -->
+
+
+        <RelativeLayout
+            android:id="@+id/mobvista_full_rl_playend"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <com.mobvista.msdk.videocommon.view.MyImageView
+                android:id="@+id/mobvista_full_iv_playend_img"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/mobvista_full_rl_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/mobvista_nativex_play_bg"
+                >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/mobvista_nativex_play" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:id="@+id/mobvista_full_rl_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:padding="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/mobvista_full_iv_close"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:padding="3dp"
+            android:background="@drawable/mobvista_nativex_full_protial_close"
+            android:scaleType="centerInside"
+            android:src="@drawable/mobvista_nativex_close" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/mobvista_full_rl_install"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:padding="16dp"
+        >
+
+        <TextView
+            android:id="@+id/mobvista_full_tv_install"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mobvista_nativex_cta_normal"
+            android:paddingTop="5dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingBottom="5dp"
+            android:text="Shop Now"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:id="@+id/mobvista_full_pb_loading"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>
+

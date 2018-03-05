@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.mobvista.msdk.mvjscommon.windvane.WindVaneWebView
+        android:id="@+id/mobvista_offerwall_reward_wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible" />
+
+    <com.mobvista.msdk.playercommon.PlayerView
+        android:id="@+id/mobvista_offerwall_vfpv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </com.mobvista.msdk.playercommon.PlayerView>
+
+    <com.mobvista.msdk.offerwall.view.SoundImageView
+        android:id="@+id/mobvista_offerwall_siv"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp" />
+
+    <RelativeLayout
+        android:id="@+id/mobvista_offerwall_reward_rl_progress"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/mobvista_offerwall_shape_progress" >
+
+        <TextView
+            android:id="@+id/mobvista_offerwall_reward_tv_sound"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="@color/mobvista_offerwall_white"
+            android:textSize="12sp"
+            />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/mobvista_offerwall_reward_pb"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/mobvista_offerwall_rl_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/mobvista_offerwall_close_bg" >
+
+        <ImageView
+            android:id="@+id/mobvista_offerwall_iv_close"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/mobvista_offerwall_close" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mobvista_bg_main">#eeeeee</color>
+    <color name="mobvista_bg_main_view">#ff080c17</color>
+    <color name="mobvista_black">#ff000000</color>
+    <color name="mobvista_black_grid">#ff330066</color>
+    <color name="mobvista_black_light">#66000000</color>
+    <color name="mobvista_gray">#ff999999</color>
+    <color name="mobvista_green">#ff2bac5f</color>
+    <color name="mobvista_green_2">#ff27E0A8</color>
+    <color name="mobvista_indicator_underline">#ff249848</color>
+    <color name="mobvista_layer_text">#ff343434</color>
+    <color name="mobvista_layer_text_view">#ffd9dade</color>
+    <color name="mobvista_selected">#ff333333</color>
+    <color name="mobvista_tab_text">#868686</color>
+    <color name="mobvista_tab_text_normal">#2e323d</color>
+    <color name="mobvista_transparent">#00000000</color>
+    <color name="mobvista_wall_card_large_text_color">#343434</color>
+    <color name="mobvista_wall_card_small_text_color">#343434</color>
+    <color name="mobvista_wall_item_background">#ff202633</color>
+    <color name="mobvista_wall_layout_name_color">#ffb7bbc4</color>
+    <color name="mobvista_wall_tab_line">#ff999999</color>
+    <color name="mobvista_wall_tab_shape_divider_grey">#1A000000</color>
+    <color name="mobvista_white">#ffffffff</color>
+    <style name="mobvista_style_ratingbar" parent="@android:style/Widget.RatingBar">
+         <!-- item name="android:maxHeight">16dp</item -->
+          <!-- item name="android:minHeight">16dp</item -->
+           <item name="android:progressDrawable">@drawable/mobvista_wall_bg_ratingbar</item>
+    </style>
+</resources>

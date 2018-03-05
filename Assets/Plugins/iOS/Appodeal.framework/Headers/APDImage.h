@@ -2,9 +2,9 @@
 //  APDImage.h
 //  Appodeal
 //
-//  AppodealSDK version 2.1.5-Xcode8
+//  AppodealSDK version SDK_VERSION_NUMBER_HEADER
 //
-//  Copyright © 2017 Appodeal, Inc. All rights reserved.
+//  Copyright © 2016 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -23,6 +23,6 @@
 /*!
  *  Url to image source. Can be local
  */
-@property (nonatomic, strong, readonly) NSURL * url;
+@property (nonatomic, strong, readonly, nonnull) NSURL * url;
 
 @end
