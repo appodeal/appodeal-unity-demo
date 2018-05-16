@@ -207,10 +207,10 @@ namespace AppodealAds.Unity.Android {
 			return reward.Get<string>("second");
 		}
 
-		public int getRewardAmount(string placement) {
+        public double getRewardAmount(string placement) {
 			AndroidJavaObject reward = getAppodealClass().CallStatic<AndroidJavaObject>("getRewardParameters", placement);
-			AndroidJavaObject integerValue = reward.Get<AndroidJavaObject>("first");
-			return integerValue.Call<int>("intValue");
+            AndroidJavaObject doubleValue = reward.Get<AndroidJavaObject>("first");
+            return doubleValue.Call<double>("doubleValue");
 		}
 
 		public string getRewardCurrency() {
@@ -218,10 +218,10 @@ namespace AppodealAds.Unity.Android {
 			return reward.Get<string>("second");
 		}
 
-		public int getRewardAmount() {
+        public double getRewardAmount() {
 			AndroidJavaObject reward = getAppodealClass().CallStatic<AndroidJavaObject>("getRewardParameters");
-			AndroidJavaObject integerValue = reward.Get<AndroidJavaObject>("first");
-			return integerValue.Call<int>("intValue");
+			AndroidJavaObject doubleValue = reward.Get<AndroidJavaObject>("first");
+            return doubleValue.Call<double>("doubleValue");
 		}
 
 		//User Settings

@@ -2,9 +2,9 @@
 //  APDDefines.h
 //  Appodeal
 //
-//  AppodealSDK version SDK_VERSION_NUMBER_HEADER
+//  AppodealSDK version 2.4.0-Beta4
 //
-//  Copyright © 2015 Appodeal, Inc. All rights reserved.
+//  Copyright © 2018 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -541,7 +541,12 @@ typedef NS_ENUM(NSInteger, APDError) {
     /*!
      *  Error while calling cache method on unitialized ad type
      */
-    APDAdTypeNotInitializedError
+    APDAdTypeNotInitializedError,
+    /*!
+     * Error returned if sdk unable to start loading.
+     * For example if you trying to cache fullscreen ad while it's presenting
+     */
+    APDLoadingDeniedError
 };
 
 

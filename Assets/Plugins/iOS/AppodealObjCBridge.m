@@ -131,9 +131,9 @@ char * AppodealGetRewardCurrency(const char *placement) {
     return strncpy(cStringCopy, cString, [rewardCurrencyName length]);
 }
 
-int AppodealGetRewardAmount(const char *placement) {
+double AppodealGetRewardAmount(const char *placement) {
     NSUInteger rewardAmount = [[Appodeal rewardForPlacement:[NSString stringWithUTF8String:placement]] amount];
-    return (int)rewardAmount;
+    return (double)rewardAmount;
 }
 
 BOOL AppodealCanShow(int style) {
@@ -293,3 +293,4 @@ void AppodealSetRewardedVideoDelegate(AppodealRewardedVideoDidLoadCallback rewar
     
     [Appodeal setRewardedVideoDelegate:AppodealRewardedVideoDelegateInstance];
 }
+

@@ -26,11 +26,11 @@ namespace AppodealAds.Unity.Android
 			listener.onRewardedVideoShown();
 		}
 
-		void onRewardedVideoFinished(int amount, AndroidJavaObject name) {
+        void onRewardedVideoFinished(double amount, AndroidJavaObject name) {
 			listener.onRewardedVideoFinished(amount, null);
 		}
 		
-		void onRewardedVideoFinished(int amount, string name) {
+        void onRewardedVideoFinished(double amount, string name) {
 			listener.onRewardedVideoFinished(amount, name);
 		}
 		

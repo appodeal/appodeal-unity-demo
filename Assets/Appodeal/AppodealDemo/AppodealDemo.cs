@@ -215,7 +215,7 @@ public class AppodealDemo : MonoBehaviour, IInterstitialAdListener, IBannerAdLis
 	#endregion
 
 	#region Non Skippable Video callback handlers
-	public void onNonSkippableVideoLoaded() { Debug.Log("NonSkippable Video loaded"); }
+    public void onNonSkippableVideoLoaded(bool isPrecache) { Debug.Log("NonSkippable Video loaded, isPrecache:" + isPrecache); }
 	public void onNonSkippableVideoFailedToLoad() { Debug.Log("NonSkippable Video failed to load"); }
 	public void onNonSkippableVideoShown() { Debug.Log("NonSkippable Video opened"); }
 	public void onNonSkippableVideoClosed(bool isFinished) { Debug.Log("NonSkippable Video, finished:" + isFinished); }
@@ -227,7 +227,7 @@ public class AppodealDemo : MonoBehaviour, IInterstitialAdListener, IBannerAdLis
 	public void onRewardedVideoFailedToLoad() { Debug.Log("Rewarded Video failed to load"); }
 	public void onRewardedVideoShown() { Debug.Log("Rewarded Video opened"); }
 	public void onRewardedVideoClosed(bool isFinished) { Debug.Log("Rewarded Video closed, finished:" + isFinished); }
-	public void onRewardedVideoFinished(int amount, string name) { Debug.Log("Rewarded Video Reward: " + amount + " " + name); }
+	public void onRewardedVideoFinished(double amount, string name) { Debug.Log("Rewarded Video Reward: " + amount + " " + name); }
 	#endregion
 
 	#region Permission Grant callback handlers

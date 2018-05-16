@@ -40,9 +40,9 @@ namespace AppodealAds.Unity.Common {
         void setSegmentFilter(string name, double value);
         void setSegmentFilter(string name, string value);
 		string getRewardCurrency(string placement);
-		int getRewardAmount(string placement);
+        double getRewardAmount(string placement);
 		string getRewardCurrency();
-		int getRewardAmount();
+        double getRewardAmount();
 
 		void setTriggerOnLoadedOnPrecache (int adTypes, bool onLoadedTriggerBoth);
 

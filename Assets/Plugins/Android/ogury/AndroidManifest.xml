@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.appodeal.ogury.unity">
+<uses-sdk android:minSdkVersion="9" android:targetSdkVersion="23" />
+<application>
+<!-- Ogury -->
+<meta-data android:name="presage_key" android:value="000000"/>
+<service android:name="io.presage.PresageService" android:enabled="true" android:exported="true" android:process=":remote">
+	<intent-filter>
+		<action android:name="io.presage.PresageService.PIVOT" />
+	</intent-filter>
+</service>
+<activity android:name="io.presage.activities.PresageActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+	android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+	<intent-filter>
+		<action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
+		<category android:name="android.intent.category.DEFAULT" />
+	</intent-filter>
+</activity>
+<receiver android:name="io.presage.receiver.NetworkChangeReceiver">
+	<intent-filter>
+		<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+		<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+		<action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
+	</intent-filter>
+</receiver>
+<receiver android:name="io.presage.receiver.AlarmReceiver" />
+<provider
+	android:name="io.presage.provider.PresageProvider"
+	android:authorities="${applicationId}.PresageProvider"
+	android:enabled="true"
+	android:exported="true" />
+<!-- End Ogury -->
+</application> 
+</manifest>

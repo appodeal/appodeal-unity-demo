@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
 using AOT;
@@ -91,9 +90,9 @@ namespace AppodealAds.Unity.iOS {
 		
 	#region Non Skippable Video Delegate
 		[MonoPInvokeCallback (typeof (AppodealNonSkippableVideoCallbacks))]
-		private static void nonSkippableVideoDidLoadAd() {
+		private static void nonSkippableVideoDidLoadAd(bool isPrecache) {
 			if (AppodealAdsClient.nonSkippableVideoListener != null) {
-				AppodealAdsClient.nonSkippableVideoListener.onNonSkippableVideoLoaded();
+                AppodealAdsClient.nonSkippableVideoListener.onNonSkippableVideoLoaded(isPrecache);
 			}
 		}
 
@@ -161,7 +160,7 @@ namespace AppodealAds.Unity.iOS {
 		}
 		
 		[MonoPInvokeCallback (typeof (AppodealRewardedVideoDidFinishCallback))]
-		private static void rewardedVideoDidFinish(int amount, string name) {
+		private static void rewardedVideoDidFinish(double amount, string name) {
 			if (AppodealAdsClient.rewardedVideoListener != null) {
 				AppodealAdsClient.rewardedVideoListener.onRewardedVideoFinished(amount, name);
 			}
@@ -431,16 +430,16 @@ namespace AppodealAds.Unity.iOS {
 			return AppodealObjCBridge.AppodealGetRewardCurrency(placement);
 		}
 
-		public int getRewardAmount(string placement) {
+		public double getRewardAmount(string placement) {
 			return AppodealObjCBridge.AppodealGetRewardAmount(placement);
 		}
 
 		public string getRewardCurrency() {
-			return AppodealObjCBridge.AppodealGetRewardCurrency("");
+			return AppodealObjCBridge.AppodealGetRewardCurrency("default");
 		}
 
-		public int getRewardAmount() {
-			return AppodealObjCBridge.AppodealGetRewardAmount("");
+        public double getRewardAmount() {
+            return AppodealObjCBridge.AppodealGetRewardAmount("default");
 		}
 
         public void setSegmentFilter(string name, bool value) {

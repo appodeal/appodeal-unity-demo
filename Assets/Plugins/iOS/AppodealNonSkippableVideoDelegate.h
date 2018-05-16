@@ -2,13 +2,12 @@
 #import <Appodeal/Appodeal.h>
 
 typedef void (*AppodealNonSkippableVideoCallbacks) ();
+typedef void (*AppodealNonSkippableVideoDidLoadCallback) (BOOL isPrecache);
 typedef void (*AppodealNonSkippableVideoDidDismissCallback) (BOOL isFinished);
 
 @interface AppodealNonSkippableVideoDelegate : NSObject <AppodealNonSkippableVideoDelegate>
 
-@property (assign, nonatomic) BOOL isFinishedVideo;
-
-@property (assign, nonatomic) AppodealNonSkippableVideoCallbacks nonSkippableVideoDidLoadAdCallback;
+@property (assign, nonatomic) AppodealNonSkippableVideoDidLoadCallback nonSkippableVideoDidLoadAdCallback;
 @property (assign, nonatomic) AppodealNonSkippableVideoCallbacks nonSkippableVideoDidFailToLoadAdCallback;
 @property (assign, nonatomic) AppodealNonSkippableVideoCallbacks nonSkippableVideoDidFailToPresentCallback;
 @property (assign, nonatomic) AppodealNonSkippableVideoCallbacks nonSkippableVideoDidPresentCallback;
@@ -16,3 +15,4 @@ typedef void (*AppodealNonSkippableVideoDidDismissCallback) (BOOL isFinished);
 @property (assign, nonatomic) AppodealNonSkippableVideoCallbacks nonSkippableVideoDidFinishCallback;
 
 @end
+

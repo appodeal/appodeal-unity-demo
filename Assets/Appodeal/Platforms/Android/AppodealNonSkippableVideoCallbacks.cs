@@ -14,8 +14,8 @@ namespace AppodealAds.Unity.Android
 			this.listener = listener;
 		}
 		
-		void onNonSkippableVideoLoaded() {
-			listener.onNonSkippableVideoLoaded();
+        void onNonSkippableVideoLoaded(bool isPrecache) {
+            listener.onNonSkippableVideoLoaded(isPrecache);
 		}
 		
 		void onNonSkippableVideoFailedToLoad() {

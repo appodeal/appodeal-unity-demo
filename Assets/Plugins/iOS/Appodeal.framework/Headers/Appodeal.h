@@ -2,9 +2,9 @@
 //  Appodeal.h
 //  Appodeal
 //
-//  AppodealSDK version SDK_VERSION_NUMBER_HEADER
+//  AppodealSDK version 2.4.0-Beta4
 //
-//  Copyright (c) 2015 Appodeal, Inc. All rights reserved.
+//  Copyright (c) 2018 Appodeal, Inc. All rights reserved.
 //
 
 

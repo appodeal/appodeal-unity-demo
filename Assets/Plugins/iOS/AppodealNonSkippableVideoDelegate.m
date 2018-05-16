@@ -2,9 +2,9 @@
 
 @implementation AppodealNonSkippableVideoDelegate
 
--(void) nonSkippableVideoDidLoadAd {
+-(void) nonSkippableVideoDidLoadAdIsPrecache:(BOOL)precache {
     if(self.nonSkippableVideoDidLoadAdCallback) {
-        self.nonSkippableVideoDidLoadAdCallback();
+        self.nonSkippableVideoDidLoadAdCallback(precache);
     }
 }
 
@@ -14,7 +14,7 @@
     }
 }
 
--(void) nonSkippableVideoDidFailToPresent {
+-(void) nonSkippableVideoDidFailToPresentWithError:(NSError *)error {
     if(self.nonSkippableVideoDidFailToPresentCallback) {
         self.nonSkippableVideoDidFailToPresentCallback();
     }
@@ -22,22 +22,21 @@
 
 -(void) nonSkippableVideoDidFinish {
     if(self.nonSkippableVideoDidFinishCallback) {
-        _isFinishedVideo = true;
         self.nonSkippableVideoDidFinishCallback();
     }
 }
 
 -(void) nonSkippableVideoDidPresent {
     if(self.nonSkippableVideoDidPresentCallback) {
-        _isFinishedVideo = false;
         self.nonSkippableVideoDidPresentCallback();
     }
 }
 
--(void) nonSkippableVideoWillDismiss {
+-(void) nonSkippableVideoWillDismissAndWasFullyWatched:(BOOL)wasFullyWatched {
     if(self.nonSkippableVideoWillDismissCallback) {
-        self.nonSkippableVideoWillDismissCallback(_isFinishedVideo);
+        self.nonSkippableVideoWillDismissCallback(wasFullyWatched);
     }
 }
 
 @end
+

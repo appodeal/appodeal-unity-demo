@@ -7,6 +7,7 @@ namespace AppodealAds.Unity.iOS {
 	internal delegate void AppodealInterstitialCallbacks ();
 	internal delegate void AppodealInterstitialDidLoadCallback (bool isPrecache);
 	internal delegate void AppodealNonSkippableVideoCallbacks ();
+    internal delegate void AppodealNonSkippableVideoDidLoadCallback(bool isPrecache);
 	internal delegate void AppodealNonSkippableVideoDidDismissCallback (bool isFinished);
 	internal delegate void AppodealBannerCallbacks ();
 	internal delegate void AppodealBannerDidLoadCallback (bool isPrecache);
@@ -15,7 +16,7 @@ namespace AppodealAds.Unity.iOS {
 	internal delegate void AppodealRewardedVideoCallbacks ();
     internal delegate void AppodealRewardedVideoDidLoadCallback (bool isPrecache);
 	internal delegate void AppodealRewardedVideoDidDismissCallback (bool isFinished);
-	internal delegate void AppodealRewardedVideoDidFinishCallback (int amount, string name);
+    internal delegate void AppodealRewardedVideoDidFinishCallback (double amount, string name);
 	
 	internal class AppodealObjCBridge {
 		
@@ -89,7 +90,7 @@ namespace AppodealAds.Unity.iOS {
 		internal static extern string AppodealGetRewardCurrency (string placement);
 
 		[DllImport("__Internal")]
-		internal static extern int AppodealGetRewardAmount (string placement);
+		internal static extern double AppodealGetRewardAmount (string placement);
 
 		[DllImport("__Internal")]
         internal static extern void AppodealSetSegmentFilterString(string name, string value);
@@ -127,7 +128,7 @@ namespace AppodealAds.Unity.iOS {
 
 		[DllImport("__Internal")]
 		internal static extern void AppodealSetNonSkippableVideoDelegate (
-			AppodealNonSkippableVideoCallbacks nonSkippableVideoDidLoadAd,
+            AppodealNonSkippableVideoDidLoadCallback nonSkippableVideoDidLoadAd,
 			AppodealNonSkippableVideoCallbacks nonSkippableVideoDidFailToLoadAd,
 			AppodealNonSkippableVideoDidDismissCallback nonSkippableVideoWillDismiss,
 			AppodealNonSkippableVideoCallbacks nonSkippableVideoDidFinish,

@@ -22,7 +22,7 @@ namespace AppodealAds.Unity.Api {
 		public const int BANNER_HORIZONTAL_RIGHT = -3;
 		public const int BANNER_HORIZONTAL_LEFT = -4;
 
-		public const string APPODEAL_PLUGIN_VERSION = "2.8.30";
+		public const string APPODEAL_PLUGIN_VERSION = "2.8.40";
 
 		public enum LogLevel { None, Debug, Verbose };
 
@@ -282,18 +282,18 @@ namespace AppodealAds.Unity.Api {
 			#endif
 		}
 
-		public static KeyValuePair<string, int> getRewardParameters() {
+        public static KeyValuePair<string, double> getRewardParameters() {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
-			return new KeyValuePair<string, int>(getInstance().getRewardCurrency(), getInstance().getRewardAmount());
+            return new KeyValuePair<string, double>(getInstance().getRewardCurrency(), getInstance().getRewardAmount());
 			#endif
-			return new KeyValuePair<string, int>();
+            return new KeyValuePair<string, double>();
 		}
 
-		public static KeyValuePair<string, int> getRewardParameters(string placement) {
+        public static KeyValuePair<string, double> getRewardParameters(string placement) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
-			return new KeyValuePair<string, int>(getInstance().getRewardCurrency(placement), getInstance().getRewardAmount(placement));
+            return new KeyValuePair<string, double>(getInstance().getRewardCurrency(placement), getInstance().getRewardAmount(placement));
 			#endif
-			return new KeyValuePair<string, int>();
+            return new KeyValuePair<string, double>();
 		}
 	}
 
