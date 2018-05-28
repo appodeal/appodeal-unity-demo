@@ -50,8 +50,8 @@ public class AppodealDemo : MonoBehaviour, IInterstitialAdListener, IBannerAdLis
 
 		Appodeal.setTriggerOnLoadedOnPrecache(Appodeal.INTERSTITIAL, true);
 
-        Appodeal.setSmartBanners(true);
-        Appodeal.setBannerAnimation(false);
+        	Appodeal.setSmartBanners(true);
+        	Appodeal.setBannerAnimation(false);
 		Appodeal.setTabletBanners(false);
 		Appodeal.setBannerBackground(false);
 
@@ -59,7 +59,8 @@ public class AppodealDemo : MonoBehaviour, IInterstitialAdListener, IBannerAdLis
 		Appodeal.muteVideosIfCallsMuted(true);
 		Appodeal.setAutoCache(Appodeal.INTERSTITIAL, false);
 		
-		Appodeal.initialize (appKey, Appodeal.INTERSTITIAL | Appodeal.BANNER | Appodeal.REWARDED_VIDEO);
+		int gdpr = PlayerPrefs.GetInt("result_gdpr", 1);
+        	Appodeal.initialize (appKey, Appodeal.INTERSTITIAL | Appodeal.BANNER_VIEW | Appodeal.REWARDED_VIDEO, gdpr == 1);
 
 		Appodeal.setBannerCallbacks (this);
 		Appodeal.setInterstitialCallbacks (this);
