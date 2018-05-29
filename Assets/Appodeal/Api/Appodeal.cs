@@ -22,7 +22,7 @@ namespace AppodealAds.Unity.Api {
 		public const int BANNER_HORIZONTAL_RIGHT = -3;
 		public const int BANNER_HORIZONTAL_LEFT = -4;
 
-		public const string APPODEAL_PLUGIN_VERSION = "2.8.40";
+		public const string APPODEAL_PLUGIN_VERSION = "2.8.42";
 
 		public enum LogLevel { None, Debug, Verbose };
 
@@ -37,6 +37,12 @@ namespace AppodealAds.Unity.Api {
 		public static void initialize(string appKey, int adTypes) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
 			getInstance().initialize(appKey, adTypes);
+			#endif
+		}
+
+		public static void initialize(string appKey, int adTypes, bool hasConsent) {
+			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
+			getInstance().initialize(appKey, adTypes, hasConsent);
 			#endif
 		}
 

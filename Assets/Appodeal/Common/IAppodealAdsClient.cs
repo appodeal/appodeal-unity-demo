@@ -4,7 +4,8 @@ using AppodealAds.Unity.Api;
 namespace AppodealAds.Unity.Common {
 	public interface IAppodealAdsClient {
 
-		void initialize(String appKey, int type);
+		void initialize(string appKey, int type);
+		void initialize(string appKey, int type, bool hasConsent);
 
 		bool show(int adTypes);
 		bool show(int adTypes, string placement);

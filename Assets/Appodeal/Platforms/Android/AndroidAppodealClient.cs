@@ -46,8 +46,14 @@ namespace AppodealAds.Unity.Android {
 			return activity;
 		}
 
-		public void initialize(string appKey, int adTypes)  {
-			getAppodealClass().CallStatic("setFramework", "unity", Appodeal.getPluginVersion());
+		public void initialize(string appKey, int adTypes){
+			initialize(appKey, adTypes, true);
+            
+		}
+
+		public void initialize(string appKey, int adTypes, bool hasConsent)  {
+            getAppodealClass().CallStatic("disableNetwork", getActivity(), "mobvista");
+            getAppodealClass().CallStatic("setFramework", "unity", Appodeal.getPluginVersion());
 			#if UNITY_5_6_0 || UNITY_5_6_1
 				getAppodealClass().CallStatic("setFramework", "unity", Appodeal.getPluginVersion(), true, false);
 				getAppodealClass().CallStatic("disableNetwork", getActivity(), "amazon_ads", Appodeal.BANNER);
@@ -57,7 +63,7 @@ namespace AppodealAds.Unity.Android {
 				getAppodealClass().CallStatic("setFramework", "unity", Appodeal.getPluginVersion(), false, false);
 				getAppodealClass().CallStatic("disableNetwork", getActivity(), "amazon_ads", Appodeal.BANNER);
 			}
-			getAppodealClass().CallStatic("initialize", getActivity(), appKey, adTypes);
+			getAppodealClass().CallStatic("initialize", getActivity(), appKey, adTypes, hasConsent);
 		}
 
 		public bool show(int adTypes) {

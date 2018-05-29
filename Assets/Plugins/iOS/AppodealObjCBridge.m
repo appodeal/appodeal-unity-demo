@@ -30,10 +30,10 @@ static NSDateFormatter *DateFormatter() {
     return formatter;
 }
 
-void AppodealInitializeWithTypes(const char *apiKey, int types, const char *pluginVer) {
+void AppodealInitialize(const char *apiKey, int types, BOOL consent, const char *pluginVer) {
     [Appodeal setFramework:APDFrameworkUnity];
     [Appodeal setPluginVersion:[NSString stringWithUTF8String:pluginVer]];
-    [Appodeal initializeWithApiKey:[NSString stringWithUTF8String:apiKey] types:types];
+    [Appodeal initializeWithApiKey:[NSString stringWithUTF8String:apiKey] types:types hasConsent:consent];
 }
 
 BOOL AppodealShowAd(int style) {

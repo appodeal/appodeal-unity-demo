@@ -19,9 +19,9 @@ namespace AppodealAds.Unity.iOS {
     internal delegate void AppodealRewardedVideoDidFinishCallback (double amount, string name);
 	
 	internal class AppodealObjCBridge {
-		
+
 		[DllImport("__Internal")]
-		internal static extern void AppodealInitializeWithTypes (string apiKey, int types, string pluginVer);
+		internal static extern void AppodealInitialize (string apiKey, int types, bool hasConsent, string pluginVer);
 		
 		[DllImport("__Internal")]
 		internal static extern bool AppodealShowAd (int style);

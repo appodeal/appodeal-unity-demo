@@ -1,6 +1,6 @@
 <dependencies>
   <androidPackages>
-    <androidPackage spec="com.google.android.gms:play-services-ads:9.8.0">
+    <androidPackage spec="com.google.android.gms:play-services-ads:12.+">
       <androidSdkPackageIds>
         <androidSdkPackageId>extra-google-m2repository</androidSdkPackageId>
       </androidSdkPackageIds>
@@ -8,7 +8,15 @@
         <repository>https://maven.google.com</repository>
       </repositories>
     </androidPackage>
-	<androidPackage spec="com.google.android.gms:play-services-location:9.8.0">
+    <androidPackage spec="com.google.android.gms:play-services-gcm:12.+">
+      <androidSdkPackageIds>
+        <androidSdkPackageId>extra-google-m2repository</androidSdkPackageId>
+      </androidSdkPackageIds>
+      <repositories>
+        <repository>https://maven.google.com</repository>
+      </repositories>
+    </androidPackage>
+	<androidPackage spec="com.google.android.gms:play-services-location:12.+">
       <androidSdkPackageIds>
         <androidSdkPackageId>extra-google-m2repository</androidSdkPackageId>
       </androidSdkPackageIds>

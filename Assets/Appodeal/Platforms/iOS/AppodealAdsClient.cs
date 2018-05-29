@@ -20,7 +20,7 @@ namespace AppodealAds.Unity.iOS {
 		private const int AppodealShowStyleNonSkippableVideo   = 32;
 		
 		
-	#region Singleton
+#region Singleton
 		private AppodealAdsClient() { }
 		private static readonly AppodealAdsClient instance = new AppodealAdsClient();
 		public static AppodealAdsClient Instance {
@@ -28,7 +28,7 @@ namespace AppodealAds.Unity.iOS {
 				return instance; 
 			}
 		}
-	#endregion
+#endregion
 
 		public void requestAndroidMPermissions(IPermissionGrantedListener listener) {
 			// not supported on ios
@@ -39,7 +39,7 @@ namespace AppodealAds.Unity.iOS {
 		private static IRewardedVideoAdListener rewardedVideoListener;
 		private static IBannerAdListener bannerListener;
 		
-	#region Interstitial Delegate
+#region Interstitial Delegate
 		[MonoPInvokeCallback (typeof (AppodealInterstitialDidLoadCallback))]
 		private static void interstitialDidLoad (bool isPrecache) {
 			if (AppodealAdsClient.interstitialListener != null) {
@@ -86,9 +86,9 @@ namespace AppodealAds.Unity.iOS {
 				AppodealAdsClient.interstitialWillPresent
 			);
 		}
-	#endregion
+#endregion
 		
-	#region Non Skippable Video Delegate
+#region Non Skippable Video Delegate
 		[MonoPInvokeCallback (typeof (AppodealNonSkippableVideoCallbacks))]
 		private static void nonSkippableVideoDidLoadAd(bool isPrecache) {
 			if (AppodealAdsClient.nonSkippableVideoListener != null) {
@@ -135,9 +135,9 @@ namespace AppodealAds.Unity.iOS {
 				AppodealAdsClient.nonSkippableVideoDidPresent
 			);
 		}
-	#endregion
+#endregion
 		
-	#region Rewarded Video Delegate
+#region Rewarded Video Delegate
         [MonoPInvokeCallback (typeof (AppodealRewardedVideoDidLoadCallback))]
         private static void rewardedVideoDidLoadAd(bool isPrecache) {
 			if (AppodealAdsClient.rewardedVideoListener != null) {
@@ -185,9 +185,9 @@ namespace AppodealAds.Unity.iOS {
 			);
 		}
 		
-	#endregion
+#endregion
 
-	#region Banner Delegate
+#region Banner Delegate
 		
 		[MonoPInvokeCallback (typeof (AppodealBannerDidLoadCallback))]
 		private static void bannerDidLoadAd(bool isPrecache) {
@@ -253,7 +253,7 @@ namespace AppodealAds.Unity.iOS {
 				AppodealAdsClient.bannerViewDidClick);
 		}
 		
-	#endregion
+#endregion
 		
 		private int nativeAdTypesForType(int adTypes) {
 			int nativeAdTypes = 0;
@@ -305,8 +305,12 @@ namespace AppodealAds.Unity.iOS {
 			return 0;
 		}
 		
-		public void initialize(string appKey, int adTypes) {
-			AppodealObjCBridge.AppodealInitializeWithTypes(appKey, nativeAdTypesForType(adTypes), Appodeal.getPluginVersion());
+		public void initialize(string appKey, int adTypes){
+			initialize(appKey, adTypes, true);
+		}
+
+		public void initialize(string appKey, int adTypes, bool hasConsent) {
+			AppodealObjCBridge.AppodealInitialize(appKey, nativeAdTypesForType(adTypes), hasConsent, Appodeal.getPluginVersion());
 		}
 
 		public bool show(int adTypes) {
