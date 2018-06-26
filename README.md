@@ -6,7 +6,7 @@
 
 ## Changelog
 
-2.7.6 (08/08/2017)
+2.8.19 (18/04/2018)
 
 + Appodeal Android SDK updated to 2.1.11
 + Appodeal iOS SDK updated to 2.1.10
