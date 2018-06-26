@@ -2,9 +2,9 @@
 //  APDMRECView.h
 //  Appodeal
 //
-//  AppodealSDK SDK_VERSION_NUMBER_HEADER
+//  AppodealSDK 2.1.10-Release
 //
-//  Copyright © 2016 Appodeal, Inc. All rights reserved.
+//  Copyright © 2017 Appodeal, Inc. All rights reserved.
 //
 
 #import <Appodeal/APDBannerView.h>
@@ -13,8 +13,6 @@
  * Instance of this class returns rectangular banner of size 300x250
  * All methods/properties besides initializer similar to APDBannerView
  */
-
-__attribute__((deprecated("This class is deprecated and will be removed in next release")))
 @interface APDMRECView : APDBannerView
 
 /*!
@@ -24,5 +22,3 @@ __attribute__((deprecated("This class is deprecated and will be removed in next 
 - (instancetype)init;
 
 @end
-
-@compatibility_alias AppodealMRECView APDMRECView;

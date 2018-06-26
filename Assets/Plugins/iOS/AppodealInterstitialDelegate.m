@@ -2,7 +2,7 @@
 
 @implementation AppodealInterstitialDelegate
 
--(void) interstitialDidLoadAdIsPrecache:(BOOL)precache {
+-(void) interstitialDidLoadAdisPrecache:(BOOL)precache {
     if(self.interstitialDidLoadCallback) {
         self.interstitialDidLoadCallback(precache);
     }
@@ -37,4 +37,3 @@
 }
 
 @end
-

@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using AppodealAds.Unity.Common;
 
 namespace AppodealAds.Unity.Api {
@@ -22,7 +25,7 @@ namespace AppodealAds.Unity.Api {
 		public const int BANNER_HORIZONTAL_RIGHT = -3;
 		public const int BANNER_HORIZONTAL_LEFT = -4;
 
-		public const string APPODEAL_PLUGIN_VERSION = "2.8.30";
+		public const string APPODEAL_PLUGIN_VERSION = "2.8.19";
 
 		public enum LogLevel { None, Debug, Verbose };
 
@@ -212,25 +215,25 @@ namespace AppodealAds.Unity.Api {
 		
 		public static void setCustomRule(string name, bool value) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
-            getInstance().setSegmentFilter(name, value);
+			getInstance().setCustomRule(name, value);
 			#endif
 		}
 
 		public static void setCustomRule(string name, int value) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
-            getInstance().setSegmentFilter(name, value);
+			getInstance().setCustomRule(name, value);
 			#endif
 		}
 
 		public static void setCustomRule(string name, double value) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
-            getInstance().setSegmentFilter(name, value);
+			getInstance().setCustomRule(name, value);
 			#endif
 		}
 
 		public static void setCustomRule(string name, string value) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
-            getInstance().setSegmentFilter(name, value);
+			getInstance().setCustomRule(name, value);
 			#endif
 		}
 
@@ -283,14 +286,14 @@ namespace AppodealAds.Unity.Api {
 		}
 
 		public static KeyValuePair<string, int> getRewardParameters() {
-			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			return new KeyValuePair<string, int>(getInstance().getRewardCurrency(), getInstance().getRewardAmount());
 			#endif
 			return new KeyValuePair<string, int>();
 		}
 
 		public static KeyValuePair<string, int> getRewardParameters(string placement) {
-			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			return new KeyValuePair<string, int>(getInstance().getRewardCurrency(placement), getInstance().getRewardAmount(placement));
 			#endif
 			return new KeyValuePair<string, int>();

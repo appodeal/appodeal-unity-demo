@@ -1,4 +1,5 @@
 ﻿using System;
+using AppodealAds.Unity;
 using AppodealAds.Unity.Api;
 
 namespace AppodealAds.Unity.Common {
@@ -35,10 +36,10 @@ namespace AppodealAds.Unity.Common {
 
 		bool canShow(int adTypes);
 		bool canShow(int adTypes, string placement);
-        void setSegmentFilter(string name, bool value);
-        void setSegmentFilter(string name, int value);
-        void setSegmentFilter(string name, double value);
-        void setSegmentFilter(string name, string value);
+		void setCustomRule(string name, bool value);
+		void setCustomRule(string name, int value);
+		void setCustomRule(string name, double value);
+		void setCustomRule(string name, string value);
 		string getRewardCurrency(string placement);
 		int getRewardAmount(string placement);
 		string getRewardCurrency();

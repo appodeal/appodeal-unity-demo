@@ -15,11 +15,11 @@
 @protocol AppodealRequestDelegate <NSObject>
 
 - (void)mediationDidStartForAdType:(AppodealAdType)adType;
-- (void)willStartAdRequestForAdNetwork:(nonnull NSString *)adNetwork adType:(AppodealAdType)adType;
-- (void)didReceiveAdResponseFromAdNetwork:(nonnull NSString *)adNetwork adType:(AppodealAdType)adType wasFilled:(BOOL)filled;
+- (void)willStartAdRequestForAdNetwork:(NSString *)adNetwork adType:(AppodealAdType)adType;
+- (void)didReceiveAdResponseFromAdNetwork:(NSString *)adNetwork adType:(AppodealAdType)adType wasFilled:(BOOL)filled;
 - (void)didFinishMediationForAdType:(AppodealAdType)adType hasFilledAd:(BOOL)filled;
-- (void)didDetectImpressionForAdNetwork:(nonnull NSString *)adNetwork adType:(AppodealAdType)adType;
-- (void)didDetectClickForAdNetwork:(nonnull NSString *)adNetwork adType:(AppodealAdType)adType;
+- (void)didDetectImpressionForAdNetwork:(NSString *)adNetwork adType:(AppodealAdType)adType;
+- (void)didDetectClickForAdNetwork:(NSString *)adNetwork adType:(AppodealAdType)adType;
 
 @end
 
@@ -28,12 +28,12 @@
 
 @optional
 
-- (void)bannerViewDidStartMediation:(nonnull APDBannerView *)bannerView;
-- (void)bannerView:(nonnull APDBannerView *)bannerView willSendRequestToAdNetwork:(nonnull NSString *)adNetwork;
-- (void)bannerView:(nonnull APDBannerView *)bannerView didRecieveResponseFromAdNetwork:(nonnull NSString *)adNetwork wasFilled:(BOOL)filled;
-- (void)bannerView:(nonnull APDBannerView *)bannerView didFinishMediationAdWasFilled:(BOOL)filled;
-- (void)bannerView:(nonnull APDBannerView *)bannerView logImpressionForAdNetwork:(nonnull NSString *)adNetwork;
-- (void)bannerView:(nonnull APDBannerView *)bannerView logClickForAdNetwork:(nonnull NSString *)adNetwork;
+- (void)bannerViewDidStartMediation:(APDBannerView *)bannerView;
+- (void)bannerView:(APDBannerView *)bannerView willSendRequestToAdNetwork:(NSString *)adNetwork;
+- (void)bannerView:(APDBannerView *)bannerView didRecieveResponseFromAdNetwork:(NSString *)adNetwork wasFilled:(BOOL)filled;
+- (void)bannerView:(APDBannerView *)bannerView didFinishMediationAdWasFilled:(BOOL)filled;
+- (void)bannerView:(APDBannerView *)bannerView logImpressionForAdNetwork:(NSString *)adNetwork;
+- (void)bannerView:(APDBannerView *)bannerView logClickForAdNetwork:(NSString *)adNetwork;
 
 @end
 
@@ -42,12 +42,12 @@
 
 @optional
 
-- (void)interstitialDidStartMediation:(nonnull APDInterstitialAd *)interstitial;
-- (void)interstitial:(nonnull APDInterstitialAd *)interstitial willSendRequestToAdNetwork:(nonnull NSString *)adNetwork;
-- (void)interstitial:(nonnull APDInterstitialAd *)interstitial didRecieveResponseFromAdNetwork:(nonnull NSString *)adNetwork wasFilled:(BOOL)filled;
-- (void)interstitial:(nonnull APDInterstitialAd *)interstitial didFinishMediationAdWasFilled:(BOOL)filled;
-- (void)interstitial:(nonnull APDInterstitialAd *)interstitial logImpressionForAdNetwork:(nonnull NSString *)adNetwork;
-- (void)interstitial:(nonnull APDInterstitialAd *)interstitial logClickForAdNetwork:(nonnull NSString *)adNetwork;
+- (void)interstitialDidStartMediation:(APDInterstitialAd *)interstitial;
+- (void)interstitial:(APDInterstitialAd *)interstitial willSendRequestToAdNetwork:(NSString *)adNetwork;
+- (void)interstitial:(APDInterstitialAd *)interstitial didRecieveResponseFromAdNetwork:(NSString *)adNetwork wasFilled:(BOOL)filled;
+- (void)interstitial:(APDInterstitialAd *)interstitial didFinishMediationAdWasFilled:(BOOL)filled;
+- (void)interstitial:(APDInterstitialAd *)interstitial logImpressionForAdNetwork:(NSString *)adNetwork;
+- (void)interstitial:(APDInterstitialAd *)interstitial logClickForAdNetwork:(NSString *)adNetwork;
 
 @end
 
@@ -56,11 +56,11 @@
 
 @optional
 
-- (void)rewardedVideoDidStartMediation:(nonnull APDRewardedVideo *)rewardedVideo;
-- (void)rewardedVideo:(nonnull APDRewardedVideo *)rewardedVideo willSendRequestToAdNetwork:(nonnull NSString *)adNetwork;
-- (void)rewardedVideo:(nonnull APDRewardedVideo *)rewardedVideo didRecieveResponseFromAdNetwork:(nonnull NSString *)adNetwork wasFilled:(BOOL)filled;
-- (void)rewardedVideo:(nonnull APDRewardedVideo *)rewardedVideo didFinishMediationAdWasFilled:(BOOL)filled;
-- (void)rewardedVideo:(nonnull APDRewardedVideo *)rewardedVideo logImpressionForAdNetwork:(nonnull NSString *)adNetwork;
-- (void)rewardedVideo:(nonnull APDRewardedVideo *)rewardedVideo logClickForAdNetwork:(nonnull NSString *)adNetwork;
+- (void)rewardedVideoDidStartMediation:(APDRewardedVideo *)rewardedVideo;
+- (void)rewardedVideo:(APDRewardedVideo *)rewardedVideo willSendRequestToAdNetwork:(NSString *)adNetwork;
+- (void)rewardedVideo:(APDRewardedVideo *)rewardedVideo didRecieveResponseFromAdNetwork:(NSString *)adNetwork wasFilled:(BOOL)filled;
+- (void)rewardedVideo:(APDRewardedVideo *)rewardedVideo didFinishMediationAdWasFilled:(BOOL)filled;
+- (void)rewardedVideo:(APDRewardedVideo *)rewardedVideo logImpressionForAdNetwork:(NSString *)adNetwork;
+- (void)rewardedVideo:(APDRewardedVideo *)rewardedVideo logClickForAdNetwork:(NSString *)adNetwork;
 
 @end

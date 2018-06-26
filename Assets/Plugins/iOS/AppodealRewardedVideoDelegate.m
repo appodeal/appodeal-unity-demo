@@ -2,9 +2,9 @@
 
 @implementation AppodealRewardedVideoDelegate
 
--(void) rewardedVideoDidLoadAdIsPrecache:(BOOL)precache {
+-(void) rewardedVideoDidLoadAd {
     if(self.rewardedVideoDidLoadAdCallback) {
-        self.rewardedVideoDidLoadAdCallback(precache);
+        self.rewardedVideoDidLoadAdCallback();
     }
 }
 

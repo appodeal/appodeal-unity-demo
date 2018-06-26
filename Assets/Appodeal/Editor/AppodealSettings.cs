@@ -21,15 +21,6 @@ public class AppodealSettings : ScriptableObject
 		string url = "http://www.appodeal.com";
 		Application.OpenURL(url);
 	}
-	
-	[MenuItem("Appodeal/Remove plugin")]
-	public static void RemovePlugin()
-	{
-		if (EditorUtility.DisplayDialog("Appodeal plugin removing", "Are you sure that you want to remove Appodeal Plugin from your project?", "Yes", "No"))
-        {
-            RemoveHelper.removePlugin();
-        }
-	}
 	#endif
 
 }

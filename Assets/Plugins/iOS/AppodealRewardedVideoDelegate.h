@@ -2,7 +2,6 @@
 #import <Appodeal/Appodeal.h>
 
 typedef void (*AppodealRewardedVideoCallbacks) ();
-typedef void (*AppodealRewardedVideoDidLoadCallback) (BOOL isPrecache);
 typedef void (*AppodealRewardedVideoDidFinishCallback) (int, const char *);
 typedef void (*AppodealRewardedVideoDidDismissCallback) (BOOL isFnished);
 
@@ -10,7 +9,7 @@ typedef void (*AppodealRewardedVideoDidDismissCallback) (BOOL isFnished);
 
 @property (assign, nonatomic) BOOL isFnishedVideo;
 
-@property (assign, nonatomic) AppodealRewardedVideoDidLoadCallback rewardedVideoDidLoadAdCallback;
+@property (assign, nonatomic) AppodealRewardedVideoCallbacks rewardedVideoDidLoadAdCallback;
 @property (assign, nonatomic) AppodealRewardedVideoCallbacks rewardedVideoDidFailToLoadAdCallback;
 @property (assign, nonatomic) AppodealRewardedVideoCallbacks rewardedVideoDidFailToPresentCallback;
 @property (assign, nonatomic) AppodealRewardedVideoDidDismissCallback rewardedVideoWillDismissCallback;

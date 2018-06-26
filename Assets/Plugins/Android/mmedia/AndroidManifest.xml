@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.millennialmedia"
+    android:versionCode="1"
+    android:versionName="6.4.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="25" />
+
+    <application>
+        <activity
+            android:name="com.millennialmedia.internal.MMActivity"
+            android:configChanges="locale|layoutDirection"
+            android:label="@string/mmadsdk_app_name"
+            android:theme="@style/Theme.MMTransparent" />
+        <activity
+            android:name="com.millennialmedia.internal.MMIntentWrapperActivity"
+            android:configChanges="locale|layoutDirection"
+            android:label="sdk" />
+    </application>
+
+</manifest>

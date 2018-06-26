@@ -1,9 +1,10 @@
 //
 //  APDBannerView.h
+//  Appodeal
 //
-//  AppodealSDK version SDK_VERSION_NUMBER_HEADER
+//  AppodealSDK version 2.1.10-Release
 //
-//  Copyright © 2016 Appodeal, Inc. All rights reserved.
+//  Copyright © 2017 Appodeal, Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -15,8 +16,6 @@
 
 
 @class APDBannerView;
-
-@class APDBannerView;
 /*!
  *  Declaration of banner view delegate
  */
@@ -25,52 +24,48 @@
 @optional
 
 /*!
- *  Method called when banner view loaded
- *  After refresh, usual banner will be shown if loaded
+ *  Method called when banner view loaded on first attempt
+ *
  *  @param bannerView Ready banner view
  */
-- (void)bannerViewDidLoadAd:(nonnull APDBannerView *)bannerView __attribute__((deprecated("Use bannerViewDidLoadAd:isPrecache: instead")));
+- (void)bannerViewDidLoadAd:(APDBannerView *)bannerView;
 
 /*!
- *  Method called after any banner was ready to present.
- *  Maybe called twice for precache banner and usual banner
- *
- *  @param bannerView Nonnul, ready to show banner
- *  @param precache Boolean flag indicates that banner is precache
+ *  Method called when precache banner view loaded
+ *  After refresh, usual banner will be shown if loaded
+ *  @param precacheBannerView Ready precache
  */
-- (void)bannerViewDidLoadAd:(nonnull APDBannerView *)bannerView isPrecache:(BOOL)precache;
-
-/**
- *  Method called in case that banner mediation failed
- *
- *  @param bannerView Nonnul failed banner view
- *  @param error      Error occured while mediation
- */
-- (void)bannerView:(nonnull APDBannerView *)bannerView didFailToLoadAdWithError:(nonnull NSError *)error;
-
-/**
- *  Method called after any banner was show
- *
- *  @param bannerView presented banner view
- */
-- (void)bannerViewDidInteract:(nonnull APDBannerView *)bannerView;
+- (void)precacheBannerViewDidLoadAd:(APDBannerView *)precacheBannerView __attribute__((deprecated("Use -bannerViewDidLoadAd: instead")));
 
 /*!
+ *  Method called after any banner was shown or refreshed
+ *
+ *  @param bannerView On screen banner view
+ */
+- (void)bannerViewDidShow:(APDBannerView *)bannerView;
 
+
+/*!
+ *  Method called after any banner refresh
+ *
+ *  @param bannerView On screen banner view
+ */
+- (void)bannerViewDidRefresh:(APDBannerView *)bannerView __attribute__((deprecated("Use -bannerViewDidShow: instead")));
+
+/*!
+ *  Method called if banner view mediation failed
+ *
+ *  @param bannerView Failed banner
+ *  @param error      Occurred error
+ */
+- (void)bannerView:(APDBannerView *)bannerView didFailToLoadAdWithError:(NSError *)error;
+
+/*!
  *  Call when user taps on banner
  *
  *  @param bannerView On screen banner view
  */
-- (void)bannerViewDidShow:(nonnull APDBannerView *)bannerView;
-
-/**
- Called in case if banner view was successfully loaded,
- but ad expire before show. Banner will retry to load
- new creative for presentation if autocache enabled
-
- @param bannerView Expired banner view
- */
-- (void)bannerViewExpired:(nonnull APDBannerView *)bannerView;
+- (void)bannerViewDidReceiveTapAction:(APDBannerView *)bannerView;
 
 @end
 
@@ -78,22 +73,22 @@
 @interface APDBannerView : UIView 
 
 #ifdef ADVANCED_INTEGRATION
-@property (weak, nonatomic, nullable) IBOutlet id<APDBannerViewRequestDelegate> requestDelegate;
+@property (weak, nonatomic) IBOutlet id<APDBannerViewRequestDelegate> requestDelegate;
 #endif
 /*!
  *  Set banner view delegate
  */
-@property (weak, nonatomic, nullable) IBOutlet id<APDBannerViewDelegate> delegate;
+@property (weak, nonatomic) IBOutlet id<APDBannerViewDelegate> delegate;
 
 /*!
  *  Set non-null root view controller before loading banner view
  */
-@property (weak, nonatomic, nullable) IBOutlet UIViewController *rootViewController;
+@property (weak, nonatomic) IBOutlet UIViewController *rootViewController;
 
 /*!
  *  Set custom placement, turned on in Appodeal Dashboard
  */
-@property (copy, nonatomic, nullable) IBInspectable NSString *placement;
+@property (copy, nonatomic) IBInspectable NSString *placement;
 
 /*!
  *  If this flag is set to YES, banner view will auto-resize after screen rotation
@@ -106,9 +101,7 @@
  *  If this flag is set to YES, banner view will refresh after refresh interval turned on in Appodeal Dashboard
  *  Set to YES by default
  */
-@property (assign, nonatomic) IBInspectable BOOL autoRefreshing __attribute__((deprecated("Use autocache property instead")));;
-
-@property (assign, nonatomic) IBInspectable BOOL autocache;
+@property (assign, nonatomic) IBInspectable BOOL autoRefreshing;
 
 /*!
  *  Set valid banner size. Valid values: kAPDAdSize320x50, kAPDAdSize728x90
@@ -128,18 +121,12 @@
 /*!
  *  Set custom SDK
  */
-@property (weak, nonatomic, nullable) APDSdk *customSdk;
+@property (weak, nonatomic) APDSdk *customSdk;
 
 /*!
  *  Get banner availability
  */
 @property (assign, nonatomic, readonly, getter=isReady) BOOL ready;
-
-+ (instancetype _Nonnull)bannerViewWithSize:(CGSize)adSize
-                         rootViewController:(nonnull UIViewController *)rootViewController
-                                        sdk:(nullable APDSdk *)sdk
-                                   delegate:(nullable id<APDBannerViewDelegate>)delegate
-                                  autocache:(BOOL)autocache;
 
 /*!
  *  Initializer
@@ -148,16 +135,7 @@
  *
  *  @return Instance of APDBannerView
  */
-- (instancetype _Nonnull)initWithSize:(CGSize)adSize;
-
-/*!
- *  Initializator
- *
- *  @param adSize kAPDAdSize320x50, kAPDAdSize728x90
- *
- *  @return Instance of APDBannerView
- */
-- (instancetype _Nonnull)initWithSize:(CGSize)adSize rootViewController:(nonnull UIViewController *)rootViewController;
+- (instancetype)initWithSize:(CGSize)adSize;
 
 /*!
  *  Start loading
@@ -173,6 +151,4 @@
 
 @end
 
-@compatibility_alias AppodealBannerView APDBannerView;
-@protocol AppodealBannerViewDelegate <APDBannerViewDelegate> @end
 
