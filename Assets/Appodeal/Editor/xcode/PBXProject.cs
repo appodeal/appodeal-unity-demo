@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.IO;
 using System;
 using Unity.Appodeal.Xcode.PBX;
@@ -78,7 +76,7 @@ namespace Unity.Appodeal.Xcode
 
         public static string GetPBXProjectPath(string buildPath)
         {
-            return Utils.CombinePaths(buildPath, "Unity-iPhone.xcodeproj/project.pbxproj");
+            return Unity.Appodeal.Xcode.PBX.Utils.CombinePaths(buildPath, "Unity-iPhone.xcodeproj/project.pbxproj");
         }
 
         public static string GetUnityTargetName()
@@ -118,8 +116,8 @@ namespace Unity.Appodeal.Xcode
         // The same file can be referred to by more than one project path.
         private string AddFileImpl(string path, string projectPath, PBXSourceTree tree, bool isFolderReference)
         {
-            path = Utils.FixSlashesInPath(path);
-            projectPath = Utils.FixSlashesInPath(projectPath);
+            path = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(path);
+            projectPath = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(projectPath);
 
             if (!isFolderReference && Path.GetExtension(path) != Path.GetExtension(projectPath))
                 throw new Exception("Project and real path extensions do not match");
@@ -131,10 +129,10 @@ namespace Unity.Appodeal.Xcode
             {
                 PBXFileReferenceData fileRef;
                 if (isFolderReference)
-                    fileRef = PBXFileReferenceData.CreateFromFolderReference(path, Utils.GetFilenameFromPath(projectPath), tree);
+                    fileRef = PBXFileReferenceData.CreateFromFolderReference(path, Unity.Appodeal.Xcode.PBX.Utils.GetFilenameFromPath(projectPath), tree);
                 else
-                    fileRef = PBXFileReferenceData.CreateFromFile(path, Utils.GetFilenameFromPath(projectPath), tree);
-                PBXGroupData parent = CreateSourceGroup(Utils.GetDirectoryFromPath(projectPath));
+                    fileRef = PBXFileReferenceData.CreateFromFile(path, Unity.Appodeal.Xcode.PBX.Utils.GetFilenameFromPath(projectPath), tree);
+                PBXGroupData parent = CreateSourceGroup(Unity.Appodeal.Xcode.PBX.Utils.GetDirectoryFromPath(projectPath));
                 parent.children.AddGUID(fileRef.guid);
                 FileRefsAdd(path, projectPath, parent, fileRef);
                 guid = fileRef.guid;
@@ -309,7 +307,7 @@ namespace Unity.Appodeal.Xcode
         {
             if (sourceTree == PBXSourceTree.Group)
                 throw new Exception("sourceTree must not be PBXSourceTree.Group");
-            path = Utils.FixSlashesInPath(path);
+            path = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(path);
             var fileRef = FileRefsGetByRealPath(path, sourceTree);
             if (fileRef != null)
                 return fileRef.guid;
@@ -318,7 +316,7 @@ namespace Unity.Appodeal.Xcode
 
         public string FindFileGuidByRealPath(string path)
         {
-            path = Utils.FixSlashesInPath(path);
+            path = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(path);
 
             foreach (var tree in FileTypeUtils.AllAbsoluteSourceTrees())
             {
@@ -331,7 +329,7 @@ namespace Unity.Appodeal.Xcode
 
         public string FindFileGuidByProjectPath(string path)
         {
-            path = Utils.FixSlashesInPath(path);
+            path = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(path);
             var fileRef = FileRefsGetByProjectPath(path);
             if (fileRef != null)
                 return fileRef.guid;
@@ -417,7 +415,7 @@ namespace Unity.Appodeal.Xcode
 
         internal void RemoveFilesByProjectPathRecursive(string projectPath)
         {
-            projectPath = Utils.FixSlashesInPath(projectPath);
+            projectPath = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(projectPath);
             PBXGroupData gr = GroupsGetByProjectPath(projectPath);
             if (gr == null)
                 return;
@@ -428,7 +426,7 @@ namespace Unity.Appodeal.Xcode
         // Returns null on error
         internal List<string> GetGroupChildrenFiles(string projectPath)
         {
-            projectPath = Utils.FixSlashesInPath(projectPath);
+            projectPath = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(projectPath);
             PBXGroupData gr = GroupsGetByProjectPath(projectPath);
             if (gr == null)
                 return null;
@@ -457,7 +455,7 @@ namespace Unity.Appodeal.Xcode
         /// If sourceGroup is empty or null, root group is returned
         private PBXGroupData CreateSourceGroup(string sourceGroup)
         {
-            sourceGroup = Utils.FixSlashesInPath(sourceGroup);
+            sourceGroup = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(sourceGroup);
 
             if (sourceGroup == null || sourceGroup == "")
                 return GroupsGetMainGroup();
@@ -469,7 +467,7 @@ namespace Unity.Appodeal.Xcode
             // the group does not exist -- create new
             gr = GroupsGetMainGroup();
 
-            var elements = PBX.Utils.SplitPath(sourceGroup);
+            var elements = Unity.Appodeal.Xcode.PBX.Utils.SplitPath(sourceGroup);
             string projectPath = null;
             foreach (string pathEl in elements)
             {
@@ -497,8 +495,8 @@ namespace Unity.Appodeal.Xcode
         {
             if (sourceTree == PBXSourceTree.Group)
                 throw new Exception("sourceTree must not be PBXSourceTree.Group");
-            path = Utils.FixSlashesInPath(path);
-            projectPath = Utils.FixSlashesInPath(projectPath);
+            path = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(path);
+            projectPath = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(projectPath);
 
             // note: we are duplicating products group for the project reference. Otherwise Xcode crashes.
             PBXGroupData productGroup = PBXGroupData.CreateRelative("Products");
@@ -507,7 +505,7 @@ namespace Unity.Appodeal.Xcode
             PBXFileReferenceData fileRef = PBXFileReferenceData.CreateFromFile(path, Path.GetFileName(projectPath),
                                                                                sourceTree);
             FileRefsAdd(path, projectPath, null, fileRef);
-            CreateSourceGroup(Utils.GetDirectoryFromPath(projectPath)).children.AddGUID(fileRef.guid);
+            CreateSourceGroup(Unity.Appodeal.Xcode.PBX.Utils.GetDirectoryFromPath(projectPath)).children.AddGUID(fileRef.guid);
 
             project.project.AddReference(productGroup.guid, fileRef.guid);
         }
@@ -525,8 +523,8 @@ namespace Unity.Appodeal.Xcode
                                                  string remoteInfo)
         {
             PBXNativeTargetData target = nativeTargets[targetGuid];
-            filename = Utils.FixSlashesInPath(filename);
-            projectPath = Utils.FixSlashesInPath(projectPath);
+            filename = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(filename);
+            projectPath = Unity.Appodeal.Xcode.PBX.Utils.FixSlashesInPath(projectPath);
 
             // find the products group to put the new library in
             string projectGuid = FindFileGuidByRealPath(projectPath);

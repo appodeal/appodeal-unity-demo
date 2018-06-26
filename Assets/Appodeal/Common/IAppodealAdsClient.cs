@@ -40,6 +40,10 @@ namespace AppodealAds.Unity.Common {
         void setSegmentFilter(string name, int value);
         void setSegmentFilter(string name, double value);
         void setSegmentFilter(string name, string value);
+        void setExtraData(string key, bool value);
+        void setExtraData(string key, int value);
+        void setExtraData(string key, double value);
+        void setExtraData(string key, string value);
 		string getRewardCurrency(string placement);
         double getRewardAmount(string placement);
 		string getRewardCurrency();

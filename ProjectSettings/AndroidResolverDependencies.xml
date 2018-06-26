@@ -1,26 +1,34 @@
 <dependencies>
   <packages>
-    <package>com.android.support:support-v4:25.2.0</package>
-    <package>com.google.android.gms:play-services-ads:9.8</package>
-    <package>com.google.android.gms:play-services-ads:9.8.0</package>
-    <package>com.google.android.gms:play-services-location:9.8</package>
-    <package>com.google.android.gms:play-services-location:9.8.0</package>
+    <package>com.android.support:support-v4:26.1.0</package>
+    <package>com.google.android.gms:play-services-ads:15.0.1</package>
+    <package>com.google.android.gms:play-services-gcm:15.0.1</package>
+    <package>com.google.android.gms:play-services-location:15.0.1</package>
   </packages>
   <files>
-    <file>Assets/Plugins/Android/com.android.support.support-annotations-25.2.0.jar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-compat-25.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-core-ui-25.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-core-utils-25.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-fragment-25.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-media-compat-25.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-v4-25.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-9.8.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-9.8.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-9.8.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-9.8.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-clearcut-9.8.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-gass-9.8.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-location-9.8.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-9.8.0.aar</file>
+    <file>Assets/Plugins/Android/android.arch.core.common-1.0.0.jar</file>
+    <file>Assets/Plugins/Android/android.arch.lifecycle.common-1.0.0.jar</file>
+    <file>Assets/Plugins/Android/android.arch.lifecycle.runtime-1.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.android.support.customtabs-26.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.android.support.support-annotations-26.1.0.jar</file>
+    <file>Assets/Plugins/Android/com.android.support.support-compat-26.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.android.support.support-core-ui-26.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.android.support.support-core-utils-26.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.android.support.support-fragment-26.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.android.support.support-media-compat-26.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.android.support.support-v4-26.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-gass-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-gcm-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-iid-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-location-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-places-placereport-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-stats-15.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-15.0.1.aar</file>
   </files>
 </dependencies>

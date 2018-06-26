@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.appodeal.tapjoy.unity">
+<uses-sdk android:minSdkVersion="9" android:targetSdkVersion="23" />
+<application>
+<!-- Tapjoy -->
+        <!--suppress AndroidDomInspection -->
+        <activity android:name="com.tapjoy.TJAdUnitActivity" android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <!--suppress AndroidDomInspection -->
+        <activity android:name="com.tapjoy.mraid.view.ActionHandler" android:configChanges="orientation|keyboardHidden|screenSize" />
+        <!--suppress AndroidDomInspection -->
+        <activity android:name="com.tapjoy.mraid.view.Browser" android:configChanges="orientation|keyboardHidden|screenSize" />
+        <!--suppress AndroidDomInspection -->
+        <activity android:name="com.tapjoy.TJContentActivity" android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" android:hardwareAccelerated="true" />
+
+<!-- End Tapjoy -->
+</application>
+</manifest>

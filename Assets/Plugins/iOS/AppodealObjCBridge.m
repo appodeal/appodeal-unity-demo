@@ -169,6 +169,31 @@ void AppodealSetSegmentFilterString(const char *name, const char *value) {
     [Appodeal setSegmentFilter:dict];
 }
 
+void AppodealSetExtraDataBool(const char *name, BOOL value) {
+    NSString * key = [NSString stringWithUTF8String:name];
+    NSNumber * valueNum = [NSNumber numberWithBool:value];
+    NSDictionary * objCRule = key ? @{} : @{key : valueNum};
+    [Appodeal setExtras:objCRule];
+}
+
+void AppodealSetExtraDataInt(const char *name, int value) {
+    NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSNumber numberWithInt:value]};
+    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    [Appodeal setExtras:dict];
+}
+
+void AppodealSetExtraDataDouble(const char *name, double value) {
+    NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSNumber numberWithDouble:value]};
+    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    [Appodeal setExtras:dict];
+}
+
+void AppodealSetExtraDataString(const char *name, const char *value) {
+    NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSString stringWithUTF8String:value]};
+    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    [Appodeal setExtras:dict];
+}
+
 void AppodealTrackInAppPurchase(int amount, const char * currency) {
     [[APDSdk sharedSdk] trackInAppPurchase:[NSNumber numberWithInt:amount] currency:[NSString stringWithUTF8String:currency]];
 }

@@ -60,7 +60,10 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 		Appodeal.muteVideosIfCallsMuted(true);
 		Appodeal.setAutoCache(Appodeal.INTERSTITIAL, false);
 
-        int gdpr = PlayerPrefs.GetInt("result_gdpr", 1);
+        Appodeal.setExtraData(ExtraData.APPSFLYER_ID, "1527256526604-2129416");
+
+        int gdpr = PlayerPrefs.GetInt("result_gdpr_sdk", 0);
+        Debug.Log("result_gdpr_sdk: " + gdpr);
         Appodeal.initialize (appKey, Appodeal.INTERSTITIAL | Appodeal.BANNER_VIEW | Appodeal.REWARDED_VIDEO, gdpr == 1);
 
 		Appodeal.setBannerCallbacks (this);
@@ -68,10 +71,10 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 		Appodeal.setRewardedVideoCallbacks (this);
 
 
-		Appodeal.setCustomRule("newBoolean", true);
-		Appodeal.setCustomRule("newInt", 1234567890);
-		Appodeal.setCustomRule("newDouble", 123.123456789);
-		Appodeal.setCustomRule("newString", "newStringFromSDK");
+        Appodeal.setSegmentFilter("newBoolean", true);
+        Appodeal.setSegmentFilter("newInt", 1234567890);
+        Appodeal.setSegmentFilter("newDouble", 123.123456789);
+        Appodeal.setSegmentFilter("newString", "newStringFromSDK");
 	}
 
 

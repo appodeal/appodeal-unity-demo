@@ -67,9 +67,9 @@ public class AppodealAssetsPostProcess : AssetPostprocessor {
 	public static void reimportFolder(string path) {
 		string[] files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
 		foreach(string file in files) {
-			if (file.EndsWith(".DS_Store")) {
+			if (file.EndsWith(".DS_Store", System.StringComparison.Ordinal)) {
 				continue;
-			} else if (file.EndsWith(".meta")) {
+			} else if (file.EndsWith(".meta", System.StringComparison.Ordinal)) {
 				continue;
 			} else {
 				AssetDatabase.ImportAsset(Utils.FixSlashesInPath(file));

@@ -22,7 +22,7 @@ namespace AppodealAds.Unity.Api {
 		public const int BANNER_HORIZONTAL_RIGHT = -3;
 		public const int BANNER_HORIZONTAL_LEFT = -4;
 
-		public const string APPODEAL_PLUGIN_VERSION = "2.8.42";
+		public const string APPODEAL_PLUGIN_VERSION = "2.8.43";
 
 		public enum LogLevel { None, Debug, Verbose };
 
@@ -216,29 +216,57 @@ namespace AppodealAds.Unity.Api {
 			return canshow;
 		}
 		
-		public static void setCustomRule(string name, bool value) {
+        public static void setSegmentFilter(string name, bool value) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
             getInstance().setSegmentFilter(name, value);
 			#endif
 		}
 
-		public static void setCustomRule(string name, int value) {
+        public static void setSegmentFilter(string name, int value) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
             getInstance().setSegmentFilter(name, value);
 			#endif
 		}
 
-		public static void setCustomRule(string name, double value) {
+        public static void setSegmentFilter(string name, double value) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
             getInstance().setSegmentFilter(name, value);
 			#endif
 		}
 
-		public static void setCustomRule(string name, string value) {
+        public static void setSegmentFilter(string name, string value) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
             getInstance().setSegmentFilter(name, value);
 			#endif
 		}
+
+        public static void setExtraData(string key, bool value)
+        {
+            #if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
+            getInstance().setExtraData(key, value);
+            #endif
+        }
+
+        public static void setExtraData(string key, int value)
+        {
+            #if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
+            getInstance().setExtraData(key, value);
+            #endif
+        }
+
+        public static void setExtraData(string key, double value)
+        {
+            #if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
+            getInstance().setExtraData(key, value);
+            #endif
+        }
+
+        public static void setExtraData(string key, string value)
+        {
+            #if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
+            getInstance().setExtraData(key, value);
+            #endif
+        }
 
 		public static void trackInAppPurchase(double amount, string currency) {
 			#if UNITY_ANDROID && !UNITY_EDITOR || UNITY_IPHONE && !UNITY_EDITOR
@@ -302,6 +330,12 @@ namespace AppodealAds.Unity.Api {
             return new KeyValuePair<string, double>();
 		}
 	}
+
+    public class ExtraData {
+
+        public static string APPSFLYER_ID = "appsflyer_id";
+
+    }
 
 	public class UserSettings {
 

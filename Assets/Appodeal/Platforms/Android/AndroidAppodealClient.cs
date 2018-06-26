@@ -52,7 +52,6 @@ namespace AppodealAds.Unity.Android {
 		}
 
 		public void initialize(string appKey, int adTypes, bool hasConsent)  {
-            getAppodealClass().CallStatic("disableNetwork", getActivity(), "mobvista");
             getAppodealClass().CallStatic("setFramework", "unity", Appodeal.getPluginVersion());
 			#if UNITY_5_6_0 || UNITY_5_6_1
 				getAppodealClass().CallStatic("setFramework", "unity", Appodeal.getPluginVersion(), true, false);
@@ -203,6 +202,26 @@ namespace AppodealAds.Unity.Android {
         public void setSegmentFilter(string name, string value) {
             getAppodealClass().CallStatic("setSegmentFilter", name, value);
 		}
+
+        public void setExtraData(string key, bool value)
+        {
+            getAppodealClass().CallStatic("setExtraData", key, value);
+        }
+
+        public void setExtraData(string key, int value)
+        {
+            getAppodealClass().CallStatic("setExtraData", key, value);
+        }
+
+        public void setExtraData(string key, double value)
+        {
+            getAppodealClass().CallStatic("setExtraData", key, value);
+        }
+
+        public void setExtraData(string key, string value)
+        {
+            getAppodealClass().CallStatic("setExtraData", key, value);
+        }
 		
 		public void trackInAppPurchase(double amount, string currency) {
 			getAppodealClass().CallStatic("trackInAppPurchase", getActivity(), amount, currency);

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mobvista_feeds_blank">#1b1b1b</color>
+    <color name="mobvista_feeds_blue_normal">#2e9cf5</color>
+    <color name="mobvista_feeds_blue_pressed">#2485cc</color>
+    <color name="mobvista_feeds_gray">#737373</color>
+    <color name="mobvista_feeds_playerview_bg">#ff000000</color>
+    <color name="mobvista_feeds_white">#FFFFFF</color>
+</resources>

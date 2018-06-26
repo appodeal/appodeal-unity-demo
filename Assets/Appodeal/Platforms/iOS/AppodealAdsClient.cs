@@ -462,6 +462,22 @@ namespace AppodealAds.Unity.iOS {
             AppodealObjCBridge.AppodealSetSegmentFilterString(name, value);
 		}
 
+        public void setExtraData(string key, bool value) {
+            AppodealObjCBridge.AppodealSetExtraDataBool(key, value);
+        }
+
+        public void setExtraData(string key, int value)  {
+            AppodealObjCBridge.AppodealSetExtraDataInt(key, value);
+        }
+
+        public void setExtraData(string key, double value)  {
+            AppodealObjCBridge.AppodealSetExtraDataDouble(key, value);
+        }
+
+        public void setExtraData(string key, string value) {
+            AppodealObjCBridge.AppodealSetExtraDataString(key, value);
+        }
+
 		public void setTriggerOnLoadedOnPrecache(int adTypes, bool onLoadedTriggerBoth) {
             AppodealObjCBridge.AppodealSetTriggerPrecacheCallbacks(onLoadedTriggerBoth);
 		}

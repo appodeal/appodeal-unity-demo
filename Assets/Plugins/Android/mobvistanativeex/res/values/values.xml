@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mobvista_nativex_cta_txt_nor">#C3C3C3</color>
+    <color name="mobvista_nativex_cta_txt_pre">#ffffff</color>
+    <color name="mobvista_nativex_land_cta_bg_nor">#7f000000</color>
+    <color name="mobvista_nativex_por_cta_bg_nor">#4A4A4A</color>
+    <color name="mobvista_nativex_por_cta_bg_pre">#4990E2</color>
+    <color name="mobvista_nativex_sound_bg">#B3000000</color>
+</resources>

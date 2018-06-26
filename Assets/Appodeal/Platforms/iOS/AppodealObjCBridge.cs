@@ -104,6 +104,18 @@ namespace AppodealAds.Unity.iOS {
 		[DllImport("__Internal")]
         internal static extern void AppodealSetSegmentFilterBool(string name, bool value);
 
+        [DllImport("__Internal")]
+        internal static extern void AppodealSetExtraDataBool(string name, bool value);
+
+        [DllImport("__Internal")]
+        internal static extern void AppodealSetExtraDataInt(string name, int value);
+
+        [DllImport("__Internal")]
+        internal static extern void AppodealSetExtraDataDouble(string name, double value);
+
+        [DllImport("__Internal")]
+        internal static extern void AppodealSetExtraDataString(string name, string value);
+
 		[DllImport("__Internal")]
         internal static extern void AppodealTrackInAppPurchase(double amount, string currency);
 
@@ -115,7 +127,6 @@ namespace AppodealAds.Unity.iOS {
 
 		[DllImport("__Internal")]
 		internal static extern void AppodealSetUserGender(int gender);
-
 
 		[DllImport("__Internal")]
 		internal static extern void AppodealSetInterstitialDelegate (
