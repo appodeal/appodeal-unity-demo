@@ -1,4 +1,4 @@
-# Appodeal Unity Plugin
+# Appodeal Unity Plugin Demo
 
 [![](https://img.shields.io/badge/docs-unity-grey.svg)](http://www.appodeal.com/sdk/unity_beta)
 [![](https://img.shields.io/badge/download-all-red.svg)](https://s3.amazonaws.com/appodeal-unity/Appodeal-Unity-2.8.43-070618-all.unitypackage)
