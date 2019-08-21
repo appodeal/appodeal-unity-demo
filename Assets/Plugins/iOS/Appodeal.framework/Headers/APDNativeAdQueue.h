@@ -2,9 +2,9 @@
 //  APDNativeAdQueue.h
 //  Appodeal
 //
-//  AppodealSDK version 2.4.3-Beta-Public
+//  AppodealSDK version 2.5.8
 //
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -81,13 +81,6 @@
  @param adSize max count of native ad
  */
 - (void)setMaxAdSize:(NSInteger)adSize __attribute__((deprecated("Configure ad queue size in dashboard")));
-
-
-/**
- * Call this method to load native ad.
- * @param type APDNativeAdTypeAuto or APDNativeAdTypeVideo or APDNativeAdTypeNoVideo
- */
-- (void)loadAdOfType:(APDNativeAdType)type __attribute__((deprecated("Use -loadAd. Type of native ad defined in settings")));;
 
 /**
  * Call this method to load native ad.

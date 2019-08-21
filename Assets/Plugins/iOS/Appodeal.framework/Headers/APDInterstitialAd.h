@@ -1,9 +1,9 @@
 //
 //  APDInterstital.h
 //
-//  AppodealSDK version 2.4.3-Beta-Public
+//  AppodealSDK version 2.5.8
 //
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -22,22 +22,6 @@
 @protocol APDInterstitalAdDelegate <NSObject>
 
 @optional
-
-/*!
- *  Method called when interstitial loads
- *
- *  @param interstitialAd Instance of ready to show interstitial
- */
-- (void)interstitialAdDidLoad:(nonnull APDInterstitialAd *)interstitialAd __attribute__((deprecated("Use interstitialAdDidLoad:isPrecache: instead")));;
-
-/*!
- *  Method called if precached interstitial loads.
- *  If you want to show only expensive ads, ignore this method!
- *
- *  @param precacheInterstitial Instance of ready interstitial
- */
-- (void)precacheInterstitialAdDidLoad:(nonnull APDInterstitialAd *)precacheInterstitial __attribute__((deprecated("Use interstitialAdDidLoad:isPrecache: instead")));;
-
 /*!
  *  Method called if precache interstitial (cheap and fast loading) did load.
  *  If you want to show only expensive ad ignore this method!
@@ -106,30 +90,14 @@
     }
  */
 @interface APDInterstitialAd : NSObject
-
-#ifdef ADVANCED_INTEGRATION
-@property (weak, nonatomic, nullable) id<APDInterstitalAdRequestDelegate> requestDelegate;
-#endif
 /*!
  *  Set interstitial delegate
  */
 @property (weak, nonatomic, nullable) id<APDInterstitalAdDelegate> delegate;
-
-/*!
- *  Set custom placement name, that you create in Appodeal Dashboard
- */
-@property (copy, nonatomic, nullable) NSString *placement;
-
 /*!
  *  Set custom SDK
  */
 @property (weak, nonatomic, nullable) APDSdk *customSdk;
-
-/*!
- *  get predicated ecpm
- */
-@property (assign, nonatomic, readonly) double predictedEcpm;
-
 /*!
  *  Get interstitial availability
  */
@@ -149,13 +117,12 @@
  *  Start loading interstitial
  */
 - (void)loadAd;
-
 /*!
  *  Show ready interstitial from view controller
  *
  *  @param viewController Current presented view controller
  */
-- (void)presentFromViewController:(nonnull UIViewController *)viewController;
+- (void)presentFromViewController:(nonnull UIViewController *)viewController placement:(nonnull NSString *)placement;
 
 @end
 

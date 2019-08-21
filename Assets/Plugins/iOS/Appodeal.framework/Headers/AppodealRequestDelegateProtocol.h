@@ -2,7 +2,7 @@
 //  AppodealRequestDelegateProtocol.h
 //  Appodeal
 
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

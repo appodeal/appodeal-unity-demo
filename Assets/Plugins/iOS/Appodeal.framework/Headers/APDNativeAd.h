@@ -2,9 +2,9 @@
 //  APDNativeAd.h
 //  Appodeal
 //
-//  AppodealSDK version 2.4.3-Beta-Public
+//  AppodealSDK version 2.5.8
 //
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -39,11 +39,6 @@
  *  Ad title, required field to display. Length less than or equal to about 120 characters.
  */
 @property (copy, nonatomic, readonly, nonnull) NSString * title;
-
-/*!
- *  Ad subtitle, optional field to display.
- */
-@property (copy, nonatomic, readonly, nonnull) NSString *subtitle __attribute__((deprecated("Use descriptionText instead")));
 
 /*!
  *  Ad description, optional field to display. Length less than or equal to about 400 characters.

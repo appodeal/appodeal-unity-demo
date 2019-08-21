@@ -2,9 +2,9 @@
 //  APDReviewVideo.h
 //  Appodeal
 //
-//  AppodealSDK version 2.4.3-Beta-Public
+//  AppodealSDK version 2.5.8
 //
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -26,14 +26,6 @@
 @protocol APDRewardedVideoDelegate <NSObject>
 
 @optional
-
-/*!
- *  Method called when rewarded video loads
- *
- *  @param rewardedVideo Ready to show rewarded video
- */
-- (void)rewardedVideoDidLoad:(nonnull APDRewardedVideo *)rewardedVideo __attribute__((deprecated("Use geoInfoForAdapter instead")));
-
 /*!
  *  Method called when rewarded video did load
  *
@@ -49,14 +41,6 @@
  *  @param rewardedVideo Failed rewarded video
  */
 - (void)rewardedVideo:(nonnull APDRewardedVideo *)rewardedVideo didFailToLoadWithError:(nonnull NSError *)error;
-
-/*!
- *  Method called if rewarded video adapter becomes unavailable
- *  This case can occur only for singleton ad networks: AdColony, Vungle, Unity
- *
- *  @param rewardedVideo Failed rewarded video
- */
-- (void)rewardedVideoDidBecomeUnavailable:(nonnull APDRewardedVideo *)rewardedVideo __attribute__((deprecated("Use rewardedVideoDidExpired: instead")));;
 
 /**
  Called when rewarded video ad expired
@@ -78,6 +62,13 @@
  *  @param rewardedVideo Shown rewarded video
  */
 - (void)rewardedVideoDidDisappear:(nonnull APDRewardedVideo *)rewardedVideo wasFullyWatched:(BOOL)wasFullyWatched;
+
+/*!
+ *  Call when user taps on rewarded video
+ *
+ *  @param rewardedVideo Shown rewarded video
+ */
+- (void)rewardedVideoDidRecieveTapAction:(nonnull APDRewardedVideo *)rewardedVideo;
 
 /*!
  *   Method called after rewarded video completes
@@ -111,58 +102,53 @@
         }
  */
 @interface APDRewardedVideo : NSObject
-
-#ifdef ADVANCED_INTEGRATION
-@property (weak, nonatomic, nullable) id<APDRewardedVideoRequestDelegate> requestDelegate;
-#endif
-
 /*!
  *  Set delegate to skippable video
  */
 @property (weak, nonatomic, nullable) id<APDRewardedVideoDelegate> delegate;
-
-/*!
- *  Set custom placement name, that you create in the Appodeal Dashboard
- */
-@property (copy, nonatomic, nullable) NSString *placement;
-
 /*!
  *  Set custom SDK
  */
 @property (weak, nonatomic, nullable) APDSdk *customSdk;
-
 /*!
  *  get predicated ecpm
  */
 @property (assign, nonatomic, readonly) double predictedEcpm;
-
-
-@property (assign, nonatomic) BOOL autocache;
-
-/*!
- *  Return reward for current placement
+/**
+ Enable autocache
  */
-@property (strong, nonatomic, readonly, nonnull) id<APDReward> reward;
-
+@property (assign, nonatomic) BOOL autocache;
 /*!
  *  Get rewarded video availability
  */
 @property (assign, nonatomic, readonly, getter=isReady) BOOL ready;
+/**
+ Designated initializer
 
+ @param sdk Initialised sdk instance
+ @param delegate delegate for rewarded video
+ @param autocache enable or disable autocache
+ @return ready for mediation instance of rewarded video
+ */
 + (nonnull instancetype)rewardedVideoWithSdk:(nullable APDSdk *)sdk
                                     delegate:(nullable id<APDRewardedVideoDelegate>)delegate
                                    autocache:(BOOL)autocache;
-
 /*!
  *  Start loading rewarded video
  */
 - (void)loadAd;
-
 /*!
  *  Show ready rewarded video from view controller
  *
  *  @param viewController Current presented view controller
+ *  @param placement Placement for present rewarded video
  */
-- (void)presentFromViewController:(nonnull UIViewController *)viewController;
+- (void)presentFromViewController:(nonnull UIViewController *)viewController placement:(nonnull NSString *)placement;
+/**
+ Return reward object for given placement
 
+ @param placement Placement
+ @return reward object
+ */
+- (nonnull id<APDReward>)rewardForPlacement:(nonnull NSString *)placement;
 @end

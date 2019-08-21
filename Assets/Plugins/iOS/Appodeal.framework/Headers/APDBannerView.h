@@ -1,9 +1,9 @@
 //
 //  APDBannerView.h
 //
-//  AppodealSDK version 2.4.3-Beta-Public
+//  AppodealSDK version 2.5.8
 //
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -23,14 +23,6 @@
 @protocol APDBannerViewDelegate <NSObject>
 
 @optional
-
-/*!
- *  Method called when banner view loaded
- *  After refresh, usual banner will be shown if loaded
- *  @param bannerView Ready banner view
- */
-- (void)bannerViewDidLoadAd:(nonnull APDBannerView *)bannerView __attribute__((deprecated("Use bannerViewDidLoadAd:isPrecache: instead")));
-
 /*!
  *  Method called after any banner was ready to present.
  *  Maybe called twice for precache banner and usual banner
@@ -75,11 +67,7 @@
 @end
 
 
-@interface APDBannerView : UIView 
-
-#ifdef ADVANCED_INTEGRATION
-@property (weak, nonatomic, nullable) IBOutlet id<APDBannerViewRequestDelegate> requestDelegate;
-#endif
+@interface APDBannerView : UIView
 /*!
  *  Set banner view delegate
  */
@@ -98,15 +86,9 @@
 /*!
  *  If this flag is set to YES, banner view will auto-resize after screen rotation
  *  (It is possible to use the flag only if the application supports one orientation)
- *  Set to NO by default
- */
-@property (assign, nonatomic) IBInspectable BOOL usesSmartSizing;
-
-/*!
- *  If this flag is set to YES, banner view will refresh after refresh interval turned on in Appodeal Dashboard
  *  Set to YES by default
  */
-@property (assign, nonatomic) IBInspectable BOOL autoRefreshing __attribute__((deprecated("Use autocache property instead")));;
+@property (assign, nonatomic) IBInspectable BOOL usesSmartSizing;
 
 @property (assign, nonatomic) IBInspectable BOOL autocache;
 

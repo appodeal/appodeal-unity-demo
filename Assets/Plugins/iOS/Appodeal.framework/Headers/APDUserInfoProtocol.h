@@ -2,9 +2,9 @@
 //  APDUserInfoProtocol.h
 //  Appodeal
 //
-//  AppodealSDK version 2.4.3-Beta-Public
+//  AppodealSDK version 2.5.8
 //
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 
@@ -13,18 +13,10 @@
 
 @protocol APDUserInfo <NSObject>
 
-@property (copy, nonatomic, readonly) NSString *email;
-@property (copy, nonatomic, readonly) NSArray *interests;
-@property (copy, nonatomic, readonly) NSString * userId;
-@property (copy, nonatomic, readonly) NSDictionary *ext;
-
-@property (strong, nonatomic, readonly) NSDate *birthday;
-@property (strong, nonatomic, readonly) NSString *birthdayString;
 @property (assign, nonatomic, readonly) NSUInteger age;
 @property (assign, nonatomic, readonly) APDUserGender gender;
-@property (assign, nonatomic, readonly) APDUserOccupation occupation;
-@property (assign, nonatomic, readonly) APDUserRelationship relationship;
-@property (assign, nonatomic, readonly) APDUserSmokingAttitude smokingAttitude;
-@property (assign, nonatomic, readonly) APDUserAlcoholAttitude alcoholAttitude;
+@property (copy, nonatomic, readonly) NSString *userId;
+@property (copy, nonatomic, readonly) NSDictionary *ext;
+
 
 @end

@@ -2,8 +2,8 @@
 //  APDNativeAdSettings.h
 //  Appodeal
 //
-//  Created by Stas Kochkin on 04/07/2018.
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Created by Stas Kochkin on 04/07/2019.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

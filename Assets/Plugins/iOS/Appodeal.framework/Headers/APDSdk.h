@@ -2,9 +2,9 @@
 //  APDSdk.h
 //  Appodeal
 //
-//  AppodealSDK version 2.4.3-Beta-Public
+//  AppodealSDK version 2.5.8
 //
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -78,14 +78,15 @@
  *  Call this method to specify framework before initialization
  *
  *  @discussion Objective-C
- *  @code [[APDSdk sharedSdk] setFramework:APDFrameworkNative]; @endcode
+ *  @code [[APDSdk sharedSdk] setFramework:APDFrameworkNative version:@"5.1"]; @endcode
  *
  *  @discussion Swift
- *  @code APDSdk.sharedSdk().setFramework(APDFramework.native) @endcode
+ *  @code APDSdk.sharedSdk().setFramework(APDFramework.native, "5.1") @endcode
  *
  *  @param framework Type of framework. Default is native iOS SDK
+ *  @param version Framework version. Default nill
  */
-- (void)setFramework:(APDFramework)framework;
+- (void)setFramework:(APDFramework)framework version:(nullable NSString *)version;
 
 /**
  User has given consent to the processing of personal data relating to him or her.
@@ -218,7 +219,7 @@
  *
  *  @param logLevel APDLogLevel value
  */
-- (void)setLogLevel:(APDLogLevel)logLevel;
++ (void)setLogLevel:(APDLogLevel)logLevel;
 
 /*!
  *  Disabling/enabling location tracking
@@ -226,18 +227,6 @@
  *  @param enabled Set to NO by default
  */
 - (void)setLocationTracking:(BOOL)enabled;
-
-/*!
- *  Enable memory monitoring for ad type. If current memory consumption is higher than required, all cached ad objects will be released
- *  @warning loaded ad will return and will not be shown
- *
- *  @param percentage Minimum percent of RAM free is from 1 to 100. If NSNotFound memory monitor is inactive
- *  @param observeSystemWarnings enable system warnings observation
- *  @param type Type of ad to use
- */
-- (void)setMinimumFreeMemoryPercentage:(NSUInteger)percentage
-                 observeSystemWarnings:(BOOL)observeSystemWarnings
-                             forAdType:(APDAdType)type;
 
 - (void)setChildDirectedTreatment:(BOOL)childDirectedTreatment;
 

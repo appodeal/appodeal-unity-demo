@@ -2,9 +2,9 @@
 //  APDDefines.h
 //  Appodeal
 //
-//  AppodealSDK version 2.4.3-Beta-Public
+//  AppodealSDK version 2.5.8
 //
-//  Copyright © 2018 Appodeal, Inc. All rights reserved.
+//  Copyright © 2019 Appodeal, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -110,45 +110,22 @@ typedef NS_OPTIONS(NSInteger, AppodealShowStyle) {
     AppodealShowStyleNonSkippableVideo  = 1 << 5
 };
 
+/**
+ User gender
+
+ - AppodealUserGenderOther: User not define gender
+ - AppodealUserGenderFemale: Female
+ - AppodealUserGenderMale: Male
+ */
 typedef NS_ENUM(NSUInteger, AppodealUserGender) {
     AppodealUserGenderOther = 0,
     AppodealUserGenderFemale,
     AppodealUserGenderMale
 };
-
-typedef NS_ENUM(NSUInteger, AppodealUserOccupation) {
-    AppodealUserOccupationOther = 0,
-    AppodealUserOccupationWork,
-    AppodealUserOccupationSchool,
-    AppodealUserOccupationUniversity
-};
-
-typedef NS_ENUM(NSUInteger, AppodealUserRelationship) {
-    AppodealUserRelationshipOther = 0,
-    AppodealUserRelationshipSingle,
-    AppodealUserRelationshipDating,
-    AppodealUserRelationshipEngaged,
-    AppodealUserRelationshipMarried,
-    AppodealUserRelationshipSearching
-};
-
-typedef NS_ENUM(NSUInteger, AppodealUserSmokingAttitude) {
-    AppodealUserSmokingAttitudeNegative = 1,
-    AppodealUserSmokingAttitudeNeutral,
-    AppodealUserSmokingAttitudePositive
-};
-
-typedef NS_ENUM(NSUInteger, AppodealUserAlcoholAttitude) {
-    AppodealUserAlcoholAttitudeNegative = 1,
-    AppodealUserAlcoholAttitudeNeutral,
-    AppodealUserAlcoholAttitudePositive
-};
-
 /*!
  *  Declaration of banner delegate
  */
 @protocol AppodealBannerDelegate <NSObject>
-
 @optional
 /*!
  *  Method called when precached or usual banner view loads
@@ -156,52 +133,29 @@ typedef NS_ENUM(NSUInteger, AppodealUserAlcoholAttitude) {
  *  @param precache If precache is YES it means that precached ad loaded
  */
 - (void)bannerDidLoadAdIsPrecache:(BOOL)precache;
-
-/*!
- *  Method called when banner loaded and is ready to show
- */
-- (void)bannerDidLoadAd __attribute__((deprecated("Use -bannerDidLoadAdisPrecache:precache: instead")));
-
-/*!
- *  Method called when banner refreshes
- */
-- (void)bannerDidRefresh __attribute__((deprecated("Use -bannerDidShow instead")));
-
 /*!
  *  Method called if banner mediation failed
  */
 - (void)bannerDidFailToLoadAd;
-
 /**
  *  Method called when banner view did fail to load
  */
 - (void)bannerDidExpired;
-
 /*!
  *  Method called when user taps on banner
  */
 - (void)bannerDidClick;
-
 /*!
  *  Method called when banner shows or refreshes
  */
 - (void)bannerDidShow;
 
 @end
-
 /*!
  *  Interstital delegate declaration
  */
 @protocol AppodealInterstitialDelegate <NSObject>
-
 @optional
-
-/*!
- *  Method called when usual interstitial view loads
- *
- */
-- (void)interstitialDidLoadAd __attribute__((deprecated("Use -interstitialDidLoadAdisPrecache: instead")));
-
 /*!
  *  Method called when precached or usual interstitial view loads
  *  @warning If you want show only expensive ads, ignore this callback call with precache equal to YES
@@ -209,99 +163,66 @@ typedef NS_ENUM(NSUInteger, AppodealUserAlcoholAttitude) {
  *  @param precache If precache is YES it means that precached ad loaded
  */
 - (void)interstitialDidLoadAdIsPrecache:(BOOL)precache;
-
 /*!
  *  Method called if interstitial mediation failed
  */
 - (void)interstitialDidFailToLoadAd;
-
 /**
  *  Method called if loaded interstital ad expired by timeout
  */
 - (void)interstitialDidExpired;
-
 /*!
  *  Method called if interstitial mediation was successful, but ready ad network can't show ad or
  *  ad presentation was too frequent according to your placement settings
  */
 - (void)interstitialDidFailToPresent;
-
 /*!
  *  Method called when interstitial displays on screen
  */
 - (void)interstitialWillPresent;
-
 /*!
  *  Method called after interstitial leaves the screen
  */
 - (void)interstitialDidDismiss;
-
 /*!
  *  Method called when user taps on interstitial
  */
 - (void)interstitialDidClick;
-
 @end
-
 
 /*!
  *  Rewarded video delegate declaration
  */
 @protocol AppodealRewardedVideoDelegate <NSObject>
-
 @optional
-
-/*!
- *  Method called when rewarded video loads
- */
-- (void)rewardedVideoDidLoadAd __attribute__((deprecated("Use -rewardedVideoDidLoadAdIsPrecache: instead")));
-
 /*!
  *  Method called when rewarded video loads
  *  @param precache If precache is YES it means that precached ad loaded
  */
 - (void)rewardedVideoDidLoadAdIsPrecache:(BOOL)precache;
-
 /*!
  *  Method called if rewarded video mediation failed
  */
 - (void)rewardedVideoDidFailToLoadAd;
-
 /**
  Method called if loaded ad creative expired by timeout
  */
 - (void)rewardedVideoDidExpired;
-
-/*!
- *  Method called if interstitial mediation was successful, but ready ad network can't show ad or
- *  ad presentation was too frequent according to your placement settings
- */
-- (void)rewardedVideoDidFailToPresent __attribute__((deprecated("Use -rewardedVideoDidFailToPresentWithError: instead")));
-
 /*!
  *  Method called if interstitial mediation was successful, but ready ad network can't show ad or
  *  ad presentation was too frequent according to your placement settings
  *  @param error Error object that indicates error reason
  */
 - (void)rewardedVideoDidFailToPresentWithError:(nonnull NSError *)error;
-
 /*!
  *  Method called after rewarded video starts displaying
  */
 - (void)rewardedVideoDidPresent;
-
-/*!
- *  Method called before rewarded video leaves screen
- */
-- (void)rewardedVideoWillDismiss __attribute__((deprecated("Use -rewardedVideoWillDismissAndWasFullyWatched: instead")));
-
 /*!
  *  Method called before rewarded video leaves screen
  *  @param wasFullyWatched boolean flag indicated that user watch video fully
  */
 - (void)rewardedVideoWillDismissAndWasFullyWatched:(BOOL)wasFullyWatched;
-
-
 /*!
  *  Method called after completion of video
  *  @warning After calling this method, rewarded video can stay on screen and show postbanner
@@ -309,102 +230,77 @@ typedef NS_ENUM(NSUInteger, AppodealUserAlcoholAttitude) {
  *  @param rewardAmount Amount of app currency turned on in Appodeal Dashboard
  *  @param rewardName Name of app currency set on in Appodeal Dashboard
  */
-- (void)rewardedVideoDidFinish:(NSUInteger)rewardAmount name:(nullable NSString *)rewardName;
-
+- (void)rewardedVideoDidFinish:(float)rewardAmount name:(nullable NSString *)rewardName;
+/*!
+ *  Method called when user taps on rewarded video
+ */
+- (void)rewardedVideoDidClick;
 @end
-
 
 /*!
  *  Non-skippable video delegate
  */
 @protocol AppodealNonSkippableVideoDelegate <NSObject>
-
 @optional
-
-/*!
- *  Method called when non skippable video loads
- */
-- (void)nonSkippableVideoDidLoadAd __attribute__((deprecated("Use -nonSkippableVideoDidFailToLoadAd:isPrecache instead")));
-
 /*!
  *  Method called when non skippable video loads
  *  @param precache If precache is YES it means that precached ad loaded
  */
 - (void)nonSkippableVideoDidLoadAdIsPrecache:(BOOL)precache;
-
 /*!
  *  Mehtod called if non-skippable video mediation failed
  */
 - (void)nonSkippableVideoDidFailToLoadAd;
-
 /**
  *  Method called if non-skippable video did load but expired by timeout
  */
 - (void)nonSkippableVideoDidExpired;
-
 /*!
  *  Method called after non-skippable video starts displaying
  */
 - (void)nonSkippableVideoDidPresent;
-
-/*!
- *  Method called if non-skippable mediation was successful, but ready ad network can't show ad or
- *  ad presentation was too frequent according to your placement settings
- */
-- (void)nonSkippableVideoDidFailToPresent __attribute__((deprecated("Use -nonSkippableVideoDidFailToPresentWithError: instead")));;
-
 /*!
  *  Method called if non-skippable mediation was successful, but ready ad network can't show ad or
  *  ad presentation was too frequent according to your placement settings
  *  @param error Error object that indicates error reason
  */
 - (void)nonSkippableVideoDidFailToPresentWithError:(nonnull NSError *)error;
-
-/*!
- *  Method called before non-skippable video leaves screen
- */
-- (void)nonSkippableVideoWillDismiss __attribute__((deprecated("Use -nonSkippableVideoWillDismissAndWasFullyWatched: instead")));;
-
 /*!
  *  Method called before rewarded video leaves screen
  *  @param wasFullyWatched boolean flag indicated that user watch video fully
  */
 - (void)nonSkippableVideoWillDismissAndWasFullyWatched:(BOOL)wasFullyWatched;
-
 /*!
  *  Method called after completion of video
  *  @warning After calling this method, non-skippable video can stay on screen and show postbanner
  *
  */
 - (void)nonSkippableVideoDidFinish;
-
+/*!
+ *  Method called when user taps on non skippable video
+ */
+- (void)nonSkippableVideoDidClick;
 @end
 
 
 @protocol AppodealNativeAdDelegate <NSObject>
-
 /*!
  *  Method called after native ads load
  */
 - (void)didLoadNativeAds:(NSInteger)count;
-
 /*!
  *  Method called if native ads get some error while loading
  */
 - (void)didFailToLoadNativeAdsWithError:(nonnull NSError *)error;
-
 @end
 
 /*!
  *  Extra Keys defines
  */
-
 extern NSString * _Nonnull kAPDAppsFlyerIdExtrasKey;
-
 /*!
  *  Network defines
  */
-
 extern const NSString * _Nonnull kAPDGoogleDFPNetworkName;
 extern const NSString * _Nonnull kAPDTapsenseNetworkName;
 extern const NSString * _Nonnull kAPDInnerActiveNetworkName;
@@ -434,8 +330,8 @@ extern const NSString * _Nonnull kAPDIronSourceNetworkName;
 extern const NSString * _Nonnull kAPDAppnextNetworkName;
 extern const NSString * _Nonnull kAPDCheetahNetworkName;
 extern const NSString * _Nonnull kAPDRevMobNetworkName;
-extern const NSString * _Nonnull kAPDMobvistaNetworkName;
-
+extern const NSString * _Nonnull kAPDMintegralNetworkName;
+extern const NSString * _Nonnull kAPDIVengoNetworkName;
 /*!
  *  Default APDBanner sizes
  */
@@ -552,7 +448,11 @@ typedef NS_ENUM(NSInteger, APDError) {
      * Error returned if sdk unable to start loading.
      * For example if you trying to cache fullscreen ad while it's presenting
      */
-    APDLoadingDeniedError
+    APDLoadingDeniedError,
+    /*!
+     * Error returned if sdk start loading adapter but his was unavailable
+     */
+    APDAdapterCanceledError
 };
 
 
@@ -641,34 +541,6 @@ typedef NS_ENUM(NSUInteger, APDUserGender) {
     APDUserGenderOther = AppodealUserGenderOther,
     APDUserGenderFemale = AppodealUserGenderFemale,
     APDUserGenderMale = AppodealUserGenderMale
-};
-
-typedef NS_ENUM(NSUInteger, APDUserOccupation) {
-    APDUserOccupationOther = AppodealUserOccupationOther,
-    APDUserOccupationWork = AppodealUserOccupationWork,
-    APDUserOccupationSchool = AppodealUserOccupationSchool,
-    APDUserOccupationUniversity = AppodealUserOccupationUniversity
-};
-
-typedef NS_ENUM(NSUInteger, APDUserRelationship) {
-    APDUserRelationshipOther = AppodealUserRelationshipOther,
-    APDUserRelationshipSingle = AppodealUserRelationshipSingle,
-    APDUserRelationshipDating = AppodealUserRelationshipDating,
-    APDUserRelationshipEngaged = AppodealUserRelationshipEngaged,
-    APDUserRelationshipMarried = AppodealUserRelationshipMarried,
-    APDUserRelationshipSearching = AppodealUserRelationshipSearching
-};
-
-typedef NS_ENUM(NSUInteger, APDUserSmokingAttitude) {
-    APDUserSmokingAttitudeNegative = AppodealUserSmokingAttitudeNegative,
-    APDUserSmokingAttitudeNeutral = AppodealUserSmokingAttitudeNeutral,
-    APDUserSmokingAttitudePositive = AppodealUserSmokingAttitudePositive
-};
-
-typedef NS_ENUM(NSUInteger, APDUserAlcoholAttitude) {
-    APDUserAlcoholAttitudeNegative = AppodealUserAlcoholAttitudeNegative,
-    APDUserAlcoholAttitudeNeutral = AppodealUserAlcoholAttitudeNeutral,
-    APDUserAlcoholAttitudePositive = AppodealUserAlcoholAttitudePositive
 };
 
 typedef NS_ENUM(NSUInteger, APDFramework) {
