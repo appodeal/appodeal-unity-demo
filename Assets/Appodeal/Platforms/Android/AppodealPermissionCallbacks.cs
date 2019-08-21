@@ -1,30 +1,27 @@
-﻿using UnityEngine;
-using System;
-using AppodealAds.Unity.Common;
+﻿using AppodealAds.Unity.Common;
+using UnityEngine;
 
-namespace AppodealAds.Unity.Android 
-{
+namespace AppodealAds.Unity.Android {
 	public class AppodealPermissionCallbacks
 #if UNITY_ANDROID
-		: AndroidJavaProxy
-	{
-		IPermissionGrantedListener listener;	
+		: AndroidJavaProxy {
+			IPermissionGrantedListener listener;
 
-		internal AppodealPermissionCallbacks(IPermissionGrantedListener listener) : base("com.appodeal.ads.utils.PermissionsHelper$AppodealPermissionCallbacks") {
-			this.listener = listener;
+			internal AppodealPermissionCallbacks (IPermissionGrantedListener listener) : base ("com.appodeal.ads.utils.PermissionsHelper$AppodealPermissionCallbacks") {
+				this.listener = listener;
+			}
+
+			void writeExternalStorageResponse (int result) {
+				listener.writeExternalStorageResponse (result);
+			}
+
+			void accessCoarseLocationResponse (int result) {
+				listener.accessCoarseLocationResponse (result);
+			}
 		}
-		
-		void writeExternalStorageResponse(int result) {
-			listener.writeExternalStorageResponse(result);
-		}
-		
-		void accessCoarseLocationResponse(int result) {
-			listener.accessCoarseLocationResponse(result);
-		}
-	}
 #else
 	{
-		public AppodealPermissionCallbacks(IPermissionGrantedListener listener) { }
+		public AppodealPermissionCallbacks (IPermissionGrantedListener listener) { }
 	}
 #endif
 }

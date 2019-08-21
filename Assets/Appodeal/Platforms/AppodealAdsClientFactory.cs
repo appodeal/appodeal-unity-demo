@@ -1,22 +1,16 @@
-﻿using System;
+﻿using AppodealAds.Unity.Common;
 using UnityEngine;
-using AppodealAds.Unity.Common;
 
-namespace AppodealAds.Unity
-{
-	internal class AppodealAdsClientFactory
-	{
-		internal static IAppodealAdsClient GetAppodealAdsClient()
-		{
-			#if UNITY_EDITOR
-			return null;
-			#elif UNITY_ANDROID
-			return new AppodealAds.Unity.Android.AndroidAppodealClient();
-			#elif UNITY_IPHONE
+namespace AppodealAds.Unity {
+	internal class AppodealAdsClientFactory {
+		internal static IAppodealAdsClient GetAppodealAdsClient () {
+#if UNITY_ANDROID && !UNITY_EDITOR
+			return new AppodealAds.Unity.Android.AndroidAppodealClient ();
+#elif UNITY_IPHONE && !UNITY_EDITOR
 			return AppodealAds.Unity.iOS.AppodealAdsClient.Instance;
-			#else
-			return null;
-			#endif
+#else
+			return new AppodealAds.Unity.Dummy.DummyClient ();
+#endif
 		}
 	}
 }
