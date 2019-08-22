@@ -1,13 +1,21 @@
 # Appodeal Unity Plugin Demo
 
 [![](https://img.shields.io/badge/docs-green.svg)](https://www.appodeal.com/sdk/unity)
-[![](https://img.shields.io/badge/download-all-green.svg)](https://s3.amazonaws.com/appodeal-unity/Appodeal-Unity-2.8.19-180418-all.unitypackage)
-[![](https://img.shields.io/badge/download-nodex-green.svg)](https://s3.amazonaws.com/appodeal-unity/Appodeal-Unity-2.8.19-180418-all-nodex.unitypackage)
+
+# Integration
+
+- import Appodeal nodex plugin to appodeal-unity-demo project 
+
+[![](https://img.shields.io/badge/download-nodex-green.svg)](https://appodeal-unity.s3.amazonaws.com/Appodeal-Unity-2.8.58-140819-nodex.unitypackage)
+
+- add sample script for selected scene in inspector
 
 ## Changelog
 
-2.8.19 (18/04/2018)
+2.8.58 (14/08/2019)
 
-+ Appodeal Android SDK updated to 2.1.11
-+ Appodeal iOS SDK updated to 2.1.10
-+ Fixes and improvements
++ Update Appodeal iOS SDK to 2.5.8
++ Update Appodeal Android SDK to 2.5.7
++ Mintegral updated to 9.13.21
++ Remove CrushHunter
++ Fix remove plugin script
