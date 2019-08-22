@@ -1,4 +1,0 @@
-# Facebook
--keepnames public class com.facebook.ads.** { public protected *; }
--keeppackagenames com.facebook.*
--dontwarn com.facebook.ads.**

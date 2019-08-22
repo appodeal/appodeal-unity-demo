@@ -1,7 +1,0 @@
-# Unity Ads
--keepattributes SourceFile,LineNumberTable
--keepattributes JavascriptInterface
--keep class android.webkit.JavascriptInterface { *; }
--keep class com.unity3d.ads.** { *; }
--keep class com.unity3d.services.** { *; }
--dontwarn com.google.ar.core.**

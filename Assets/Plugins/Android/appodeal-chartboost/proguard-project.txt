@@ -1,3 +1,0 @@
-# Chartboost
--keep class com.chartboost.** { *; }
--dontwarn com.chartboost.**
