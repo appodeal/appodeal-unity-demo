@@ -12,5 +12,4 @@
             <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true" />
         </activity>
     </application>
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23" />
 </manifest>
