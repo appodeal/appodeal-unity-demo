@@ -21,14 +21,52 @@ allprojects {
     }
 }
 
+// Android Resolver Repos Start
+([rootProject] + (rootProject.subprojects as List)).each { project ->
+    project.repositories {
+        def unityProjectPath = "file:///" + file(rootProject.projectDir.path + "/../../").absolutePath
+        maven {
+            url "https://maven.google.com"
+        }
+        maven {
+            url "https://artifactory.appodeal.com/appodeal" // Assets/Appodeal/Editor/AppodealDependencies.xml:7
+        }
+        maven {
+            url "https://maven.google.com" // Assets/Appodeal/Editor/AppodealDependencies.xml:15, Assets/Appodeal/Editor/AppodealDependencies.xml:23, Assets/Appodeal/Editor/AppodealDependencies.xml:31, Assets/Appodeal/Editor/AppodealDependencies.xml:39, Assets/Appodeal/Editor/AppodealDependencies.xml:44
+        }
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+    }
+}
+// Android Resolver Repos End
 apply plugin: 'com.android.application'
 **APPLY_PLUGINS**
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:multidex:1.0.3'
+// Android Resolver Dependencies Start
+    implementation 'com.android.support:recyclerview-v7:26.1.0' // Assets/Appodeal/Editor/AppodealDependencies.xml:39
+    implementation 'com.android.support:support-v4:26.1.0' // Assets/Appodeal/Editor/AppodealDependencies.xml:31
+    implementation 'com.appodeal.ads:nodex:2.5.7' // Assets/Appodeal/Editor/AppodealDependencies.xml:7
+    implementation 'com.google.android.exoplayer:exoplayer:2.8.4' // Assets/Appodeal/Editor/AppodealDependencies.xml:44
+    implementation 'com.google.android.gms:play-services-ads:15.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:15
+    implementation 'com.google.android.gms:play-services-location:15.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:23
+// Android Resolver Dependencies End
 **DEPS**}
 
+// Android Resolver Exclusions Start
+android {
+  packagingOptions {
+      exclude ('/lib/arm64-v8a/*' + '*')
+      exclude ('/lib/armeabi/*' + '*')
+      exclude ('/lib/mips/*' + '*')
+      exclude ('/lib/mips64/*' + '*')
+      exclude ('/lib/x86_64/*' + '*')
+  }
+}
+// Android Resolver Exclusions End
 android {
     compileSdkVersion **APIVERSION**
     buildToolsVersion '**BUILDTOOLS**'
