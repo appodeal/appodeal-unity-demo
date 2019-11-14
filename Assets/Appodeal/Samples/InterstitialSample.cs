@@ -45,6 +45,19 @@ public class InterstitialSample : MonoBehaviour, IInterstitialAdListener
          * - to call the following method:
          */
         Appodeal.setInterstitialCallbacks(this);
+
+        /*
+         * To disable toast message "ACCESS_COARSE_LOCATION permission is missing",
+         * use the following method before the SDK initialization:
+         */
+        Appodeal.disableLocationPermissionCheck();
+
+        /*
+         * To disable toast-messages "WRITE_EXTERNAL_STORAGE permission is missing",
+         * use the following method before the SDK initialization:
+         */
+
+        Appodeal.disableWriteExternalStoragePermissionCheck();
     }
 
     private void showNonSkippableVideo()
@@ -59,12 +72,42 @@ public class InterstitialSample : MonoBehaviour, IInterstitialAdListener
     }
 
     #region Interstitial callback handlers
-    public void onInterstitialLoaded (bool isPrecache) { print ("Appodeal. Interstitial loaded");}
-    public void onInterstitialFailedToLoad () { print ("Appodeal. Interstitial failed"); }
-    public void onInterstitialShown () { print ("Appodeal. Interstitial opened");}
-    public void onInterstitialClosed () { print ("Appodeal. Interstitial closed"); }
-    public void onInterstitialClicked () { print ("Appodeal. Interstitial clicked"); }
-    public void onInterstitialExpired () { print ("Appodeal. Interstitial expired"); }
+
+    public void onInterstitialLoaded(bool isPrecache)
+    {
+        Debug.Log("Appodeal. Interstitial loaded");
+    }
+
+    public void onInterstitialFailedToLoad()
+    {
+        Debug.Log("Appodeal. Interstitial failed");
+    }
+
+    public void onInterstitialShowFailed()
+    {
+        Debug.Log("Appodeal. Show failed");
+    }
+
+    public void onInterstitialShown()
+    {
+        Debug.Log("Appodeal. Interstitial opened");
+    }
+
+    public void onInterstitialClosed()
+    {
+        Debug.Log("Appodeal. Interstitial closed");
+    }
+
+    public void onInterstitialClicked()
+    {
+        Debug.Log("Appodeal. Interstitial clicked");
+    }
+
+    public void onInterstitialExpired()
+    {
+        Debug.Log("Appodeal. Interstitial expired");
+    }
+
     #endregion
 
     private void OnGUI()

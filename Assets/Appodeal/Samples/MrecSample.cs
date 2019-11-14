@@ -46,6 +46,19 @@ public class MrecSample : MonoBehaviour, IMrecAdListener
          * - to call the following method:
          */
         Appodeal.setMrecCallbacks(this);
+
+        /*
+         * To disable toast message "ACCESS_COARSE_LOCATION permission is missing",
+         * use the following method before the SDK initialization:
+         */
+        Appodeal.disableLocationPermissionCheck();
+
+        /*
+         * To disable toast-messages "WRITE_EXTERNAL_STORAGE permission is missing",
+         * use the following method before the SDK initialization:
+         */
+
+        Appodeal.disableWriteExternalStoragePermissionCheck();
     }
 
     private void OnGUI()
@@ -71,7 +84,7 @@ public class MrecSample : MonoBehaviour, IMrecAdListener
          * To show Appodeal.MREC use the following code:
          * For xPosition and yPosition use custom int value.
          */
-        Appodeal.showMrecView (Screen.currentResolution.height - Screen.currentResolution.height / 10, 
+        Appodeal.showMrecView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
             Appodeal.BANNER_HORIZONTAL_CENTER, "mrec_view");
     }
 
@@ -80,7 +93,7 @@ public class MrecSample : MonoBehaviour, IMrecAdListener
         /*
          * To hide Mrec use the following method:
          */
-        Appodeal.hideMrecView ();
+        Appodeal.hideMrecView();
     }
 
     /*
@@ -96,11 +109,32 @@ public class MrecSample : MonoBehaviour, IMrecAdListener
     }
 
     #region Mrec callback handlers
-    public void onMrecLoaded (bool precache) { print ("mrec loaded"); }
-    public void onMrecFailedToLoad () { print ("mrec failed"); }
-    public void onMrecShown () { print ("mrec opened"); }
-    public void onMrecClicked () { print ("mrec clicked"); }
-    public void onMrecExpired () { print ("mrec expired"); }
+
+    public void onMrecLoaded(bool precache)
+    {
+        Debug.Log("mrec loaded");
+    }
+
+    public void onMrecFailedToLoad()
+    {
+        Debug.Log("mrec failed");
+    }
+
+    public void onMrecShown()
+    {
+        Debug.Log("mrec opened");
+    }
+
+    public void onMrecClicked()
+    {
+        Debug.Log("mrec clicked");
+    }
+
+    public void onMrecExpired()
+    {
+        Debug.Log("mrec expired");
+    }
+
     #endregion
 
     private void initStyles()

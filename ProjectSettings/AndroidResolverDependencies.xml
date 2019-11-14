@@ -1,39 +1,42 @@
 <dependencies>
   <packages>
-    <package>com.android.support:recyclerview-v7:26.1.0</package>
-    <package>com.android.support:support-v4:26.1.0</package>
-    <package>com.google.android.exoplayer:exoplayer:2.8.4</package>
-    <package>com.google.android.gms:play-services-ads:15.0.1</package>
-    <package>com.google.android.gms:play-services-location:15.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:adcolony:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:admob:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:amazon_ads:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:applovin:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:appodeal:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:appodealx:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:chartboost:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:facebook:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:inmobi:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:inner-active:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:ironsource:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:mintegral:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:mraid:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:my_target:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:nast:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:ogury:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:smaato:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:startapp:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:tapjoy:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:unity_ads:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:vast:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:vungle:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:yandex:2.6.0.1</package>
+    <package>com.appodeal.ads.sdk:core:2.6.0</package>
   </packages>
-  <files>
-    <file>Assets/Plugins/Android/android.arch.core.common-1.0.0.jar</file>
-    <file>Assets/Plugins/Android/android.arch.lifecycle.common-1.0.0.jar</file>
-    <file>Assets/Plugins/Android/android.arch.lifecycle.runtime-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.customtabs-27.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.recyclerview-v7-27.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-annotations-27.0.0.jar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-compat-27.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-core-ui-27.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-core-utils-27.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-fragment-27.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-media-compat-27.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.android.support.support-v4-27.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-2.8.4.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-core-2.8.4.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-dash-2.8.4.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-hls-2.8.4.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-smoothstreaming-2.8.4.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.exoplayer.exoplayer-ui-2.8.4.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-gass-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-location-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-places-placereport-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-15.0.1.aar</file>
-  </files>
+  <files />
+  <settings>
+    <setting name="androidAbis" value="armeabi-v7a,x86" />
+    <setting name="bundleId" value="com.appodeal.test" />
+    <setting name="explodeAars" value="False" />
+    <setting name="gradleBuildEnabled" value="True" />
+    <setting name="gradleTemplateEnabled" value="True" />
+    <setting name="installAndroidPackages" value="False" />
+    <setting name="packageDir" value="Assets/Plugins/Android" />
+    <setting name="patchAndroidManifest" value="True" />
+    <setting name="patchMainTemplateGradle" value="True" />
+    <setting name="projectExportEnabled" value="False" />
+    <setting name="useJetifier" value="False" />
+  </settings>
 </dependencies>

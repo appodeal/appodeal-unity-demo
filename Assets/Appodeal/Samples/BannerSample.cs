@@ -68,6 +68,19 @@ public class BannerSample : MonoBehaviour, IBannerAdListener
          * - to call the following method:
          */
         Appodeal.setBannerCallbacks(this);
+
+        /*
+         * To disable toast message "ACCESS_COARSE_LOCATION permission is missing",
+         * use the following method before the SDK initialization:
+         */
+        Appodeal.disableLocationPermissionCheck();
+
+        /*
+         * To disable toast-messages "WRITE_EXTERNAL_STORAGE permission is missing",
+         * use the following method before the SDK initialization:
+         */
+
+        Appodeal.disableWriteExternalStoragePermissionCheck();
     }
 
     private void OnGUI()
@@ -118,27 +131,27 @@ public class BannerSample : MonoBehaviour, IBannerAdListener
 
     public void onBannerLoaded(bool precache)
     {
-        print("banner loaded");
+        Debug.Log("banner loaded");
     }
 
     public void onBannerFailedToLoad()
     {
-        print("banner failed");
+        Debug.Log("banner failed");
     }
 
     public void onBannerShown()
     {
-        print("banner opened");
+        Debug.Log("banner opened");
     }
 
     public void onBannerClicked()
     {
-        print("banner clicked");
+        Debug.Log("banner clicked");
     }
 
     public void onBannerExpired()
     {
-        print("banner expired");
+        Debug.Log("banner expired");
     }
 
     #endregion

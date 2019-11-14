@@ -1,0 +1,28 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+
+target 'Unity-iPhone' do
+  pod 'APDAdColonyAdapter', '2.6.0.1-Beta'
+  pod 'APDAmazonAdsAdapter', '2.6.0.1-Beta'
+  pod 'APDAppLovinAdapter', '2.6.0.1-Beta'
+  pod 'APDAppodealAdExchangeAdapter', '2.6.0.1-Beta'
+  pod 'APDChartboostAdapter', '2.6.0.1-Beta'
+  pod 'APDFacebookAudienceAdapter', '2.6.0.1-Beta'
+  pod 'APDGoogleAdMobAdapter', '2.6.0.1-Beta'
+  pod 'APDInMobiAdapter', '2.6.0.1-Beta'
+  pod 'APDInnerActiveAdapter', '2.6.0.1-Beta'
+  pod 'APDIronSourceAdapter', '2.6.0.1-Beta'
+  pod 'APDMintegralAdapter', '2.6.0.1-Beta'
+  pod 'APDMyTargetAdapter', '2.6.0.1-Beta'
+  pod 'APDOpenXAdapter', '2.6.0.1-Beta'
+  pod 'APDPubnativeAdapter', '2.6.0.1-Beta'
+  pod 'APDStartAppAdapter', '2.6.0.1-Beta'
+  pod 'APDTapjoyAdapter', '2.6.0.1-Beta'
+  pod 'APDUnityAdapter', '2.6.0.1-Beta'
+  pod 'APDVungleAdapter', '2.6.0.1-Beta'
+  pod 'APDYandexAdapter', '2.6.0.1-Beta'
+  pod 'Appodeal', '2.6.0-Beta'
+end
+
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!

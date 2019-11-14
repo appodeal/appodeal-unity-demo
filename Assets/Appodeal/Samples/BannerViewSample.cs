@@ -68,6 +68,19 @@ public class BannerViewSample : MonoBehaviour, IBannerAdListener
          * - to call the following method:
          */
         Appodeal.setBannerCallbacks(this);
+
+        /*
+         * To disable toast message "ACCESS_COARSE_LOCATION permission is missing",
+         * use the following method before the SDK initialization:
+         */
+        Appodeal.disableLocationPermissionCheck();
+
+        /*
+         * To disable toast-messages "WRITE_EXTERNAL_STORAGE permission is missing",
+         * use the following method before the SDK initialization:
+         */
+
+        Appodeal.disableWriteExternalStoragePermissionCheck();
     }
 
     private void OnGUI()
@@ -77,7 +90,8 @@ public class BannerViewSample : MonoBehaviour, IBannerAdListener
         if (GUI.Button(new Rect(widthScale, heightScale, buttonWidth, buttonHeight), "INITIALIZE", buttonStyle))
             init();
 
-        if (GUI.Button(new Rect(widthScale, heightScale + 1 * heightScale, buttonWidth, buttonHeight), "SHOW BANNER VIEW",
+        if (GUI.Button(new Rect(widthScale, heightScale + 1 * heightScale, buttonWidth, buttonHeight),
+            "SHOW BANNER VIEW",
             buttonStyle))
             showBannerView();
 
@@ -103,7 +117,7 @@ public class BannerViewSample : MonoBehaviour, IBannerAdListener
          * and Screen.currentResolution.height with a constant value.
          * To show Appodeal.BANNER_VIEW use the following code:
          */
-        Appodeal.showBannerView (Screen.currentResolution.height - Screen.currentResolution.height / 10, 
+        Appodeal.showBannerView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
             Appodeal.BANNER_HORIZONTAL_CENTER, "banner_view");
     }
 
@@ -112,7 +126,7 @@ public class BannerViewSample : MonoBehaviour, IBannerAdListener
         /*
          * To hide banner view use the following method:
          */
-        Appodeal.hideBannerView ();
+        Appodeal.hideBannerView();
     }
 
     /*
@@ -131,27 +145,27 @@ public class BannerViewSample : MonoBehaviour, IBannerAdListener
 
     public void onBannerLoaded(bool precache)
     {
-        print("banner loaded");
+        Debug.Log("banner loaded");
     }
 
     public void onBannerFailedToLoad()
     {
-        print("banner failed");
+        Debug.Log("banner failed");
     }
 
     public void onBannerShown()
     {
-        print("banner opened");
+        Debug.Log("banner opened");
     }
 
     public void onBannerClicked()
     {
-        print("banner clicked");
+        Debug.Log("banner clicked");
     }
 
     public void onBannerExpired()
     {
-        print("banner expired");
+        Debug.Log("banner expired");
     }
 
     #endregion

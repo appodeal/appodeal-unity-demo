@@ -45,6 +45,19 @@ public class NonSkippableVideoSample : MonoBehaviour, INonSkippableVideoAdListen
          * - to call the following method:
          */
         Appodeal.setNonSkippableVideoCallbacks(this);
+
+        /*
+         * To disable toast message "ACCESS_COARSE_LOCATION permission is missing",
+         * use the following method before the SDK initialization:
+         */
+        Appodeal.disableLocationPermissionCheck();
+
+        /*
+         * To disable toast-messages "WRITE_EXTERNAL_STORAGE permission is missing",
+         * use the following method before the SDK initialization:
+         */
+
+        Appodeal.disableWriteExternalStoragePermissionCheck();
     }
 
     private void showNonSkippableVideo()
@@ -59,12 +72,42 @@ public class NonSkippableVideoSample : MonoBehaviour, INonSkippableVideoAdListen
     }
 
     #region Non Skippable Video callback handlers
-    public void onNonSkippableVideoLoaded (bool isPrecache) { Debug.Log ("NonSkippable Video loaded"); }
-    public void onNonSkippableVideoFailedToLoad () { Debug.Log ("NonSkippable Video failed to load"); }
-    public void onNonSkippableVideoShown () { Debug.Log ("NonSkippable Video opened"); }
-    public void onNonSkippableVideoClosed (bool isFinished) { Debug.Log ("NonSkippable Video, finished:" + isFinished); }
-    public void onNonSkippableVideoFinished () { Debug.Log ("NonSkippable Video finished"); }
-    public void onNonSkippableVideoExpired () { Debug.Log ("NonSkippable Video expired"); }
+
+    public void onNonSkippableVideoLoaded(bool isPrecache)
+    {
+        Debug.Log("NonSkippable Video loaded");
+    }
+
+    public void onNonSkippableVideoFailedToLoad()
+    {
+        Debug.Log("NonSkippable Video failed to load");
+    }
+
+    public void onNonSkippableVideoShowFailed()
+    {
+        Debug.Log("NonSkippable Video show failed");
+    }
+
+    public void onNonSkippableVideoShown()
+    {
+        Debug.Log("NonSkippable Video opened");
+    }
+
+    public void onNonSkippableVideoClosed(bool isFinished)
+    {
+        Debug.Log("NonSkippable Video, finished:" + isFinished);
+    }
+
+    public void onNonSkippableVideoFinished()
+    {
+        Debug.Log("NonSkippable Video finished");
+    }
+
+    public void onNonSkippableVideoExpired()
+    {
+        Debug.Log("NonSkippable Video expired");
+    }
+
     #endregion
 
     private void OnGUI()

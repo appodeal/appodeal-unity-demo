@@ -45,6 +45,19 @@ public class RewardedVideoSample : MonoBehaviour, IRewardedVideoAdListener
          * - to call the following method:
          */
         Appodeal.setRewardedVideoCallbacks(this);
+
+        /*
+         * To disable toast message "ACCESS_COARSE_LOCATION permission is missing",
+         * use the following method before the SDK initialization:
+         */
+        Appodeal.disableLocationPermissionCheck();
+
+        /*
+         * To disable toast-messages "WRITE_EXTERNAL_STORAGE permission is missing",
+         * use the following method before the SDK initialization:
+         */
+
+        Appodeal.disableWriteExternalStoragePermissionCheck();
     }
 
     private void showRewardedVideo()
@@ -59,13 +72,47 @@ public class RewardedVideoSample : MonoBehaviour, IRewardedVideoAdListener
     }
 
     #region Rewarded Video callback handlers
-    public void onRewardedVideoLoaded (bool isPrecache) {print ("Appodeal. Video loaded");}
-    public void onRewardedVideoFailedToLoad () { print ("Appodeal. Video failed"); }
-    public void onRewardedVideoShown () { print ("Appodeal. Video shown"); }
-    public void onRewardedVideoClosed (bool finished) { print ("Appodeal. Video closed"); }
-    public void onRewardedVideoFinished (double amount, string name) { print ("Appodeal. Reward: " + amount + " " + name); }
-    public void onRewardedVideoExpired () { print ("Appodeal. Video expired"); }
-    public void onRewardedVideoClicked () { print ("Appodeal. Video clicked"); }
+
+    public void onRewardedVideoLoaded(bool isPrecache)
+    {
+        Debug.Log("Appodeal. Video loaded");
+    }
+
+    public void onRewardedVideoFailedToLoad()
+    {
+        Debug.Log("Appodeal. Video failed");
+    }
+
+    public void onRewardedVideoShowFailed()
+    {
+        Debug.Log("Appodeal. RewardedVideo show failed");
+    }
+
+    public void onRewardedVideoShown()
+    {
+        Debug.Log("Appodeal. Video shown");
+    }
+
+    public void onRewardedVideoClosed(bool finished)
+    {
+        Debug.Log("Appodeal. Video closed");
+    }
+
+    public void onRewardedVideoFinished(double amount, string name)
+    {
+        Debug.Log("Appodeal. Reward: " + amount + " " + name);
+    }
+
+    public void onRewardedVideoExpired()
+    {
+        Debug.Log("Appodeal. Video expired");
+    }
+
+    public void onRewardedVideoClicked()
+    {
+        Debug.Log("Appodeal. Video clicked");
+    }
+
     #endregion
 
     private void OnGUI()
@@ -76,7 +123,8 @@ public class RewardedVideoSample : MonoBehaviour, IRewardedVideoAdListener
             initAppodealSdk();
 
 
-        if (GUI.Button(new Rect(widthScale, heightScale + heightScale, buttonWidth, buttonHeight), "SHOW REWARDED VIDEO",
+        if (GUI.Button(new Rect(widthScale, heightScale + heightScale, buttonWidth, buttonHeight),
+            "SHOW REWARDED VIDEO",
             buttonStyle))
             showRewardedVideo();
     }
