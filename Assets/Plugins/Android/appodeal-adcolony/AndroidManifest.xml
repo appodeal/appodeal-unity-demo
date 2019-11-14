@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.adcolony.adcolonysdk"
+          android:versionCode="1"
+          android:versionName="1.0">
+
+    <uses-sdk
+            android:minSdkVersion="16"
+            android:targetSdkVersion="27"/>
+    <application>
+        <!-- Adcolony -->
+        <activity
+                android:name="com.adcolony.sdk.AdColonyInterstitialActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:hardwareAccelerated="true" />
+        <activity
+                android:name="com.adcolony.sdk.AdColonyAdViewActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:hardwareAccelerated="true" />
+        <!-- End Adcolony -->
+    </application>
+
+</manifest>

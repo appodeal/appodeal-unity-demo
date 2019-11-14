@@ -1,0 +1,8 @@
+# Yandex
+-keep class com.yandex.mobile.ads.** { *; }
+-dontwarn com.yandex.mobile.ads.**
+-keepattributes *Annotation*
+-keep class com.android.installreferrer.api.* { *; }
+-dontwarn com.android.installreferrer.api.*
+-keep class com.google.protobuf.nano.ym.* { *; }
+-dontwarn com.google.protobuf.nano.ym.*

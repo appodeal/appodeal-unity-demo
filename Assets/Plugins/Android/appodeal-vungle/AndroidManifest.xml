@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+          package="com.appodeal.vungle.unity">
+    <uses-sdk
+            android:minSdkVersion="16"
+            android:targetSdkVersion="27"/>
+    <application>
+        <!-- Vungle -->
+        <!--suppress AndroidDomInspection -->
+        <activity
+                android:name="com.vungle.warren.ui.VungleActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+                android:launchMode="singleTop"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity
+                android:name="com.vungle.warren.ui.VungleWebViewActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+                android:launchMode="singleTop"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity
+                android:name="com.vungle.warren.ui.VungleFlexViewActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+                android:launchMode="singleTop"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <!-- End Vungle -->
+    </application>
+</manifest>

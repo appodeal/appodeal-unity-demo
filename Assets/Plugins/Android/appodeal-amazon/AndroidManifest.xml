@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+          package="com.appodeal.amazonads.unity">
+    <uses-sdk
+            android:minSdkVersion="16"
+            android:targetSdkVersion="27"/>
+    <application>
+        <!-- Amazon_ads -->
+        <activity android:name="com.amazon.device.ads.AdActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <!-- End Amazon_ads -->
+    </application>
+</manifest>

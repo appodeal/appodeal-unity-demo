@@ -1,0 +1,35 @@
+# Vungle
+-keep class com.vungle.warren.** { *; }
+-dontwarn com.vungle.warren.error.VungleError$ErrorCode
+
+# Vungle/Moat SDK
+-keep class com.moat.** { *; }
+-dontwarn com.moat.**
+
+# Vungle/Fetch
+-keepnames class com.tonyodev.fetch.Fetch
+
+# Vungle/Okio
+-keepnames class okio.Okio
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+
+# Vungle/Retrofit
+-dontwarn okio.**
+-dontwarn retrofit2.Platform$Java8
+-keepnames class retrofit2.converter.gson.GsonConverterFactory
+-keepnames class retrofit2.Retrofit
+
+# Vungle/Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn sun.misc.**
+-keep class com.google.gson.** { *; }
+
+# Vungle/Google Android Advertising ID
+-keep class com.google.android.gms.internal.** { *; }
+-dontwarn com.google.android.gms.ads.identifier.**
+
+# Vungle/okhttp3
+-keep class okhttp3.logging.HttpLoggingInterceptor
+-keepnames class okhttp3.HttpUrl
+
