@@ -4,18 +4,15 @@
 
 # Integration
 
-- import Appodeal nodex plugin to appodeal-unity-demo project 
-
-[![](https://img.shields.io/badge/download-nodex-green.svg)](https://appodeal-unity.s3.amazonaws.com/Appodeal-Unity-2.8.58-140819-nodex.unitypackage)
-
-- add sample script for selected scene in inspector
+https://wiki.appodeal.com/display/DE/Beta+Unity+SDK.+Integration+Guide
 
 ## Changelog
 
-2.8.58 (14/08/2019)
+2.9.0 (14/11/2019)
 
-+ Update Appodeal iOS SDK to 2.5.8
-+ Update Appodeal Android SDK to 2.5.7
-+ Mintegral updated to 9.13.21
-+ Remove CrushHunter
-+ Fix remove plugin script
++ Updated Appodeal iOS SDK to 2.6.0
++ Updated Appodeal Android SDK to 2.6.0
++ Added Play Services Resolver
++ Removed internal iOS adapters and framework
++ Removed Ionic lib 
++ Updated internal checker scripts
