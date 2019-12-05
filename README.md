@@ -5,9 +5,8 @@
 
 ## Changelog
 
-2.8.62 (November 5, 2019)
+2.8.63 (December 5, 2019)
 
-+ Updated Appodeal iOS SDK to 2.5.13
-+ Updated Appodeal Android SDK to 2.5.10
-+ Added availability to update GDPR consent status after SDK was initialized
++ Updated Appodeal iOS SDK to 2.5.14
++ Fixed target issue on Unity 2019.3
 
