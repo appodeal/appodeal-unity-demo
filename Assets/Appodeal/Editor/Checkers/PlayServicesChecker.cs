@@ -25,6 +25,7 @@ namespace AppodealAds.Unity.Editor.Checkers {
 
 		public override List<FixProblemInstruction> check () {
 			List<FixProblemInstruction> instructions = new List<FixProblemInstruction> ();
+			string appodealDependenciesFile = getAppodealDependenciesFile ();
 			Regex reAar = new Regex (@"play-services.+-(?<version>\d+\.\d+(\.\d+)*)");
 
 			string[] aarFiles = getPlayServicesAarFiles ();

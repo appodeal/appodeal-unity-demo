@@ -37,6 +37,12 @@ public class RemoveHelper
     private const string PLAY_SERVICES_PLUGIN = "Unity-Google-Play-Services";
     private const string UNITY_PLUGIN = "Appodeal-Unity-";
 
+    static string[] pathsToSearchNetworksFiles = {
+        Path.Combine(Application.dataPath, "Appodeal/Adapters"),
+        Path.Combine(Application.dataPath, "Plugins/Android"),
+        Path.Combine(Application.dataPath, "Plugins/Android/appodeal/assets/dex")
+    };
+
     static RemoveHelper()
     {
         AssetDatabase.importPackageStarted += importPackageStartedListener;
