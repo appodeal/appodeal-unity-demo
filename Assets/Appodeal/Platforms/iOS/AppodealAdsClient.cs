@@ -221,9 +221,9 @@ namespace AppodealAds.Unity.iOS {
 
 		#region Banner Delegate
 		[MonoPInvokeCallback (typeof (AppodealBannerDidLoadCallback))]
-		static void bannerDidLoadAd (bool isPrecache) {
+		static void bannerDidLoadAd (int height, bool isPrecache) {
 			if (bannerListener != null) {
-				bannerListener.onBannerLoaded (isPrecache);
+				bannerListener.onBannerLoaded (height, isPrecache);
 			}
 		}
 
@@ -249,9 +249,9 @@ namespace AppodealAds.Unity.iOS {
 		}
 
 		[MonoPInvokeCallback (typeof (AppodealBannerViewDidLoadCallback))]
-		static void bannerViewDidLoadAd (bool isPrecache) {
+		static void bannerViewDidLoadAd (int height, bool isPrecache) {
 			if (bannerListener != null) {
-				bannerListener.onBannerLoaded (isPrecache);
+				bannerListener.onBannerLoaded(height, isPrecache);
 			}
 		}
 
@@ -295,28 +295,28 @@ namespace AppodealAds.Unity.iOS {
 		#endregion
 
 		#region Mrec Delegate
-		[MonoPInvokeCallback (typeof (AppodealBannerViewDidLoadCallback))]
+		[MonoPInvokeCallback (typeof (AppodealMrecViewDidLoadCallback))]
 		static void mrecViewDidLoadAd (bool isPrecache) {
 			if (mrecListener != null) {
 				mrecListener.onMrecLoaded (isPrecache);
 			}
 		}
 
-		[MonoPInvokeCallback (typeof (AppodealBannerViewCallbacks))]
+		[MonoPInvokeCallback (typeof (AppodealMrecViewCallbacks))]
 		static void mrecViewDidFailToLoadAd () {
 			if (mrecListener != null) {
 				mrecListener.onMrecFailedToLoad ();
 			}
 		}
 
-		[MonoPInvokeCallback (typeof (AppodealBannerViewCallbacks))]
+		[MonoPInvokeCallback (typeof (AppodealMrecViewCallbacks))]
 		static void mrecViewDidClick () {
 			if (mrecListener != null) {
 				mrecListener.onMrecClicked ();
 			}
 		}
 
-		[MonoPInvokeCallback (typeof (AppodealBannerViewCallbacks))]
+		[MonoPInvokeCallback (typeof (AppodealMrecViewCallbacks))]
 		static void mrecViewDidExpired () {
 			if (mrecListener != null) {
 				mrecListener.onMrecExpired ();
@@ -326,7 +326,7 @@ namespace AppodealAds.Unity.iOS {
 		public void setMrecCallbacks (IMrecAdListener listener) {
 			mrecListener = listener;
 
-			AppodealObjCBridge.AppodealSetBannerViewDelegate (
+			AppodealObjCBridge.AppodealSetMrecViewDelegate (
 				mrecViewDidLoadAd,
 				mrecViewDidFailToLoadAd,
 				mrecViewDidClick,

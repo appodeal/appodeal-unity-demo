@@ -207,7 +207,7 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 	}
 
 	#region Banner callback handlers
-	public void onBannerLoaded (bool precache) { print ("banner loaded"); }
+	public void onBannerLoaded (int height, bool precache) { print ("banner loaded"); }
 	public void onBannerFailedToLoad () { print ("banner failed"); }
 	public void onBannerShown () { print ("banner opened"); }
 	public void onBannerClicked () { print ("banner clicked"); }

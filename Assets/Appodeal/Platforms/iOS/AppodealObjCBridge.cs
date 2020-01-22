@@ -10,9 +10,9 @@ namespace AppodealAds.Unity.iOS {
 	internal delegate void AppodealNonSkippableVideoDidLoadCallback (bool isPrecache);
 	internal delegate void AppodealNonSkippableVideoDidDismissCallback (bool isFinished);
 	internal delegate void AppodealBannerCallbacks ();
-	internal delegate void AppodealBannerDidLoadCallback (bool isPrecache);
+	internal delegate void AppodealBannerDidLoadCallback (int height, bool isPrecache);
 	internal delegate void AppodealBannerViewCallbacks ();
-	internal delegate void AppodealBannerViewDidLoadCallback (bool isPrecache);
+	internal delegate void AppodealBannerViewDidLoadCallback (int height, bool isPrecache);
 	internal delegate void AppodealMrecViewCallbacks ();
 	internal delegate void AppodealMrecViewDidLoadCallback (bool isPrecache);
 	internal delegate void AppodealRewardedVideoCallbacks ();
@@ -198,10 +198,10 @@ namespace AppodealAds.Unity.iOS {
 
 		[DllImport ("__Internal")]
 		internal static extern void AppodealSetMrecViewDelegate (
-			AppodealBannerDidLoadCallback mrecDidLoadAd,
-			AppodealBannerCallbacks mrecDidFailToLoadAd,
-			AppodealBannerCallbacks mrecDidClick,
-			AppodealBannerCallbacks mrecDidExpired
+			AppodealMrecViewDidLoadCallback mrecDidLoadAd,
+			AppodealMrecViewCallbacks mrecDidFailToLoadAd,
+			AppodealMrecViewCallbacks mrecDidClick,
+			AppodealMrecViewCallbacks mrecDidExpired
 		);
 
 	}

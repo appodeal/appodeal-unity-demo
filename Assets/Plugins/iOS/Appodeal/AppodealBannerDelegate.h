@@ -2,7 +2,7 @@
 #import <Appodeal/Appodeal.h>
 
 typedef void (*AppodealBannerCallbacks) ();
-typedef void (*AppodealBannerDidLoadCallback) (BOOL isPrecache);
+typedef void (*AppodealBannerDidLoadCallback) (int height, BOOL isPrecache);
 
 @interface AppodealBannerDelegate : NSObject <AppodealBannerDelegate>
 

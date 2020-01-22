@@ -4,8 +4,9 @@
 
 
 -(void) bannerDidLoadAdIsPrecache:(BOOL)precache {
+    int height = (int)(Appodeal.banner.bounds.size.height);
     if(self.bannerDidLoadAdCallback) {
-        self.bannerDidLoadAdCallback(precache);
+        self.bannerDidLoadAdCallback(height, precache);
     }
 }
 
