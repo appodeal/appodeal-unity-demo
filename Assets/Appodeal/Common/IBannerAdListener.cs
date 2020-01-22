@@ -1,6 +1,6 @@
 ﻿namespace AppodealAds.Unity.Common {
 	public interface IBannerAdListener {
-		void onBannerLoaded (bool isPrecache);
+		void onBannerLoaded (int height, bool isPrecache);
 		void onBannerFailedToLoad ();
 		void onBannerShown ();
 		void onBannerClicked ();

@@ -3,8 +3,9 @@
 @implementation AppodealBannerViewDelegate
 
 - (void)bannerViewDidLoadAd:(APDBannerView *)bannerView isPrecache:(BOOL)precache {
+    int height = (int)(Appodeal.banner.bounds.size.height);
     if(self.bannerViewDidLoadAdCallback) {
-        self.bannerViewDidLoadAdCallback(precache);
+        self.bannerViewDidLoadAdCallback(height,precache);
     }
 }
 

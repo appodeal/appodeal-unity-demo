@@ -61,7 +61,7 @@ namespace Appodeal.Unity.Editor.iOS
                 PlistDocument plist = new PlistDocument();
                 plist.ReadFromString(File.ReadAllText(plistPath));
                 PlistElementDict rootDict = plist.root;
-                rootDict.SetString("GADApplicationIdentifier", "ca-app-pub-3940256099942544~1458002511");
+                //rootDict.SetString("GADApplicationIdentifier", "ca-app-pub-3940256099942544~1458002511");
                 File.WriteAllText(plistPath, plist.WriteToString());
             }
         }

@@ -12,7 +12,7 @@ namespace AppodealAds.Unity.Android {
 			}
 
 			void onBannerLoaded (int height, bool isPrecache) {
-				listener.onBannerLoaded (isPrecache);
+				listener.onBannerLoaded (height, isPrecache);
 			}
 
 			void onBannerFailedToLoad () {
