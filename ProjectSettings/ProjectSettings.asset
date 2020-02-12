@@ -673,7 +673,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   scriptingDefineSymbols: {}
   platformArchitecture:
-    iOS: 0
+    iOS: 2
   scriptingBackend:
     Android: 0
     Standalone: 0
