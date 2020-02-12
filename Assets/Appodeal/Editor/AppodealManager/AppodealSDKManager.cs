@@ -10,6 +10,7 @@ using System.Xml;
 using marijnz.EditorCoroutines;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Networking;
 using static marijnz.EditorCoroutines.EditorCoroutines;
 
 
@@ -942,7 +943,7 @@ namespace Appodeal.Editor.AppodealManager
                             if (podName == null)
                             {
                                 Debug.Log(
-                                    "Pod name not specified while reading {AppodealDependencies}:{reader.LineNumber}\n");
+                                    $"Pod name not specified while reading {AppodealDependencies}:{reader.LineNumber}\n");
                                 return false;
                             }
                         }
