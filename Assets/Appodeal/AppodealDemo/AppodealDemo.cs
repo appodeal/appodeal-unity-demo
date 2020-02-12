@@ -199,19 +199,19 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 
     public void showBanner()
     {
-        Appodeal.show(Appodeal.BANNER_BOTTOM, "banner_button_click");
+        Appodeal.show(Appodeal.BANNER_BOTTOM, "default");
     }
 
     public void showBannerView()
     {
         Appodeal.showBannerView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
-            Appodeal.BANNER_HORIZONTAL_CENTER, "banner_view");
+            Appodeal.BANNER_HORIZONTAL_CENTER, "default");
     }
 
     public void showMrecView()
     {
         Appodeal.showMrecView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
-            Appodeal.BANNER_HORIZONTAL_CENTER, "mrec_view");
+            Appodeal.BANNER_HORIZONTAL_CENTER, "default");
     }
 
     public void hideBanner()
