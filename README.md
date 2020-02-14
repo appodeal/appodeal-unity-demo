@@ -5,6 +5,11 @@
 
 ## Changelog
 
+2.9.2 (14/02/2020)
+
++ Updated Appodeal iOS SDK to 2.6.2
++ Updated Appodeal Android SDK to 2.6.1
+
 2.9.1 (12/02/2020)
 
 + Updated Appodeal iOS SDK to 2.6.1
