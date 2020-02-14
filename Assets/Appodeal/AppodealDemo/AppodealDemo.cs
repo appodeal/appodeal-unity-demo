@@ -199,19 +199,19 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 
     public void showBanner()
     {
-        Appodeal.show(Appodeal.BANNER_BOTTOM, "default");
+        Appodeal.show(Appodeal.BANNER_BOTTOM, "banner_button_click");
     }
 
     public void showBannerView()
     {
         Appodeal.showBannerView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
-            Appodeal.BANNER_HORIZONTAL_CENTER, "default");
+            Appodeal.BANNER_HORIZONTAL_CENTER, "banner_view");
     }
 
     public void showMrecView()
     {
         Appodeal.showMrecView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
-            Appodeal.BANNER_HORIZONTAL_CENTER, "default");
+            Appodeal.BANNER_HORIZONTAL_CENTER, "mrec_view");
     }
 
     public void hideBanner()
@@ -242,7 +242,7 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
     public void onBannerLoaded(int height, bool precache)
     {
         print("banner loaded");
-        print("onBannerLoaded. Banner height - {height}");
+        print($"onBannerLoaded. Banner height - {height}");
     }
 
     public void onBannerFailedToLoad()

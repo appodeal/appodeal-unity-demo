@@ -1,7 +1,6 @@
 <dependencies>
     <androidPackages>
-
-        <androidPackage spec='com.appodeal.ads.sdk:core:2.6.0'>
+        <androidPackage spec='com.appodeal.ads.sdk:core:2.6.1'>
             <repositories>
                 <repository>https://artifactory.appodeal.com/appodeal</repository>
             </repositories>
@@ -28,30 +27,30 @@
         <androidPackage spec='com.appodeal.ads.sdk.networks:tapjoy:2.6.0.2'/>
         <androidPackage spec='com.appodeal.ads.sdk.networks:unity_ads:2.6.0.2'/>
         <androidPackage spec='com.appodeal.ads.sdk.networks:vungle:2.6.0.1'/>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:yandex:2.6.0.2'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:yandex:2.6.0.1'/>
     </androidPackages>
     <iosPods>
-        <iosPod name='Appodeal' version='2.6.1' minTargetSdk='9.0'/>
-        <iosPod name='APDOguryAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDOpenXAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDMyTargetAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDAdColonyAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDAppLovinAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDAmazonAdsAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDAppodealAdExchangeAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDChartboostAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDFacebookAudienceAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDGoogleAdMobAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDInMobiAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDInnerActiveAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDIronSourceAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDMintegralAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDPubnativeAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDSmaatoAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDStartAppAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDTapjoyAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDVungleAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDYandexAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
-        <iosPod name='APDUnityAdapter' version='2.6.1.1' minTargetSdk='9.0'/>
+        <iosPod name='Appodeal' version='2.6.2' minTargetSdk='9.0'/>
+        <iosPod name='APDOguryAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDOpenXAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDMyTargetAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDAdColonyAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDAppLovinAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDAmazonAdsAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDAppodealAdExchangeAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDChartboostAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDFacebookAudienceAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDGoogleAdMobAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDInMobiAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDInnerActiveAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDIronSourceAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDMintegralAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDPubnativeAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDSmaatoAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDStartAppAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDTapjoyAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDVungleAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDYandexAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
+        <iosPod name='APDUnityAdapter' version='2.6.2.1' minTargetSdk='9.0'/>
     </iosPods>
 </dependencies>
