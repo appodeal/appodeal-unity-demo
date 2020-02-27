@@ -11,7 +11,7 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 #elif UNITY_ANDROID
 	string appKey = "fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f";
 #elif UNITY_IPHONE
-	string appKey = "4b46ef930cd37cf11da84ae4d41019abb7234d5bbce3f000";
+	string appKey = "466de0d625e01e8811c588588a42a55970bc7c132649eede";
 #else
 	string appKey = "";
 #endif
@@ -199,19 +199,19 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 
     public void showBanner()
     {
-        Appodeal.show(Appodeal.BANNER_BOTTOM, "banner_button_click");
+        Appodeal.show(Appodeal.BANNER_BOTTOM, "default");
     }
 
     public void showBannerView()
     {
         Appodeal.showBannerView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
-            Appodeal.BANNER_HORIZONTAL_CENTER, "banner_view");
+            Appodeal.BANNER_HORIZONTAL_CENTER, "default");
     }
 
     public void showMrecView()
     {
         Appodeal.showMrecView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
-            Appodeal.BANNER_HORIZONTAL_CENTER, "mrec_view");
+            Appodeal.BANNER_HORIZONTAL_CENTER, "default");
     }
 
     public void hideBanner()
@@ -242,7 +242,6 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
     public void onBannerLoaded(int height, bool precache)
     {
         print("banner loaded");
-        print($"onBannerLoaded. Banner height - {height}");
     }
 
     public void onBannerFailedToLoad()

@@ -259,7 +259,7 @@ public class AppodealUnityUtils
 
         return profilerOutput;
     }
-
+#if UNITY_2018_1_OR_NEWER
     public static int CompareVersion(string interal, string latest)
     {
         var xParts = interal.Split('.');
@@ -309,7 +309,7 @@ public class AppodealUnityUtils
                     integration = "<androidPackage spec='" + AppodealSDKManager.ReplaceDependencyValue + name + ":" +
                                   version + "'/>";
                 }
-              
+
                 break;
             case Platform.Ios:
                 integration = "<iosPod name='" + name + "'" + " version='" + version + "'" + " minTargetSdk='" + "9.0" +
@@ -354,9 +354,10 @@ public class AppodealUnityUtils
     {
         return value.Replace(AppodealSDKManager.ReplaceDependencyValue + name + ":", string.Empty);
     }
-    
+
     public static string GetDependencyCoreVersion(string value, string name)
     {
         return value.Replace(AppodealSDKManager.ReplaceDependencyCoreValue + name + ":", string.Empty);
     }
+#endif
 }
