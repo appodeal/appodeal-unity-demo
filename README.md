@@ -5,6 +5,19 @@
 
 ## Changelog
 
+2.9.4 (26/03/2020)
+
++ Updated Appodeal Android SDK to 2.6.3
++ Updated Appodeal iOS SDK to 2.6.3
++ Updated Play Services Resolver to 1.2.136.0
++ Fixed plugin warnings
+
+
+2.9.3 (28/02/2020)
+
++ Removed Mintegral adapter
++ Updated Appodeal Android SDK to 2.6.2
+
 2.9.2 (14/02/2020)
 
 + Updated Appodeal iOS SDK to 2.6.2
