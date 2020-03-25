@@ -1,14 +1,15 @@
-using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using AppodealAds.Unity.Common;
-using UnityEngine;
 
 namespace AppodealAds.Unity.Android
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedParameter.Local")]
     public class AppodealNonSkippableVideoCallbacks
 #if UNITY_ANDROID
-        : AndroidJavaProxy
+        : UnityEngine.AndroidJavaProxy
     {
-        INonSkippableVideoAdListener listener;
+        private readonly INonSkippableVideoAdListener listener;
 
         internal AppodealNonSkippableVideoCallbacks(INonSkippableVideoAdListener listener) : base(
             "com.appodeal.ads.NonSkippableVideoCallbacks")
@@ -16,46 +17,46 @@ namespace AppodealAds.Unity.Android
             this.listener = listener;
         }
 
-        void onNonSkippableVideoLoaded(bool isPrecache)
+        public void onNonSkippableVideoLoaded(bool isPrecache)
         {
             listener.onNonSkippableVideoLoaded(isPrecache);
         }
 
-        void onNonSkippableVideoFailedToLoad()
+        public void onNonSkippableVideoFailedToLoad()
         {
             listener.onNonSkippableVideoFailedToLoad();
         }
 
-        void onNonSkippableVideoShowFailed()
+        public void onNonSkippableVideoShowFailed()
         {
             listener.onNonSkippableVideoShowFailed();
         }
 
-        void onNonSkippableVideoShown()
+        public void onNonSkippableVideoShown()
         {
             listener.onNonSkippableVideoShown();
         }
 
-        void onNonSkippableVideoFinished()
+        public void onNonSkippableVideoFinished()
         {
             listener.onNonSkippableVideoFinished();
         }
 
-        void onNonSkippableVideoClosed(bool finished)
+        public void onNonSkippableVideoClosed(bool finished)
         {
             listener.onNonSkippableVideoClosed(finished);
         }
 
-        void onNonSkippableVideoExpired()
+        public void onNonSkippableVideoExpired()
         {
             listener.onNonSkippableVideoExpired();
         }
     }
 #else
     {
-    public AppodealNonSkippableVideoCallbacks(INonSkippableVideoAdListener listener)
-    {
-    }
+        public AppodealNonSkippableVideoCallbacks(INonSkippableVideoAdListener listener)
+        {
+        }
     }
 #endif
 }

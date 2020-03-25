@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
+// ReSharper disable All
+#pragma warning disable 414
 
 namespace Unity.Appodeal.Xcode.PBX
 {

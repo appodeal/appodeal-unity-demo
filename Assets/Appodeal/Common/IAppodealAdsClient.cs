@@ -1,7 +1,10 @@
-﻿using AppodealAds.Unity.Api;
+﻿using System.Diagnostics.CodeAnalysis;
+using AppodealAds.Unity.Api;
 
 namespace AppodealAds.Unity.Common
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public interface IAppodealAdsClient
     {
         void initialize(string appKey, int type);

@@ -1,9 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
+using Appodeal.Unity.Editor;
 using UnityEditor;
 
 namespace AppodealAds.Unity.Editor.Checkers
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "ExpressionIsAlwaysNull")]
     public class PlatformChecker : CheckingStep
     {
         public enum platforms
@@ -14,55 +20,51 @@ namespace AppodealAds.Unity.Editor.Checkers
             editor
         }
 
-        private Dictionary<string, platforms> NATIVE_PLUGINS = new Dictionary<string, platforms>
+        private readonly Dictionary<string, platforms> NATIVE_PLUGINS = new Dictionary<string, platforms>
         {
             {"Assets/Plugins/Android/*", platforms.android}
         };
 
-        override public string getName()
+        public override string getName()
         {
             return "Platform and Architecture Settings";
         }
 
         public override bool isRequiredForPlatform(BuildTarget target)
         {
-            if (target == BuildTarget.Android || target == BuildTarget.iOS) return true;
-            return false;
+            return target == BuildTarget.Android || target == BuildTarget.iOS;
         }
 
-        override public List<FixProblemInstruction> check()
+        public override List<FixProblemInstruction> check()
         {
-            List<FixProblemInstruction> fixInstructions = new List<FixProblemInstruction>();
-            foreach (KeyValuePair<string, platforms> plugin in NATIVE_PLUGINS)
+            var fixInstructions = new List<FixProblemInstruction>();
+            foreach (var plugin in NATIVE_PLUGINS)
             {
-                string absolutePuginPath = AppodealUnityUtils.relative2Absolute(plugin.Key);
-                bool isFile = File.Exists(absolutePuginPath);
-                bool isDirectory = Directory.Exists(absolutePuginPath);
-                bool isAllDirectoryContent = absolutePuginPath.EndsWith("/*", false, null);
+                var absolutePluginPath = AppodealUnityUtils.relative2Absolute(plugin.Key);
+                var isFile = File.Exists(absolutePluginPath);
+                var isDirectory = Directory.Exists(absolutePluginPath);
+                var isAllDirectoryContent = absolutePluginPath.EndsWith("/*", false, null);
                 if (!isFile && !isDirectory && !isAllDirectoryContent)
                 {
-                    string desc = "File or directory " + plugin.Key +
-                                  " does not exist. You should try to reimport Appodeal plugin.";
-                    FixProblemInstruction instr = new FixProblemInstruction(desc, false);
+                    var desc = "File or directory " + plugin.Key +
+                               " does not exist. You should try to reimport Appodeal plugin.";
+                    var instr = new FixProblemInstruction(desc, false);
                     fixInstructions.Add(instr);
                     continue;
                 }
 
                 if (isFile || isDirectory)
                 {
-                    FixProblemInstruction instr = checkAndGetInstruction(plugin.Key, plugin.Value);
+                    var instr = checkAndGetInstruction(plugin.Key, plugin.Value);
                     if (instr != null) fixInstructions.Add(instr);
                 }
 
                 if (isAllDirectoryContent)
                 {
-                    //string[] nativeAndroidPlugins = Directory.GetFileSystemEntries(absolutePuginPath.TrimEnd("/*".ToCharArray()));
-                    foreach (string folder in AppodealAssetsPostProcess.Plugins)
-                    {
-                        string pluginPath = AppodealUnityUtils.combinePaths("Assets", "Plugins", "Android", folder);
-                        FixProblemInstruction instr = checkAndGetInstruction(pluginPath, plugin.Value);
-                        if (instr != null) fixInstructions.Add(instr);
-                    }
+                    fixInstructions.AddRange(AppodealAssetsPostProcess.Plugins
+                        .Select(folder => AppodealUnityUtils.combinePaths("Assets", "Plugins", "Android", folder))
+                        .Select(pluginPath => checkAndGetInstruction(pluginPath, plugin.Value))
+                        .Where(instr => instr != null));
                 }
             }
 
@@ -72,9 +74,9 @@ namespace AppodealAds.Unity.Editor.Checkers
         private FixProblemInstruction checkAndGetInstruction(string relativePath, platforms platform)
         {
             EnablePluginForPlatform instr = null;
-            PluginImporter imp = AssetImporter.GetAtPath(relativePath) as PluginImporter;
+            var imp = AssetImporter.GetAtPath(relativePath) as PluginImporter;
             if (imp == null) return instr;
-            bool isChecked = false;
+            var isChecked = false;
             switch (platform)
             {
                 case platforms.any:
@@ -91,49 +93,49 @@ namespace AppodealAds.Unity.Editor.Checkers
                     break;
             }
 
-            if (!isChecked)
-            {
-                string desc = "Plugin " + relativePath + " should be enabled for platform: " + platform.ToString() +
-                              ".\n";
-                if (relativePath.Contains(AppodealUnityUtils.combinePaths("Assets", "Plugins", "Android")))
-                    desc +=
-                        "If you wan't to exclude this network from your game, don't forget to add Appodeal.disableNetwork(networkname) before initialization.";
-                instr = new EnablePluginForPlatform(desc, true, relativePath, platform);
-            }
+            if (isChecked) return instr;
+            var desc = "Plugin " + relativePath + " should be enabled for platform: " + platform.ToString() +
+                       ".\n";
+            if (relativePath.Contains(AppodealUnityUtils.combinePaths("Assets", "Plugins", "Android")))
+                desc +=
+                    "If you won't to exclude this network from your game, don't forget to add Appodeal.disableNetwork(networkname) before initialization.";
+            instr = new EnablePluginForPlatform(desc, true, relativePath, platform);
 
             return instr;
         }
     }
 
-    class EnablePluginForPlatform : FixProblemInstruction
+    internal class EnablePluginForPlatform : FixProblemInstruction
     {
-        private string pluginPath;
-        private PlatformChecker.platforms platform;
+        private readonly string pluginPath;
+        private readonly PlatformChecker.platforms platform;
 
         public EnablePluginForPlatform(string description, bool autoresolve, string relativePluginPath,
             PlatformChecker.platforms platform) : base(description, autoresolve)
         {
-            this.pluginPath = relativePluginPath;
+            pluginPath = relativePluginPath;
             this.platform = platform;
         }
 
         public override void fixProblem()
         {
-            PluginImporter imp = AssetImporter.GetAtPath(pluginPath) as PluginImporter;
+            var imp = AssetImporter.GetAtPath(pluginPath) as PluginImporter;
             switch (platform)
             {
                 case PlatformChecker.platforms.any:
-                    imp.SetCompatibleWithAnyPlatform(true);
+                    if (imp != null) imp.SetCompatibleWithAnyPlatform(true);
                     break;
                 case PlatformChecker.platforms.editor:
-                    imp.SetCompatibleWithEditor(true);
+                    if (imp != null) imp.SetCompatibleWithEditor(true);
                     break;
                 case PlatformChecker.platforms.android:
-                    imp.SetCompatibleWithPlatform(BuildTarget.Android, true);
+                    if (imp != null) imp.SetCompatibleWithPlatform(BuildTarget.Android, true);
                     break;
                 case PlatformChecker.platforms.ios:
-                    imp.SetCompatibleWithPlatform(BuildTarget.iOS, true);
+                    if (imp != null) imp.SetCompatibleWithPlatform(BuildTarget.iOS, true);
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

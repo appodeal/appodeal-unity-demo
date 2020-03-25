@@ -1,8 +1,13 @@
-﻿namespace Unity.Appodeal.Xcode
+﻿using System.Diagnostics.CodeAnalysis;
+// ReSharper disable All
+
+namespace Unity.Appodeal.Xcode
 {
     /// <summary>
     /// List of all the capabilities available.
     /// </summary>
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     public sealed class PBXCapabilityType
     {
         public static readonly PBXCapabilityType ApplePay = new PBXCapabilityType("com.apple.ApplePay", true);

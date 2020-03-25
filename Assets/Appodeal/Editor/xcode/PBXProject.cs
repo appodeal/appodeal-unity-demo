@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using Unity.Appodeal.Xcode.PBX;
+// ReSharper disable All
 
 namespace Unity.Appodeal.Xcode
 {

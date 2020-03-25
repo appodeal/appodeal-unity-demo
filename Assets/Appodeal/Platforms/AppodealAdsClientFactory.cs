@@ -2,7 +2,7 @@
 
 namespace AppodealAds.Unity
 {
-    internal class AppodealAdsClientFactory
+    internal static class AppodealAdsClientFactory
     {
         internal static IAppodealAdsClient GetAppodealAdsClient()
         {

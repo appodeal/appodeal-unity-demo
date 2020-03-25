@@ -1,5 +1,8 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
+// ReSharper disable All
+#pragma warning disable 414
 
 namespace Unity.Appodeal.Xcode
 {
@@ -10,6 +13,7 @@ namespace Unity.Appodeal.Xcode
     /// manager assumes ownership of all of these files until the last 
     /// WriteToFile() invocation.
     /// </summary>
+    [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class ProjectCapabilityManager
     {
         private readonly string m_BuildPath;

@@ -1,5 +1,4 @@
 ﻿#if UNITY_IPHONE
-
 using System.Runtime.InteropServices;
 
 namespace AppodealAds.Unity.iOS

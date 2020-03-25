@@ -1,14 +1,17 @@
-using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using AppodealAds.Unity.Common;
-using UnityEngine;
+
 
 namespace AppodealAds.Unity.Android
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "UnusedParameter.Local")]
     public class AppodealRewardedVideoCallbacks
 #if UNITY_ANDROID
-        : AndroidJavaProxy
+        : UnityEngine.AndroidJavaProxy
     {
-        IRewardedVideoAdListener listener;
+        private readonly IRewardedVideoAdListener listener;
 
         internal AppodealRewardedVideoCallbacks(IRewardedVideoAdListener listener) : base(
             "com.appodeal.ads.RewardedVideoCallbacks")
@@ -16,56 +19,56 @@ namespace AppodealAds.Unity.Android
             this.listener = listener;
         }
 
-        void onRewardedVideoLoaded(bool precache)
+       public void onRewardedVideoLoaded(bool precache)
         {
             listener.onRewardedVideoLoaded(precache);
         }
 
-        void onRewardedVideoFailedToLoad()
+       public void onRewardedVideoFailedToLoad()
         {
             listener.onRewardedVideoFailedToLoad();
         }
 
-        void onRewardedVideoShowFailed()
+       public void onRewardedVideoShowFailed()
         {
             listener.onRewardedVideoShowFailed();
         }
 
-        void onRewardedVideoShown()
+       public void onRewardedVideoShown()
         {
             listener.onRewardedVideoShown();
         }
 
-        void onRewardedVideoFinished(double amount, AndroidJavaObject name)
+       public void onRewardedVideoFinished(double amount, UnityEngine.AndroidJavaObject name)
         {
             listener.onRewardedVideoFinished(amount, null);
         }
 
-        void onRewardedVideoFinished(double amount, string name)
+       public void onRewardedVideoFinished(double amount, string name)
         {
             listener.onRewardedVideoFinished(amount, name);
         }
 
-        void onRewardedVideoClosed(bool finished)
+       public void onRewardedVideoClosed(bool finished)
         {
             listener.onRewardedVideoClosed(finished);
         }
 
-        void onRewardedVideoExpired()
+       public void onRewardedVideoExpired()
         {
             listener.onRewardedVideoExpired();
         }
 
-        void onRewardedVideoClicked()
+       public void onRewardedVideoClicked()
         {
             listener.onRewardedVideoClicked();
         }
     }
 #else
     {
-    public AppodealRewardedVideoCallbacks(IRewardedVideoAdListener listener)
-    {
-    }
+        public AppodealRewardedVideoCallbacks(IRewardedVideoAdListener listener)
+        {
+        }
     }
 #endif
 }

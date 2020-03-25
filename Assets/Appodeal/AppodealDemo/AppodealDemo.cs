@@ -1,8 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
 using UnityEngine;
 
 // Example script showing how to invoke the Appodeal Ads Unity plugin.
+[SuppressMessage("ReSharper", "PossibleLossOfFraction")]
+[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IInterstitialAdListener, IBannerAdListener,
     IMrecAdListener, INonSkippableVideoAdListener, IRewardedVideoAdListener
 {
@@ -16,14 +19,12 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 	string appKey = "";
 #endif
 
-    string interstitialLabel = "CACHE INTERSTITIAL";
-    string rewardedLabel = "Loading";
-
-    int buttonWidth, buttonHeight, heightScale, widthScale, toggleSize;
-    GUIStyle buttonStyle;
-
-    bool testingToggle;
-    bool loggingToggle;
+    private string interstitialLabel = "CACHE INTERSTITIAL";
+    private string rewardedLabel = "Loading";
+    private int buttonWidth, buttonHeight, heightScale, widthScale, toggleSize;
+    private GUIStyle buttonStyle;
+    private bool testingToggle;
+    private bool loggingToggle;
 
     public void Awake()
     {
@@ -32,148 +33,140 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 
     public void Init()
     {
-        if (loggingToggle)
-        {
-            Appodeal.setLogLevel(Appodeal.LogLevel.Verbose);
-        }
-        else
-        {
-            Appodeal.setLogLevel(Appodeal.LogLevel.None);
-        }
-
+        Appodeal.setLogLevel(loggingToggle ? Appodeal.LogLevel.Verbose : Appodeal.LogLevel.None);
         Appodeal.setTesting(testingToggle);
-
         Appodeal.setUserId("1");
         Appodeal.setUserAge(1);
         Appodeal.setUserGender(UserSettings.Gender.OTHER);
-
         Appodeal.disableLocationPermissionCheck();
         Appodeal.disableWriteExternalStoragePermissionCheck();
-
         Appodeal.setTriggerOnLoadedOnPrecache(Appodeal.INTERSTITIAL, true);
-
         Appodeal.setSmartBanners(true);
         Appodeal.setBannerAnimation(false);
         Appodeal.setTabletBanners(false);
         Appodeal.setBannerBackground(false);
-
         Appodeal.setChildDirectedTreatment(false);
         Appodeal.muteVideosIfCallsMuted(true);
         Appodeal.setAutoCache(Appodeal.INTERSTITIAL, false);
-
         Appodeal.setExtraData(ExtraData.APPSFLYER_ID, "1527256526604-2129416");
-
-        int gdpr = PlayerPrefs.GetInt("result_gdpr_sdk", 0);
+        var gdpr = PlayerPrefs.GetInt("result_gdpr_sdk", 0);
         Debug.Log("result_gdpr_sdk: " + gdpr);
         Appodeal.initialize(appKey,
             Appodeal.INTERSTITIAL | Appodeal.BANNER_VIEW | Appodeal.REWARDED_VIDEO | Appodeal.MREC, gdpr == 1);
-
         Appodeal.setBannerCallbacks(this);
         Appodeal.setInterstitialCallbacks(this);
         Appodeal.setRewardedVideoCallbacks(this);
         Appodeal.setMrecCallbacks(this);
-
         Appodeal.setSegmentFilter("newBoolean", true);
         Appodeal.setSegmentFilter("newInt", 1234567890);
         Appodeal.setSegmentFilter("newDouble", 123.123456789);
         Appodeal.setSegmentFilter("newString", "newStringFromSDK");
     }
 
-    void OnGUI()
+    private void OnGUI()
     {
         InitStyles();
 
-        if (GUI.Toggle(new Rect(widthScale, heightScale - Screen.height / 18, toggleSize * 3, toggleSize),
-            testingToggle, new GUIContent("Testing")))
-        {
-            testingToggle = true;
-        }
-        else
-        {
-            testingToggle = false;
-        }
+        testingToggle = GUI.Toggle(new Rect(widthScale, heightScale - Screen.height / 18, toggleSize * 3, toggleSize),
+            testingToggle, new GUIContent("Testing"));
 
-        if (GUI.Toggle(new Rect(Screen.width / 2, heightScale - Screen.height / 18, toggleSize * 3, toggleSize),
-            loggingToggle, new GUIContent("Logging")))
-        {
-            loggingToggle = true;
-        }
-        else
-        {
-            loggingToggle = false;
-        }
+        loggingToggle = GUI.Toggle(
+            new Rect(Screen.width / 2, heightScale - Screen.height / 18, toggleSize * 3, toggleSize),
+            loggingToggle, new GUIContent("Logging"));
 
         if (GUI.Button(new Rect(widthScale, heightScale, buttonWidth, buttonHeight), "INITIALIZE", buttonStyle))
+        {
             Init();
+        }
 
         if (GUI.Button(new Rect(widthScale, heightScale + heightScale, buttonWidth, buttonHeight), interstitialLabel,
             buttonStyle))
+        {
             showInterstitial();
+        }
 
         if (GUI.Button(new Rect(widthScale, heightScale + 2 * heightScale, buttonWidth, buttonHeight), rewardedLabel,
             buttonStyle))
+        {
             showRewardedVideo();
+        }
 
         if (GUI.Button(new Rect(widthScale, heightScale + 3 * heightScale, buttonWidth, buttonHeight), "SHOW BANNER",
             buttonStyle))
+        {
             showBanner();
+        }
 
         if (GUI.Button(new Rect(widthScale, heightScale + 4 * heightScale, buttonWidth, buttonHeight), "HIDE BANNER",
             buttonStyle))
+        {
             hideBanner();
+        }
 
         if (GUI.Button(new Rect(widthScale, heightScale + 5 * heightScale, buttonWidth, buttonHeight),
             "SHOW BANNER VIEW", buttonStyle))
+        {
             showBannerView();
+        }
 
         if (GUI.Button(new Rect(widthScale, heightScale + 6 * heightScale, buttonWidth, buttonHeight),
             "HIDE BANNER VIEW", buttonStyle))
+        {
             hideBannerView();
+        }
 
         if (GUI.Button(new Rect(widthScale, heightScale + 7 * heightScale, buttonWidth, buttonHeight), "SHOW MREC VIEW",
             buttonStyle))
+        {
             showMrecView();
+        }
 
         if (GUI.Button(new Rect(widthScale, heightScale + 8 * heightScale, buttonWidth, buttonHeight), "HIDE MREC VIEW",
             buttonStyle))
+        {
             hideMrecView();
+        }
 
         if (GUI.Button(new Rect(widthScale, heightScale + 9 * heightScale, buttonWidth, buttonHeight), "UPDATE CONSENT",
             buttonStyle))
+        {
             Appodeal.updateConsent(true);
+        }
 
 #if UNITY_ANDROID
-		if (GUI.Button (new Rect (widthScale, heightScale + 10 * heightScale, buttonWidth, buttonHeight), "SHOW TEST SCREEN", buttonStyle))
-			Appodeal.showTestScreen ();
+        if (GUI.Button(new Rect(widthScale, heightScale + 10 * heightScale, buttonWidth, buttonHeight),
+            "SHOW TEST SCREEN", buttonStyle))
+        {
+            Appodeal.showTestScreen();
+        }
+
 #endif
     }
 
     private void InitStyles()
     {
-        if (buttonStyle == null)
-        {
-            buttonWidth = Screen.width - Screen.width / 5;
-            buttonHeight = Screen.height / 18;
-            heightScale = Screen.height / 15;
-            widthScale = Screen.width / 10;
-            toggleSize = Screen.height / 20;
+        if (buttonStyle != null) return;
+        buttonWidth = Screen.width - Screen.width / 5;
+        buttonHeight = Screen.height / 18;
+        heightScale = Screen.height / 15;
+        widthScale = Screen.width / 10;
+        toggleSize = Screen.height / 20;
 
-            buttonStyle = new GUIStyle(GUI.skin.button);
-            buttonStyle.fontSize = buttonHeight / 2;
-            buttonStyle.normal.textColor = Color.red;
-            buttonStyle.hover.textColor = Color.red;
-            buttonStyle.active.textColor = Color.red;
-            buttonStyle.focused.textColor = Color.red;
+        buttonStyle = new GUIStyle(GUI.skin.button);
+        buttonStyle.fontSize = buttonHeight / 2;
+        buttonStyle.normal.textColor = Color.red;
+        buttonStyle.hover.textColor = Color.red;
+        buttonStyle.active.textColor = Color.red;
+        buttonStyle.focused.textColor = Color.red;
 
-            buttonStyle.active.background = MakeTexure(buttonWidth, buttonHeight, Color.grey);
-            buttonStyle.focused.background = MakeTexure(buttonWidth, buttonHeight, Color.grey);
-            buttonStyle.normal.background = MakeTexure(buttonWidth, buttonHeight, Color.white);
-            buttonStyle.hover.background = MakeTexure(buttonWidth, buttonHeight, Color.white);
+        buttonStyle.active.background = MakeTexure(buttonWidth, buttonHeight, Color.grey);
+        buttonStyle.focused.background = MakeTexure(buttonWidth, buttonHeight, Color.grey);
+        buttonStyle.normal.background = MakeTexure(buttonWidth, buttonHeight, Color.white);
+        buttonStyle.hover.background = MakeTexure(buttonWidth, buttonHeight, Color.white);
 
-            GUI.skin.toggle = buttonStyle;
-        }
+        GUI.skin.toggle = buttonStyle;
     }
-    
+
     public void showInterstitial()
     {
         if (Appodeal.isLoaded(Appodeal.INTERSTITIAL) && !Appodeal.isPrecache(Appodeal.INTERSTITIAL))
@@ -229,7 +222,7 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
         Appodeal.hideMrecView();
     }
 
-    void OnApplicationFocus(bool hasFocus)
+    private void OnApplicationFocus(bool hasFocus)
     {
         if (hasFocus)
         {
@@ -404,9 +397,9 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
         print("Appodeal. Video closed");
     }
 
-    public void onRewardedVideoFinished(double amount, string name)
+    public void onRewardedVideoFinished(double amount, string rewardedName)
     {
-        print("Appodeal. Reward: " + amount + " " + name);
+        print("Appodeal. Reward: " + amount + " " + rewardedName);
     }
 
     public void onRewardedVideoExpired()
@@ -421,39 +414,33 @@ public class AppodealDemo : MonoBehaviour, IPermissionGrantedListener, IIntersti
 
     #endregion
 
+    #region PermissionGrantedListener
+
     public void writeExternalStorageResponse(int result)
     {
-        if (result == 0)
-        {
-            Debug.Log("WRITE_EXTERNAL_STORAGE permission granted");
-        }
-        else
-        {
-            Debug.Log("WRITE_EXTERNAL_STORAGE permission grant refused");
-        }
+        Debug.Log(result == 0
+            ? "WRITE_EXTERNAL_STORAGE permission granted"
+            : "WRITE_EXTERNAL_STORAGE permission grant refused");
     }
 
     public void accessCoarseLocationResponse(int result)
     {
-        if (result == 0)
-        {
-            Debug.Log("ACCESS_COARSE_LOCATION permission granted");
-        }
-        else
-        {
-            Debug.Log("ACCESS_COARSE_LOCATION permission grant refused");
-        }
+        Debug.Log(result == 0
+            ? "ACCESS_COARSE_LOCATION permission granted"
+            : "ACCESS_COARSE_LOCATION permission grant refused");
     }
-    
-    private Texture2D MakeTexure(int width, int height, Color color)
+
+    #endregion
+
+    private static Texture2D MakeTexure(int width, int height, Color color)
     {
-        Color[] pix = new Color[width * height];
-        for (int i = 0; i < pix.Length; ++i)
+        var pix = new Color[width * height];
+        for (var i = 0; i < pix.Length; ++i)
         {
             pix[i] = color;
         }
 
-        Texture2D result = new Texture2D(width, height);
+        var result = new Texture2D(width, height);
         result.SetPixels(pix);
         result.Apply();
         return result;

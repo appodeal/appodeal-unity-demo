@@ -1,9 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
 using UnityEngine;
 
 namespace AppodealAds.Unity.Dummy
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class DummyClient : IAppodealAdsClient
     {
         public void initialize(string appKey, int adTypes)

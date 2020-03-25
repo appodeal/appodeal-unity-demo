@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.UI;
 
+[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class GDPR : MonoBehaviour
 {
     public Image mainPanel;
@@ -9,12 +11,16 @@ public class GDPR : MonoBehaviour
     public Image noPanel;
     public Text mainText;
 
-    string mainString =
-        " personalizes your advertising experience using Appodeal. Appodeal and its partners may collect and process personal data such as device identifiers, location data, and other demographic and interest data to provide advertising experience tailored to you. By consenting to this improved ad experience, you'll see ads that Appodeal and its partners believe are more relevant to you. Learn more. By agreeing, you confirm that you are over the age of 16 and would like a personalized ad experience.";
+    private const string MainString = " personalizes your advertising experience using Appodeal. " +
+                                      "Appodeal and its partners may collect and process personal data such as device identifiers, " +
+                                      "location data, and other demographic and interest data to provide advertising experience tailored to you. " +
+                                      "By consenting to this improved ad experience, you'll see ads that Appodeal and " +
+                                      "its partners believe are more relevant to you. Learn more." +
+                                      " By agreeing, you confirm that you are over the age of 16 and would like a personalized ad experience.";
 
-    void Start()
+    private void Start()
     {
-        mainText.text = "Appodeal Demo" + mainString;
+        mainText.text = "Appodeal Demo" + MainString;
     }
 
     public void onYesClick()

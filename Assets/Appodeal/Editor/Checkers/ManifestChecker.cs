@@ -1,39 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Xml;
+using Appodeal.Unity.Editor;
 using UnityEditor;
 using UnityEngine;
 
 namespace AppodealAds.Unity.Editor.Checkers
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class ManifestChecker : CheckingStep
     {
-        override public string getName()
+        public override string getName()
         {
             return "Android Manifests";
         }
 
         public override bool isRequiredForPlatform(BuildTarget target)
         {
-            if (target == BuildTarget.Android) return true;
-            return false;
+            return target == BuildTarget.Android;
         }
 
-        override public List<FixProblemInstruction> check()
+        public override List<FixProblemInstruction> check()
         {
-            List<FixProblemInstruction> instructions = new List<FixProblemInstruction>();
-
-            string[] manifests =
+            var instructions = new List<FixProblemInstruction>();
+            var manifests =
                 Directory.GetFiles(Application.dataPath, "AndroidManifest.xml", SearchOption.AllDirectories);
-            bool isGradleEnabled = AppodealUnityUtils.isGradleEnabled();
-
-            string bundleId = AppodealUnityUtils.getApplicationId();
-            int targetSDKVersionInt = AppodealUnityUtils.getAndroidTargetSDK();
-            int minSDKVersionInt = AppodealUnityUtils.getAndroidMinSDK();
-            string targetSDKVersion = targetSDKVersionInt.ToString();
-            string minSDKVersion = minSDKVersionInt.ToString();
-            bool sdkVersionsDefined = targetSDKVersionInt > 0 && minSDKVersionInt > 0;
+            var isGradleEnabled = AppodealUnityUtils.isGradleEnabled();
+            var bundleId = AppodealUnityUtils.getApplicationId();
+            var targetSDKVersionInt = AppodealUnityUtils.getAndroidTargetSDK();
+            var minSDKVersionInt = AppodealUnityUtils.getAndroidMinSDK();
+            var targetSDKVersion = targetSDKVersionInt.ToString();
+            var minSDKVersion = minSDKVersionInt.ToString();
+            var sdkVersionsDefined = targetSDKVersionInt > 0 && minSDKVersionInt > 0;
 
             if (!sdkVersionsDefined)
             {
@@ -43,30 +42,26 @@ namespace AppodealAds.Unity.Editor.Checkers
                     ". Make sure that your project is properly configured.", false));
             }
 
-            foreach (string manifest in manifests)
+            foreach (var manifest in manifests)
             {
-                if (manifest.Contains(Path.Combine("Plugins", "Android")))
+                if (!manifest.Contains(Path.Combine("Plugins", "Android"))) continue;
+                if (!isGradleEnabled)
                 {
-                    if (!isGradleEnabled) // gradle works fine with ${applicationId}
-                    {
-                        string manifestText = File.ReadAllText(manifest);
-                        if (manifestText.Contains("${applicationId}"))
-                            instructions.Add(new ReplaceAppIdWithRealBundle(manifest, bundleId));
-                    }
+                    var manifestText = File.ReadAllText(manifest);
+                    if (manifestText.Contains("${applicationId}"))
+                        instructions.Add(new ReplaceAppIdWithRealBundle(manifest, bundleId));
+                }
 
-                    if (sdkVersionsDefined)
-                    {
-                        XmlDocument doc = new XmlDocument();
-                        doc.Load(manifest);
-                        XmlNode manNode = AppodealUnityUtils.XmlFindChildNode(doc, "manifest");
-                        string ns = manNode.GetNamespaceOfPrefix("android");
-                        XmlElement usesSdkNode = (XmlElement) AppodealUnityUtils.XmlFindChildNode(manNode, "uses-sdk");
-                        if (usesSdkNode == null || !usesSdkNode.HasAttribute("minSdkVersion", ns) ||
-                            !usesSdkNode.HasAttribute("targetSdkVersion", ns))
-                        {
-                            instructions.Add(new AddMinAndTargetSDK(manifest, minSDKVersion, targetSDKVersion));
-                        }
-                    }
+                if (!sdkVersionsDefined) continue;
+                var doc = new XmlDocument();
+                doc.Load(manifest);
+                var manNode = AppodealUnityUtils.XmlFindChildNode(doc, "manifest");
+                var ns = manNode.GetNamespaceOfPrefix("android");
+                var usesSdkNode = (XmlElement) AppodealUnityUtils.XmlFindChildNode(manNode, "uses-sdk");
+                if (usesSdkNode == null || !usesSdkNode.HasAttribute("minSdkVersion", ns) ||
+                    !usesSdkNode.HasAttribute("targetSdkVersion", ns))
+                {
+                    instructions.Add(new AddMinAndTargetSDK(manifest, minSDKVersion, targetSDKVersion));
                 }
             }
 
@@ -74,10 +69,10 @@ namespace AppodealAds.Unity.Editor.Checkers
         }
     }
 
-    class ReplaceAppIdWithRealBundle : FixProblemInstruction
+    internal class ReplaceAppIdWithRealBundle : FixProblemInstruction
     {
-        private string manifest;
-        private string bundleId;
+        private readonly string manifest;
+        private readonly string bundleId;
 
         public ReplaceAppIdWithRealBundle(string manifest, string bundleId) : base(
             "Gradle build system disabled and ${applicationId} is presented in " +
@@ -91,18 +86,19 @@ namespace AppodealAds.Unity.Editor.Checkers
 
         public override void fixProblem()
         {
-            string manifestText = File.ReadAllText(manifest);
+            var manifestText = File.ReadAllText(manifest);
             manifestText = manifestText.Replace("${applicationId}", bundleId);
             File.WriteAllText(manifest, manifestText);
             AssetDatabase.ImportAsset(AppodealUnityUtils.absolute2Relative(manifest), ImportAssetOptions.ForceUpdate);
         }
     }
 
-    class AddMinAndTargetSDK : FixProblemInstruction
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    internal class AddMinAndTargetSDK : FixProblemInstruction
     {
-        private string manifest;
-        private string minSDKVersion;
-        private string targetSDKVersion;
+        private readonly string manifest;
+        private readonly string minSDKVersion;
+        private readonly string targetSDKVersion;
 
         public AddMinAndTargetSDK(string manifest, string minSDK, string targetSDK) : base(
             AppodealUnityUtils.absolute2Relative(manifest) +
@@ -110,17 +106,17 @@ namespace AppodealAds.Unity.Editor.Checkers
             true)
         {
             this.manifest = manifest;
-            this.minSDKVersion = minSDK;
-            this.targetSDKVersion = targetSDK;
+            minSDKVersion = minSDK;
+            targetSDKVersion = targetSDK;
         }
 
         public override void fixProblem()
         {
-            XmlDocument doc = new XmlDocument();
+            var doc = new XmlDocument();
             doc.Load(manifest);
-            XmlNode manNode = AppodealUnityUtils.XmlFindChildNode(doc, "manifest");
-            string ns = manNode.GetNamespaceOfPrefix("android");
-            XmlElement usesSdkNode = (XmlElement) AppodealUnityUtils.XmlFindChildNode(manNode, "uses-sdk");
+            var manNode = AppodealUnityUtils.XmlFindChildNode(doc, "manifest");
+            var ns = manNode.GetNamespaceOfPrefix("android");
+            var usesSdkNode = (XmlElement) AppodealUnityUtils.XmlFindChildNode(manNode, "uses-sdk");
             if (usesSdkNode == null)
             {
                 usesSdkNode = AppodealUnityUtils.XmlCreateTag(doc, "uses-sdk");

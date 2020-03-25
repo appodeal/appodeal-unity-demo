@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+// ReSharper disable All
+#pragma warning disable 414
 
 namespace Unity.Appodeal.Xcode
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal class DeviceTypeRequirement
     {
         public static readonly string Key = "idiom";
@@ -105,6 +109,7 @@ namespace Unity.Appodeal.Xcode
         }
     }
 
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal class AssetCatalog
     {
         AssetFolder m_Root;

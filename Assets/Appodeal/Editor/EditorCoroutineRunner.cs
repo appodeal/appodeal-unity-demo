@@ -1,133 +1,123 @@
 ﻿using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
-public static class EditorCoroutineRunner
+namespace Appodeal.Unity.Editor
 {
-    private class EditorCoroutine : IEnumerator
+    [SuppressMessage("ReSharper", "MemberHidesStaticFromOuterClass")]
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "DelegateSubtraction")]
+    public static class EditorCoroutineRunner
     {
-        private Stack<IEnumerator> executionStack;
-
-        public EditorCoroutine(IEnumerator iterator)
+        private class EditorCoroutine : IEnumerator
         {
-            this.executionStack = new Stack<IEnumerator>();
-            this.executionStack.Push(iterator);
-        }
+            private Stack<IEnumerator> executionStack;
 
-        public bool MoveNext()
-        {
-            IEnumerator i = this.executionStack.Peek();
-
-            if (i.MoveNext())
+            public EditorCoroutine(IEnumerator iterator)
             {
-                object result = i.Current;
-                if (result != null && result is IEnumerator)
-                {
-                    this.executionStack.Push((IEnumerator) result);
-                }
-
-                return true;
+                executionStack = new Stack<IEnumerator>();
+                executionStack.Push(iterator);
             }
-            else
+
+            public bool MoveNext()
             {
-                if (this.executionStack.Count > 1)
+                var i = executionStack.Peek();
+
+                if (i.MoveNext())
                 {
-                    this.executionStack.Pop();
+                    object result = i.Current;
+                    var enumerator = result as IEnumerator;
+                    if (enumerator != null)
+                    {
+                        executionStack.Push(enumerator);
+                    }
+
                     return true;
                 }
-            }
 
-            return false;
-        }
-
-        public void Reset()
-        {
-            throw new System.NotSupportedException("This Operation Is Not Supported.");
-        }
-
-        public object Current
-        {
-            get { return this.executionStack.Peek().Current; }
-        }
-
-        public bool Find(IEnumerator iterator)
-        {
-            return this.executionStack.Contains(iterator);
-        }
-    }
-
-    private static List<EditorCoroutine> editorCoroutineList;
-    private static List<IEnumerator> buffer;
-
-    public static IEnumerator StartEditorCoroutine(IEnumerator iterator)
-    {
-        if (editorCoroutineList == null)
-        {
-            editorCoroutineList = new List<EditorCoroutine>();
-        }
-
-        if (buffer == null)
-        {
-            buffer = new List<IEnumerator>();
-        }
-
-        if (editorCoroutineList.Count == 0)
-        {
-            EditorApplication.update += Update;
-        }
-
-        // add iterator to buffer first
-        buffer.Add(iterator);
-
-        return iterator;
-    }
-
-    private static bool Find(IEnumerator iterator)
-    {
-        // If this iterator is already added
-        // Then ignore it this time
-        foreach (EditorCoroutine editorCoroutine in editorCoroutineList)
-        {
-            if (editorCoroutine.Find(iterator))
-            {
+                if (executionStack.Count <= 1) return false;
+                executionStack.Pop();
                 return true;
             }
+
+            public void Reset()
+            {
+                throw new System.NotSupportedException("This Operation Is Not Supported.");
+            }
+
+            public object Current
+            {
+                get { return executionStack.Peek().Current;} 
+            }
+
+            public bool Find(IEnumerator iterator)
+            {
+                return executionStack.Contains(iterator);
+            }
         }
 
-        return false;
-    }
+        private static List<EditorCoroutine> editorCoroutineList;
+        private static List<IEnumerator> buffer;
 
-    private static void Update()
-    {
-        // EditorCoroutine execution may append new iterators to buffer
-        // Therefore we should run EditorCoroutine first
-        editorCoroutineList.RemoveAll
-        (
-            coroutine => { return coroutine.MoveNext() == false; }
-        );
-
-        // If we have iterators in buffer
-        if (buffer.Count > 0)
+        public static IEnumerator StartEditorCoroutine(IEnumerator iterator)
         {
-            foreach (IEnumerator iterator in buffer)
+            if (editorCoroutineList == null)
             {
-                // If this iterators not exists
-                if (!Find(iterator))
+                editorCoroutineList = new List<EditorCoroutine>();
+            }
+
+            if (buffer == null)
+            {
+                buffer = new List<IEnumerator>();
+            }
+
+            if (editorCoroutineList.Count == 0)
+            {
+                EditorApplication.update += Update;
+            }
+
+            // add iterator to buffer first
+            buffer.Add(iterator);
+
+            return iterator;
+        }
+
+        private static bool Find(IEnumerator iterator)
+        {
+            // If this iterator is already added
+            // Then ignore it this time
+            return editorCoroutineList.Any(editorCoroutine => editorCoroutine.Find(iterator));
+        }
+
+        private static void Update()
+        {
+            // EditorCoroutine execution may append new iterators to buffer
+            // Therefore we should run EditorCoroutine first
+            editorCoroutineList.RemoveAll
+            (
+                coroutine => coroutine.MoveNext() == false);
+
+            // If we have iterators in buffer
+            if (buffer.Count > 0)
+            {
+                foreach (var iterator in buffer.Where(iterator => !Find(iterator)))
                 {
                     // Added this as new EditorCoroutine
                     editorCoroutineList.Add(new EditorCoroutine(iterator));
                 }
+
+                // Clear buffer
+                buffer.Clear();
             }
 
-            // Clear buffer
-            buffer.Clear();
-        }
-
-        // If we have no running EditorCoroutine
-        // Stop calling update anymore
-        if (editorCoroutineList.Count == 0)
-        {
-            EditorApplication.update -= Update;
+            // If we have no running EditorCoroutine
+            // Stop calling update anymore
+            if (editorCoroutineList.Count == 0)
+            {
+                EditorApplication.update -= Update;
+            }
         }
     }
 }

@@ -1,13 +1,17 @@
-﻿using AppodealAds.Unity.Common;
-using UnityEngine;
+﻿using System.Diagnostics.CodeAnalysis;
+using AppodealAds.Unity.Common;
+
 
 namespace AppodealAds.Unity.Android
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedParameter.Local")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class AppodealInterstitialCallbacks
 #if UNITY_ANDROID
-        : AndroidJavaProxy
+        : UnityEngine.AndroidJavaProxy
     {
-        IInterstitialAdListener listener;
+        private readonly IInterstitialAdListener listener;
 
         internal AppodealInterstitialCallbacks(IInterstitialAdListener listener) : base(
             "com.appodeal.ads.InterstitialCallbacks")
@@ -15,46 +19,46 @@ namespace AppodealAds.Unity.Android
             this.listener = listener;
         }
 
-        void onInterstitialLoaded(bool isPrecache)
+        public void onInterstitialLoaded(bool isPrecache)
         {
             listener.onInterstitialLoaded(isPrecache);
         }
 
-        void onInterstitialFailedToLoad()
+        public void onInterstitialFailedToLoad()
         {
             listener.onInterstitialFailedToLoad();
         }
 
-        void onInterstitialShowFailed()
+        public void onInterstitialShowFailed()
         {
             listener.onInterstitialShowFailed();
         }
 
-        void onInterstitialShown()
+        public void onInterstitialShown()
         {
             listener.onInterstitialShown();
         }
 
-        void onInterstitialClicked()
+        public void onInterstitialClicked()
         {
             listener.onInterstitialClicked();
         }
 
-        void onInterstitialClosed()
+        public void onInterstitialClosed()
         {
             listener.onInterstitialClosed();
         }
 
-        void onInterstitialExpired()
+        public void onInterstitialExpired()
         {
             listener.onInterstitialExpired();
         }
     }
 #else
     {
-    public AppodealInterstitialCallbacks(IInterstitialAdListener listener)
-    {
-    }
+        public AppodealInterstitialCallbacks(IInterstitialAdListener listener)
+        {
+        }
     }
 #endif
 }

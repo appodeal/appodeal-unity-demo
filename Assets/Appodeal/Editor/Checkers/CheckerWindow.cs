@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Appodeal.Unity.Editor;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AppodealAds.Unity.Editor.Checkers
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class CheckerWindow : EditorWindow
     {
-        [SerializeField] private int currentStep = 0;
+        [SerializeField] private int currentStep;
         private List<CheckingStep> steps;
         private List<FixProblemInstruction> fixes;
         private Vector2 scrollPositionSteps;
@@ -19,41 +20,29 @@ namespace AppodealAds.Unity.Editor.Checkers
 
         public static CheckerWindow GetWindow()
         {
-            Rect pos = new Rect(Vector2.zero, new Vector2(800, 400));
-            CheckerWindow window = (CheckerWindow) EditorWindow.GetWindowWithRect(typeof(CheckerWindow), pos, true,
+            var pos = new Rect(Vector2.zero, new Vector2(800, 400));
+            var window = (CheckerWindow) GetWindowWithRect(typeof(CheckerWindow), pos, true,
                 "Appodeal Integration Check");
             return window;
-        }
-
-        private void Awake()
-        {
         }
 
         private void init()
         {
             checkmark = EditorGUIUtility.IconContent("Collab").image;
             empty = AppodealUnityUtils.makeColorTexture(checkmark.width, checkmark.height, Color.clear);
-
-            steps = new List<CheckingStep>();
-            steps.Add(new PlatformChecker());
-            steps.Add(new MultidexActivator());
-            steps.Add(new ManifestChecker());
-            //steps.Add(new PlayServicesChecker());
-
+            steps = new List<CheckingStep> {new PlatformChecker(), new MultidexActivator(), new ManifestChecker()};
             steps = steps.Where(step => step.isRequiredForPlatform(EditorUserBuildSettings.activeBuildTarget)).ToList();
 
-            if (steps.Count > 0)
+            if (steps.Count <= 0) return;
+            fixes = steps[currentStep].check();
+            for (var i = 0; i < steps.Count; i++)
             {
-                fixes = steps[currentStep].check();
-                for (int i = 0; i < steps.Count; i++)
-                {
-                    if (i >= currentStep) return;
-                    steps[i].done = true;
-                }
+                if (i >= currentStep) return;
+                steps[i].done = true;
             }
         }
 
-        void OnGUI()
+        private void OnGUI()
         {
             if (steps == null) init();
             while ((fixes == null || fixes.Count == 0) && currentStep < steps.Count - 1)
@@ -62,11 +51,9 @@ namespace AppodealAds.Unity.Editor.Checkers
                 currentStep++;
                 fixes = steps[currentStep].check();
             }
-
             if ((fixes == null || fixes.Count == 0) && currentStep < steps.Count - 1) steps[currentStep].done = true;
-            float w1 = position.width * 0.3f;
-            GUIStyle styleWhiteBG = new GUIStyle(GUI.skin.scrollView);
-            //styleWhiteBG.normal.background = Texture2D.whiteTexture;
+            var w1 = position.width * 0.3f;
+            var styleWhiteBG = new GUIStyle(GUI.skin.scrollView);
             GUILayout.Label(new GUIContent(
                 "This utility will cleck configuration only for the selected platform: " +
                 EditorUserBuildSettings.activeBuildTarget +
@@ -74,11 +61,13 @@ namespace AppodealAds.Unity.Editor.Checkers
                 EditorGUIUtility.FindTexture("console.warnicon")));
             GUILayout.BeginHorizontal();
             scrollPositionSteps = GUILayout.BeginScrollView(scrollPositionSteps, styleWhiteBG, GUILayout.Width(w1));
-            GUIStyle selectedLabelStyle = new GUIStyle(GUI.skin.label);
-            selectedLabelStyle.normal.background = AppodealUnityUtils.makeColorTexture(1, 1, Color.gray);
-            foreach (CheckingStep step in steps)
+            var selectedLabelStyle = new GUIStyle(GUI.skin.label)
             {
-                GUIContent stepContent = new GUIContent(step.getName(), step.done ? checkmark : empty);
+                normal = {background = AppodealUnityUtils.makeColorTexture(1, 1, Color.gray)}
+            };
+            foreach (var step in steps)
+            {
+                var stepContent = new GUIContent(step.getName(), step.done ? checkmark : empty);
                 GUILayout.Label(stepContent,
                     step == steps[currentStep] && !step.done ? selectedLabelStyle : GUI.skin.label);
             }
@@ -97,7 +86,7 @@ namespace AppodealAds.Unity.Editor.Checkers
                 }
                 else
                 {
-                    foreach (FixProblemInstruction fix in fixes)
+                    foreach (var fix in fixes)
                     {
                         EditorGUI.BeginDisabledGroup(!fix.canBeResolvedAutomatically());
                         fix.checkedForResolve = GUILayout.Toggle(fix.checkedForResolve, fix.getDescription());
@@ -131,9 +120,9 @@ namespace AppodealAds.Unity.Editor.Checkers
             {
                 if (GUILayout.Button("Fix Selected", GUILayout.Width(80)))
                 {
-                    foreach (FixProblemInstruction fix in fixes)
+                    foreach (var fix in fixes.Where(fix => fix.checkedForResolve))
                     {
-                        if (fix.checkedForResolve) fix.fixProblem();
+                        fix.fixProblem();
                     }
 
                     fixes.Clear();
@@ -145,13 +134,14 @@ namespace AppodealAds.Unity.Editor.Checkers
 
         private void setTogglesState(bool state)
         {
-            foreach (FixProblemInstruction fix in fixes)
+            foreach (var fix in fixes)
             {
                 fix.checkedForResolve = state;
             }
         }
     }
 
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class FixProblemInstruction
     {
         private bool _checkedForResolve;
@@ -165,13 +155,13 @@ namespace AppodealAds.Unity.Editor.Checkers
             }
         }
 
-        private string desc;
-        private bool isAutoresolvePossible;
+        private readonly string desc;
+        private readonly bool isAutoresolvePossible;
 
         public FixProblemInstruction(string description, bool autoresolve)
         {
             desc = description;
-            this.isAutoresolvePossible = autoresolve;
+            isAutoresolvePossible = autoresolve;
         }
 
         public string getDescription()
@@ -189,11 +179,12 @@ namespace AppodealAds.Unity.Editor.Checkers
         }
     }
 
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public abstract class CheckingStep
     {
-        public bool done = false;
+        public bool done;
         public abstract string getName();
         public abstract List<FixProblemInstruction> check();
-        public abstract bool isRequiredForPlatform(UnityEditor.BuildTarget target);
+        public abstract bool isRequiredForPlatform(BuildTarget target);
     }
 }

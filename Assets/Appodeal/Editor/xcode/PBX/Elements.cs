@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+// ReSharper disable All
 
 namespace Unity.Appodeal.Xcode.PBX
 {

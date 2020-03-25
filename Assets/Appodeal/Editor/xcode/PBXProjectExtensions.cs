@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using Unity.Appodeal.Xcode.PBX;
+// ReSharper disable All
 
 namespace Unity.Appodeal.Xcode
 {
@@ -12,6 +12,7 @@ namespace Unity.Appodeal.Xcode
         TODO: Make sure enough stuff is exposed so that it's possible to perform the tasks
         without using internal APIs
     */
+    [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     public static class PBXProjectExtensions
     {
         // Create a wrapper class so that collection initializers work and we can have a 

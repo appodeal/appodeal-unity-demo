@@ -1,20 +1,15 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
+[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class loading : MonoBehaviour
 {
     [Obsolete]
-    void Start()
+    private void Start()
     {
-        int consentInt = PlayerPrefs.GetInt("result_gdpr", 0);
-        bool consent = consentInt != 0;
-        if (consent)
-        {
-            Application.LoadLevel("AppodealDemo");
-        }
-        else
-        {
-            Application.LoadLevel("GDPR");
-        }
+        var consentInt = PlayerPrefs.GetInt("result_gdpr", 0);
+        var consent = consentInt != 0;
+        Application.LoadLevel(consent ? "AppodealDemo" : "GDPR");
     }
 }

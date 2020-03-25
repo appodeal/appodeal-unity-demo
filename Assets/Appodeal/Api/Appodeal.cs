@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using AppodealAds.Unity.Common;
 using UnityEngine;
 
 namespace AppodealAds.Unity.Api
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "UnusedType.Global")]
     public class AppodealNetworks
     {
         public const string ADCOLONY = "adcolony";
@@ -39,8 +43,12 @@ namespace AppodealAds.Unity.Api
         public const string YANDEX = "yandex";
     }
 
-    public class Appodeal
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "UnusedMethodReturnValue.Global")]
+    public static class Appodeal
     {
+        #region Constants
         public const int NONE = 0;
         public const int INTERSTITIAL = 3;
         public const int BANNER = 4;
@@ -60,8 +68,10 @@ namespace AppodealAds.Unity.Api
         public const int BANNER_HORIZONTAL_RIGHT = -3;
         public const int BANNER_HORIZONTAL_LEFT = -4;
 
-        public const string APPODEAL_PLUGIN_VERSION = "2.9.3";
-
+        public const string APPODEAL_PLUGIN_VERSION = "2.9.4";
+        
+        #endregion
+        
         public enum LogLevel
         {
             None,
@@ -73,12 +83,7 @@ namespace AppodealAds.Unity.Api
 
         private static IAppodealAdsClient getInstance()
         {
-            if (client == null)
-            {
-                client = AppodealAdsClientFactory.GetAppodealAdsClient();
-            }
-
-            return client;
+            return client ?? (client = AppodealAdsClientFactory.GetAppodealAdsClient());
         }
 
         public static void initialize(string appKey, int adTypes)
@@ -344,14 +349,11 @@ namespace AppodealAds.Unity.Api
 
         public static string getUnityVersion()
         {
-            string unityVersion = Application.unityVersion;
-            if (string.IsNullOrEmpty(unityVersion))
-            {
-                PropertyInfo appId =
-                    typeof(Application).GetProperty("identifier", BindingFlags.Public | BindingFlags.Static);
-                if (appId != null) unityVersion = "5.6+";
-                else unityVersion = "5.5-";
-            }
+            var unityVersion = Application.unityVersion;
+            if (!string.IsNullOrEmpty(unityVersion)) return unityVersion;
+            var appId =
+                typeof(Application).GetProperty("identifier", BindingFlags.Public | BindingFlags.Static);
+            unityVersion = appId != null ? "5.6+" : "5.5-";
 
             return unityVersion;
         }
@@ -372,23 +374,21 @@ namespace AppodealAds.Unity.Api
         }
     }
 
-    public class ExtraData
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    public static class ExtraData
     {
-        public static string APPSFLYER_ID = "appsflyer_id";
+        public const string APPSFLYER_ID = "appsflyer_id";
     }
 
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class UserSettings
     {
         private static IAppodealAdsClient client;
 
         private static IAppodealAdsClient getInstance()
         {
-            if (client == null)
-            {
-                client = AppodealAdsClientFactory.GetAppodealAdsClient();
-            }
-
-            return client;
+            return client ?? (client = AppodealAdsClientFactory.GetAppodealAdsClient());
         }
 
         public enum Gender
