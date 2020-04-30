@@ -19,13 +19,13 @@
         <perform_only_if_total_remove>true</perform_only_if_total_remove>
     </item>
     <item>
-        <description>Jar Resolver is used by many plugins for integrating platform specific
+        <description>External Dependency Manager is used by many plugins for integrating platform specific
             libraries and resolving conflicting dependencies. If some of your plugins use Jar
             Resolver, removing can lead to issues.
         </description>
         <is_confirmation_required>true</is_confirmation_required>
-        <name>Jar Resolver</name>
-        <path>PlayServicesResolver</path>
+        <name>External Dependency Manager</name>
+        <path>ExternalDependencyManager</path>
     </item>
     <item>
         <filter>^Appodeal.*</filter>

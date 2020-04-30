@@ -31,7 +31,7 @@ allprojects {
             url "https://maven.google.com"
         }
         maven {
-            url "https://artifactory.appodeal.com/appodeal" // Assets/Appodeal/Editor/AppodealDependencies.xml:7
+            url "https://artifactory.appodeal.com/appodeal" // Assets/Appodeal/Editor/AppodealCoreDependencies.xml:7
         }
         mavenLocal()
         jcenter()
@@ -44,33 +44,32 @@ apply plugin: 'com.android.application'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:multidex:1.0.3'
 // Android Resolver Dependencies Start
-    implementation 'com.appodeal.ads.sdk.networks:a4g:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:9
-    implementation 'com.appodeal.ads.sdk.networks:adcolony:2.6.0.2' // Assets/Appodeal/Editor/AppodealDependencies.xml:14
-    implementation 'com.appodeal.ads.sdk.networks:admob:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:15
-    implementation 'com.appodeal.ads.sdk.networks:amazon_ads:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:16
-    implementation 'com.appodeal.ads.sdk.networks:applovin:2.6.0.2' // Assets/Appodeal/Editor/AppodealDependencies.xml:17
-    implementation 'com.appodeal.ads.sdk.networks:appodeal:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:8
-    implementation 'com.appodeal.ads.sdk.networks:appodealx:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:10
-    implementation 'com.appodeal.ads.sdk.networks:chartboost:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:18
-    implementation 'com.appodeal.ads.sdk.networks:facebook:2.6.0.3' // Assets/Appodeal/Editor/AppodealDependencies.xml:19
-    implementation 'com.appodeal.ads.sdk.networks:inmobi:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:20
-    implementation 'com.appodeal.ads.sdk.networks:inner-active:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:21
-    implementation 'com.appodeal.ads.sdk.networks:ironsource:2.6.0.2' // Assets/Appodeal/Editor/AppodealDependencies.xml:22
-    implementation 'com.appodeal.ads.sdk.networks:mraid:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:11
-    implementation 'com.appodeal.ads.sdk.networks:my_target:2.6.0.2' // Assets/Appodeal/Editor/AppodealDependencies.xml:23
-    implementation 'com.appodeal.ads.sdk.networks:nast:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:12
-    implementation 'com.appodeal.ads.sdk.networks:ogury:2.6.0.2' // Assets/Appodeal/Editor/AppodealDependencies.xml:24
-    implementation 'com.appodeal.ads.sdk.networks:smaato:2.6.0.2' // Assets/Appodeal/Editor/AppodealDependencies.xml:25
-    implementation 'com.appodeal.ads.sdk.networks:startapp:2.6.0.3' // Assets/Appodeal/Editor/AppodealDependencies.xml:26
-    implementation 'com.appodeal.ads.sdk.networks:tapjoy:2.6.0.2' // Assets/Appodeal/Editor/AppodealDependencies.xml:27
-    implementation 'com.appodeal.ads.sdk.networks:unity_ads:2.6.0.2' // Assets/Appodeal/Editor/AppodealDependencies.xml:28
-    implementation 'com.appodeal.ads.sdk.networks:vast:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:13
-    implementation 'com.appodeal.ads.sdk.networks:vungle:2.6.0.1' // Assets/Appodeal/Editor/AppodealDependencies.xml:29
-    implementation 'com.appodeal.ads.sdk.networks:yandex:2.6.0.2' // Assets/Appodeal/Editor/AppodealDependencies.xml:30
-    implementation 'com.appodeal.ads.sdk:core:2.6.3' // Assets/Appodeal/Editor/AppodealDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk.networks:adcolony:2.6.0.2' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:admob:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:9
+    implementation 'com.appodeal.ads.sdk.networks:amazon_ads:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:10
+    implementation 'com.appodeal.ads.sdk.networks:applovin:2.6.0.3' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:11
+    implementation 'com.appodeal.ads.sdk.networks:appodeal:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:3
+    implementation 'com.appodeal.ads.sdk.networks:appodealx:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:4
+    implementation 'com.appodeal.ads.sdk.networks:chartboost:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:12
+    implementation 'com.appodeal.ads.sdk.networks:facebook:2.6.0.3' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:13
+    implementation 'com.appodeal.ads.sdk.networks:inmobi:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:14
+    implementation 'com.appodeal.ads.sdk.networks:inner-active:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:15
+    implementation 'com.appodeal.ads.sdk.networks:ironsource:2.6.0.2' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:16
+    implementation 'com.appodeal.ads.sdk.networks:mraid:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:5
+    implementation 'com.appodeal.ads.sdk.networks:my_target:2.6.0.3' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:17
+    implementation 'com.appodeal.ads.sdk.networks:nast:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:ogury:2.6.0.2' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:18
+    implementation 'com.appodeal.ads.sdk.networks:smaato:2.6.0.2' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:19
+    implementation 'com.appodeal.ads.sdk.networks:startapp:2.6.0.3' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:20
+    implementation 'com.appodeal.ads.sdk.networks:tapjoy:2.6.0.2' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:21
+    implementation 'com.appodeal.ads.sdk.networks:unity_ads:2.6.0.2' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:22
+    implementation 'com.appodeal.ads.sdk.networks:vast:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk.networks:vungle:2.6.0.1' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:23
+    implementation 'com.appodeal.ads.sdk.networks:yandex:2.6.0.2' // Assets/Appodeal/Editor/AppodealAdapterDependencies.xml:24
+    implementation 'com.appodeal.ads.sdk:core:2.6.3' // Assets/Appodeal/Editor/AppodealCoreDependencies.xml:7
 // Android Resolver Dependencies End
-implementation 'com.android.support:multidex:1.0.3'
 **DEPS**}
 
 // Android Resolver Exclusions Start

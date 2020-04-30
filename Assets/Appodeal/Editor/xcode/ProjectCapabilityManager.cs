@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+
 // ReSharper disable All
 #pragma warning disable 414
 
@@ -41,7 +42,13 @@ namespace Unity.Appodeal.Xcode
             m_PBXProjectPath = pbxProjectPath;
             project = new PBXProject();
             project.ReadFromString(File.ReadAllText(m_PBXProjectPath));
+#if UNITY_2019_3_OR_NEWER
+            var proj = new UnityEditor.iOS.Xcode.PBXProject();
+            proj.ReadFromString(File.ReadAllText(m_PBXProjectPath));
+            m_TargetGuid = proj.GetUnityMainTargetGuid();
+#else
             m_TargetGuid = project.TargetGuidByName(targetName);
+#endif
         }
 
         /// <summary>
