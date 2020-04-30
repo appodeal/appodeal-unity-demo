@@ -5,6 +5,12 @@
 
 ## Changelog
 
+2.9.5 (30/04/2020)
+
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.150.0
++ Added Ogury iOS adapter
++ Updated PBX configuration for Unity 2019.3+
+
 2.9.4 (26/03/2020)
 
 + Updated Appodeal Android SDK to 2.6.3
