@@ -50,7 +50,7 @@ namespace AppodealAds.Unity.Dummy
 
         public bool isLoaded(int adTypes)
         {
-            Debug.Log("Call to Appodeal.showBannerView on not supported platform");
+            Debug.Log("Call to Appodeal.isLoaded on not supported platform");
             return false;
         }
 
