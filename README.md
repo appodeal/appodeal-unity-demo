@@ -5,6 +5,12 @@
 
 ## Changelog
 
+2.9.7 (19/06/2020)
+
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.156.0
++ Updated dependencies config
++ Fixed method canShow for iOS platform.
+
 2.9.6 (28/05/2020)
 
 + Updated External Dependency Manager (Play Services Resolver) to 1.2.155.0
