@@ -580,12 +580,12 @@ namespace AppodealAds.Unity.iOS
 
         public bool canShow(int adTypes, string placement)
         {
-            return AppodealObjCBridge.AppodealCanShowWithPlacement(nativeShowStyleForType(adTypes), placement);
+            return AppodealObjCBridge.AppodealCanShowWithPlacement(nativeAdTypesForType(adTypes), placement);
         }
 
         public bool canShow(int adTypes)
         {
-            return AppodealObjCBridge.AppodealCanShow(nativeShowStyleForType(adTypes));
+            return AppodealObjCBridge.AppodealCanShow(nativeAdTypesForType(adTypes));
         }
 
         public string getRewardCurrency(string placement)

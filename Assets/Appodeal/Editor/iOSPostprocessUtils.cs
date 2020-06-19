@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.iOS.Xcode;
@@ -22,10 +23,52 @@ namespace Appodeal.Unity.Editor
         private static void updatePod(BuildTarget target, string buildPath)
         {
             if (target != BuildTarget.iOS) return;
+            if (string.IsNullOrEmpty(PlayerSettings.iOS.targetOSVersionString)) return;
+
+            ReplaceInFile(buildPath + "/Podfile", $"platform :ios, '{PlayerSettings.iOS.targetOSVersionString}'", 
+                "platform :ios, '10.0'\nuse_frameworks!");
+
+#if UNITY_2019_3_OR_NEWER
+            ReplaceInFile(buildPath + "/Podfile", "target 'UnityFramework' do", "def all_deps");
+ 
             using (var sw = File.AppendText(buildPath + "/Podfile"))
             {
-                sw.WriteLine("\nsource 'https://github.com/CocoaPods/Specs.git'");
-                sw.WriteLine("use_frameworks!");
+                sw.WriteLine("\ntarget 'UnityFramework' do");
+                sw.WriteLine("  all_deps");
+                sw.WriteLine("end");
+ 
+                sw.WriteLine("\ntarget 'Unity-iPhone' do");
+                sw.WriteLine("  all_deps");
+                sw.WriteLine("end");
+ 
+                sw.WriteLine("\npost_install do |installer|");
+                sw.WriteLine("  project = installer.pods_project");
+                sw.WriteLine("  project.targets.each do |target|");
+                sw.WriteLine("    target.build_configurations.each do |config|");
+                sw.WriteLine("      config.build_settings['ENABLE_BITCODE'] = 'YES'");
+                sw.WriteLine("    end");
+                sw.WriteLine("  end");
+                sw.WriteLine("end");
+            }
+#endif
+        }
+
+        private static void ReplaceInFile(
+            string filePath, string searchText, string replaceText)
+        {
+            string contentString;
+            using (var reader = new StreamReader(filePath))
+            {
+                contentString = reader.ReadToEnd();
+                reader.Close();
+            }
+
+            contentString = Regex.Replace(contentString, searchText, replaceText);
+
+            using (var writer = new StreamWriter(filePath))
+            {
+                writer.Write(contentString);
+                writer.Close();
             }
         }
 
@@ -90,9 +133,9 @@ namespace Appodeal.Unity.Editor
 #if UNITY_2019_3_OR_NEWER
            var target = project.GetUnityMainTargetGuid();
 #else
-           var target = project.TargetGuidByName("Unity-iPhone");
+            var target = project.TargetGuidByName("Unity-iPhone");
 #endif
-            
+
             AddProjectFrameworks(frameworkList, project, target, false);
             AddProjectFrameworks(weakFrameworkList, project, target, true);
             AddProjectLibs(platformLibs, project, target);
@@ -111,7 +154,11 @@ namespace Appodeal.Unity.Editor
 
             project.AddBuildProperty(target, "LIBRARY_SEARCH_PATHS", "$(SRCROOT)/Libraries");
             project.AddBuildProperty(target, "LIBRARY_SEARCH_PATHS", "$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)");
+#if UNITY_2019_3_OR_NEWER
+            project.AddBuildProperty(target, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "NO");
+#else
             project.AddBuildProperty(target, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "YES");
+#endif
             project.AddBuildProperty(target, "LD_RUNPATH_SEARCH_PATHS", "@executable_path/Frameworks");
             project.SetBuildProperty(target, "SWIFT_VERSION", "4.0");
 

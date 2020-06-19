@@ -3,7 +3,7 @@
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal</repository>
         </repositories>
-        <androidPackage spec="com.appodeal.ads:sdk:2.6.4.0@aar"/>
+        <androidPackage spec="com.appodeal.ads:sdk:2.6.4.1@aar"/>
         <androidPackage spec="com.appodeal.ads.sdk:core:2.6.4@aar"/>
         <androidPackage spec="com.appodeal.ads.sdk.networks:appodeal:2.6.4.1"/>
         <androidPackage spec="com.appodeal.ads.sdk.networks:appodealx:2.6.4.1"/>
@@ -32,23 +32,15 @@
         <androidPackage spec="com.google.android.exoplayer:exoplayer-hls:2.8.4@aar"/>
         <androidPackage spec="com.google.android.exoplayer:exoplayer-core:2.8.4@aar"/>
         <androidPackage spec="com.android.support:support-annotations:28.0.0"/>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:vungle:2.6.4.1@aar"/>
-        <androidPackage spec="com.vungle:publisher-sdk-android:6.4.11"/>
-        <androidPackage spec="com.squareup.retrofit2:converter-gson:2.5.0"/>
-        <androidPackage spec="com.google.code.gson:gson:2.8.2"/>
-        <androidPackage spec="com.squareup.retrofit2:retrofit:2.5.0"/>
-        <androidPackage spec="com.squareup.okhttp3:logging-interceptor:3.12.0"/>
-        <androidPackage spec="com.squareup.okhttp3:okhttp:3.12.0"/>
-        <androidPackage spec="com.squareup.okio:okio:1.15.0"/>
-        <androidPackage spec="com.android.support:support-core-utils:28.0.0"/>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:admob:2.6.4.1@aar"/>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:a4g:2.6.4.2@aar"/>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:admob:2.6.4.2@aar"/>
         <androidPackage spec="com.google.android.gms:play-services-ads:16.0.0"/>
         <androidPackage spec="com.appodeal.ads.sdk.networks:amazon_ads:2.6.4.1@aar"/>
         <androidPackage spec="com.explorestack.amazon:sdk:5.9.0"/>
         <androidPackage spec="com.appodeal.ads.sdk.networks:ironsource:2.6.4.3@aar"/>
         <androidPackage spec="com.ironsource.sdk:mediationsdk:6.16.0"/>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:ogury:2.6.4.2@aar"/>
-        <androidPackage spec="com.explorestack.ogury:sdk:4.3.7"/>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:ogury:2.6.4.3@aar"/>
+        <androidPackage spec="com.explorestack.ogury:sdk:4.7.2"/>
         <androidPackage spec="com.appodeal.ads.sdk.networks:tapjoy:2.6.4.2@aar"/>
         <androidPackage spec="com.tapjoy:tapjoy-android-sdk:12.4.2@aar"/>
         <androidPackage spec="com.google.android.gms:play-services-basement:16.0.1"/>
@@ -73,7 +65,7 @@
         <iosPod name='APDAppodealAdExchangeAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
         <iosPod name='APDChartboostAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
         <iosPod name='APDFacebookAudienceAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
-        <iosPod name='APDGoogleAdMobAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
+        <iosPod name='APDGoogleAdMobAdapter' version='2.6.4.2' minTargetSdk='9.0'/>
         <iosPod name='APDInMobiAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
         <iosPod name='APDInnerActiveAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
         <iosPod name='APDIronSourceAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
@@ -85,6 +77,6 @@
         <iosPod name='APDVungleAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
         <iosPod name='APDYandexAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
         <iosPod name='APDUnityAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
-        <iosPod name='APDOguryAdapter' version='2.6.4.1' minTargetSdk='9.0'/>
+        <iosPod name='APDOguryAdapter' version='2.6.4.2' minTargetSdk='9.0'/>
     </iosPods>
 </dependencies>

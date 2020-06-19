@@ -3,7 +3,7 @@ using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
 using UnityEngine;
 
-//#if UNITY_ANDROID
+#if UNITY_ANDROID
 namespace AppodealAds.Unity.Android
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
@@ -465,4 +465,4 @@ namespace AppodealAds.Unity.Android
         }
     }
 }
-//#endif
+#endif

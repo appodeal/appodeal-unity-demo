@@ -19,7 +19,7 @@ namespace Appodeal.Unity.Editor
             Application.OpenURL("http://www.appodeal.com");
         }
 
-#if !UNITY_2019_3 && !UNITY_2020
+#if !UNITY_2019_3_OR_NEWER
         [MenuItem("Appodeal/Check Integration")]
         public static void TestWindow()
         {

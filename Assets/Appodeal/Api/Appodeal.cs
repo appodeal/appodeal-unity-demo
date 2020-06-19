@@ -68,7 +68,7 @@ namespace AppodealAds.Unity.Api
         public const int BANNER_HORIZONTAL_RIGHT = -3;
         public const int BANNER_HORIZONTAL_LEFT = -4;
 
-        public const string APPODEAL_PLUGIN_VERSION = "2.9.6";
+        public const string APPODEAL_PLUGIN_VERSION = "2.9.7";
         
         #endregion
         
@@ -120,12 +120,12 @@ namespace AppodealAds.Unity.Api
         {
             return getInstance().isLoaded(adTypes);
         }
-
+        
         public static void cache(int adTypes)
         {
             getInstance().cache(adTypes);
         }
-
+        
         public static void hide(int adTypes)
         {
             getInstance().hide(adTypes);
