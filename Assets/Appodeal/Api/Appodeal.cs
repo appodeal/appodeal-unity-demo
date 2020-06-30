@@ -38,8 +38,8 @@ namespace AppodealAds.Unity.Api
         public const string TAPJOY = "tapjoy";
         public const string UNITY_ADS = "unity_ads";
         public const string VAST = "vast";
-        public const string VPAID = "vpaid";
         public const string VUNGLE = "vungle";
+        public const string VPAID = "vpaid";
         public const string YANDEX = "yandex";
     }
 
@@ -68,7 +68,7 @@ namespace AppodealAds.Unity.Api
         public const int BANNER_HORIZONTAL_RIGHT = -3;
         public const int BANNER_HORIZONTAL_LEFT = -4;
 
-        public const string APPODEAL_PLUGIN_VERSION = "2.9.7";
+        public const string APPODEAL_PLUGIN_VERSION = "2.9.8";
         
         #endregion
         
