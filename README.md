@@ -5,6 +5,51 @@
 
 ## Changelog
 
+2.10.6 (September 23, 2020)
+
++ Updated Appodeal iOS SDK to 2.7.4
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.159
++ Merge Appodeal and ConsentManager directories
+
+2.10.5 (August 31, 2020)
+
++ Updated Appodeal iOS SDK to 2.7.3
++ Updated Appodeal Android SDK to 2.7.3
++ Minor changes in SDK Manager
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.157
+
+2.10.4 (July 31, 2020)
+
++ Updated Adapters config
++ Updated SDK Manager tool
+
+2.10.3 (July 20, 2020)
+
++ Updated Appodeal iOS SDK to 2.7.2
++ Updated Appodeal Android SDK to 2.7.2
++ Added vertical banners
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.156
+
+2.10.2 (July 2, 2020)
+
++ Updated Adapters config
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.155
+
+2.10.1 (April 16, 2020)
+
++ Updated Appodeal iOS SDK to 2.7.1
++ Updated Appodeal Android SDK to 2.7.1
++ Added Appodeal SDK Manager (support Unity 2018+)
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.150
+
+2.10.0 (March 23, 2020)
+
++ Updated Appodeal iOS SDK to 2.7.0
++ Updated Appodeal Android SDK to 2.7.0
++ Added additional params for iOS build
++ Updated Play Services Resolver to 1.2.136.0
++ Included Consent Manager
+
 2.9.8 (30/06/2020)
 
 + Updated Appodeal Android SDK to 2.6.5
