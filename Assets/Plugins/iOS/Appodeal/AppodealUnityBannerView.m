@@ -1,3 +1,9 @@
+#if defined(__has_include) && __has_include("UnityAppController.h")
+#import "UnityAppController.h"
+#else
+#import "EmptyUnityAppController.h"
+#endif
+
 #import <Foundation/Foundation.h>
 #import "AppodealUnityBannerView.h"
 
@@ -15,6 +21,10 @@
         sharedInstance = [[self alloc] init];
     });
     return sharedInstance;
+}
+
+UIViewController* RootViewControllerUnityBannerView() {
+    return ((UnityAppController *)[UIApplication sharedApplication].delegate).rootViewController;
 }
 
 - (id)init {
@@ -53,7 +63,7 @@
 - (void)setSharedBannerFrame:(CGFloat)XAxis YAxis:(CGFloat)YAxis {
     UIViewAutoresizing mask = UIViewAutoresizingNone;
     
-    CGSize  superviewSize = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject].frame.size;
+    CGSize  superviewSize = RootViewControllerUnityBannerView().view.bounds.size;
     CGFloat screenScale = [[UIScreen mainScreen] scale];
     
     CGFloat bannerHeight    = self.bannerView.frame.size.height;

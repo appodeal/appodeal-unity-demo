@@ -1,9 +1,12 @@
 #if UNITY_EDITOR
+#if UNITY_2018_1_OR_NEWER
+using Appodeal.Editor.AppodealManager.AppodealDependencies;
+#endif
 using UnityEditor;
 using UnityEngine;
 using AppodealAds.Unity.Editor.Checkers;
 
-namespace Appodeal.Unity.Editor
+namespace AppodealAds.Unity.Editor
 {
     public class AppodealSettings : ScriptableObject
     {
@@ -19,6 +22,14 @@ namespace Appodeal.Unity.Editor
             Application.OpenURL("http://www.appodeal.com");
         }
 
+#if UNITY_2018_1_OR_NEWER        
+        [MenuItem("Appodeal/Manage Appodeal SDK")]
+        public static void AppodealSdkManager()
+        {
+            AppodealAdapterManager.ShowSdkManager();
+        }
+#endif
+        
 #if !UNITY_2019_3_OR_NEWER
         [MenuItem("Appodeal/Check Integration")]
         public static void TestWindow()

@@ -19,12 +19,18 @@
         <perform_only_if_total_remove>true</perform_only_if_total_remove>
     </item>
     <item>
+        <check_if_empty>false</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>ConsentManager</name>
+        <path>ConsentManager</path>
+    </item>
+    <item>
         <description>External Dependency Manager is used by many plugins for integrating platform specific
             libraries and resolving conflicting dependencies. If some of your plugins use Jar
             Resolver, removing can lead to issues.
         </description>
         <is_confirmation_required>true</is_confirmation_required>
-        <name>External Dependency Manager</name>
+        <name>Jar Resolver</name>
         <path>ExternalDependencyManager</path>
     </item>
     <item>
@@ -44,6 +50,13 @@
         <is_confirmation_required>false</is_confirmation_required>
         <name>Appodeal iOS</name>
         <path>Plugins/iOS</path>
+    </item>
+    
+    <item>
+        <check_if_empty>false</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Plugins iOS Consent Manager</name>
+        <path>Plugins/iOS/ConsentManager</path>
     </item>
     <item>
         <check_if_empty>true</check_if_empty>
@@ -80,7 +93,6 @@
         <path>Plugins/Android/assets/com</path>
     </item>
     <item>
-        <!--check_if_empty>true</check_if_empty-->
         <is_confirmation_required>false</is_confirmation_required>
         <name>Plugins Android Assets Js</name>
         <path>Plugins/Android/assets/js</path>
@@ -92,6 +104,7 @@
         <name>Plugins Android Assets</name>
         <path>Plugins/Android/assets</path>
     </item>
+    
     <item>
         <check_if_empty>true</check_if_empty>
         <is_confirmation_required>false</is_confirmation_required>

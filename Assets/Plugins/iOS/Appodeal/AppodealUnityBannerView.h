@@ -3,6 +3,7 @@
 @interface AppodealUnityBannerView : NSObject
 
 + (instancetype)sharedInstance;
+UIViewController* RootViewControllerUnityBannerView(void);
 - (id)init;
 - (void)didRecieveNotification;
 - (void)setSharedBannerFrame:(CGFloat)XAxis YAxis:(CGFloat)YAxis;

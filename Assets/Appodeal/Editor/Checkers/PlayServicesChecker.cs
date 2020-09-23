@@ -4,15 +4,15 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Appodeal.Unity.Editor;
 using UnityEditor;
 using UnityEngine;
 
 namespace AppodealAds.Unity.Editor.Checkers
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    [SuppressMessage("ReSharper", "UnusedMember.Local")]
     [SuppressMessage("ReSharper", "UnusedVariable")]
+    [SuppressMessage("ReSharper", "UnusedMember.Local")]
+    [SuppressMessage("ReSharper", "UnusedType.Global")]
     public class PlayServicesChecker : CheckingStep
     {
         private readonly Dictionary<string, HashSet<string>> requiredServices = new Dictionary<string, HashSet<string>>
@@ -22,7 +22,7 @@ namespace AppodealAds.Unity.Editor.Checkers
             {"play-services-gcm", new HashSet<string>()}
         };
 
-        private const string MIN_SUPPORTED_PLAY_SERVICES_VERSION = "12.0.0";
+        private const string MIN_SUPPORTED_PLAY_SERVICES_VERSION = "15.0.0";
 
         public override string getName()
         {
@@ -38,6 +38,7 @@ namespace AppodealAds.Unity.Editor.Checkers
         {
             var instructions = new List<FixProblemInstruction>();
             var reAar = new Regex(@"play-services.+-(?<version>\d+\.\d+(\.\d+)*)");
+
             var aarFiles = getPlayServicesAarFiles();
             foreach (var file in aarFiles)
             {
@@ -112,19 +113,12 @@ namespace AppodealAds.Unity.Editor.Checkers
                             return instructions;
                         }
                         case 1:
-                            //and at least some of required services are in xml
                             break;
                     }
 
-                    //Надо узнать, есть ли зависимости в градле и правильные ли они или xml прежде чем что-то предлагать
-                    //В xml - ресолвим
-                    //В градл - вообще все норм (при условии отсуствия конфликтов)
                     break;
                 }
                 case 2:
-                    //1 Зависимости от разных xml (если один из них - AppodealDependencies, то меняем в нем; если нет, то придется ограничится предупреждением)
-                    //2 Одни - зависимость от xml, другие просто положены каким-то плагином (Если есть AppodealDependencies, то меняем в нем? иначе предупреждение)
-                    //3 Все напрямую распространялись плагинами (предупреждение)
                     break;
                 default:
                 {
@@ -141,10 +135,7 @@ namespace AppodealAds.Unity.Editor.Checkers
                     break;
                 }
             }
-
-            //What if aar file is a result of JarResolver work? We can change version in resolver and aar version will be changed too
-            //On the other hand, it can be just an aar. And we can't change anything in this case.
-
+            
             return instructions;
         }
 
@@ -162,7 +153,7 @@ namespace AppodealAds.Unity.Editor.Checkers
             return Array.FindAll(deps.ToArray(), isMeaningfulForDependenciesCheck);
         }
 
-        private IEnumerable<string> getPlayServicesAarFiles()
+        private static IEnumerable<string> getPlayServicesAarFiles()
         {
             var aars = new List<string>();
             aars.AddRange(Directory.GetFiles(Application.dataPath, "*play-services*.aar", SearchOption.AllDirectories));
@@ -194,12 +185,12 @@ namespace AppodealAds.Unity.Editor.Checkers
         public readonly Dictionary<string, HashSet<string>> playServicesVersions = new Dictionary<string, HashSet<string>>();
         public readonly HashSet<string> foundServices = new HashSet<string>();
 
-        public DependenciesParser(string[] files)
+        public DependenciesParser(IEnumerable<string> files)
         {
             parse(files);
         }
 
-        private void parse(string[] filesToCheck)
+        private void parse(IEnumerable<string> filesToCheck)
         {
             var re = new Regex(@"com\.google\.android\.gms(?<name>:.*:|.*,\s+.*"""")+(?<version>\d+\.\d+(\.\d+)*)");
             foreach (var file in filesToCheck)

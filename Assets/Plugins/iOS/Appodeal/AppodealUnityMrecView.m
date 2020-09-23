@@ -1,3 +1,9 @@
+#if defined(__has_include) && __has_include("UnityAppController.h")
+#import "UnityAppController.h"
+#else
+#import "EmptyUnityAppController.h"
+#endif
+
 #import <Foundation/Foundation.h>
 #import "AppodealUnityMrecView.h"
 
@@ -15,6 +21,10 @@
         sharedInstance = [[self alloc] init];
     });
     return sharedInstance;
+}
+
+UIViewController* RootViewControllerUnityMrec() {
+    return ((UnityAppController *)[UIApplication sharedApplication].delegate).rootViewController;
 }
 
 - (id)init {
@@ -47,7 +57,7 @@
 - (void)setSharedMrecFrame:(CGFloat)XAxis YAxis:(CGFloat)YAxis {
     UIViewAutoresizing mask = UIViewAutoresizingNone;
     
-    CGSize  superviewSize = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject].frame.size;
+    CGSize  superviewSize = RootViewControllerUnityMrec().view.bounds.size;
     CGFloat screenScale = [[UIScreen mainScreen] scale];
     
     CGFloat mrecHeight    = self.mrecView.frame.size.height;

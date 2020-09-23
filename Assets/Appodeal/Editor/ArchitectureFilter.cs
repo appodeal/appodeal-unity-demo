@@ -5,7 +5,7 @@ using System.IO;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Appodeal.Unity.Editor
+namespace AppodealAds.Unity.Editor
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public static class ArchitectureFilter
@@ -31,11 +31,11 @@ namespace Appodeal.Unity.Editor
             if (arch == AppodealUnityUtils.AndroidArchitecture.invalid)
             {
                 EditorUtility.DisplayDialog("Architecture problems were found in the project",
-                    "For some reason it isn't possible to define selected architectures. " +
-                    "Please check your settings. You also can check architectures manually",
+                    "For some reason it isn't possible to define selected architectures. Please check your settings. You also can check architectures manually",
                     "Ok");
                 return;
             }
+
             var selectedArches =
                 new HashSet<AppodealUnityUtils.AndroidArchitecture>();
             foreach (AppodealUnityUtils.AndroidArchitecture a in Enum.GetValues(
@@ -51,7 +51,7 @@ namespace Appodeal.Unity.Editor
             foreach (var libPath in nativeLibs)
             {
                 var
-                    dir = Path.GetFileName(libPath); 
+                    dir = Path.GetFileName(libPath);
                 var archFullPaths =
                     new Dictionary<AppodealUnityUtils.AndroidArchitecture, string>();
                 var archSafeFullPaths =

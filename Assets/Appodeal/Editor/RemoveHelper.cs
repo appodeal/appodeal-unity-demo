@@ -1,5 +1,5 @@
+#pragma warning disable 0649
 using System.IO;
-using System;
 using UnityEditor;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -8,11 +8,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml;
 
-namespace Appodeal.Unity.Editor
+namespace AppodealAds.Unity.Editor
 {
-    [Serializable]
+    [System.Serializable]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    [SuppressMessage("ReSharper", "NotAccessedField.Global")]
     internal class ItemToRemove
     {
         public string name;
@@ -24,24 +23,31 @@ namespace Appodeal.Unity.Editor
         public string filter;
     }
 
-    [Serializable]
-    [SuppressMessage("ReSharper", "UnusedMember.Local")]
+    [System.Serializable]
     internal class ItemsWrapper
     {
-        private ItemToRemove[] items;
+        public ItemToRemove[] items;
     }
 
 
     [InitializeOnLoad]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "RedundantJumpStatement")]
     [SuppressMessage("ReSharper", "UnusedMember.Local")]
-    [SuppressMessage("ReSharper", "AccessToForEachVariableInClosure")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class RemoveHelper
     {
         private const string PLAY_SERVICES_RESOLVER_PLUGIN = "Appodeal-Unity-Play-Services-Resolver";
         private const string ANDROID_SUPPORT_PLUGIN = "Appodeal-Unity-Android-Support";
         private const string PLAY_SERVICES_PLUGIN = "Unity-Google-Play-Services";
         private const string UNITY_PLUGIN = "Appodeal-Unity-";
+
+        public static string[] pathsToSearchNetworksFiles =
+        {
+            Path.Combine(Application.dataPath, "Appodeal/Adapters"),
+            Path.Combine(Application.dataPath, "Plugins/Android"),
+            Path.Combine(Application.dataPath, "Plugins/Android/appodeal/assets/dex")
+        };
 
         static RemoveHelper()
         {
@@ -57,7 +63,6 @@ namespace Appodeal.Unity.Editor
             }
 
             if (!packageName.Contains(UNITY_PLUGIN)) return;
-            
             if (EditorUtility.DisplayDialog("Appodeal Warning",
                 "It seems like you are going to install new version of Appodeal plugin. " +
                 "To avoid conflicts it's recommended to delete previous version of the plugin.",
@@ -83,71 +88,71 @@ namespace Appodeal.Unity.Editor
             xDoc.Load(Path.Combine(Application.dataPath, "Appodeal/InternalResources/remove_list.xml"));
             var xRoot = xDoc.DocumentElement;
 
-            if (xRoot != null)
-                foreach (XmlNode xnode in xRoot)
+            if (xRoot == null) return itemToRemoveList.ToArray();
+            foreach (XmlNode xnode in xRoot)
+            {
+                var itemToRemove = new ItemToRemove();
+                foreach (XmlNode childNode in xnode.ChildNodes)
                 {
-                    var itemToRemove = new ItemToRemove();
-                    foreach (XmlNode childNode in xnode.ChildNodes)
+                    if (childNode.Name.Equals("name"))
                     {
-                        if (childNode.Name.Equals("name"))
-                        {
-                            itemToRemove.name = childNode.InnerText;
-                        }
+                        itemToRemove.name = childNode.InnerText;
+                    }
 
-                        if (childNode.Name.Equals("is_confirmation_required"))
+                    if (childNode.Name.Equals("is_confirmation_required"))
+                    {
+                        if (childNode.InnerText.Equals("true"))
                         {
-                            if (childNode.InnerText.Equals("true"))
-                            {
-                                itemToRemove.is_confirmation_required = true;
-                            }
-                            else if (childNode.InnerText.Equals("true"))
-                            {
-                                itemToRemove.is_confirmation_required = false;
-                            }
+                            itemToRemove.is_confirmation_required = true;
                         }
-
-                        if (childNode.Name.Equals("path"))
+                        else if (childNode.InnerText.Equals("true"))
                         {
-                            itemToRemove.path = childNode.InnerText;
-                        }
-
-                        if (childNode.Name.Equals("description"))
-                        {
-                            itemToRemove.description = childNode.InnerText;
-                        }
-
-                        if (childNode.Name.Equals("check_if_empty"))
-                        {
-                            if (childNode.InnerText.Equals("true"))
-                            {
-                                itemToRemove.check_if_empty = true;
-                            }
-                            else if (childNode.InnerText.Equals("false"))
-                            {
-                                itemToRemove.check_if_empty = false;
-                            }
-                        }
-
-                        if (childNode.Name.Equals("perform_only_if_total_remove"))
-                        {
-                            if (childNode.InnerText.Equals("true"))
-                            {
-                                itemToRemove.perform_only_if_total_remove = true;
-                            }
-                            else if (childNode.InnerText.Equals("false"))
-                            {
-                                itemToRemove.perform_only_if_total_remove = false;
-                            }
-                        }
-
-                        if (childNode.Name.Equals("filter"))
-                        {
-                            itemToRemove.filter = childNode.InnerText;
+                            itemToRemove.is_confirmation_required = false;
                         }
                     }
 
-                    itemToRemoveList.Add(itemToRemove);
+                    if (childNode.Name.Equals("path"))
+                    {
+                        itemToRemove.path = childNode.InnerText;
+                    }
+
+                    if (childNode.Name.Equals("description"))
+                    {
+                        itemToRemove.description = childNode.InnerText;
+                    }
+
+                    if (childNode.Name.Equals("check_if_empty"))
+                    {
+                        if (childNode.InnerText.Equals("true"))
+                        {
+                            itemToRemove.check_if_empty = true;
+                        }
+                        else if (childNode.InnerText.Equals("false"))
+                        {
+                            itemToRemove.check_if_empty = false;
+                        }
+                    }
+
+                    if (childNode.Name.Equals("perform_only_if_total_remove"))
+                    {
+                        if (childNode.InnerText.Equals("true"))
+                        {
+                            itemToRemove.perform_only_if_total_remove = true;
+                        }
+                        else if (childNode.InnerText.Equals("false"))
+                        {
+                            itemToRemove.perform_only_if_total_remove = false;
+                        }
+                    }
+
+                    if (childNode.Name.Equals("filter"))
+                    {
+                        itemToRemove.filter = childNode.InnerText;
+                    }
                 }
+
+                itemToRemoveList.Add(itemToRemove);
+            }
 
             return itemToRemoveList.ToArray();
         }
@@ -155,26 +160,26 @@ namespace Appodeal.Unity.Editor
         public static void RemovePlugin(bool isCleanBeforeUpdate = false)
         {
             var items = readXML();
-            foreach (var t1 in items)
+            foreach (var t in items)
             {
-                if (t1.perform_only_if_total_remove && isCleanBeforeUpdate) continue;
-                var confirmed = !t1.is_confirmation_required || isCleanBeforeUpdate;
-                var fullItemPath = Path.Combine(Application.dataPath, t1.path);
+                if (t.perform_only_if_total_remove && isCleanBeforeUpdate) continue;
+                var confirmed = !t.is_confirmation_required || isCleanBeforeUpdate;
+                var fullItemPath = Path.Combine(Application.dataPath, t.path);
 
                 if (!confirmed)
                 {
-                    if (EditorUtility.DisplayDialog("Removing " + t1.name, t1.description, "Yes", "No"))
+                    if (EditorUtility.DisplayDialog("Removing " + t.name, t.description, "Yes", "No"))
                     {
                         confirmed = true;
                     }
                 }
 
                 if (!confirmed) continue;
-                var isChecked = !t1.check_if_empty;
+                var isChecked = !t.check_if_empty;
                 if (!isChecked) isChecked = isFolderEmpty(fullItemPath);
                 if (!isChecked) continue;
 
-                if (string.IsNullOrEmpty(t1.filter))
+                if (string.IsNullOrEmpty(t.filter))
                 {
                     FileUtil.DeleteFileOrDirectory(fullItemPath);
                     FileUtil.DeleteFileOrDirectory(fullItemPath + ".meta");
@@ -186,11 +191,10 @@ namespace Appodeal.Unity.Editor
                 var filesList =
                     new List<string>(Directory.GetFiles(fullItemPath, "*", SearchOption.TopDirectoryOnly));
                 filesList.AddRange(Directory.GetDirectories(fullItemPath, "*", SearchOption.TopDirectoryOnly));
-                foreach (var t in from t in filesList let fileName = Path.GetFileName(t) 
-                    where fileName == null || Regex.IsMatch(fileName, t1.filter, RegexOptions.IgnoreCase) select t)
+                foreach (var t1 in from t1 in filesList let fileName = Path.GetFileName(t1) where Regex.IsMatch(fileName, t.filter, RegexOptions.IgnoreCase) select t1)
                 {
-                    FileUtil.DeleteFileOrDirectory(t);
-                    FileUtil.DeleteFileOrDirectory(t + ".meta");
+                    FileUtil.DeleteFileOrDirectory(t1);
+                    FileUtil.DeleteFileOrDirectory(t1 + ".meta");
                 }
 
                 if (!isFolderEmpty(fullItemPath)) continue;

@@ -3,6 +3,7 @@
 @interface AppodealUnityMrecView : NSObject
 
 + (instancetype)sharedInstance;
+UIViewController* RootViewControllerUnityMrec(void);
 - (id)init;
 - (void)didRecieveNotification;
 - (void)setSharedMrecFrame:(CGFloat)XAxis YAxis:(CGFloat)YAxis;

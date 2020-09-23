@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Appodeal.Unity.Editor;
 using UnityEditor;
 using UnityEngine;
 
@@ -51,13 +50,14 @@ namespace AppodealAds.Unity.Editor.Checkers
                 currentStep++;
                 fixes = steps[currentStep].check();
             }
+
             if ((fixes == null || fixes.Count == 0) && currentStep < steps.Count - 1) steps[currentStep].done = true;
             var w1 = position.width * 0.3f;
             var styleWhiteBG = new GUIStyle(GUI.skin.scrollView);
             GUILayout.Label(new GUIContent(
-                "This utility will cleck configuration only for the selected platform: " +
+                "This utility will check configuration only for the selected platform: " +
                 EditorUserBuildSettings.activeBuildTarget +
-                "\nIf you want to check your project for another patform, you should select it in the File > Build Settings.",
+                "\nIf you want to check your project for another platform, you should select it in the File > Build Settings.",
                 EditorGUIUtility.FindTexture("console.warnicon")));
             GUILayout.BeginHorizontal();
             scrollPositionSteps = GUILayout.BeginScrollView(scrollPositionSteps, styleWhiteBG, GUILayout.Width(w1));

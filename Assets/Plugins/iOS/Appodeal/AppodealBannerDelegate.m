@@ -1,5 +1,4 @@
 #import "AppodealBannerDelegate.h"
-
 @interface UIView (AppodealUnityPlugin)
 @property (nonatomic, readonly) NSMutableArray <UIView *> *recursiveSubviews;
 @end
@@ -21,7 +20,6 @@
         self.bannerDidLoadAdCallback(height, precache);
     }
 }
-
 - (void)bannerDidShow {
     NSArray <UIView *> *ignoresTouchViews = [[Appodeal banner] recursiveSubviews];
     for (UIView *view in ignoresTouchViews) {

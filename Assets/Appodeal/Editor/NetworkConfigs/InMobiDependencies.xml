@@ -1,0 +1,26 @@
+<dependencies>
+    <iosPods>
+        <iosPod name='APDInMobiAdapter' version='2.7.4.1' minTargetSdk='9.0'/>
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:inmobi:2.7.3.4@aar'/>
+        <androidPackage spec='com.inmobi.monetization:inmobi-ads:9.0.8'/>
+        <androidPackage spec='com.squareup.picasso:picasso:2.71828'/>
+        <androidPackage spec='androidx.browser:browser:1.0.0@aar'/>
+        <androidPackage spec='androidx.interpolator:interpolator:1.0.0'/>
+        <androidPackage spec='androidx.collection:collection:1.1.0'/>
+        <androidPackage spec='androidx.annotation:annotation:1.1.0'/>
+        <androidPackage spec='androidx.legacy:legacy-support-core-ui:1.0.0'/>
+        <androidPackage spec='androidx.core:core:1.1.0'/>
+        <androidPackage spec='androidx.recyclerview:recyclerview:1.0.0@aar'/>
+        <androidPackage spec='androidx.annotation:annotation:1.1.0'/>
+        <androidPackage spec='androidx.legacy:legacy-support-core-ui:1.0.0'/>
+        <androidPackage spec='androidx.core:core:1.1.0'/>
+        <androidPackage spec='com.google.android.gms:play-services-ads-identifier:17.0.0'/>
+        <androidPackage spec='com.google.android.gms:play-services-location:17.0.0'/>
+        <androidPackage spec='androidx.legacy:legacy-support-v4:1.0.0'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

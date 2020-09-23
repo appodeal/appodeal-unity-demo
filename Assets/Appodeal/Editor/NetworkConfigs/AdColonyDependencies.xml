@@ -1,0 +1,13 @@
+<dependencies>
+    <iosPods>
+        <iosPod name='APDAdColonyAdapter' version='2.7.4.1' minTargetSdk='9.0'/>
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:adcolony:2.7.3.7@aar'/>
+        <androidPackage spec='com.adcolony:sdk:4.2.2'/>
+        <androidPackage spec='com.google.android.gms:play-services-ads-identifier:17.0.0'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

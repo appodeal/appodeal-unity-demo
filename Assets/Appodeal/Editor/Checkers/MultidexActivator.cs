@@ -6,15 +6,16 @@ using System;
 using System.Xml;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Appodeal.Unity.Editor;
+using Debug = System.Diagnostics.Debug;
 
 namespace AppodealAds.Unity.Editor.Checkers
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    [SuppressMessage("ReSharper", "UnusedMember.Local")]
     public class MultidexActivator : CheckingStep
     {
-        //Templates in Unity Editor Data folder
+        #region Constants
+
+         //Templates in Unity Editor Data folder
         private const string gradleDefaultTemplatePath = "PlaybackEngines/AndroidPlayer/Tools/GradleTemplates";
         public const string manifestDefaultTemplatePath = "PlaybackEngines/AndroidPlayer/Apk/AndroidManifest.xml";
 
@@ -24,7 +25,6 @@ namespace AppodealAds.Unity.Editor.Checkers
         public const string manifestTemplateName = "AndroidManifest.xml";
         public const string appodealTemplatesPath = "Appodeal/InternalResources";
         private const string appodealDexesPath = "Assets/Plugins/Android/appodeal/assets/dex";
-        private const string appodealDexesPaths = "Assets/Plugins/Android/appodeal/assets/dex";
 
         //Gradle search lines
         public const string GRADLE_GOOGLE_REPOSITORY = "google()";
@@ -32,22 +32,24 @@ namespace AppodealAds.Unity.Editor.Checkers
         public const string GRADLE_DEPENDENCIES = "**DEPS**";
         public const string GRADLE_APP_ID = "**APPLICATIONID**";
         public const string GRADLE_USE_PROGUARD = "useProguard";
-        public const string GRADLE_MULTIDEX_DEPENDENCY_WO_VERSION = "com.android.support:multidex:";
+        public const string GRADLE_MULTIDEX_DEPENDENCY_WO_VERSION = "androidx.multidex:multidex:";
         public const string GRAFLE_DEFAULT_CONFIG = "defaultConfig";
         public const string COMPILE_OPTIONS = "compileOptions {";
         public const string GRADLE_JAVA_VERSION_1_8 = "JavaVersion.VERSION_1_8";
         public const string GRADLE_SOURCE_CAPABILITY = "sourceCompatibility ";
-        public const string GRADLE_TARGET_CAPABILITY = "targetCompatibility ";
+        public const string GRADLE_TARGET_CAPATILITY = "targetCompatibility ";
 
         //Gradle add lines
         public const string GRADLE_COMPILE = "compile ";
         public const string GRADLE_IMPLEMENTATION = "implementation ";
-        public const string GRADLE_MULTIDEX_DEPENDENCY = "'com.android.support:multidex:1.0.3'";
+        public const string GRADLE_MULTIDEX_DEPENDENCY = "'androidx.multidex:multidex:2.0.1'";
         public const string GRADLE_MULTIDEX_ENABLE = "multiDexEnabled true";
 
         //Manifest add lines
-        public const string manifestMutlidexApp = "android.support.multidex.MultiDexApplication";
+        public const string manifestMutlidexApp = "androidx.multidex.MultiDexApplication";
 
+        #endregion
+        
         public override string getName()
         {
             return "Android Multidex Settings";
@@ -210,6 +212,7 @@ namespace AppodealAds.Unity.Editor.Checkers
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "NotAccessedField.Local")]
     public class ImportantGradleSettings
     {
         public readonly bool googleRepositoryPresented;
@@ -233,9 +236,10 @@ namespace AppodealAds.Unity.Editor.Checkers
                 gradleScriptFullText.Contains(MultidexActivator.GRADLE_SOURCE_CAPABILITY +
                                               MultidexActivator.GRADLE_JAVA_VERSION_1_8);
             targetCapability =
-                gradleScriptFullText.Contains(MultidexActivator.GRADLE_TARGET_CAPABILITY +
+                gradleScriptFullText.Contains(MultidexActivator.GRADLE_TARGET_CAPATILITY +
                                               MultidexActivator.GRADLE_JAVA_VERSION_1_8);
             defaultConfig = gradleScriptFullText.Contains(MultidexActivator.GRAFLE_DEFAULT_CONFIG);
+
             var allprojects = getModule("allprojects", gradleScriptFullText);
             googleRepositoryPresented = allprojects.Contains(MultidexActivator.GRADLE_GOOGLE_REPOSITORY) ||
                                         gradleScriptFullText.Contains(MultidexActivator
@@ -308,10 +312,13 @@ namespace AppodealAds.Unity.Editor.Checkers
 
         public override void fixProblem()
         {
+            //EditorApplication.applicationContentsPath is different for macos and win. need to fix to reach manifest and gradle templates 
             var defaultGradleTemplateFullName = MultidexActivator.getDefaultGradleTemplate();
+
             var destGradleScriptFullName = AppodealUnityUtils.combinePaths(Application.dataPath,
                 MultidexActivator.androidPluginsPath,
                 MultidexActivator.gradleTemplateName);
+            //Prefer to use build.gradle from the box. Just in case.
             if (File.Exists(defaultGradleTemplateFullName))
             {
                 File.Copy(defaultGradleTemplateFullName, destGradleScriptFullName);
@@ -319,7 +326,10 @@ namespace AppodealAds.Unity.Editor.Checkers
 
             AssetDatabase.ImportAsset(AppodealUnityUtils.absolute2Relative(destGradleScriptFullName),
                 ImportAssetOptions.ForceUpdate);
+
+            //There are no multidex settings in default build.gradle but they can add that stuff.
             var settings = new ImportantGradleSettings(destGradleScriptFullName);
+
             if (!settings.isMultiDexAddedCompletely())
                 new EnableMultidexInGradle(destGradleScriptFullName).fixProblem();
         }
@@ -398,7 +408,7 @@ namespace AppodealAds.Unity.Editor.Checkers
     {
         private readonly string path;
 
-        public EnableJavaVersion(string gradleScriptPath) : base("Java version isn't included to mainTamplete.gradle",
+        public EnableJavaVersion(string gradleScriptPath) : base("Java version isn't included to mainTemplate.gradle",
             true)
         {
             path = gradleScriptPath;
@@ -434,7 +444,7 @@ namespace AppodealAds.Unity.Editor.Checkers
                     if (!settings.targetCapability)
                     {
                         modifiedGradle += leadingWhitespaces + leadingWhitespaces +
-                                          MultidexActivator.GRADLE_TARGET_CAPABILITY
+                                          MultidexActivator.GRADLE_TARGET_CAPATILITY
                                           + MultidexActivator.GRADLE_JAVA_VERSION_1_8 + Environment.NewLine;
                     }
 
@@ -459,7 +469,6 @@ namespace AppodealAds.Unity.Editor.Checkers
         }
     }
 
-    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     internal class CopyManifestTemplateAndAddNameAttribute : FixProblemInstruction
     {
         public CopyManifestTemplateAndAddNameAttribute() : base(
@@ -474,16 +483,19 @@ namespace AppodealAds.Unity.Editor.Checkers
                 MultidexActivator.manifestDefaultTemplatePath);
             if (!File.Exists(defaultTemplate))
             {
-                string unixAppContentsPath =
+                var unixAppContentsPath =
                     Path.GetDirectoryName(Path.GetDirectoryName(EditorApplication.applicationContentsPath));
+                Debug.Assert(unixAppContentsPath != null, nameof(unixAppContentsPath) + " != null");
                 defaultTemplate = Path.Combine(unixAppContentsPath, MultidexActivator.manifestDefaultTemplatePath);
             }
+
             var appodealTemplate = AppodealUnityUtils.combinePaths(Application.dataPath,
                 MultidexActivator.appodealTemplatesPath,
                 MultidexActivator.manifestTemplateName);
             File.Copy(File.Exists(defaultTemplate) ? defaultTemplate : appodealTemplate, fullManifestName);
             AssetDatabase.ImportAsset(AppodealUnityUtils.absolute2Relative(fullManifestName),
                 ImportAssetOptions.ForceUpdate);
+
             var appNode = MultidexActivator.getApplicationNode(fullManifestName);
             var ns = appNode.GetNamespaceOfPrefix("android");
             if (!appNode.HasAttribute("name", ns))
@@ -510,7 +522,8 @@ namespace AppodealAds.Unity.Editor.Checkers
         {
             var fullManifestName = MultidexActivator.getCustomManifestPath();
             appNode.SetAttribute("name", ns, MultidexActivator.manifestMutlidexApp);
-            if (appNode.OwnerDocument != null) appNode.OwnerDocument.Save(fullManifestName);
+            Debug.Assert(appNode.OwnerDocument != null, "appNode.OwnerDocument != null");
+            appNode.OwnerDocument.Save(fullManifestName);
             AssetDatabase.ImportAsset(AppodealUnityUtils.absolute2Relative(fullManifestName),
                 ImportAssetOptions.ForceUpdate);
         }

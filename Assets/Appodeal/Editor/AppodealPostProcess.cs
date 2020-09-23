@@ -1,8 +1,9 @@
-﻿using UnityEditor;
+﻿using Appodeal.Unity.Editor;
+using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-namespace Appodeal.Unity.Editor
+namespace AppodealAds.Unity.Editor
 {
     public class AppodealPostProcess : MonoBehaviour
     {

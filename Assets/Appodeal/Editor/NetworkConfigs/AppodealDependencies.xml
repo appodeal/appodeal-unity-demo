@@ -1,0 +1,16 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec='com.appodeal.ads.sdk:core:2.7.3'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:vast:2.7.3.2'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:nast:2.7.3.2'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:mraid:2.7.3.2'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:appodealx:2.7.3.2'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+    <iosPods>
+        <iosPod name='Appodeal' version='2.7.4' minTargetSdk='9.0'/>
+        <iosPod name='APDAppodealAdExchangeAdapter' version='2.7.4.1' minTargetSdk='9.0'/>
+    </iosPods>
+</dependencies>

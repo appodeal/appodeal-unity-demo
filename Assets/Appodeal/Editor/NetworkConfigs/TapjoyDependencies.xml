@@ -1,0 +1,15 @@
+<dependencies>
+    <iosPods>
+        <iosPod name='APDTapjoyAdapter' version='2.7.4.1' minTargetSdk='9.0'/>
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:tapjoy:2.7.3.4@aar'/>
+        <androidPackage spec='com.tapjoy:tapjoy-android-sdk:12.6.1@aar'/>
+        <androidPackage spec='com.google.android.gms:play-services-basement:17.0.0'/>
+        <androidPackage spec='com.google.android.gms:play-services-ads:19.3.0'/>
+        <androidPackage spec='com.google.android.gms:play-services-location:17.0.0'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>
