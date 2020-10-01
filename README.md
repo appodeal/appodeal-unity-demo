@@ -10,7 +10,7 @@
 2.11.0 (October 1, 2020)
 
 + Updated Appodeal iOS SDK to 2.8.0
-+ Updated Appodeal iOS SDK to 2.8.0
++ Updated Appodeal Android SDK to 2.8.0
 + Mark adapters configs as optional: Chartboost, InMobi, Mintegral, TapjoyAdapter
 + Replace AppodealX adapter config with BidMachine adapter config
 
