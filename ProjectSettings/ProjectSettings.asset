@@ -163,6 +163,7 @@ PlayerSettings:
     Standalone: unity.DefaultCompany.AppodealSDK-UnityPlugin
     Tizen: ame.appodeal.testing
     iOS: com.appodeal.testing
+    iPhone: com.appodeal.testing
     tvOS: ame.appodeal.testing
   buildNumber:
     iOS: 0

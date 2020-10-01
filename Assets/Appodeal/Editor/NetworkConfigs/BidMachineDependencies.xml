@@ -1,0 +1,30 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec='io.bidmachine:ads:1.6.0'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:bidmachine:2.8.0.2@aar'/>
+        <androidPackage spec='io.bidmachine:ads.networks.adcolony:1.6.0.5'/>
+        <androidPackage spec='io.bidmachine:ads.networks.criteo:1.6.0.5'/>
+        <androidPackage spec='io.bidmachine:ads.networks.facebook:1.6.0.4@aar'/>
+        <androidPackage spec='io.bidmachine:ads:1.6.0'/>
+        <androidPackage spec='com.facebook.android:audience-network-sdk:6.0.0@aar'/>
+        <androidPackage spec='com.google.android.gms:play-services-basement:17.0.0'/>
+        <androidPackage spec='io.bidmachine:ads.networks.my_target:1.6.0.3@aar'/>
+        <androidPackage spec='com.my.target:mytarget-sdk:5.11.0@aar'/>
+        <androidPackage spec='androidx.recyclerview:recyclerview:1.1.0@aar'/>
+        <androidPackage spec='androidx.customview:customview:1.0.0@aar'/>
+        <androidPackage spec='androidx.annotation:annotation:1.1.0'/>
+        <androidPackage spec='androidx.core:core:1.1.0'/>
+        <androidPackage spec='androidx.collection:collection:1.1.0'/>
+        <androidPackage spec='androidx.annotation:annotation:1.1.0'/>
+        <androidPackage spec='androidx.core:core:1.1.0'/>
+        <androidPackage spec='com.google.android.exoplayer:exoplayer-hls:2.8.4'/>
+        <androidPackage spec='com.google.android.exoplayer:exoplayer-core:2.8.4'/>
+        <androidPackage spec='io.bidmachine:ads:1.6.0'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+    <iosPods>
+        <iosPod name='APDBidMachineAdapter' version='2.8.0.1-Beta' minTargetSdk='9.0'/>
+    </iosPods>
+</dependencies>
