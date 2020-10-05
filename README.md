@@ -1,6 +1,6 @@
 # Appodeal Unity Plugin Demo
 
-[![](https://img.shields.io/badge/docs-green.svg)](https://www.appodeal.com/sdk/unity)
+[![](https://img.shields.io/badge/docs-green.svg)](https://wiki.appodeal.com/en/unity/2-10-6-unity-sdk-integration-guide)
 
 
 ## Changelog
