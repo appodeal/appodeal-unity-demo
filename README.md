@@ -5,6 +5,12 @@
 
 ## Changelog
 
+2.10.7 (October 20, 2020)
+
++ Updated Appodeal iOS SDK to 2.7.5
++ Updated Appodeal Android SDK to 2.7.4
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.161
+
 2.10.6 (September 23, 2020)
 
 + Updated Appodeal iOS SDK to 2.7.4
