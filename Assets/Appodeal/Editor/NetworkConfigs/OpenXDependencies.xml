@@ -1,5 +1,0 @@
-<dependencies>
-    <iosPods>
-        <iosPod name='APDOpenXAdapter' version='2.7.4.1' minTargetSdk='9.0'/>
-    </iosPods>
-</dependencies>

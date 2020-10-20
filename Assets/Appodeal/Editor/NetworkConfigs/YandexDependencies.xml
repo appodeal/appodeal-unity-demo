@@ -1,9 +1,9 @@
 <dependencies>
     <iosPods>
-        <iosPod name='APDYandexAdapter' version='2.7.4.1' minTargetSdk='9.0'/>
+        <iosPod name='APDYandexAdapter' version='2.7.5.1' minTargetSdk='9.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:yandex:2.7.3.5'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:yandex:2.7.4.5'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>

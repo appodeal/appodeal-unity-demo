@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath 'com.android.tools.build:gradle:3.4.3'
 **BUILD_SCRIPT_DEPS**}
 }
 
@@ -31,7 +31,7 @@ allprojects {
             url "https://maven.google.com"
         }
         maven {
-            url "https://artifactory.appodeal.com/artifactory/appodeal" // Assets/Appodeal/Editor/NetworkConfigs/A4gDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/AdColonyDependencies.xml:11, Assets/Appodeal/Editor/NetworkConfigs/AmazonAdsDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/AppLovinDependencies.xml:11, Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:10, Assets/Appodeal/Editor/NetworkConfigs/ChartboostDependencies.xml:12, Assets/Appodeal/Editor/NetworkConfigs/FacebookAudienceDependencies.xml:11, Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml:10, Assets/Appodeal/Editor/NetworkConfigs/InMobiDependencies.xml:24, Assets/Appodeal/Editor/NetworkConfigs/InnerActiveDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/IronSourceDependencies.xml:12, Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:17, Assets/Appodeal/Editor/NetworkConfigs/OguryDependencies.xml:11, Assets/Appodeal/Editor/NetworkConfigs/SmaatoDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/StartAppDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/TapjoyDependencies.xml:13, Assets/Appodeal/Editor/NetworkConfigs/UnityDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:14, Assets/Appodeal/Editor/NetworkConfigs/YandexDependencies.xml:9
+            url "https://artifactory.appodeal.com/artifactory/appodeal" // Assets/Appodeal/Editor/NetworkConfigs/A4GDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/AdColonyDependencies.xml:11, Assets/Appodeal/Editor/NetworkConfigs/AmazonAdsDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/AppLovinDependencies.xml:11, Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:10, Assets/Appodeal/Editor/NetworkConfigs/FacebookAudienceDependencies.xml:11, Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml:10, Assets/Appodeal/Editor/NetworkConfigs/InnerActiveDependencies.xml:6, Assets/Appodeal/Editor/NetworkConfigs/IronSourceDependencies.xml:12, Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:17, Assets/Appodeal/Editor/NetworkConfigs/OguryDependencies.xml:11, Assets/Appodeal/Editor/NetworkConfigs/SmaatoDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/StartAppDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/UnityDependencies.xml:9, Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:13, Assets/Appodeal/Editor/NetworkConfigs/YandexDependencies.xml:9
         }
         maven {
             url "https://artifactory.appodeal.com/appodeal" // Assets/Appodeal/Editor/ConsentMangerDependencies.xml:7
@@ -50,56 +50,43 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
 // Android Resolver Dependencies Start
     implementation 'androidx.annotation:annotation:1.1.0' // Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:8
-    implementation 'androidx.browser:browser:1.0.0@aar' // Assets/Appodeal/Editor/NetworkConfigs/InMobiDependencies.xml:9
-    implementation 'androidx.collection:collection:1.1.0' // Assets/Appodeal/Editor/NetworkConfigs/InMobiDependencies.xml:11
-    implementation 'androidx.core:core:1.1.0' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:11
-    implementation 'androidx.interpolator:interpolator:1.0.0' // Assets/Appodeal/Editor/NetworkConfigs/InMobiDependencies.xml:10
+    implementation 'androidx.core:core:1.2.0' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:10
     implementation 'androidx.legacy:legacy-support-core-ui:1.0.0' // Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:9
-    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:9
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0' // Assets/Appodeal/Editor/NetworkConfigs/InMobiDependencies.xml:21
     implementation 'androidx.recyclerview:recyclerview:1.0.0@aar' // Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:7
-    implementation 'com.adcolony:sdk:4.2.2' // Assets/Appodeal/Editor/NetworkConfigs/AdColonyDependencies.xml:7
-    implementation 'com.applovin:applovin-sdk:9.13.4' // Assets/Appodeal/Editor/NetworkConfigs/AppLovinDependencies.xml:7
-    implementation 'com.appodeal.ads.sdk.networks:a4g:2.7.3.4@aar' // Assets/Appodeal/Editor/NetworkConfigs/A4gDependencies.xml:3
-    implementation 'com.appodeal.ads.sdk.networks:adcolony:2.7.3.7@aar' // Assets/Appodeal/Editor/NetworkConfigs/AdColonyDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:admob:2.7.3.5@aar' // Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:amazon_ads:2.7.3.2' // Assets/Appodeal/Editor/NetworkConfigs/AmazonAdsDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:applovin:2.7.3.6@aar' // Assets/Appodeal/Editor/NetworkConfigs/AppLovinDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:appodealx:2.7.3.2' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:7
-    implementation 'com.appodeal.ads.sdk.networks:chartboost:2.7.3.3@aar' // Assets/Appodeal/Editor/NetworkConfigs/ChartboostDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:facebook:2.7.3.5@aar' // Assets/Appodeal/Editor/NetworkConfigs/FacebookAudienceDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:inmobi:2.7.3.4@aar' // Assets/Appodeal/Editor/NetworkConfigs/InMobiDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:inner-active:2.7.3.2' // Assets/Appodeal/Editor/NetworkConfigs/InnerActiveDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:ironsource:2.7.3.6@aar' // Assets/Appodeal/Editor/NetworkConfigs/IronSourceDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:mraid:2.7.3.2' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:my_target:2.7.3.4@aar' // Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:nast:2.7.3.2' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:5
-    implementation 'com.appodeal.ads.sdk.networks:ogury:2.7.3.5@aar' // Assets/Appodeal/Editor/NetworkConfigs/OguryDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:smaato:2.7.3.3' // Assets/Appodeal/Editor/NetworkConfigs/SmaatoDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:startapp:2.7.3.6' // Assets/Appodeal/Editor/NetworkConfigs/StartAppDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:tapjoy:2.7.3.4@aar' // Assets/Appodeal/Editor/NetworkConfigs/TapjoyDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:unity_ads:2.7.3.6' // Assets/Appodeal/Editor/NetworkConfigs/UnityDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:vast:2.7.3.2' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk.networks:vungle:2.7.3.3@aar' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk.networks:yandex:2.7.3.5' // Assets/Appodeal/Editor/NetworkConfigs/YandexDependencies.xml:6
-    implementation 'com.appodeal.ads.sdk:core:2.7.3' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:3
-    implementation 'com.chartboost:chartboost-sdk:8.1.0' // Assets/Appodeal/Editor/NetworkConfigs/ChartboostDependencies.xml:7
+    implementation 'com.adcolony:sdk:4.3.0' // Assets/Appodeal/Editor/NetworkConfigs/AdColonyDependencies.xml:7
+    implementation 'com.applovin:applovin-sdk:9.14.4' // Assets/Appodeal/Editor/NetworkConfigs/AppLovinDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk.networks:a4g:2.7.4.5@aar' // Assets/Appodeal/Editor/NetworkConfigs/A4GDependencies.xml:3
+    implementation 'com.appodeal.ads.sdk.networks:adcolony:2.7.4.8@aar' // Assets/Appodeal/Editor/NetworkConfigs/AdColonyDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:admob:2.7.4.6@aar' // Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:amazon_ads:2.7.4.2' // Assets/Appodeal/Editor/NetworkConfigs/AmazonAdsDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:applovin:2.7.4.7@aar' // Assets/Appodeal/Editor/NetworkConfigs/AppLovinDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:appodealx:2.7.4.2' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk.networks:facebook:2.7.4.7@aar' // Assets/Appodeal/Editor/NetworkConfigs/FacebookAudienceDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:inner-active:2.7.4.2' // Assets/Appodeal/Editor/NetworkConfigs/InnerActiveDependencies.xml:3
+    implementation 'com.appodeal.ads.sdk.networks:ironsource:2.7.4.6@aar' // Assets/Appodeal/Editor/NetworkConfigs/IronSourceDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:mraid:2.7.4.2' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:4
+    implementation 'com.appodeal.ads.sdk.networks:my_target:2.7.4.6@aar' // Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:nast:2.7.4.2' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:ogury:2.7.4.5@aar' // Assets/Appodeal/Editor/NetworkConfigs/OguryDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:smaato:2.7.4.3' // Assets/Appodeal/Editor/NetworkConfigs/SmaatoDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:startapp:2.7.4.6' // Assets/Appodeal/Editor/NetworkConfigs/StartAppDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:unity_ads:2.7.4.6' // Assets/Appodeal/Editor/NetworkConfigs/UnityDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:vast:2.7.4.2' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:5
+    implementation 'com.appodeal.ads.sdk.networks:vungle:2.7.4.4@aar' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk.networks:yandex:2.7.4.5' // Assets/Appodeal/Editor/NetworkConfigs/YandexDependencies.xml:6
+    implementation 'com.appodeal.ads.sdk:core:2.7.4' // Assets/Appodeal/Editor/NetworkConfigs/AppodealDependencies.xml:3
     implementation 'com.explorestack.ogury:sdk:4.7.6' // Assets/Appodeal/Editor/NetworkConfigs/OguryDependencies.xml:7
     implementation 'com.explorestack:consent:1.0.1' // Assets/Appodeal/Editor/ConsentMangerDependencies.xml:7
-    implementation 'com.facebook.android:audience-network-sdk:5.10.1' // Assets/Appodeal/Editor/NetworkConfigs/FacebookAudienceDependencies.xml:7
+    implementation 'com.facebook.android:audience-network-sdk:6.1.0' // Assets/Appodeal/Editor/NetworkConfigs/FacebookAudienceDependencies.xml:7
     implementation 'com.google.android.exoplayer:exoplayer-core:2.8.4' // Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:13
     implementation 'com.google.android.exoplayer:exoplayer-hls:2.8.4' // Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:12
-    implementation 'com.google.android.gms:play-services-ads:19.3.0' // Assets/Appodeal/Editor/NetworkConfigs/TapjoyDependencies.xml:9
+    implementation 'com.google.android.gms:play-services-ads:19.4.0' // Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml:7
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:8
     implementation 'com.google.android.gms:play-services-base:17.0.0' // Assets/Appodeal/Editor/NetworkConfigs/IronSourceDependencies.xml:9
-    implementation 'com.google.android.gms:play-services-basement:17.0.0' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:10
-    implementation 'com.google.android.gms:play-services-location:17.0.0' // Assets/Appodeal/Editor/NetworkConfigs/TapjoyDependencies.xml:10
-    implementation 'com.inmobi.monetization:inmobi-ads:9.0.8' // Assets/Appodeal/Editor/NetworkConfigs/InMobiDependencies.xml:7
+    implementation 'com.google.android.gms:play-services-basement:17.3.0' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:9
     implementation 'com.ironsource.sdk:mediationsdk:7.0.0' // Assets/Appodeal/Editor/NetworkConfigs/IronSourceDependencies.xml:7
-    implementation 'com.my.target:mytarget-sdk:5.9.1' // Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:11
-    implementation 'com.squareup.picasso:picasso:2.71828' // Assets/Appodeal/Editor/NetworkConfigs/InMobiDependencies.xml:8
-    implementation 'com.tapjoy:tapjoy-android-sdk:12.6.1@aar' // Assets/Appodeal/Editor/NetworkConfigs/TapjoyDependencies.xml:7
-    implementation 'com.vungle:publisher-sdk-android:6.7.1' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:7
+    implementation 'com.my.target:mytarget-sdk:5.11.3' // Assets/Appodeal/Editor/NetworkConfigs/MyTargetDependencies.xml:11
+    implementation 'com.vungle:publisher-sdk-android:6.8.0' // Assets/Appodeal/Editor/NetworkConfigs/VungleDependencies.xml:7
 // Android Resolver Dependencies End
 **DEPS**}
 

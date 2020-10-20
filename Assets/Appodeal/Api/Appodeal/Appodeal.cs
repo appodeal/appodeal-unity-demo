@@ -66,8 +66,8 @@ namespace AppodealAds.Unity.Api
         public const int BANNER_HORIZONTAL_RIGHT = -3;
         public const int BANNER_HORIZONTAL_LEFT = -4;
 
-        public const string APPODEAL_PLUGIN_VERSION = "2.10.6";
-
+        public const string APPODEAL_PLUGIN_VERSION = "2.10.7";
+        
         public enum LogLevel
         {
             None,

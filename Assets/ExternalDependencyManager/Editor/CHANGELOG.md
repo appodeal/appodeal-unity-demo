@@ -1,3 +1,14 @@
+# Version 1.2.161 - Oct 12, 2020
+* Android Resolver - Fixed the issue that Android Resolver does not resolve
+  again before build in Unity 2020 if it failed to resolve previously.
+
+# Version 1.2.160 - Sep 30, 2020
+* Android Resolver - Fixed a regression that gradleResolver can be null until
+  Initialize() is called.
+* Android Resolver - Fixed a regression that Android Resolver failed in Unity
+  2019.3+ due to `gradleTemplate.properties` not enabled when
+  `mainTemplate.gradle` is not enabled at all.
+
 # Version 1.2.159 - Sep 11, 2020
 * Android Resolver - Fixed #322 where the Unity editor will lose its target SDK
   setting between Unity restarts if `>28` is selected in 2019.  This is due to
