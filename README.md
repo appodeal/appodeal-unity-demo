@@ -7,6 +7,15 @@
 
 ## Changelog
 
+2.11.1 (November 12, 2020)
+
++ Updated Appodeal iOS SDK to 2.8.1
++ Updated Appodeal Android SDK to 2.8.1
++ Updated networks configs
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.161
++ Removed method onResume for Android SDK 
++ Added method setSharedAdsInstanceAcrossActivities (enabling shared ads instance across activities (disabled by default) for Android SDK
+
 2.11.0 (October 1, 2020)
 
 + Updated Appodeal iOS SDK to 2.8.0
