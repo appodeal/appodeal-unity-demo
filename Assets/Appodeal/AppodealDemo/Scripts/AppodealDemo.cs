@@ -35,13 +35,13 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
         #endregion
 
 #if UNITY_EDITOR && !UNITY_ANDROID && !UNITY_IPHONE
-        string appKey = "";
+        public static string appKey = "";
 #elif UNITY_ANDROID
-        string appKey = "fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f";
+       public static string appKey = "fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f";
 #elif UNITY_IPHONE
-        string appKey = "466de0d625e01e8811c588588a42a55970bc7c132649eede";
+       public static string appKey = "466de0d625e01e8811c588588a42a55970bc7c132649eede";
 #else
-	string appKey = "";
+	public static string appKey = "";
 #endif
 
         private ConsentForm consentForm;
@@ -68,12 +68,6 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
         private void OnDestroy()
         {
             Appodeal.destroy(Appodeal.BANNER); 
-        }
-
-        private void OnApplicationFocus(bool hasFocus) {
-            if(hasFocus) {
-                Appodeal.onResume(Appodeal.BANNER_BOTTOM);
-            }
         }
 
         public void requestConsentInfoUpdate()
@@ -219,6 +213,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             Appodeal.setBannerBackground(false);
             Appodeal.setChildDirectedTreatment(false);
             Appodeal.muteVideosIfCallsMuted(true);
+            Appodeal.setSharedAdsInstanceAcrossActivities(true);
             Appodeal.setAutoCache(Appodeal.INTERSTITIAL, false);
             Appodeal.setAutoCache(Appodeal.REWARDED_VIDEO, false);
             Appodeal.setExtraData(ExtraData.APPSFLYER_ID, "1527256526604-2129416");

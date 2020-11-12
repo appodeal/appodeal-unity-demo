@@ -52,6 +52,37 @@ namespace AppodealAds.Unity.Editor
         static RemoveHelper()
         {
             AssetDatabase.importPackageStarted += importPackageStartedListener;
+            AssetDatabase.importPackageCompleted += RemoveOptionalNetworks;
+        }
+
+        private static void RemoveOptionalNetworks(string packagename)
+        {
+            string[] optionalNetworksConfigs =
+            {
+                "ChartboostDependencies.xml",
+                "InMobiDependencies.xml",
+                "InnerActiveDependencies.xml",
+                "MintegralDependencies.xml",
+                "OpenXDependencies.xml",
+                "PubnativeDependencies.xml",
+                "TapjoyDependencies.xml"
+            };
+
+
+            var info = new DirectoryInfo("Assets/Appodeal/Editor/NetworkConfigs/");
+
+            var fileInfo = info.GetFiles();
+
+            foreach (var file in fileInfo)
+            {
+                foreach (var optionalNetworksConfig in optionalNetworksConfigs)
+                {
+                    if (file.Name.Equals(optionalNetworksConfig))
+                    {
+                        File.Delete("Assets/Appodeal/Editor/NetworkConfigs/" + file.Name);
+                    }
+                }
+            }
         }
 
         private static void importPackageStartedListener(string packageName)

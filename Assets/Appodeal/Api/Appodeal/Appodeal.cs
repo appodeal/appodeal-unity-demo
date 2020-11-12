@@ -20,7 +20,7 @@ namespace AppodealAds.Unity.Api
         public const string APPLOVIN = "applovin";
         public const string ADCOLONY = "adcolony";
         public const string MY_TARGET = "my_target";
-        public const string APPODEALX = "appodealx";
+        public const string BIDMACHINE = "bidmachine";
         public const string FLURRY = "flurry";
         public const string AMAZON_ADS = "amazon_ads";
         public const string ADMOB = "admob";
@@ -36,7 +36,6 @@ namespace AppodealAds.Unity.Api
         public const string MINTEGRAL = "mintegral";
         public const string NAST = "nast";
         public const string OGURY = "ogury";
-        public const string INNER_ACTIVE = "inner-active";
         public const string VAST = "vast";
     }
 
@@ -66,7 +65,7 @@ namespace AppodealAds.Unity.Api
         public const int BANNER_HORIZONTAL_RIGHT = -3;
         public const int BANNER_HORIZONTAL_LEFT = -4;
 
-        public const string APPODEAL_PLUGIN_VERSION = "2.11.0-Beta";
+        public const string APPODEAL_PLUGIN_VERSION = "2.11.1-Beta";
 
         public enum LogLevel
         {
@@ -152,11 +151,6 @@ namespace AppodealAds.Unity.Api
             return getInstance().isPrecache(adTypes);
         }
 
-        public static void onResume(int adTypes)
-        {
-            getInstance().onResume(adTypes);
-        }
-
         public static void setSmartBanners(bool value)
         {
             getInstance().setSmartBanners(value);
@@ -176,7 +170,7 @@ namespace AppodealAds.Unity.Api
         {
             getInstance().setTabletBanners(value);
         }
-        
+
         public static void setBannerRotation(int leftBannerRotation, int rightBannerRotation)
         {
             getInstance().setBannerRotation(leftBannerRotation, rightBannerRotation);
@@ -271,7 +265,7 @@ namespace AppodealAds.Unity.Api
         {
             getInstance().setSegmentFilter(name, value);
         }
-        
+
         public static void setCustomFilter(string name, bool value)
         {
             getInstance().setCustomFilter(name, value);
@@ -402,6 +396,11 @@ namespace AppodealAds.Unity.Api
         public static void setUserGender(UserSettings.Gender gender)
         {
             getInstance().setUserGender(gender);
+        }
+        
+        public static void setSharedAdsInstanceAcrossActivities(bool value)
+        {
+            getInstance().setSharedAdsInstanceAcrossActivities(value);
         }
     }
 

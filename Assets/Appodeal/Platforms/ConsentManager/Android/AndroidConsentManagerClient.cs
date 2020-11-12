@@ -359,8 +359,6 @@ namespace ConsentManager.Platforms.Android
 
         public AndroidConsentManagerException(AndroidJavaObject androidJavaObject)
         {
-            consentManagerException =
-                new AndroidJavaObject("com.explorestack.consent.exception.ConsentManagerException");
             consentManagerException = androidJavaObject;
         }
 
