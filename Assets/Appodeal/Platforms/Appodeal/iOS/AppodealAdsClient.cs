@@ -504,10 +504,6 @@ namespace AppodealAds.Unity.iOS
             return AppodealObjCBridge.AppodealIsPrecacheAd(nativeAdTypesForType(adTypes));
         }
 
-        public void onResume(int adTypes)
-        {
-        }
-
         public void setSmartBanners(bool value)
         {
             AppodealObjCBridge.AppodealSetSmartBanners(value);
@@ -713,6 +709,11 @@ namespace AppodealAds.Unity.iOS
         }
 
         public void destroy(int adType)
+        {
+            Debug.Log("Not Supported by iOS SDK");
+        }
+
+        public void setSharedAdsInstanceAcrossActivities(bool value)
         {
             Debug.Log("Not Supported by iOS SDK");
         }

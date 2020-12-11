@@ -92,11 +92,6 @@ namespace AppodealAds.Unity.Dummy
             Debug.Log("Call to Appodeal.setAutoCache on not supported platform");
         }
 
-        public void onResume(int adTypes)
-        {
-            Debug.Log("Call to Appodeal.onResume on not supported platform");
-        }
-
         public void setSmartBanners(bool value)
         {
             Debug.Log("Call to Appodeal.setSmartBanners on not supported platform");
@@ -332,6 +327,11 @@ namespace AppodealAds.Unity.Dummy
         public void destroy(int adTypes)
         {
             Debug.Log("Call to Appodeal.destroy on not supported platform");
+        }
+
+        public void setSharedAdsInstanceAcrossActivities(bool value)
+        {
+            Debug.Log("Call to Appodeal.setSharedAdsInstanceAcrossActivities on not supported platform");
         }
 
         #region User settings

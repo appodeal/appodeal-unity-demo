@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Xml;
 using Appodeal.Editor.AppodealManager.Data;
 using UnityEditor;
 using UnityEngine;
@@ -28,6 +30,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
         public const string BoxStyle = "box";
         public const string ActionUpdate = "Update";
         public const string ActionImport = "Import";
+        public const string ActionRemove = "Remove";
         public const string EmptyCurrentVersion = "    -  ";
         public const string AppodealUnityPlugin = "Appodeal Unity Plugin";
         public const string AppodealSdkManager = "Appodeal SDK Manager";
@@ -65,6 +68,18 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
             if (option)
             {
                 editorWindow.Close();
+            }
+        }
+        
+        public static void FormatXml(string inputXml)
+        {
+            var document = new XmlDocument();
+            document.Load(new StringReader(inputXml));
+            var builder = new StringBuilder();
+            using (var writer = new XmlTextWriter(new StringWriter(builder)))
+            {
+                writer.Formatting = Formatting.Indented;
+                document.Save(writer);
             }
         }
 
@@ -186,6 +201,25 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
         public static string ReplaceBetaVersion(string value)
         {
             return Regex.Replace(value, "-Beta", string.Empty);
+        }
+
+        public static void ReplaceInFile(
+            string filePath, string searchText, string replaceText)
+        {
+            string contentString;
+            using (var reader = new StreamReader(filePath))
+            {
+                contentString = reader.ReadToEnd();
+                reader.Close();
+            }
+
+            contentString = Regex.Replace(contentString, searchText, replaceText);
+
+            using (var writer = new StreamWriter(filePath))
+            {
+                writer.Write(contentString);
+                writer.Close();
+            }
         }
 
         public static int CompareVersion(string interal, string latest)

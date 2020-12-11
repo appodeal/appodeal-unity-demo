@@ -20,7 +20,6 @@ namespace AppodealAds.Unity.Common
         void hide(int adTypes);
         void setAutoCache(int adTypes, bool autoCache);
         bool isPrecache(int adTypes);
-        void onResume(int adTypes);
         bool showBannerView(int YAxis, int XGravity, string Placement);
         bool showMrecView(int YAxis, int XGravity, string Placement);
         void hideBannerView();
@@ -74,5 +73,6 @@ namespace AppodealAds.Unity.Common
         void setMrecCallbacks(IMrecAdListener listener);
         void requestAndroidMPermissions(IPermissionGrantedListener listener);
         void destroy(int adTypes);
+        void setSharedAdsInstanceAcrossActivities(bool value);
     }
 }

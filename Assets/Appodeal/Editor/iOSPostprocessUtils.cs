@@ -18,16 +18,27 @@ namespace Appodeal.Unity.Editor
     {
         private const string suffix = ".framework";
         private const string minVersionToEnableBitcode = "10.0";
+        public static bool isCustomBuild = false;
 
         [PostProcessBuildAttribute(41)]
         private static void updatePod(BuildTarget target, string buildPath)
         {
             if (target != BuildTarget.iOS) return;
             if (string.IsNullOrEmpty(PlayerSettings.iOS.targetOSVersionString)) return;
+            if (isCustomBuild)
+            {
+                var plistPath = buildPath + "/Info.plist";
+                var plist = new PlistDocument();
+                plist.ReadFromString(File.ReadAllText(plistPath));
+                var rootDict = plist.root;
+                const string buildKey = "GADApplicationIdentifier";
+                rootDict.SetString(buildKey, "ca-app-pub-3940256099942544~1458002511");
+                File.WriteAllText(plistPath, plist.WriteToString());
+            }
 
-            ReplaceInFile(buildPath + "/Podfile", $"platform :ios, '{PlayerSettings.iOS.targetOSVersionString}'", 
+            ReplaceInFile(buildPath + "/Podfile", $"platform :ios, '{PlayerSettings.iOS.targetOSVersionString}'",
                 "platform :ios, '10.0'\nuse_frameworks!");
-
+            
 #if UNITY_2019_3_OR_NEWER
             ReplaceInFile(buildPath + "/Podfile", "target 'UnityFramework' do", "def all_deps");
  

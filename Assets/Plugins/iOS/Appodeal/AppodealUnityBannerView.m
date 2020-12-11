@@ -41,12 +41,12 @@ UIViewController* RootViewControllerUnityBannerView() {
     return self;
 }
 
--(void)setTabletBanner:(BOOL)value {
+- (void)setTabletBanner:(BOOL)value {
     _tabletBanner = value;
     [self reinitAppodealBannerView];
 }
 
--(void)reinitAppodealBannerView {
+- (void)reinitAppodealBannerView {
     BOOL tabletOrPhoneSize = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad && self.tabletBanner;
     CGSize size = tabletOrPhoneSize ? kAPDAdSize728x90 : kAPDAdSize320x50;
     self.bannerView = [[APDBannerView alloc] initWithSize:size];
@@ -119,24 +119,32 @@ UIViewController* RootViewControllerUnityBannerView() {
     [self.bannerView layoutSubviews];
 }
 
-- (void)showBannerView:(UIViewController*)rootViewController XAxis:(CGFloat)XAxis YAxis:(CGFloat)YAxis placement:(NSString*)placement {
+- (void)showBannerView:(UIViewController*)rootViewController
+                 XAxis:(CGFloat)XAxis
+                 YAxis:(CGFloat)YAxis
+             placement:(NSString*)placement {
     [self.bannerView removeFromSuperview];
     self.bannerView.rootViewController = rootViewController;
     self.bannerView.placement = placement;
     [rootViewController.view addSubview:self.bannerView];
     [rootViewController.view bringSubviewToFront:self.bannerView];
     [self setSharedBannerFrame:XAxis YAxis:YAxis];
-    if (self.bannerView) {
-        UnitySetViewTouchProcessing(self.bannerView, touchesTransformedToUnityViewCoords);
-    }
+    
     self.onScreen = YES;
     [self.bannerView loadAd];
 }
 
--(void)hideBannerView {
+- (void)hideBannerView {
     if(self.bannerView) {
         [self.bannerView removeFromSuperview];
         self.onScreen = NO;
+    }
+}
+
+- (void)setupTouchProcessing {
+    if (self.bannerView) {
+        UnityDropViewTouchProcessing(self.bannerView);
+        UnitySetViewTouchProcessing(self.bannerView, touchesTransformedToUnityViewCoords);
     }
 }
 
