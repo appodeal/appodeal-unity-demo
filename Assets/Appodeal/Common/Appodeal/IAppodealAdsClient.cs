@@ -74,5 +74,6 @@ namespace AppodealAds.Unity.Common
         void requestAndroidMPermissions(IPermissionGrantedListener listener);
         void destroy(int adTypes);
         void setSharedAdsInstanceAcrossActivities(bool value);
+        void setUseSafeArea(bool value);
     }
 }

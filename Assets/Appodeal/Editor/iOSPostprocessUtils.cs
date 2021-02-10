@@ -38,32 +38,6 @@ namespace Appodeal.Unity.Editor
 
             ReplaceInFile(buildPath + "/Podfile", $"platform :ios, '{PlayerSettings.iOS.targetOSVersionString}'",
                 "platform :ios, '10.0'\nuse_frameworks!");
-            
-            ReplaceInFile(buildPath+"/Podfile", "pod 'APDOguryAdapter', '2.8.1.1-Beta'", "# platform :ios, '10.0' is required\npod 'APDOguryAdapter', '2.8.1.1-Beta'");
-
-#if UNITY_2019_3_OR_NEWER
-            ReplaceInFile(buildPath + "/Podfile", "target 'UnityFramework' do", "def all_deps");
- 
-            using (var sw = File.AppendText(buildPath + "/Podfile"))
-            {
-                sw.WriteLine("\ntarget 'UnityFramework' do");
-                sw.WriteLine("  all_deps");
-                sw.WriteLine("end");
- 
-                sw.WriteLine("\ntarget 'Unity-iPhone' do");
-                sw.WriteLine("  all_deps");
-                sw.WriteLine("end");
- 
-                sw.WriteLine("\npost_install do |installer|");
-                sw.WriteLine("  project = installer.pods_project");
-                sw.WriteLine("  project.targets.each do |target|");
-                sw.WriteLine("    target.build_configurations.each do |config|");
-                sw.WriteLine("      config.build_settings['ENABLE_BITCODE'] = 'YES'");
-                sw.WriteLine("    end");
-                sw.WriteLine("  end");
-                sw.WriteLine("end");
-            }
-#endif
         }
 
         private static void ReplaceInFile(

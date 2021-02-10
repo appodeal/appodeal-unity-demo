@@ -1,4 +1,5 @@
 #import "AppodealInterstitialDelegate.h"
+#import "UnityInterface.h"
 
 @implementation AppodealInterstitialDelegate
 
@@ -27,6 +28,12 @@
 }
 
 -(void) interstitialDidDismiss {
+
+    extern bool _didResignActive;
+    if(_didResignActive) {
+    return;
+    }
+    
     if(self.interstitialDidDismissCallback) {
         self.interstitialDidDismissCallback();
     }

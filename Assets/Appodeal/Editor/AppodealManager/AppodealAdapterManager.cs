@@ -53,15 +53,8 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 
         #endregion
 
-        #region PB
-
-        private const float secsPB = 1.5f;
-        private static double startValPB;
-        private static double progressPB;
-
-        #endregion
-
         private static EditorCoroutines.EditorCoroutine coroutine;
+        private static EditorCoroutines.EditorCoroutine coroutinePB;
         private float progress;
         private float loading;
         private WebClient downloader;
@@ -101,6 +94,11 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 
         public void Reset()
         {
+            internalDependencies =
+                new Dictionary<string, NetworkDependency>();
+            latestDependencies =
+                new Dictionary<string, NetworkDependency>();
+
             if (downloader != null)
             {
                 downloader.CancelAsync();
@@ -117,18 +115,12 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
             coroutine = null;
             downloader = null;
 
-            internalDependencies =
-                new Dictionary<string, NetworkDependency>();
-            latestDependencies =
-                new Dictionary<string, NetworkDependency>();
-
             loading = 0f;
             progress = 0f;
         }
 
         private void OnEnable()
         {
-            startValPB = EditorApplication.timeSinceStartup;
             loading = 0f;
             coroutine = this.StartCoroutine(GetAppodealSDKData());
         }
@@ -140,26 +132,16 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                 false);
             GUILayout.BeginVertical();
 
-            progressPB = EditorApplication.timeSinceStartup - startValPB;
-
-            if (progressPB < secsPB)
-            {
-                if (EditorUtility.DisplayCancelableProgressBar(
-                    AppodealDependencyUtils.AppodealSdkManager,
-                    AppodealDependencyUtils.Loading,
-                    (float) (progressPB / secsPB)))
-                {
-                    Debug.Log(AppodealDependencyUtils.ProgressBar_cancelled);
-                    startValPB = 0;
-                }
-            }
-            else
-            {
-                EditorUtility.ClearProgressBar();
-            }
-
             if (isPluginInfoReady)
             {
+                GUILayout.Space(10);
+                if (GUI.Button(new Rect(10, 5, 50, 20), "Refresh"))
+                {
+                    UpdateWindow();
+                }
+
+                GUILayout.Space(15);
+
                 #region Plugin
 
                 GUILayout.Space(5);
@@ -368,8 +350,8 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
             if (File.Exists(path))
             {
                 UpdateDependency(nameDep, AppodealDependencyUtils.SpecCloseDependencies,
-                    content + AppodealDependencyUtils.SpecCloseDependencies);
-                UpdateWindow();
+                    content + "\n" + AppodealDependencyUtils.SpecCloseDependencies);
+                AppodealDependencyUtils.FormatXml(System.IO.File.ReadAllText(path));
             }
             else
             {
@@ -380,8 +362,10 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                     writer.Close();
                 }
 
-                UpdateWindow();
+                AppodealDependencyUtils.FormatXml(System.IO.File.ReadAllText(path));
             }
+
+            UpdateWindow();
         }
 
         private void GuiCoreRow(NetworkDependency internalDependency, NetworkDependency latestDependency,
@@ -616,11 +600,26 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                         packageInfoStyle);
                     GUILayout.Space(15);
 
+                    if (GUILayout.Button(
+                        new GUIContent {text = AppodealDependencyUtils.ActionRemove},
+                        btnFieldWidth))
+                    {
+                        var path = $"{AppodealDependencyUtils.Network_configs_path}{nameDep}Dependencies.xml";
+
+                        AppodealDependencyUtils.ReplaceInFile(path, internalContent, "");
+                        var text = System.IO.File.ReadAllLines(path).Where(s => s.Trim() != string.Empty).ToArray();
+                        File.Delete(path);
+                        System.IO.File.WriteAllLines(path, text);
+                        AppodealDependencyUtils.FormatXml(System.IO.File.ReadAllText(path));
+
+                        UpdateWindow();
+                    }
+
                     var current = AppodealDependencyUtils.GetMajorVersion(
                         AppodealDependencyUtils.ReplaceBetaVersion(currentVersion));
                     var last = AppodealDependencyUtils.GetMajorVersion(
                         AppodealDependencyUtils.ReplaceBetaVersion(latestVersion));
-                    
+
                     if (AppodealDependencyUtils.CompareVersion(current, last) < 0)
                     {
                         CompareForAction(0,
@@ -748,6 +747,13 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
         {
             yield return null;
 
+            if (!EditorUtility.DisplayCancelableProgressBar(
+                AppodealDependencyUtils.AppodealSdkManager,
+                AppodealDependencyUtils.Loading,
+                80f))
+            {
+            }
+
             #region Internal
 
             if (AppodealDependencyUtils.GetInternalDependencyPath() != null)
@@ -787,15 +793,17 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
             else
             {
                 if (string.IsNullOrEmpty(requestPlugin.downloadHandler.text)) yield break;
-                
+
                 if (AppodealAds.Unity.Api.Appodeal.APPODEAL_PLUGIN_VERSION.Contains("-Beta"))
                 {
-                    appodealUnityPlugin = JsonHelper.FromJson<AppodealUnityPlugin>(JsonHelper.fixJson(requestPlugin.downloadHandler.text))
+                    appodealUnityPlugin = JsonHelper
+                        .FromJson<AppodealUnityPlugin>(JsonHelper.fixJson(requestPlugin.downloadHandler.text))
                         .ToList().FirstOrDefault(x => x.build_type.Equals("beta"));
                 }
                 else
                 {
-                    appodealUnityPlugin = JsonHelper.FromJson<AppodealUnityPlugin>(JsonHelper.fixJson(requestPlugin.downloadHandler.text))
+                    appodealUnityPlugin = JsonHelper
+                        .FromJson<AppodealUnityPlugin>(JsonHelper.fixJson(requestPlugin.downloadHandler.text))
                         .ToList().FirstOrDefault(x => x.build_type.Equals("stable"));
                 }
             }
@@ -825,6 +833,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                         string.Empty);
                     yield break;
                 }
+
                 var networkDependencies = JsonHelper.FromJson<NetworkDependency>(
                     JsonHelper.fixJson(requestAdapters.downloadHandler.text));
 
@@ -846,6 +855,8 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
             coroutine = null;
 
             isPluginInfoReady = true;
+
+            EditorUtility.ClearProgressBar();
         }
 
         private void GetInternalDependencies(string dependencyPath)
@@ -1090,7 +1101,6 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 
         private void UpdateWindow()
         {
-            startValPB = EditorApplication.timeSinceStartup;
             Reset();
             coroutine = this.StartCoroutine(GetAppodealSDKData());
             GUI.enabled = true;

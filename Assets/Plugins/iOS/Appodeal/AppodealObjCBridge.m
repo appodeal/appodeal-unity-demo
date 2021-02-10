@@ -19,7 +19,7 @@
 static AppodealUnityBannerView *bannerUnity;
 static AppodealUnityMrecView *mrecUnity;
 
- UIViewController* RootViewController() {
+UIViewController *RootViewController() {
     return ((UnityAppController *)[UIApplication sharedApplication].delegate).rootViewController;
 }
 
@@ -74,13 +74,13 @@ void AppodealHideBanner() {
 }
 
 void AppodealHideBannerView() {
-    if(bannerUnity) {
+    if (bannerUnity) {
         [bannerUnity.bannerView removeFromSuperview];
     }
 }
 
 void AppodealHideMrecView() {
-    if(mrecUnity) {
+    if (mrecUnity) {
         [mrecUnity.mrecView removeFromSuperview];
     }
 }
@@ -90,16 +90,16 @@ void AppodealSetSmartBanners(bool value) {
 }
 
 void AppodealSetTabletBanners(bool value) {
-    if(!bannerUnity) {
+    if (!bannerUnity) {
         bannerUnity = [AppodealUnityBannerView sharedInstance];
     }
     
-    if(value){
-           [Appodeal setPreferredBannerAdSize:kAppodealUnitSize_728x90]; 
-        } else {
-           [Appodeal setPreferredBannerAdSize:kAppodealUnitSize_320x50];
-        }
-        
+    if (value) {
+        [Appodeal setPreferredBannerAdSize:kAppodealUnitSize_728x90];
+    } else {
+        [Appodeal setPreferredBannerAdSize:kAppodealUnitSize_320x50];
+    }
+    
     [bannerUnity setTabletBanner:value];
 }
 
@@ -112,7 +112,7 @@ void AppodealSetBannerAnimation(BOOL value) {
 }
 
 void AppodealSetBannerRotation(int leftBannerRotation, int rightBannerRotation){
-[Appodeal setBannerLeftRotationAngleDegrees:leftBannerRotation rightRotationAngleDegrees: rightBannerRotation];
+    [Appodeal setBannerLeftRotationAngleDegrees:leftBannerRotation rightRotationAngleDegrees: rightBannerRotation];
 }
 
 void AppodealSetLogLevel(int level) {
@@ -147,11 +147,11 @@ void AppodealUpdateConsentReport() {
     [Appodeal updateConsent:STKConsentManager.sharedManager.consent];
 }
 
-void AppodealDisableNetwork(const char * networkName) {
+void AppodealDisableNetwork(const char *networkName) {
     [Appodeal disableNetwork:[NSString stringWithUTF8String:networkName]];
 }
 
-void AppodealDisableNetworkForAdTypes(const char * networkName, int type) {
+void AppodealDisableNetworkForAdTypes(const char *networkName, int type) {
     [Appodeal disableNetworkForAdType:type name:[NSString stringWithUTF8String:networkName]];
 }
 
@@ -163,13 +163,13 @@ void AppodealSetTriggerPrecacheCallbacks(bool value) {
     [Appodeal setTriggerPrecacheCallbacks:value];
 }
 
-char * AppodealGetVersion() {
+char *AppodealGetVersion() {
     const char *cString = [[Appodeal getVersion] UTF8String];
     char *cStringCopy = calloc([[Appodeal getVersion] length]+1, 1);
     return strncpy(cStringCopy, cString, [[Appodeal getVersion] length]);
 }
 
-char * AppodealGetRewardCurrency(const char *placement) {
+char *AppodealGetRewardCurrency(const char *placement) {
     NSString *rewardCurrencyName = [[Appodeal rewardForPlacement:[NSString stringWithUTF8String:placement]] currencyName];
     const char *cString = [rewardCurrencyName UTF8String];
     char *cStringCopy = calloc([rewardCurrencyName length]+1, 1);
@@ -198,9 +198,9 @@ BOOL AppodealIsPrecacheAd(int adType) {
 }
 
 void AppodealSetSegmentFilterBool(const char *name, BOOL value) {
-    NSString * key = [NSString stringWithUTF8String:name];
-    NSNumber * valueNum = [NSNumber numberWithBool:value];
-    NSDictionary * objCRule = key ? @{key : valueNum} : @{};
+    NSString *key = [NSString stringWithUTF8String:name];
+    NSNumber *valueNum = [NSNumber numberWithBool:value];
+    NSDictionary *objCRule = key ? @{key : valueNum} : @{};
     [Appodeal setSegmentFilter:objCRule];
 }
 
@@ -212,67 +212,67 @@ void AppodealSetSegmentFilterInt(const char *name, int value) {
 
 void AppodealSetSegmentFilterDouble(const char *name, double value) {
     NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSNumber numberWithDouble:value]};
-    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    NSDictionary *dict = [NSDictionary dictionaryWithDictionary:tempDictionary];
     [Appodeal setSegmentFilter:dict];
 }
 
 void AppodealSetSegmentFilterString(const char *name, const char *value) {
     NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSString stringWithUTF8String:value]};
-    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    NSDictionary *dict = [NSDictionary dictionaryWithDictionary:tempDictionary];
     [Appodeal setSegmentFilter:dict];
 }
 
 void AppodealSetCustomFilterBool(const char *name, BOOL value) {
-    NSString * key = [NSString stringWithUTF8String:name];
-    NSNumber * valueNum = [NSNumber numberWithBool:value];
-    NSDictionary * objCRule = key ? @{key : valueNum} : @{};
+    NSString *key = [NSString stringWithUTF8String:name];
+    NSNumber *valueNum = [NSNumber numberWithBool:value];
+    NSDictionary *objCRule = key ? @{key : valueNum} : @{};
     [Appodeal setCustomState:objCRule];
 }
 
 void AppodealSetCustomFilterInt(const char *name, int value) {
     NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSNumber numberWithInt:value]};
-    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    NSDictionary *dict = [NSDictionary dictionaryWithDictionary:tempDictionary];
     [Appodeal setCustomState:dict];
 }
 
 void AppodealSetCustomFilterDouble(const char *name, double value) {
     NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSNumber numberWithDouble:value]};
-    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    NSDictionary *dict = [NSDictionary dictionaryWithDictionary:tempDictionary];
     [Appodeal setCustomState:dict];
 }
 
 void AppodealSetCustomFilterString(const char *name, const char *value) {
     NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSString stringWithUTF8String:value]};
-    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    NSDictionary *dict = [NSDictionary dictionaryWithDictionary:tempDictionary];
     [Appodeal setCustomState:dict];
 }
 
 void AppodealSetExtraDataBool(const char *name, BOOL value) {
-    NSString * key = [NSString stringWithUTF8String:name];
-    NSNumber * valueNum = [NSNumber numberWithBool:value];
-    NSDictionary * objCRule = key ? @{} : @{key : valueNum};
+    NSString *key = [NSString stringWithUTF8String:name];
+    NSNumber *valueNum = [NSNumber numberWithBool:value];
+    NSDictionary *objCRule = key ? @{} : @{key : valueNum};
     [Appodeal setExtras:objCRule];
 }
 
 void AppodealSetExtraDataInt(const char *name, int value) {
     NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSNumber numberWithInt:value]};
-    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    NSDictionary *dict = [NSDictionary dictionaryWithDictionary:tempDictionary];
     [Appodeal setExtras:dict];
 }
 
 void AppodealSetExtraDataDouble(const char *name, double value) {
     NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSNumber numberWithDouble:value]};
-    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    NSDictionary *dict = [NSDictionary dictionaryWithDictionary:tempDictionary];
     [Appodeal setExtras:dict];
 }
 
 void AppodealSetExtraDataString(const char *name, const char *value) {
     NSDictionary *tempDictionary = @{[NSString stringWithUTF8String:name]: [NSString stringWithUTF8String:value]};
-    NSDictionary *dict =  [NSDictionary dictionaryWithDictionary:tempDictionary];
+    NSDictionary *dict = [NSDictionary dictionaryWithDictionary:tempDictionary];
     [Appodeal setExtras:dict];
 }
 
-void AppodealTrackInAppPurchase(int amount, const char * currency) {
+void AppodealTrackInAppPurchase(int amount, const char *currency) {
     [[APDSdk sharedSdk] trackInAppPurchase:[NSNumber numberWithInt:amount] currency:[NSString stringWithUTF8String:currency]];
 }
 
@@ -280,7 +280,7 @@ void AppodealSetUserAge(int age) {
     [Appodeal setUserAge:age];
 }
 
-void AppodealSetUserId(const char * userid) {
+void AppodealSetUserId(const char *userid) {
     [Appodeal setUserId:[NSString stringWithUTF8String:userid]];
 }
 
@@ -332,14 +332,14 @@ void AppodealSetMrecViewDelegate(AppodealMrecViewDidLoadCallback mrecViewDidLoad
     AppodealMrecViewDelegateInstance.mrecViewDidClickCallback = mrecViewDidClick;
     AppodealMrecViewDelegateInstance.mrecViewDidExpiredCallback = mrecViewDidExpired;
     
-    if(!mrecUnity) {
+    if (!mrecUnity) {
         mrecUnity = [AppodealUnityMrecView sharedInstance];
     }
     [mrecUnity.mrecView setDelegate:AppodealMrecViewDelegateInstance];
 }
 
 BOOL AppodealShowBannerAdViewforPlacement(int YAxis, int XAxis, const char *placement) {
-    if(!bannerUnity) {
+    if (!bannerUnity) {
         bannerUnity = [AppodealUnityBannerView sharedInstance];
     }
     [bannerUnity showBannerView:RootViewController() XAxis:XAxis YAxis:YAxis placement:[NSString stringWithUTF8String:placement]];
@@ -347,7 +347,7 @@ BOOL AppodealShowBannerAdViewforPlacement(int YAxis, int XAxis, const char *plac
 }
 
 BOOL AppodealShowMrecAdViewforPlacement(int YAxis, int XAxis, const char *placement) {
-    if(!mrecUnity) {
+    if (!mrecUnity) {
         mrecUnity = [AppodealUnityMrecView sharedInstance];
     }
     [mrecUnity showMrecView:RootViewController() XAxis:XAxis YAxis:YAxis placement:[NSString stringWithUTF8String:placement]];

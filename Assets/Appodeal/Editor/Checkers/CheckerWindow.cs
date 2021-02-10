@@ -148,7 +148,10 @@ namespace AppodealAds.Unity.Editor.Checkers
 
         public bool checkedForResolve
         {
-            get { return _checkedForResolve; }
+            get
+            {
+                return _checkedForResolve;
+            } 
             set
             {
                 if (isAutoresolvePossible) _checkedForResolve = value;

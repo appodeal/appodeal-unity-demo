@@ -9,6 +9,7 @@ namespace AppodealAds.Unity.Api
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "UnusedType.Global")]
     public class AppodealNetworks
     {
         public const string VUNGLE = "vungle";
@@ -65,7 +66,7 @@ namespace AppodealAds.Unity.Api
         public const int BANNER_HORIZONTAL_RIGHT = -3;
         public const int BANNER_HORIZONTAL_LEFT = -4;
 
-        public const string APPODEAL_PLUGIN_VERSION = "2.11.1-Beta";
+        public const string APPODEAL_PLUGIN_VERSION = "2.12.0-Beta";
 
         public enum LogLevel
         {
@@ -402,6 +403,12 @@ namespace AppodealAds.Unity.Api
         {
             getInstance().setSharedAdsInstanceAcrossActivities(value);
         }
+
+        public static void setUseSafeArea(bool value)
+        {
+            getInstance().setUseSafeArea(value);
+        }
+
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]

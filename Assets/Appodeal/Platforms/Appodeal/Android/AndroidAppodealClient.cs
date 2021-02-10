@@ -126,7 +126,7 @@ namespace AppodealAds.Unity.Android
         public void initialize(string appKey, int adTypes, bool hasConsent)
         {
             getAppodealClass().CallStatic("setFramework", "unity", Appodeal.getPluginVersion(),
-                Appodeal.getUnityVersion(), true, false);
+                Appodeal.getUnityVersion());
             getAppodealClass().CallStatic("initialize", getActivity(), appKey, nativeAdTypesForType(adTypes),
                 hasConsent);
         }
@@ -134,7 +134,7 @@ namespace AppodealAds.Unity.Android
         public void initialize(string appKey, int adTypes, Consent consent)
         {
             getAppodealClass().CallStatic("setFramework", "unity", Appodeal.getPluginVersion(),
-                Appodeal.getUnityVersion(), true, false);
+                Appodeal.getUnityVersion());
             var androidConsent = (AndroidConsent) consent.getConsent();
             getAppodealClass().CallStatic("initialize", getActivity(), appKey, nativeAdTypesForType(adTypes),
                 androidConsent.getConsent());
@@ -527,6 +527,11 @@ namespace AppodealAds.Unity.Android
         public void setSharedAdsInstanceAcrossActivities(bool value)
         {
             getAppodealClass().CallStatic("setSharedAdsInstanceAcrossActivities", value);
+        }
+
+        public void setUseSafeArea(bool value)
+        {
+            getAppodealClass().CallStatic("setUseSafeArea", value);
         }
     }
 }

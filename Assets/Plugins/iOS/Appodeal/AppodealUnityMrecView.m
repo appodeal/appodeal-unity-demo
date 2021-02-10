@@ -108,24 +108,32 @@ UIViewController* RootViewControllerUnityMrec() {
     [self.mrecView layoutSubviews];
 }
 
-- (void)showMrecView:(UIViewController*)rootViewController XAxis:(CGFloat)XAxis YAxis:(CGFloat)YAxis placement:(NSString*)placement {
+- (void)showMrecView:(UIViewController*)rootViewController
+               XAxis:(CGFloat)XAxis
+               YAxis:(CGFloat)YAxis
+           placement:(NSString*)placement {
     [self.mrecView removeFromSuperview];
     self.mrecView.rootViewController = rootViewController;
     self.mrecView.placement = placement;
     [rootViewController.view addSubview:self.mrecView];
     [rootViewController.view bringSubviewToFront:self.mrecView];
     [self setSharedMrecFrame:XAxis YAxis:YAxis];
-    if (self.mrecView) {
-        UnitySetViewTouchProcessing(self.mrecView, touchesTransformedToUnityViewCoords);
-    }
+    [self setupTouchProcessing];
     self.onScreen = YES;
     [self.mrecView loadAd];
 }
 
--(void)hideMrecView {
-    if(self.mrecView) {
+- (void)hideMrecView {
+    if (self.mrecView) {
         [self.mrecView removeFromSuperview];
         self.onScreen = NO;
+    }
+}
+
+- (void)setupTouchProcessing {
+    if (self.mrecView) {
+        UnityDropViewTouchProcessing(self.mrecView);
+        UnitySetViewTouchProcessing(self.mrecView, touchesTransformedToUnityViewCoords);
     }
 }
 

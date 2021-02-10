@@ -718,6 +718,12 @@ namespace AppodealAds.Unity.iOS
             Debug.Log("Not Supported by iOS SDK");
         }
 
+        public void setUseSafeArea(bool value)
+        {
+            Debug.Log("Not Supported by iOS SDK");
+
+        }
+
         //User Settings
 
         public void getUserSettings()

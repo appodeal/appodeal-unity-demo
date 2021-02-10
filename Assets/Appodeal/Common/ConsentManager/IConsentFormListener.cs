@@ -4,6 +4,7 @@ using ConsentManager.Api;
 namespace ConsentManager.Common
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedMemberInSuper.Global")]
     public interface IConsentFormListener
     {
          void onConsentFormLoaded();
