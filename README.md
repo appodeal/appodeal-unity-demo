@@ -2,9 +2,6 @@
 
 [![](https://img.shields.io/badge/docs-green.svg)](https://wiki.appodeal.com/en/unity/2-12-0-beta-unity-sdk-integration-guide)
 
-
-## Changelog
-
 ## Changelog
 
 2.12.0-Beta (February 09, 2021)
