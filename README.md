@@ -1,11 +1,19 @@
 # Appodeal Unity Plugin Demo
 
-[![](https://img.shields.io/badge/docs-green.svg)](https://wiki.appodeal.com/en/unity/2-11-0-beta-unity-sdk-integration-guide)
+[![](https://img.shields.io/badge/docs-green.svg)](https://wiki.appodeal.com/en/unity/2-12-0-beta-unity-sdk-integration-guide)
 
 
 ## Changelog
 
 ## Changelog
+
+2.12.0-Beta (February 09, 2021)
+
++ Updated Appodeal iOS SDK to 2.9.0
++ Updated Appodeal Android SDK to 2.9.0
++ Updated networks configs
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.164
++ Fixed banner position issue
 
 2.11.1 (November 12, 2020)
 
