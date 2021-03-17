@@ -1,9 +1,5 @@
 # Appodeal Unity Plugin
 
-[![](https://img.shields.io/badge/docs-android-green.svg)](http://www.appodeal.com/sdk/documentation?framework=2&full=1&platform=1)
-[![](https://img.shields.io/badge/docs-ios-grey.svg)](http://www.appodeal.com/sdk/documentation?framework=2&full=1&platform=1)
-
-
 ## Changelog
 
 2.12.1 (March 17, 2021)
