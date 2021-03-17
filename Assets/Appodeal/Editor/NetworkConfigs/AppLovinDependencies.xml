@@ -1,10 +1,10 @@
 <dependencies>
     <iosPods>
-        <iosPod name='APDAppLovinAdapter' version='2.8.1.1' minTargetSdk='9.0'/>
+        <iosPod name='APDAppLovinAdapter' version='2.9.1.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:applovin:2.8.1.9@aar'/>
-        <androidPackage spec='com.applovin:applovin-sdk:9.14.10'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:applovin:2.9.1.11@aar'/>
+        <androidPackage spec='com.applovin:applovin-sdk:9.15.3'/>
         <androidPackage spec='com.google.android.gms:play-services-ads-identifier:17.0.0'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>

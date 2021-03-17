@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
+using AppodealAds.Unity.Editor.Utils;
+
 
 namespace AppodealAds.Unity.Editor.Checkers
 {

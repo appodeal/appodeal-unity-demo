@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using AppodealAds.Unity.Editor.Utils;
 using UnityEditor;
 using UnityEngine;
 
@@ -148,7 +149,10 @@ namespace AppodealAds.Unity.Editor.Checkers
 
         public bool checkedForResolve
         {
-            get { return _checkedForResolve; }
+            get
+            {
+                return _checkedForResolve;
+            } 
             set
             {
                 if (isAutoresolvePossible) _checkedForResolve = value;

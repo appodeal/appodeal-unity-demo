@@ -22,7 +22,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
         private const string CACHE_REWARDED_VIDEO = "CACHE REWARDED VIDEO";
 
         #endregion
-        
+
         #region UI
 
         [SerializeField] public Toggle tgTesting;
@@ -34,6 +34,8 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
 
         #endregion
 
+        #region Application keys
+
 #if UNITY_EDITOR && !UNITY_ANDROID && !UNITY_IPHONE
         public static string appKey = "";
 #elif UNITY_ANDROID
@@ -44,11 +46,13 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
 	public static string appKey = "";
 #endif
 
+        #endregion
+
         private ConsentForm consentForm;
         private Api.ConsentManager consentManager;
         private bool isShouldSaveConsentForm;
-        public Consent currentConsent;
-        
+        private Consent currentConsent;
+
         private void Start()
         {
             consentManagerPanel.gameObject.SetActive(true);
@@ -67,15 +71,15 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
 
         private void OnDestroy()
         {
-            Appodeal.destroy(Appodeal.BANNER); 
+            Appodeal.destroy(Appodeal.BANNER);
         }
 
-        public void requestConsentInfoUpdate()
+        public void RequestConsentInfoUpdate()
         {
             consentManager.requestConsentInfoUpdate(appKey, this);
         }
 
-        public void setCustomVendor()
+        public void SetCustomVendor()
         {
             var customVendor = new Vendor.Builder(
                     "Appodeal Test",
@@ -109,28 +113,28 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             }
         }
 
-        public void shouldShowForm()
+        public void ShouldShowForm()
         {
             Debug.Log("shouldShowConsentDialog: " + consentManager.shouldShowConsentDialog());
         }
 
-        public void getConsentZone()
+        public void GetConsentZone()
         {
             Debug.Log("getConsentZone: " + consentManager.getConsentZone());
         }
 
-        public void getConsentStatus()
+        public void GetConsentStatus()
         {
             Debug.Log("getConsentStatus: " + consentManager.getConsentStatus());
         }
 
-        public void loadConsentForm()
+        public void LoadConsentForm()
         {
             consentForm = new ConsentForm.Builder().withListener(this).build();
             consentForm?.load();
         }
 
-        public void isLoadedConsentForm()
+        public void IsLoadedConsentForm()
         {
             if (consentForm != null)
             {
@@ -138,7 +142,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             }
         }
 
-        public void showFormAsActivity()
+        public void ShowFormAsActivity()
         {
             if (consentForm != null)
             {
@@ -150,7 +154,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             }
         }
 
-        public void showFormAsDialog()
+        public void ShowFormAsDialog()
         {
             if (consentForm != null)
             {
@@ -162,12 +166,12 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             }
         }
 
-        public void printIABString()
+        public void PrintIABString()
         {
             Debug.Log("Consent IAB String is: " + consentManager.getConsent().getIabConsentString());
         }
 
-        public void printCurrentConsent()
+        public void PrintCurrentConsent()
         {
             if (consentManager.getConsent() == null) return;
             Debug.Log(
@@ -179,25 +183,18 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             Debug.Log("consent.getZone() - " + consentManager.getConsent().getZone());
         }
 
-        public void showAppodealLogic()
+        public void ShowAppodealLogic()
         {
             consentManagerPanel.SetActive(false);
             appodealPanel.SetActive(true);
         }
 
-        public void initialize()
+        public void Initialize()
         {
-            if (currentConsent != null)
-            {
-                initWithConsent(true);
-            }
-            else
-            {
-                initWithConsent(false);
-            }
+            InitWithConsent(currentConsent != null);
         }
 
-        public void initWithConsent(bool isConsent)
+        public void InitWithConsent(bool isConsent)
         {
             Appodeal.setTesting(tgTesting.isOn);
             Appodeal.setLogLevel(tgLogging.isOn ? Appodeal.LogLevel.Verbose : Appodeal.LogLevel.None);
@@ -217,6 +214,8 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             Appodeal.setAutoCache(Appodeal.INTERSTITIAL, false);
             Appodeal.setAutoCache(Appodeal.REWARDED_VIDEO, false);
             Appodeal.setExtraData(ExtraData.APPSFLYER_ID, "1527256526604-2129416");
+            Appodeal.setUseSafeArea(true);
+            
             if (isConsent)
             {
                 Appodeal.initialize(appKey,
@@ -241,7 +240,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             Appodeal.setSegmentFilter("newString", "newStringFromSDK");
         }
 
-        public void showInterstitial()
+        public void ShowInterstitial()
         {
             if (Appodeal.canShow(Appodeal.INTERSTITIAL) && !Appodeal.isPrecache(Appodeal.INTERSTITIAL))
             {
@@ -253,7 +252,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             }
         }
 
-        public void showRewardedVideo()
+        public void ShowRewardedVideo()
         {
             if (Appodeal.canShow(Appodeal.REWARDED_VIDEO))
             {
@@ -265,48 +264,52 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             }
         }
 
-        public void showBanner()
+        public void ShowBannerBottom()
         {
             Appodeal.show(Appodeal.BANNER_BOTTOM, "default");
         }
 
-        public void hideBanner()
+        public void ShowBannerTop()
+        {
+            Appodeal.show(Appodeal.BANNER_TOP, "default");
+        }
+        
+        public void HideBanner()
         {
             Appodeal.hide(Appodeal.BANNER);
         }
 
-        public void showBannerView()
+        public void ShowBannerView()
         {
             Appodeal.showBannerView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
                 Appodeal.BANNER_HORIZONTAL_CENTER, "default");
         }
 
-        public void hideBannerView()
+        public void HideBannerView()
         {
             Appodeal.hideBannerView();
         }
 
-        public void showMrecView()
+        public void ShowMrecView()
         {
             Appodeal.showMrecView(Screen.currentResolution.height - Screen.currentResolution.height / 10,
                 Appodeal.BANNER_HORIZONTAL_CENTER, "default");
         }
 
-        public void hideMrecView()
+        public void HideMrecView()
         {
             Appodeal.hideMrecView();
         }
 
-        public void showBannerLeft()
+        public void ShowBannerLeft()
         {
             Appodeal.show(Appodeal.BANNER_LEFT);
         }
 
-        public void showBannerRight()
+        public void ShowBannerRight()
         {
             Appodeal.show(Appodeal.BANNER_RIGHT);
         }
-
 
         #region ConsentFormListener
 

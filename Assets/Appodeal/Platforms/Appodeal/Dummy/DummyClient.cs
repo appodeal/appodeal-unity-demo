@@ -334,6 +334,11 @@ namespace AppodealAds.Unity.Dummy
             Debug.Log("Call to Appodeal.setSharedAdsInstanceAcrossActivities on not supported platform");
         }
 
+        public void setUseSafeArea(bool value)
+        {
+            Debug.Log("Call to Appodeal.setUseSafeArea on not supported platform");
+        }
+
         #region User settings
 
         public void getUserSettings()

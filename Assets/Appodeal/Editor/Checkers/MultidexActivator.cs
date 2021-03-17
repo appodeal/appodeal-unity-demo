@@ -7,6 +7,8 @@ using System.Xml;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Debug = System.Diagnostics.Debug;
+using AppodealAds.Unity.Editor.Utils;
+
 
 namespace AppodealAds.Unity.Editor.Checkers
 {

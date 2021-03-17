@@ -66,7 +66,7 @@ namespace AppodealAds.Unity.Api
         public const int BANNER_HORIZONTAL_RIGHT = -3;
         public const int BANNER_HORIZONTAL_LEFT = -4;
 
-        public const string APPODEAL_PLUGIN_VERSION = "2.11.2";
+        public const string APPODEAL_PLUGIN_VERSION = "2.12.1";
 
         public enum LogLevel
         {
@@ -403,6 +403,12 @@ namespace AppodealAds.Unity.Api
         {
             getInstance().setSharedAdsInstanceAcrossActivities(value);
         }
+
+        public static void setUseSafeArea(bool value)
+        {
+            getInstance().setUseSafeArea(value);
+        }
+
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]

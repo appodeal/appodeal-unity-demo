@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Linq;
 using UnityEditor;
+using AppodealAds.Unity.Editor.Utils;
+
 
 namespace AppodealAds.Unity.Editor.Checkers
 {

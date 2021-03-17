@@ -6,6 +6,7 @@ using ConsentManager.Api;
 namespace ConsentManager.Common
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedParameter.Global")]
     public interface IConsentManager
     {
         void requestConsentInfoUpdate(string appodealAppKey, IConsentInfoUpdateListener listener);
@@ -41,6 +42,7 @@ namespace ConsentManager.Common
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedParameter.Global")]
     public interface IVendorBuilder
     {
         IVendor build();
@@ -50,6 +52,7 @@ namespace ConsentManager.Common
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedParameter.Global")]
     public interface IConsentFormBuilder
     {
         IConsentForm build();
@@ -57,6 +60,7 @@ namespace ConsentManager.Common
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedParameter.Global")]
     public interface IConsent
     {
         Consent.Zone getZone();

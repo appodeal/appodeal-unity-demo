@@ -6,6 +6,7 @@ using ConsentManager.Platforms;
 namespace ConsentManager.Api
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class ConsentManager
     {
         private readonly IConsentManager nativeConsentManager;
@@ -78,6 +79,7 @@ namespace ConsentManager.Api
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class ConsentForm
     {
         private readonly IConsentForm nativeConsentForm;
@@ -141,6 +143,7 @@ namespace ConsentManager.Api
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class Vendor : IVendor
     {
         private readonly IVendor nativeVendor;
@@ -159,10 +162,10 @@ namespace ConsentManager.Api
         {
             private readonly IVendorBuilder nativeVendorBuilder;
 
-            public Builder(string customVen, string customvendor, string httpsCustomVendorCom)
+            public Builder(string customVen, string customVendor, string httpsCustomVendorCom)
             {
                 nativeVendorBuilder =
-                    ConsentManagerClientFactory.GetVendorBuilder(customVen, customvendor, httpsCustomVendorCom);
+                    ConsentManagerClientFactory.GetVendorBuilder(customVen, customVendor, httpsCustomVendorCom);
             }
 
             public Vendor build()
@@ -222,6 +225,7 @@ namespace ConsentManager.Api
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class Consent : IConsent
     {
         private readonly IConsent consent;
@@ -289,6 +293,7 @@ namespace ConsentManager.Api
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class ConsentManagerException : IConsentManagerException
     {
         private readonly IConsentManagerException consentManagerException;

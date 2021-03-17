@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Xml;
+using AppodealAds.Unity.Editor.Utils;
 using UnityEditor;
 using UnityEngine;
 
