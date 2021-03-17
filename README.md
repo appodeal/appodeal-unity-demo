@@ -6,6 +6,22 @@
 
 ## Changelog
 
+2.12.1 (March 17, 2021)
+
++ Updated Appodeal iOS SDK to 2.9.1
++ Updated Appodeal Android SDK to 2.9.1
++ Updated networks configs
++ Added tool for AdMob App Id (Appodeal/AdMob Settings) 
++ Added display of versions of internal ad network dependencies
+
+2.12.0-Beta (February 09, 2021)
+
++ Updated Appodeal iOS SDK to 2.9.0
++ Updated Appodeal Android SDK to 2.9.0
++ Updated networks configs
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.164
++ Fixed banner position issue
+
 2.11.2 (December 11, 2020)
 
 + Updated networks configs
