@@ -3,7 +3,7 @@
         <iosPod name='APDStartAppAdapter' version='2.9.1.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:startapp:2.9.1.9'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:startapp:2.9.2.9'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>

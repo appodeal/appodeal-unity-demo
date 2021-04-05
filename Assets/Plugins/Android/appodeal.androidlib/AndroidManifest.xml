@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.appodeal.appodeal.unity">
-  <application android:allowBackup="true" android:networkSecurityConfig="@xml/network_security_config" android:name="androidx.multidex.MultiDexApplication">
-    <uses-library android:name="org.apache.http.legacy" android:required="false" />
-  
+
+    <application android:allowBackup="true" android:networkSecurityConfig="@xml/network_security_config"
+                 android:name='androidx.multidex.MultiDexApplication'>
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+    
         <meta-data
                 android:name='com.google.android.gms.ads.APPLICATION_ID'
                 android:value='ca-app-pub-6299892958110042~7805384707'/>
     </application>
 
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-  <!--optional-->
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <!--optional-->
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-  <!--optional-->
-  <uses-permission android:name="android.permission.VIBRATE" />
-  <!--optional-->
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-  <!--partially optional-->
-  <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> <!--optional-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!--optional-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> <!--optional-->
+    <uses-permission android:name="android.permission.VIBRATE"/> <!--optional-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <!--partially optional-->
+
 </manifest>

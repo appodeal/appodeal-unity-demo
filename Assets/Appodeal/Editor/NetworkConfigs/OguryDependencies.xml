@@ -3,7 +3,7 @@
         <iosPod name='APDOguryAdapter' version='2.9.1.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:ogury:2.9.1.7'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:ogury:2.9.2.7'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>

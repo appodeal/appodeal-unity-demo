@@ -244,7 +244,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                                             internalDependency.android_info.version,
                                             latestDependency.android_info.version,
                                             internalDependency.android_info.unity_content,
-                                            latestDependency.android_info.unity_content, 
+                                            latestDependency.android_info.unity_content,
                                             SDKInfo(latestDependency.android_info.dependencies));
                                     }
                                 }
@@ -586,6 +586,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                     content += dependency.name + " - " + dependency.version + "\n";
                 }
             }
+
             return string.IsNullOrEmpty(content) ? " " : content;
         }
 
@@ -599,7 +600,9 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                     GUILayout.Space(2);
                     if (string.IsNullOrEmpty(nameDep) || string.IsNullOrEmpty(currentVersion) ||
                         string.IsNullOrEmpty(latestVersion)) return;
-                    EditorGUILayout.LabelField(new GUIContent { text = nameDep,
+                    EditorGUILayout.LabelField(new GUIContent
+                    {
+                        text = nameDep,
                         tooltip = string.IsNullOrEmpty(sdkInfoDependencies) ? "-" : sdkInfoDependencies
                     }, packageInfoStyle, GUILayout.Width(145));
                     GUILayout.Space(56);
@@ -633,22 +636,26 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                     var last = AppodealDependencyUtils.GetMajorVersion(
                         AppodealDependencyUtils.ReplaceBetaVersion(latestVersion));
 
-                    if (AppodealDependencyUtils.CompareVersion(current, last) == 0)
-                    {
-                        CompareForAction(0,
-                            nameDep, internalContent, latestContent);
-                    }else if (AppodealDependencyUtils.CompareVersion(current, last) > 0)
+
+                    if (AppodealDependencyUtils.CompareVersion(current, last) == -1)
                     {
                         CompareForAction(0,
                             nameDep, internalContent, latestContent);
                     }
                     else
                     {
-                        CompareForAction(AppodealDependencyUtils.CompareVersion(
-                            AppodealDependencyUtils.ReplaceBetaVersion(currentVersion),
-                            AppodealDependencyUtils.ReplaceBetaVersion(latestVersion)),
-                        nameDep, internalContent, latestContent);
-                        
+                        if (AppodealDependencyUtils.CompareVersion(currentVersion, latestVersion) == -1)
+                        {
+                            CompareForAction(AppodealDependencyUtils.CompareVersion(
+                                    AppodealDependencyUtils.ReplaceBetaVersion(currentVersion),
+                                    AppodealDependencyUtils.ReplaceBetaVersion(latestVersion)),
+                                nameDep, internalContent, latestContent);
+                        }
+                        else
+                        {
+                            CompareForAction(0,
+                                nameDep, internalContent, latestContent);
+                        }
                     }
                 }
             }
@@ -656,23 +663,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 
         private void CompareForAction(int action, string nameDependency, string previous, string latest)
         {
-            if (action == 0)
-            {
-                GUI.enabled = false;
-                GUILayout.Button(
-                    new GUIContent {text = AppodealDependencyUtils.ActionUpdate},
-                    btnFieldWidth);
-                GUI.enabled = true;
-            }
-            else if (action > 0)
-            {
-                GUI.enabled = false;
-                GUILayout.Button(
-                    new GUIContent {text = AppodealDependencyUtils.ActionUpdate},
-                    btnFieldWidth);
-                GUI.enabled = true;
-            }
-            else
+            if (action == -1)
             {
                 if (GUILayout.Button(
                     new GUIContent {text = AppodealDependencyUtils.ActionUpdate},
@@ -681,6 +672,14 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                     UpdateDependency(nameDependency, previous, latest);
                     UpdateWindow();
                 }
+            }
+            else
+            {
+                GUI.enabled = false;
+                GUILayout.Button(
+                    new GUIContent {text = AppodealDependencyUtils.ActionUpdate},
+                    btnFieldWidth);
+                GUI.enabled = true;
             }
 
             GUILayout.Space(5);

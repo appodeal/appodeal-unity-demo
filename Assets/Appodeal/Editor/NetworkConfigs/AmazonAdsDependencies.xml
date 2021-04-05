@@ -3,7 +3,7 @@
         <iosPod name='APDAmazonAdsAdapter' version='2.9.1.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:amazon_ads:2.9.1.3'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:amazon_ads:2.9.2.3'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>
