@@ -2,6 +2,12 @@
 
 ## Changelog
 
+2.12.2 (April 5, 2021)
+
++ Updated Appodeal Android SDK to 2.9.2
++ Updated networks configs
++ Added fix adapters versions in SDK Manager
+
 2.12.1 (March 17, 2021)
 
 + Updated Appodeal iOS SDK to 2.9.1
