@@ -1,0 +1,12 @@
+<dependencies>
+    <iosPods>
+        <iosPod name='APDGoogleAdMobAdapter' version='2.9.1.2' minTargetSdk='10.0'/>
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:admob:2.9.2.9@aar'/>
+        <androidPackage spec='com.google.android.gms:play-services-ads:19.7.0'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

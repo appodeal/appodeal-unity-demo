@@ -1,0 +1,11 @@
+<dependencies>
+    <iosPods>
+        <iosPod name='APDSmaatoAdapter' version='2.9.1.1' minTargetSdk='10.0'/>
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:smaato:2.9.2.6'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

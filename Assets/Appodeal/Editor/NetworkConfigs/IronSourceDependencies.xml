@@ -1,0 +1,14 @@
+<dependencies>
+    <iosPods>
+        <iosPod name='APDIronSourceAdapter' version='2.9.1.2' minTargetSdk='10.0'/>
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec='com.ironsource.sdk:mediationsdk:7.1.4.1'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:ironsource:2.9.2.11@aar'/>
+        <androidPackage spec='com.google.android.gms:play-services-ads-identifier:17.0.0'/>
+        <androidPackage spec='com.google.android.gms:play-services-base:17.0.0'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

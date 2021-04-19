@@ -1,0 +1,12 @@
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="com.explorestack:consent:1.0.3">
+            <repositories>
+                <repository>https://artifactory.appodeal.com/appodeal</repository>
+            </repositories>
+        </androidPackage>
+    </androidPackages>
+    <iosPods>
+        <iosPod name='StackConsentManager' version='1.1.0-Beta' minTargetSdk='9.0'/>
+    </iosPods>
+</dependencies>

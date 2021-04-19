@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<items>
+    <item>
+        <filter>^((?!InternalResources).)*$</filter>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Appodeal unity interface</name>
+        <path>Appodeal</path>
+    </item>
+    <item>
+        <check_if_empty>true</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Appodeal unity interface</name>
+        <path>Appodeal</path>
+    </item>
+    <item>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Appodeal unity interface</name>
+        <path>Appodeal</path>
+        <perform_only_if_total_remove>true</perform_only_if_total_remove>
+    </item>
+    <item>
+        <check_if_empty>false</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>ConsentManager</name>
+        <path>ConsentManager</path>
+    </item>
+    <item>
+        <description>External Dependency Manager is used by many plugins for integrating platform specific
+            libraries and resolving conflicting dependencies. If some of your plugins use Jar
+            Resolver, removing can lead to issues.
+        </description>
+        <is_confirmation_required>true</is_confirmation_required>
+        <name>Jar Resolver</name>
+        <path>ExternalDependencyManager</path>
+    </item>
+    <item>
+        <filter>^Appodeal.*</filter>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Appodeal Dependencies</name>
+        <path>Editor</path>
+    </item>
+    <item>
+        <check_if_empty>true</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Appodeal Editor</name>
+        <path>Editor</path>
+    </item>
+    <item>
+        <filter>Appodeal</filter>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Appodeal iOS</name>
+        <path>Plugins/iOS</path>
+    </item>
+    
+    <item>
+        <check_if_empty>false</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Plugins iOS Consent Manager</name>
+        <path>Plugins/iOS/ConsentManager</path>
+    </item>
+    <item>
+        <check_if_empty>true</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Plugins iOS folder</name>
+        <path>Plugins/iOS</path>
+    </item>
+    <item>
+        <filter>
+            (appodeal-)|(appodeal)|(adcolony)|(applovin)|(amazon)|(chartboost)|(facebook)|(inmobi)|(ironsource)|(mytarget)|(startapp)|(tapjoy)|(unity_ads)|(yandex)|(mintegral)|(mintegral-)|(ogury-)
+        </filter>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Appodeal Android</name>
+        <path>Plugins/Android</path>
+    </item>
+    <item>
+        <filter>
+            |(adcolony)|(amazon_ads)|(applovin)|(chartboost)|(facebook)|(ironsource)|(my_target)|(protobuf)|(tapjoy)|(unity_ads)|(vungle)|(yandex)|
+        </filter>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Appodeal Android Assets Dex</name>
+        <path>Plugins/Android/assets/dex</path>
+    </item>
+    <item>
+        <check_if_empty>false</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Plugins Android Assets Com Tapjoy</name>
+        <path>Plugins/Android/assets/com/tapjoy</path>
+    </item>
+    <item>
+        <check_if_empty>true</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Plugins Android Assets Com</name>
+        <path>Plugins/Android/assets/com</path>
+    </item>
+    <item>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Plugins Android Assets Js</name>
+        <path>Plugins/Android/assets/js</path>
+        <filter>(closebutton\.html)|(mraid\.js)</filter>
+    </item>
+    <item>
+        <check_if_empty>true</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Plugins Android Assets</name>
+        <path>Plugins/Android/assets</path>
+    </item>
+    
+    <item>
+        <check_if_empty>true</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Plugins Android folder</name>
+        <path>Plugins/Android</path>
+    </item>
+    <item>
+        <check_if_empty>true</check_if_empty>
+        <is_confirmation_required>false</is_confirmation_required>
+        <name>Assets Plugins</name>
+        <path>Plugins</path>
+    </item>
+</items>
