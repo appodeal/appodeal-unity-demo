@@ -2,6 +2,11 @@
 
 ## Changelog
 
+2.13.0-Beta (April 19, 2021)
+
++ Updated Consent Manager 
++ Updated networks configs
+
 2.12.2 (April 5, 2021)
 
 + Updated Appodeal Android SDK to 2.9.2
