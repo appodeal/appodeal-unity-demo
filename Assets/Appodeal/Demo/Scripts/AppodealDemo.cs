@@ -183,6 +183,12 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             Debug.Log("consent.getZone() - " + consentManager.getConsent().getZone());
         }
 
+        public void PrintAuthorizationStatus()
+        {
+            if (consentManager.getConsent() == null) return;
+            Debug.Log($"AuthorizationStatus - {consentManager.getConsent().getAuthorizationStatus()} ");
+        }
+
         public void ShowAppodealLogic()
         {
             consentManagerPanel.SetActive(false);

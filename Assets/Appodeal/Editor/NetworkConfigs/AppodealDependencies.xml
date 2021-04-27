@@ -1,9 +1,9 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk:core:2.9.2'/>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:mraid:2.9.2.3'/>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:vast:2.9.2.3'/>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:nast:2.9.2.2'/>
+        <androidPackage spec='com.appodeal.ads.sdk:core:2.9.3'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:mraid:2.9.3.3'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:vast:2.9.3.3'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:nast:2.9.3.2'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>

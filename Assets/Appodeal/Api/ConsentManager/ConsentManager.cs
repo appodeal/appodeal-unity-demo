@@ -10,7 +10,7 @@ namespace ConsentManager.Api
     public class ConsentManager
     {
         private readonly IConsentManager nativeConsentManager;
-        
+
         private IConsentManager GetNativeConsentManager()
         {
             return nativeConsentManager;
@@ -25,7 +25,7 @@ namespace ConsentManager.Api
         {
             return new ConsentManager();
         }
-        
+
         public enum Storage
         {
             NONE,
@@ -36,7 +36,12 @@ namespace ConsentManager.Api
         {
             GetNativeConsentManager().requestConsentInfoUpdate(appodealAppKey, listener);
         }
-        
+
+        public void disableAppTrackingTransparencyRequest()
+        {
+            GetNativeConsentManager().disableAppTrackingTransparencyRequest();
+        }
+
         public void setCustomVendor(Vendor customVendor)
         {
             nativeConsentManager.setCustomVendor(customVendor);
@@ -234,7 +239,7 @@ namespace ConsentManager.Api
         {
             this.consent = consent;
         }
-        
+
         public IConsent getConsent()
         {
             return consent;
@@ -270,6 +275,14 @@ namespace ConsentManager.Api
             FALSE
         }
 
+        public enum AuthorizationStatus
+        {
+            NOT_DETERMINED,
+            RESTRICTED,
+            DENIED,
+            AUTHORIZED
+        }
+
         public Zone getZone()
         {
             return consent.getZone();
@@ -278,6 +291,11 @@ namespace ConsentManager.Api
         public Status getStatus()
         {
             return consent.getStatus();
+        }
+
+        public AuthorizationStatus getAuthorizationStatus()
+        {
+            return consent.getAuthorizationStatus();
         }
 
         public HasConsent hasConsentForVendor(string bundle)
@@ -318,5 +336,4 @@ namespace ConsentManager.Api
             return consentManagerException.getCode();
         }
     }
-    
 }

@@ -27,5 +27,6 @@ FOUNDATION_EXPORT void SetCustomVendor(id customVendor);
 
 FOUNDATION_EXPORT void SetCurrentError(NSError *error);
 FOUNDATION_EXPORT ConsentManagerErrorBridge *GetCurrentErrorBridge(void);
+FOUNDATION_EXPORT void DisableAppTrackingTransparencyRequest();
 
 NS_ASSUME_NONNULL_END

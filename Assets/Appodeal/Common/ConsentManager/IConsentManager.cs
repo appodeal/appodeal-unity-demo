@@ -18,6 +18,7 @@ namespace ConsentManager.Common
         Consent.Zone getConsentZone();
         Consent.Status getConsentStatus();
         Consent getConsent();
+        void disableAppTrackingTransparencyRequest();
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
@@ -65,6 +66,7 @@ namespace ConsentManager.Common
     {
         Consent.Zone getZone();
         Consent.Status getStatus();
+        Consent.AuthorizationStatus getAuthorizationStatus();
         Consent.HasConsent hasConsentForVendor(string bundle);
         string getIabConsentString();
     }

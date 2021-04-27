@@ -339,6 +339,12 @@ namespace AppodealAds.Unity.Dummy
             Debug.Log("Call to Appodeal.setUseSafeArea on not supported platform");
         }
 
+        public bool isAutoCacheEnabled(int adType)
+        {
+            Debug.Log("Call to Appodeal.isAutoCacheEnabled on not supported platform");
+            return false;
+        }
+
         #region User settings
 
         public void getUserSettings()

@@ -44,6 +44,11 @@ namespace ConsentManager.Platforms.iOS
             RequestConsentInfoUpdate(appodealAppKey, onConsentInfoUpdated, onFailedToUpdateConsentInfo);
         }
 
+        public static void disableAppTrackingTransparencyRequest()
+        {
+            DisableAppTrackingTransparencyRequest();
+        }
+
         public void setCustomVendor(IntPtr customVendor)
         {
             SetCustomVendor(customVendor);
@@ -93,6 +98,9 @@ namespace ConsentManager.Platforms.iOS
         private static extern void RequestConsentInfoUpdate(string appodealAppKey,
             ConsentInfoUpdatedCallback onConsentInfoUpdated,
             ConsentInfoUpdatedFailedCallback onFailedToUpdateConsentInfo);
+        
+        [DllImport("__Internal")]
+        private static extern void DisableAppTrackingTransparencyRequest();
 
         [DllImport("__Internal")]
         private static extern IntPtr GetConsentManager();
@@ -277,6 +285,11 @@ namespace ConsentManager.Platforms.iOS
             return GetStatus();
         }
 
+        public static string getAuthorizationStatus()
+        {
+            return GetAuthorizationStatus();
+        }
+        
         public static string getIabConsentString()
         {
             return GetIabConsentString();
@@ -292,6 +305,9 @@ namespace ConsentManager.Platforms.iOS
 
         [DllImport("__Internal")]
         private static extern string GetStatus();
+        
+        [DllImport("__Internal")]
+        private static extern string GetAuthorizationStatus();
 
         [DllImport("__Internal")]
         private static extern string GetIabConsentString();

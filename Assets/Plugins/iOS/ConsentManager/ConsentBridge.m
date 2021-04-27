@@ -48,6 +48,15 @@ const char *HasConsentForVendor(const char *bundle) {
     }
 }
 
+const char *GetAuthorizationStatus(void) {
+    switch (STKConsentManager.sharedManager.trackingAuthorizationStatus) {
+        case STKTrackingAuthorizationStatusNotDetermined: return GetChar(@"NOT_DETERMINED"); break;
+        case STKTrackingAuthorizationStatusRestricted: return GetChar(@"RESTRICTED"); break;
+        case STKTrackingAuthorizationStatusDenied: return GetChar(@"DENIED"); break;
+        case STKTrackingAuthorizationStatusAuthorized: return GetChar(@"AUTHORIZED"); break;
+    }
+}
+
 const char *GetChar(NSString *message){
     const char *cString = [message UTF8String];
     char *cStringCopy = calloc([message length]+1, 1);

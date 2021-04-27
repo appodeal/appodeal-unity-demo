@@ -1,4 +1,5 @@
 ﻿#if UNITY_IPHONE
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -18,6 +19,7 @@ namespace Appodeal.Unity.Editor.Utils
     [SuppressMessage("ReSharper", "UnusedVariable")]
     [SuppressMessage("ReSharper", "UnusedMember.Local")]
     [SuppressMessage("ReSharper", "UnusedParameter.Local")]
+    [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class iOSPostprocessUtils : MonoBehaviour
     {
         private const string suffix = ".framework";
@@ -29,19 +31,50 @@ namespace Appodeal.Unity.Editor.Utils
         {
             if (target != BuildTarget.iOS) return;
             if (string.IsNullOrEmpty(PlayerSettings.iOS.targetOSVersionString)) return;
+
+            var plistPath = buildPath + "/Info.plist";
+            var plist = new PlistDocument();
+            plist.ReadFromString(File.ReadAllText(plistPath));
+
+            plist.root.SetString(AppodealUnityUtils.NSUserTrackingUsageDescriptionKey,
+                AppodealUnityUtils.NSUserTrackingUsageDescription);
+
             if (isCustomBuild)
             {
-                var plistPath = buildPath + "/Info.plist";
-                var plist = new PlistDocument();
-                plist.ReadFromString(File.ReadAllText(plistPath));
-                var rootDict = plist.root;
-                const string buildKey = "GADApplicationIdentifier";
-                rootDict.SetString(buildKey, "ca-app-pub-3940256099942544~1458002511");
-                File.WriteAllText(plistPath, plist.WriteToString());
+                plist.root.SetString(AppodealUnityUtils.GADApplicationIdentifier,
+                    AppodealUnityUtils.GADApplicationIdentifierDefaultKey);
             }
 
-            ReplaceInFile(buildPath + "/Podfile", $"platform :ios, '{PlayerSettings.iOS.targetOSVersionString}'",
-                "platform :ios, '10.0'\nuse_frameworks!");
+            PlistElementArray array = null;
+            if (plist.root.values.ContainsKey(AppodealUnityUtils.KeySkAdNetworkItems))
+            {
+                try
+                {
+                    plist.root.values.TryGetValue(AppodealUnityUtils.KeySkAdNetworkItems, out var element);
+                    if (element != null) array = element.AsArray();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e.Message);
+                    array = null;
+                }
+            }
+            else
+            {
+                array = plist.root.CreateArray(AppodealUnityUtils.KeySkAdNetworkItems);
+            }
+
+            if (array != null)
+            {
+                foreach (var id in AppodealUnityUtils.SKAdNetworkIdentifiers)
+                {
+                    if (ContainsSkAdNetworkIdentifier(array, id)) continue;
+                    var added = array.AddDict();
+                    added.SetString(AppodealUnityUtils.KeySkAdNetworkID, id);
+                }
+            }
+
+            File.WriteAllText(plistPath, plist.WriteToString());
         }
 
         [PostProcessBuildAttribute(41)]
@@ -49,17 +82,19 @@ namespace Appodeal.Unity.Editor.Utils
         {
             if (!File.Exists("Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml"))
             {
-                Debug.Log("Can't find Google Admob Config by path - Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml");
+                Debug.Log(
+                    "Can't find Google Admob Config by path - Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml");
                 return;
             }
 
             if (!CheckiOSAttribute())
             {
-                Debug.LogError("Google Admob Config is invalid. Ensure that Appodeal Unity plugin is imported correctly.");
+                Debug.LogError(
+                    "Google Admob Config is invalid. Ensure that Appodeal Unity plugin is imported correctly.");
                 return;
             }
-            
-            if (string.IsNullOrEmpty(AppodealSettings.Instance.AdMobIosAppId) 
+
+            if (string.IsNullOrEmpty(AppodealSettings.Instance.AdMobIosAppId)
                 || !AppodealSettings.Instance.AdMobIosAppId.StartsWith("ca-app-pub-"))
             {
                 Debug.LogError(
@@ -126,7 +161,8 @@ namespace Appodeal.Unity.Editor.Utils
             "UIKit",
             "VideoToolbox",
             "WatchConnectivity",
-            "WebKit"
+            "WebKit",
+            "AppTrackingTransparency"
         };
 
         private static readonly string[] weakFrameworkList =
@@ -295,6 +331,28 @@ namespace Appodeal.Unity.Editor.Utils
             return attributeElementiOSPod.Value.Equals("APDGoogleAdMobAdapter");
         }
 
+        private static bool ContainsSkAdNetworkIdentifier(PlistElementArray skAdNetworkItemsArray, string id)
+        {
+            foreach (var elem in skAdNetworkItemsArray.values)
+            {
+                try
+                {
+                    var identifierExists = elem.AsDict().values
+                        .TryGetValue(AppodealUnityUtils.KeySkAdNetworkID, out var value);
+
+                    if (identifierExists && value.AsString().Equals(id))
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e.Message);
+                }
+            }
+
+            return false;
+        }
     }
 }
 #endif

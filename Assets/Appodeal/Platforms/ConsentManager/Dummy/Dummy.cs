@@ -63,6 +63,11 @@ namespace ConsentManager.Platforms.Dummy
             return null;
         }
 
+        public void disableAppTrackingTransparencyRequest()
+        {
+            Debug.Log(DummyMessage);
+        }
+
         public void load()
         {
             Debug.Log(DummyMessage);
@@ -180,6 +185,12 @@ namespace ConsentManager.Platforms.Dummy
         {
             Debug.Log(DummyMessage);
             return Consent.Status.UNKNOWN;
+        }
+
+        public Consent.AuthorizationStatus getAuthorizationStatus()
+        {
+            Debug.Log(DummyMessage);
+            return Consent.AuthorizationStatus.NOT_DETERMINED;
         }
 
         public Consent.HasConsent hasConsentForVendor(string bundle)

@@ -155,6 +155,11 @@ namespace ConsentManager.Platforms.Android
         {
             return new Consent(new AndroidConsent(getInstance().Call<AndroidJavaObject>("getConsent")));
         }
+
+        public void disableAppTrackingTransparencyRequest()
+        {
+            Debug.Log("Not supported on Android platform");
+        }
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
@@ -451,6 +456,12 @@ namespace ConsentManager.Platforms.Android
             }
 
             return status;
+        }
+
+        public Consent.AuthorizationStatus getAuthorizationStatus()
+        {
+            Debug.Log("Not supported on this platform");
+            return Consent.AuthorizationStatus.NOT_DETERMINED;
         }
 
         public Consent.HasConsent hasConsentForVendor(string bundle)

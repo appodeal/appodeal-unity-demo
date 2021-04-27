@@ -3,8 +3,8 @@
         <iosPod name='APDMyTargetAdapter' version='2.9.1.2' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:my_target:2.9.2.11@aar'/>
-        <androidPackage spec='com.my.target:mytarget-sdk:5.12.1@aar'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:my_target:2.9.3.11@aar'/>
+        <androidPackage spec='com.my.target:mytarget-sdk:5.12.2@aar'/>
         <androidPackage spec='androidx.recyclerview:recyclerview:1.1.0@aar'/>
         <androidPackage spec='androidx.customview:customview:1.0.0@aar'/>
         <androidPackage spec='androidx.annotation:annotation:1.1.0'/>

@@ -138,3 +138,7 @@ void RequestConsentInfoUpdate(const char *appodealAppKey,
         }
     }];
 }
+
+void DisableAppTrackingTransparencyRequest(){
+    [STKConsentManager.sharedManager disableAppTrackingTransparencyRequest];
+}

@@ -35,6 +35,11 @@ namespace ConsentManager.Platforms.iOS
             ConsentManagerObjCBridge.requestConsentInfoUpdate(appodealAppKey, onConsentInfoUpdated,
                 onFailedToUpdateConsentInfo);
         }
+        
+        public void disableAppTrackingTransparencyRequest()
+        {
+            ConsentManagerObjCBridge.disableAppTrackingTransparencyRequest();
+        }
 
         public void setCustomVendor(Vendor customVendor)
         {
@@ -434,6 +439,28 @@ namespace ConsentManager.Platforms.iOS
             }
 
             return status;
+        }
+
+        public Consent.AuthorizationStatus getAuthorizationStatus()
+        {
+            var authorizationStatus = Consent.AuthorizationStatus.NOT_DETERMINED;
+            switch (ConsentObjBridge.getAuthorizationStatus())
+            {
+                case "NOT_DETERMINED":
+                    authorizationStatus = Consent.AuthorizationStatus.NOT_DETERMINED;
+                    break;
+                case "DENIED":
+                    authorizationStatus = Consent.AuthorizationStatus.DENIED;
+                    break;
+                case "RESTRICTED":
+                    authorizationStatus = Consent.AuthorizationStatus.RESTRICTED;
+                    break;
+                case "AUTHORIZED":
+                    authorizationStatus = Consent.AuthorizationStatus.AUTHORIZED;
+                    break;
+            }
+
+            return authorizationStatus;
         }
 
         public Consent.HasConsent hasConsentForVendor(string bundle)

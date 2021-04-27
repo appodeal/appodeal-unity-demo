@@ -197,6 +197,10 @@ BOOL AppodealIsPrecacheAd(int adType) {
     return [Appodeal isPrecacheAd:adType];
 }
 
+BOOL AppodealIsAutoCacheEnabled(int adType) {
+    return [Appodeal isAutocacheEnabled:adType];
+}
+
 void AppodealSetSegmentFilterBool(const char *name, BOOL value) {
     NSString *key = [NSString stringWithUTF8String:name];
     NSNumber *valueNum = [NSNumber numberWithBool:value];
