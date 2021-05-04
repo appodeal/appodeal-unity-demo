@@ -14,6 +14,7 @@ using UnityEngine;
 namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "ReturnValueOfPureMethodIsNotUsed")]
     public static class AppodealDependencyUtils
     {
         #region Constants
@@ -70,7 +71,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                 editorWindow.Close();
             }
         }
-        
+
         public static void ShowInternalErrorDialog(EditorWindow editorWindow, string message)
         {
             EditorUtility.ClearProgressBar();
@@ -83,7 +84,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                 editorWindow.Close();
             }
         }
-        
+
         public static void FormatXml(string inputXml)
         {
             var document = new XmlDocument();
@@ -194,8 +195,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 
         public static string GetMajorVersion(string value)
         {
-            return value.Remove(0, 4).Insert(0, string.Empty)
-                .Remove(1, 2).Insert(0, string.Empty);
+            return value.Substring(0, 6).Remove(0, 5).Insert(0, string.Empty);;
         }
 
         public static string GetAndroidDependencyCoreVersion(string value)

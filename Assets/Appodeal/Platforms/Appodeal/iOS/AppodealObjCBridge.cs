@@ -186,6 +186,9 @@ namespace AppodealAds.Unity.iOS
         
         [DllImport("__Internal")]
         internal static extern bool AppodealIsPrecacheAd(int adType);
+        
+        [DllImport("__Internal")]
+        internal static extern bool AppodealIsAutoCacheEnabled(int adType);
 
         [DllImport("__Internal")]
         internal static extern void AppodealSetInterstitialDelegate(

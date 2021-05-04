@@ -1,15 +1,15 @@
 <dependencies>
     <iosPods>
-        <iosPod name='APDMyTargetAdapter' version='2.9.1.2' minTargetSdk='10.0'/>
+        <iosPod name='APDMyTargetAdapter' version='2.10.0.1-Beta' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:my_target:2.9.2.11@aar'/>
-        <androidPackage spec='com.my.target:mytarget-sdk:5.12.1@aar'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:my_target:2.10.0.11@aar'/>
+        <androidPackage spec='com.my.target:mytarget-sdk:5.12.2@aar'/>
         <androidPackage spec='androidx.recyclerview:recyclerview:1.1.0@aar'/>
         <androidPackage spec='androidx.customview:customview:1.0.0@aar'/>
         <androidPackage spec='androidx.annotation:annotation:1.1.0'/>
         <androidPackage spec='androidx.core:core:1.2.0'/>
-        <androidPackage spec='androidx.collection:collection:1.1.0'/>
+        <androidPackage spec='androidx.collection:collection:1.0.0'/>
         <androidPackage spec='androidx.annotation:annotation:1.1.0'/>
         <androidPackage spec='androidx.core:core:1.2.0'/>
         <androidPackage spec='com.google.android.exoplayer:exoplayer-hls:2.8.4'/>
@@ -18,7 +18,7 @@
         <androidPackage spec='androidx.customview:customview:1.0.0@aar'/>
         <androidPackage spec='androidx.annotation:annotation:1.1.0'/>
         <androidPackage spec='androidx.core:core:1.2.0'/>
-        <androidPackage spec='androidx.collection:collection:1.1.0'/>
+        <androidPackage spec='androidx.collection:collection:1.0.0'/>
         <androidPackage spec='androidx.annotation:annotation:1.1.0'/>
         <androidPackage spec='androidx.core:core:1.2.0'/>
         <androidPackage spec='com.google.android.exoplayer:exoplayer-hls:2.8.4'/>

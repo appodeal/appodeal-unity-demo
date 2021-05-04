@@ -533,6 +533,11 @@ namespace AppodealAds.Unity.Android
         {
             getAppodealClass().CallStatic("setUseSafeArea", value);
         }
+
+        public bool isAutoCacheEnabled(int adType)
+        {
+            return  getAppodealClass().CallStatic<bool>("isAutoCacheEnabled", nativeAdTypesForType(adType));
+        }
     }
 }
 #endif
