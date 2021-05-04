@@ -2,6 +2,13 @@
 
 ## Changelog
 
+2.14.0-Beta (May 04, 2021)
+
++ Updated Appodeal iOS SDK to 2.10.0
++ Updated Appodeal Android SDK to 2.10.0
++ Updated External Dependency Manager (Play Services Resolver) to 1.2.165
++ Updated networks configs
+
 2.13.0-Beta (April 19, 2021)
 
 + Updated Consent Manager 
