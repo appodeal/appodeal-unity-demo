@@ -2,6 +2,13 @@
 
 ## Changelog
 
+2.14.1 (May 24, 2021)
+
++ Updated Appodeal iOS SDK to 2.10.1
++ Updated networks configs
++ Internal changes in Admob Settings tool
++ Fixed issue with namespaces in ConsentManager
+
 2.14.0-Beta (May 04, 2021)
 
 + Updated Appodeal iOS SDK to 2.10.0
