@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
-using ConsentManager.Api;
+using ConsentManager;
 using UnityEngine;
 
 namespace AppodealAds.Unity.Dummy

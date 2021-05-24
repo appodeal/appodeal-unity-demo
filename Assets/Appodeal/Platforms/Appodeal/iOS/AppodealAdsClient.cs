@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using AOT;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
-using ConsentManager.Api;
+using ConsentManager;
 using UnityEngine;
 
 namespace AppodealAds.Unity.iOS

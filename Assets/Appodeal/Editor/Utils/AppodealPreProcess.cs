@@ -1,4 +1,4 @@
-// ReSharper disable RedundantUsingDirective
+// ReSharper disable All
 #if UNITY_ANDROID
 using System;
 using System.IO;
@@ -41,43 +41,66 @@ namespace Appodeal.Unity.Editor.Utils
                 return;
             }
 
-            UpdateAndroidManifest();
+            if (File.Exists(Path.Combine(Application.dataPath, "Plugins/Android/AndroidManifest.xml")))
+            {
+                if (!CheckContainsAppId(Path.Combine(Application.dataPath, "Plugins/Android/AndroidManifest.xml")))
+                {
+                    UpdateAndroidManifest();
+                }
+            }
+            else
+            {
+                UpdateAndroidManifest();
+            }
         }
 
-        private void UpdateAndroidManifest()
+        private static void UpdateAndroidManifest()
         {
-            var manifestPath =
-                Path.Combine(Application.dataPath, "Plugins/Android/appodeal.androidlib/AndroidManifest.xml");
+            var manifestPath = Path.Combine(Application.dataPath,
+                "Plugins/Android/appodeal.androidlib/AndroidManifest.xml");
 
+            var contentString = GetAndroidManifestContent(manifestPath);
 
-            string contentString;
-            using (var reader = new StreamReader(manifestPath))
-            {
-                contentString = reader.ReadToEnd();
-                reader.Close();
-            }
-
-            if (contentString.Contains("APPLICATION_ID"))
+            if (CheckContainsAppId(manifestPath))
             {
                 return;
             }
 
             var replaceText = "\n" + "        <meta-data" + "\n" +
                               "                android:name=" + "'com.google.android.gms.ads.APPLICATION_ID'" + "\n" +
-                              "                android:value=" + "'" + AppodealSettings.Instance.AdMobAndroidAppId + "'" + "/>" + "\n" +
+                              "                android:value=" + "'" + AppodealSettings.Instance.AdMobAndroidAppId +
+                              "'" + "/>" + "\n" +
                               "    </application>" + "\n";
 
             contentString = Regex.Replace(contentString, "</application>", replaceText);
-            
+
 #if UNITY_2019_3_OR_NEWER
-            contentString = Regex.Replace(contentString, "android:name='androidx.multidex.MultiDexApplication'", string.Empty);
+            contentString = Regex.Replace(contentString, "android:name='androidx.multidex.MultiDexApplication'",
+                string.Empty);
 #endif
 
-            using (var writer = new StreamWriter(manifestPath))
+            using (var writer = new StreamWriter(Path.Combine(Application.dataPath,
+                "Plugins/Android/appodeal.androidlib/AndroidManifest.xml")))
             {
                 writer.Write(contentString);
                 writer.Close();
             }
+        }
+
+        private static bool CheckContainsAppId(string manifestPath)
+        {
+            return GetAndroidManifestContent(manifestPath).Contains("APPLICATION_ID");
+        }
+
+        private static string GetAndroidManifestContent(string manifestPath)
+        {
+            string contentString;
+            using (var reader = new StreamReader(manifestPath))
+            {
+                contentString = reader.ReadToEnd();
+                reader.Close();
+            }
+            return contentString;
         }
 
         public int callbackOrder => 0;

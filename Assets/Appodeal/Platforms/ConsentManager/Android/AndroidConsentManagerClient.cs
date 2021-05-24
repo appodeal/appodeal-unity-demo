@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using ConsentManager.Api;
 using ConsentManager.Common;
 using UnityEngine;
 
@@ -50,33 +49,33 @@ namespace ConsentManager.Platforms.Android
                 .Call<AndroidJavaObject>("getCustomVendor", Helper.getJavaObject(bundle))));
         }
 
-        public Api.ConsentManager.Storage getStorage()
+        public ConsentManager.Storage getStorage()
         {
-            var storage = Api.ConsentManager.Storage.NONE;
+            var storage = ConsentManager.Storage.NONE;
             switch (getInstance().Call<AndroidJavaObject>("getStorage").Call<string>("name"))
             {
                 case "NONE":
-                    storage = Api.ConsentManager.Storage.NONE;
+                    storage = ConsentManager.Storage.NONE;
                     break;
                 case "SHARED_PREFERENCE":
-                    storage = Api.ConsentManager.Storage.SHARED_PREFERENCE;
+                    storage = ConsentManager.Storage.SHARED_PREFERENCE;
                     break;
             }
 
             return storage;
         }
 
-        public void setStorage(Api.ConsentManager.Storage iabStorage)
+        public void setStorage(ConsentManager.Storage iabStorage)
         {
             switch (iabStorage)
             {
-                case Api.ConsentManager.Storage.NONE:
+                case ConsentManager.Storage.NONE:
                     getInstance().Call("setStorage",
                         new AndroidJavaClass("com.explorestack.consent.ConsentManager$Storage")
                             .GetStatic<AndroidJavaObject>(
                                 "NONE"));
                     break;
-                case Api.ConsentManager.Storage.SHARED_PREFERENCE:
+                case ConsentManager.Storage.SHARED_PREFERENCE:
                     getInstance().Call("setStorage",
                         new AndroidJavaClass("com.explorestack.consent.ConsentManager$Storage")
                             .GetStatic<AndroidJavaObject>(

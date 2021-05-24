@@ -1,6 +1,6 @@
 <dependencies>
     <iosPods>
-        <iosPod name='APDAdColonyAdapter' version='2.10.0.1-Beta' minTargetSdk='10.0'/>
+        <iosPod name='APDAdColonyAdapter' version='2.10.1.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
         <androidPackage spec='com.appodeal.ads.sdk.networks:adcolony:2.10.0.12@aar'/>

@@ -1,13 +1,13 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:admob:2.10.0.10@aar'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:admob:2.10.0.11@aar'/>
         <androidPackage spec='androidx.lifecycle:lifecycle-process:2.1.0'/>
-        <androidPackage spec='com.google.android.gms:play-services-ads:19.8.0'/>
+        <androidPackage spec='com.google.android.gms:play-services-ads:20.1.0'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>
     </androidPackages>
     <iosPods>
-        <iosPod name='APDGoogleAdMobAdapter' version='2.10.0.2-Beta' minTargetSdk='10.0'/>
+        <iosPod name='APDGoogleAdMobAdapter' version='2.10.1.1' minTargetSdk='10.0'/>
     </iosPods>
 </dependencies>

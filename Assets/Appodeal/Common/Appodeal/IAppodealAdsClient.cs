@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using AppodealAds.Unity.Api;
-using ConsentManager.Api;
+using ConsentManager;
 
 namespace AppodealAds.Unity.Common
 {
@@ -30,7 +30,7 @@ namespace AppodealAds.Unity.Common
         void setTabletBanners(bool value);
         void setBannerRotation(int leftBannerRotation, int rightBannerRotation);
         void setTesting(bool test);
-        void setLogLevel(Api.Appodeal.LogLevel level);
+        void setLogLevel(Appodeal.LogLevel level);
         void setChildDirectedTreatment(bool value);
         void updateConsent(bool value);
         void updateConsent(Consent consent);
