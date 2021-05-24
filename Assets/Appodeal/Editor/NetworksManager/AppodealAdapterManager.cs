@@ -636,7 +636,6 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                     var last = AppodealDependencyUtils.GetMajorVersion(
                         AppodealDependencyUtils.ReplaceBetaVersion(latestVersion));
 
-
                     if (AppodealDependencyUtils.CompareVersion(current, last) == -1)
                     {
                         CompareForAction(0,

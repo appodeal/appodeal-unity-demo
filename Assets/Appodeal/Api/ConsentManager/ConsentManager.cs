@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using ConsentManager.Common;
 using ConsentManager.Platforms;
 
-namespace ConsentManager.Api
+namespace ConsentManager
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]

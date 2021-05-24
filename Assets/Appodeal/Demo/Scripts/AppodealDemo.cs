@@ -2,7 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
-using ConsentManager.Api;
 using ConsentManager.Common;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,7 +48,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
         #endregion
 
         private ConsentForm consentForm;
-        private Api.ConsentManager consentManager;
+        private ConsentManager consentManager;
         private bool isShouldSaveConsentForm;
         private Consent currentConsent;
 
@@ -61,7 +60,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             btnShowInterstitial.GetComponentInChildren<Text>().text = CACHE_INTERSTITIAL;
             btnShowRewardedVideo.GetComponentInChildren<Text>().text = CACHE_REWARDED_VIDEO;
 
-            consentManager = Api.ConsentManager.getInstance();
+            consentManager = ConsentManager.getInstance();
         }
 
         private void Awake()

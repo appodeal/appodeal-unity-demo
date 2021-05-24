@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using ConsentManager.Api;
 using ConsentManager.Common;
 
 namespace ConsentManager.Platforms.Android

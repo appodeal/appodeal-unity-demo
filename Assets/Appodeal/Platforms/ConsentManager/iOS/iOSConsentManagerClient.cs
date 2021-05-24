@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using AOT;
-using ConsentManager.Api;
 using ConsentManager.Common;
 using UnityEngine;
 
@@ -52,23 +51,23 @@ namespace ConsentManager.Platforms.iOS
             return new Vendor(new iOSVendor(consentManagerObjCBridge.getCustomVendor(bundle)));
         }
 
-        public Api.ConsentManager.Storage getStorage()
+        public ConsentManager.Storage getStorage()
         {
-            var storage = Api.ConsentManager.Storage.NONE;
+            var storage = ConsentManager.Storage.NONE;
             switch (consentManagerObjCBridge.getStorage())
             {
                 case "NONE":
-                    storage = Api.ConsentManager.Storage.NONE;
+                    storage = ConsentManager.Storage.NONE;
                     break;
                 case "SHARED_PREFERENCE":
-                    storage = Api.ConsentManager.Storage.SHARED_PREFERENCE;
+                    storage = ConsentManager.Storage.SHARED_PREFERENCE;
                     break;
             }
 
             return storage;
         }
 
-        public void setStorage(Api.ConsentManager.Storage iabStorage)
+        public void setStorage(ConsentManager.Storage iabStorage)
         {
             consentManagerObjCBridge.setStorage(iabStorage.ToString());
         }

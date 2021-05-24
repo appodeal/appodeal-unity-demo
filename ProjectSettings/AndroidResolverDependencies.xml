@@ -1,48 +1,55 @@
 <dependencies>
   <packages>
     <package>androidx.annotation:annotation:1.1.0</package>
-    <package>androidx.collection:collection:1.1.0</package>
+    <package>androidx.collection:collection:1.0.0</package>
     <package>androidx.core:core:1.2.0</package>
     <package>androidx.customview:customview:1.0.0@aar</package>
+    <package>androidx.lifecycle:lifecycle-process:2.1.0</package>
     <package>androidx.recyclerview:recyclerview:1.1.0@aar</package>
     <package>com.adcolony:sdk:4.5.0</package>
-    <package>com.applovin:applovin-sdk:10.1.2</package>
-    <package>com.appodeal.ads.sdk.networks:a4g:2.9.3.8@aar</package>
-    <package>com.appodeal.ads.sdk.networks:adcolony:2.9.3.12@aar</package>
-    <package>com.appodeal.ads.sdk.networks:admob:2.9.3.9@aar</package>
-    <package>com.appodeal.ads.sdk.networks:amazon_ads:2.9.3.3</package>
-    <package>com.appodeal.ads.sdk.networks:applovin:2.9.3.13@aar</package>
-    <package>com.appodeal.ads.sdk.networks:bidmachine:2.9.3.8@aar</package>
-    <package>com.appodeal.ads.sdk.networks:facebook:2.9.3.13@aar</package>
-    <package>com.appodeal.ads.sdk.networks:ironsource:2.9.3.11@aar</package>
-    <package>com.appodeal.ads.sdk.networks:mraid:2.9.3.3</package>
-    <package>com.appodeal.ads.sdk.networks:my_target:2.9.3.11@aar</package>
-    <package>com.appodeal.ads.sdk.networks:nast:2.9.3.2</package>
-    <package>com.appodeal.ads.sdk.networks:ogury:2.9.3.8</package>
-    <package>com.appodeal.ads.sdk.networks:smaato:2.9.3.6</package>
-    <package>com.appodeal.ads.sdk.networks:startapp:2.9.3.10</package>
-    <package>com.appodeal.ads.sdk.networks:unity_ads:2.9.3.9</package>
-    <package>com.appodeal.ads.sdk.networks:vast:2.9.3.3</package>
-    <package>com.appodeal.ads.sdk.networks:vungle:2.9.3.7@aar</package>
-    <package>com.appodeal.ads.sdk.networks:yandex:2.9.3.8</package>
-    <package>com.appodeal.ads.sdk:core:2.9.3</package>
+    <package>com.android.support:support-annotations:27.1.0</package>
+    <package>com.applovin:applovin-sdk:10.2.1</package>
+    <package>com.appodeal.ads.sdk.networks:a4g:2.10.0.10@aar</package>
+    <package>com.appodeal.ads.sdk.networks:adcolony:2.10.0.12@aar</package>
+    <package>com.appodeal.ads.sdk.networks:admob:2.10.0.11@aar</package>
+    <package>com.appodeal.ads.sdk.networks:amazon_ads:2.10.0.3</package>
+    <package>com.appodeal.ads.sdk.networks:applovin:2.10.0.14@aar</package>
+    <package>com.appodeal.ads.sdk.networks:appodeal:2.10.0.2</package>
+    <package>com.appodeal.ads.sdk.networks:bidmachine:2.10.0.10@aar</package>
+    <package>com.appodeal.ads.sdk.networks:facebook:2.10.0.14@aar</package>
+    <package>com.appodeal.ads.sdk.networks:ironsource:2.10.0.12@aar</package>
+    <package>com.appodeal.ads.sdk.networks:mraid:2.10.0.3</package>
+    <package>com.appodeal.ads.sdk.networks:my_target:2.10.0.12@aar</package>
+    <package>com.appodeal.ads.sdk.networks:nast:2.10.0.2</package>
+    <package>com.appodeal.ads.sdk.networks:ogury:2.10.0.8</package>
+    <package>com.appodeal.ads.sdk.networks:smaato:2.10.0.6</package>
+    <package>com.appodeal.ads.sdk.networks:startapp:2.10.0.12</package>
+    <package>com.appodeal.ads.sdk.networks:unity_ads:2.10.0.10</package>
+    <package>com.appodeal.ads.sdk.networks:vast:2.10.0.3</package>
+    <package>com.appodeal.ads.sdk.networks:vungle:2.10.0.7@aar</package>
+    <package>com.appodeal.ads.sdk.networks:yandex:2.10.0.9</package>
+    <package>com.appodeal.ads.sdk:core:2.10.0@aar</package>
+    <package>com.appodeal:protobuf-models:1.0.3</package>
     <package>com.criteo.publisher:criteo-publisher-sdk:4.2.1</package>
     <package>com.explorestack:consent:1.0.3</package>
-    <package>com.facebook.android:audience-network-sdk:6.4.0@aar</package>
+    <package>com.explorestack:consent-models:1.0.2@aar</package>
+    <package>com.explorestack:iab:0.9.1</package>
+    <package>com.facebook.android:audience-network-sdk:6.5.0@aar</package>
     <package>com.google.android.exoplayer:exoplayer-core:2.11.7</package>
     <package>com.google.android.exoplayer:exoplayer-hls:2.8.4</package>
-    <package>com.google.android.gms:play-services-ads:19.7.0</package>
+    <package>com.google.android.gms:play-services-ads:20.1.0</package>
     <package>com.google.android.gms:play-services-ads-identifier:17.0.0</package>
     <package>com.google.android.gms:play-services-base:17.0.0</package>
     <package>com.google.android.gms:play-services-basement:17.3.0</package>
-    <package>com.ironsource.sdk:mediationsdk:7.1.4.1</package>
+    <package>com.google.android.gms:play-services-basement:17.6.0</package>
+    <package>com.ironsource.sdk:mediationsdk:7.1.5.1</package>
     <package>com.my.target:mytarget-sdk:5.12.2@aar</package>
     <package>com.vungle:publisher-sdk-android:6.9.1</package>
-    <package>io.bidmachine:ads.networks.adcolony:1.7.2.9@aar</package>
-    <package>io.bidmachine:ads.networks.criteo:1.7.2.8@aar</package>
-    <package>io.bidmachine:ads.networks.facebook:1.7.2.6@aar</package>
-    <package>io.bidmachine:ads.networks.my_target:1.7.2.6@aar</package>
-    <package>io.bidmachine:ads:1.7.2</package>
+    <package>io.bidmachine:ads.networks.adcolony:1.7.3.9@aar</package>
+    <package>io.bidmachine:ads.networks.criteo:1.7.3.8@aar</package>
+    <package>io.bidmachine:ads.networks.facebook:1.7.3.6@aar</package>
+    <package>io.bidmachine:ads.networks.my_target:1.7.3.6@aar</package>
+    <package>io.bidmachine:ads:1.7.3</package>
   </packages>
   <files />
   <settings>
