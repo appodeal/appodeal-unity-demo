@@ -1,7 +1,7 @@
-#if UNITY_2018_1_OR_NEWER
 using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using UnityEngine;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,12 +9,13 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using Appodeal.Editor.AppodealManager.Data;
 using UnityEditor;
-using UnityEngine;
+// ReSharper disable All
 
 namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     [SuppressMessage("ReSharper", "ReturnValueOfPureMethodIsNotUsed")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public static class AppodealDependencyUtils
     {
         #region Constants
@@ -195,7 +196,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 
         public static string GetMajorVersion(string value)
         {
-            return value.Substring(0, 6).Remove(0, 5).Insert(0, string.Empty);;
+            return value.Substring(0, 6).Remove(0, 5).Insert(0, string.Empty);
         }
 
         public static string GetAndroidDependencyCoreVersion(string value)
@@ -234,7 +235,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                 writer.Close();
             }
         }
-
+#if UNITY_2018_1_OR_NEWER
         public static int CompareVersion(string interal, string latest)
         {
             var xParts = interal.Split('.');
@@ -262,6 +263,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 
             return 0;
         }
+#endif
 
         public static void GuiHeaders(GUIStyle headerInfoStyle, GUILayoutOption btnFieldWidth)
         {
@@ -328,4 +330,3 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
         }
     }
 }
-#endif

@@ -203,7 +203,6 @@ namespace AppodealAds.Unity.Android
         public void setSmartBanners(bool value)
         {
             getAppodealClass().CallStatic("setSmartBanners", value);
-            getAppodealBannerInstance().Call("setSmartBanners", value);
         }
 
         public void setBannerAnimation(bool value)

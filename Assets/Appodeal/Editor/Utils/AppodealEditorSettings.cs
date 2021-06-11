@@ -30,21 +30,21 @@ namespace AppodealAds.Unity.Editor.Utils
         }
 #endif
         
-#if !UNITY_2019_3_OR_NEWER
-        [MenuItem("Appodeal/Check Integration")]
-        public static void TestWindow()
-        {
-            CheckerWindow.GetWindow().Show();
-        }
-
-        [MenuItem("Appodeal/Filter Android Architectures")]
-        public static void FilterAndroidArchitectures()
-        {
-            ArchitectureFilter.PrepareBuild();
-        }
-#endif
+// #if !UNITY_2019_3_OR_NEWER
+//         [MenuItem("Appodeal/Check Integration")]
+//         public static void TestWindow()
+//         {
+//             CheckerWindow.GetWindow().Show();
+//         }
+//
+//         [MenuItem("Appodeal/Filter Android Architectures")]
+//         public static void FilterAndroidArchitectures()
+//         {
+//             ArchitectureFilter.PrepareBuild();
+//         }
+// #endif
         
-        [MenuItem("Appodeal/AdMob Settings")]
+        [MenuItem("Appodeal/Appodeal Settings")]
         public static void SetAdMobAppId()
         {
             AppodealInternalSettings.ShowAppodealInternalSettings();

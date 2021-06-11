@@ -94,6 +94,7 @@ namespace AppodealAds.Unity.Editor.Utils
             }
 
             if (!packageName.Contains(UNITY_PLUGIN)) return;
+
             if (EditorUtility.DisplayDialog("Appodeal Warning",
                 "It seems like you are going to install new version of Appodeal plugin. " +
                 "To avoid conflicts it's recommended to delete previous version of the plugin.",
@@ -190,50 +191,60 @@ namespace AppodealAds.Unity.Editor.Utils
 
         public static void RemovePlugin(bool isCleanBeforeUpdate = false)
         {
-            var items = readXML();
-            foreach (var t in items)
+            if (EditorUtility.DisplayDialog("Remove Appodeal plugin",
+                "Are you sure you want to remove the Appodeal plugin from your project?",
+                "Yes",
+                "Cancel"))
             {
-                if (t.perform_only_if_total_remove && isCleanBeforeUpdate) continue;
-                var confirmed = !t.is_confirmation_required || isCleanBeforeUpdate;
-                var fullItemPath = Path.Combine(Application.dataPath, t.path);
-
-                if (!confirmed)
+                var items = readXML();
+                foreach (var t in items)
                 {
-                    if (EditorUtility.DisplayDialog("Removing " + t.name, t.description, "Yes", "No"))
+                    if (t.perform_only_if_total_remove && isCleanBeforeUpdate) continue;
+                    var confirmed = !t.is_confirmation_required || isCleanBeforeUpdate;
+                    var fullItemPath = Path.Combine(Application.dataPath, t.path);
+
+                    if (!confirmed)
                     {
-                        confirmed = true;
+                        if (EditorUtility.DisplayDialog("Removing " + t.name, t.description, "Yes", "No"))
+                        {
+                            confirmed = true;
+                        }
                     }
-                }
 
-                if (!confirmed) continue;
-                var isChecked = !t.check_if_empty;
-                if (!isChecked) isChecked = isFolderEmpty(fullItemPath);
-                if (!isChecked) continue;
+                    if (!confirmed) continue;
+                    var isChecked = !t.check_if_empty;
+                    if (!isChecked) isChecked = isFolderEmpty(fullItemPath);
+                    if (!isChecked) continue;
 
-                if (string.IsNullOrEmpty(t.filter))
-                {
+                    if (string.IsNullOrEmpty(t.filter))
+                    {
+                        FileUtil.DeleteFileOrDirectory(fullItemPath);
+                        FileUtil.DeleteFileOrDirectory(fullItemPath + ".meta");
+                        continue;
+                    }
+
+                    var isDirectoryExists = Directory.Exists(fullItemPath);
+                    if (!isDirectoryExists) continue;
+                    var filesList =
+                        new List<string>(Directory.GetFiles(fullItemPath, "*", SearchOption.TopDirectoryOnly));
+                    filesList.AddRange(Directory.GetDirectories(fullItemPath, "*", SearchOption.TopDirectoryOnly));
+                    foreach (var t1 in from t1 in filesList
+                        let fileName = Path.GetFileName(t1)
+                        where Regex.IsMatch(fileName, t.filter, RegexOptions.IgnoreCase)
+                        select t1)
+                    {
+                        FileUtil.DeleteFileOrDirectory(t1);
+                        FileUtil.DeleteFileOrDirectory(t1 + ".meta");
+                    }
+
+                    if (!isFolderEmpty(fullItemPath)) continue;
                     FileUtil.DeleteFileOrDirectory(fullItemPath);
                     FileUtil.DeleteFileOrDirectory(fullItemPath + ".meta");
-                    continue;
                 }
 
-                var isDirectoryExists = Directory.Exists(fullItemPath);
-                if (!isDirectoryExists) continue;
-                var filesList =
-                    new List<string>(Directory.GetFiles(fullItemPath, "*", SearchOption.TopDirectoryOnly));
-                filesList.AddRange(Directory.GetDirectories(fullItemPath, "*", SearchOption.TopDirectoryOnly));
-                foreach (var t1 in from t1 in filesList let fileName = Path.GetFileName(t1) where Regex.IsMatch(fileName, t.filter, RegexOptions.IgnoreCase) select t1)
-                {
-                    FileUtil.DeleteFileOrDirectory(t1);
-                    FileUtil.DeleteFileOrDirectory(t1 + ".meta");
-                }
-
-                if (!isFolderEmpty(fullItemPath)) continue;
-                FileUtil.DeleteFileOrDirectory(fullItemPath);
-                FileUtil.DeleteFileOrDirectory(fullItemPath + ".meta");
+                AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+                
             }
-
-            AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
         }
 
         private static bool isFolderEmpty(string path)

@@ -27,6 +27,15 @@ namespace AppodealAds.Unity.Editor.Utils
         
         public const string GADApplicationIdentifierDefaultKey = "ca-app-pub-3940256099942544~1458002511";
 
+        #region Optional Android Permissions
+
+        public const string CoarseLocation = "android.permission.ACCESS_COARSE_LOCATION";
+        public const string FineLocation = "android.permission.ACCESS_FINE_LOCATION";
+        public const string ExternalStorageWrite = "android.permission.WRITE_EXTERNAL_STORAGE";
+        public const string AccessWifiState = "android.permission.ACCESS_WIFI_STATE";
+        public const string Vibrate = "android.permission.VIBRATE";
+        
+        #endregion
 
         [Flags]
         public enum AndroidArchitecture
@@ -36,113 +45,6 @@ namespace AppodealAds.Unity.Editor.Utils
             arm64 = 1 << 1,
             x86 = 1 << 2,
         }
-
-        #region SKAdNetworkIdentifiers
-
-        public static readonly List<string> SKAdNetworkIdentifiers = new List<string>
-        {
-            "4pfyvq9l8r.skadnetwork",
-            "6g9af3uyq4.skadnetwork",
-            "4fzdc2evr5.skadnetwork",
-            "cg4yq2srnc.skadnetwork",
-            "v72qych5uu.skadnetwork",
-            "mlmmfzh3r3.skadnetwork",
-            "c6k4g5qg8m.skadnetwork",
-            "g28c52eehv.skadnetwork",
-            "hs6bdukanm.skadnetwork",
-            "prcb7njmu6.skadnetwork",
-            "m8dbw4sv7c.skadnetwork",
-            "9nlqeag3gk.skadnetwork",
-            "u679fj5vs4.skadnetwork",
-            "yclnxrl5pm.skadnetwork",
-            "4468km3ulz.skadnetwork",
-            "t38b2kh725.skadnetwork",
-            "7ug5zh24hu.skadnetwork",
-            "rx5hdcabgc.skadnetwork",
-            "5lm9lj6jb7.skadnetwork",
-            "9rd848q2bz.skadnetwork",
-            "7rz58n8ntl.skadnetwork",
-            "ejvt5qm6ak.skadnetwork",
-            "275upjj5gd.skadnetwork",
-            "9t245vhmpl.skadnetwork",
-            "44jx6755aq.skadnetwork",
-            "tl55sbb4fm.skadnetwork",
-            "2u9pt9hc89.skadnetwork",
-            "8s468mfl3y.skadnetwork",
-            "klf5c3l5u5.skadnetwork",
-            "ppxm28t8ap.skadnetwork",
-            "uw77j35x4d.skadnetwork",
-            "mtkv5xtk9e.skadnetwork",
-            "3rd42ekr43.skadnetwork",
-            "ludvb6z3bs.skadnetwork",
-            "wg4vff78zm.skadnetwork",
-            "737z793b9f.skadnetwork",
-            "ydx93a7ass.skadnetwork",
-            "mls7yz5dvl.skadnetwork",
-            "w9q455wk68.skadnetwork",
-            "p78axxw29g.skadnetwork",
-            "6xzpu9s2p8.skadnetwork",
-            "523jb4fst2.skadnetwork",
-            "ggvn48r87g.skadnetwork",
-            "3sh42y64q3.skadnetwork",
-            "f38h382jlk.skadnetwork",
-            "24t9a8vw3c.skadnetwork",
-            "cj5566h2ga.skadnetwork",
-            "cstr6suwn9.skadnetwork",
-            "wzmmz9fp6w.skadnetwork",
-            "zmvfpc5aq8.skadnetwork",
-            "feyaarzu9v.skadnetwork",
-            "n9x2a789qt.skadnetwork",
-            "5a6flpkh64.skadnetwork",
-            "glqzh8vgby.skadnetwork",
-            "424m5254lk.skadnetwork",
-            "5l3tpt7t6e.skadnetwork",
-            "gta9lk7p23.skadnetwork",
-            "av6w8kgt66.skadnetwork",
-            "s39g8k73mm.skadnetwork",
-            "lr83yxwka7.skadnetwork",
-            "kbd757ywx3.skadnetwork",
-            "22mmun2rn5.skadnetwork",
-            "su67r6k2v3.skadnetwork",
-            "4w7y6s5ca2.skadnetwork",
-            "dzg6xy7pwj.skadnetwork",
-            "y45688jllp.skadnetwork",
-            "hdw39hrw9y.skadnetwork",
-            "4dzt52r2t5.skadnetwork",
-            "5tjdwbrq8w.skadnetwork",
-            "32z4fx6l9h.skadnetwork",
-            "x44k69ngh6.skadnetwork",
-            "pwa73g5rt2.skadnetwork",
-            "v9wttpbfk9.skadnetwork",
-            "n38lu8286q.skadnetwork",
-            "2fnua5tdw4.skadnetwork",
-            "3qy4746246.skadnetwork",
-            "n6fk4nfna4.skadnetwork",
-            "k674qkevps.skadnetwork",
-            "y2ed4ez56y.skadnetwork",
-            "ecpz2srf59.skadnetwork",
-            "e5fvkxwrpn.skadnetwork",
-            "zq492l623r.skadnetwork",
-            "hjevpa356n.skadnetwork",
-            "3qcr597p9d.skadnetwork",
-            "r26jy69rpl.skadnetwork",
-            "578prtvx9j.skadnetwork",
-            "f73kdq92p3.skadnetwork",
-            "8m87ys6875.skadnetwork",
-            "488r3q3dtq.skadnetwork",
-            "97r2b46745.skadnetwork",
-            "52fl2v3hgk.skadnetwork",
-            "m5mvw97r93.skadnetwork",
-            "89z7zv988g.skadnetwork",
-            "hb56zgv37p.skadnetwork",
-            "rvh3l7un93.skadnetwork",
-            "f7s53z58qe.skadnetwork",
-            "238da6jt44.skadnetwork",
-            "v79kvwwj4g.skadnetwork",
-            "gta8lk7p23.skadnetwork"
-        };
-
-        #endregion
 
         public static string getApplicationId()
         {

@@ -130,7 +130,10 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
         public void LoadConsentForm()
         {
             consentForm = new ConsentForm.Builder().withListener(this).build();
-            consentForm?.load();
+            if (consentForm != null)
+            {
+                consentForm.load();
+            }
         }
 
         public void IsLoadedConsentForm()
@@ -220,7 +223,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             Appodeal.setAutoCache(Appodeal.REWARDED_VIDEO, false);
             Appodeal.setExtraData(ExtraData.APPSFLYER_ID, "1527256526604-2129416");
             Appodeal.setUseSafeArea(true);
-            
+
             if (isConsent)
             {
                 Appodeal.initialize(appKey,
@@ -278,7 +281,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
         {
             Appodeal.show(Appodeal.BANNER_TOP, "default");
         }
-        
+
         public void HideBanner()
         {
             Appodeal.hide(Appodeal.BANNER);
