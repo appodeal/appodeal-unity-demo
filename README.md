@@ -4,7 +4,7 @@ Stable version of Unity Appodeal SDK is 2.14.1 SDK integration documentation: [d
 
 ## Changelog
 
-2.14.3 (August 8, 2021)
+2.14.3 (August 6, 2021)
 
 + Updated Appodeal Android SDK to 2.10.2
 + Updated Appodeal iOS SDK to 2.10.2
