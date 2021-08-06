@@ -1,11 +1,12 @@
 <dependencies>
-    <iosPods>
-        <iosPod name='APDUnityAdapter' version='2.10.1.1' minTargetSdk='10.0'/>
-    </iosPods>
-    <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:unity_ads:2.10.1.10'/>
-        <repositories>
-            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
-        </repositories>
-    </androidPackages>
+<iosPods>
+    <iosPod name='APDUnityAdapter' version='2.10.2.1' minTargetSdk='10.0'/>
+</iosPods>
+<androidPackages>
+    <androidPackage spec='com.appodeal.ads.sdk.networks:unity_ads:2.10.2.11@aar'/>
+    <androidPackage spec='com.unity3d.ads:unity-ads:3.7.2'/>
+    <repositories>
+    <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+</repositories>
+</androidPackages>
 </dependencies>

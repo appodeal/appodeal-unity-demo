@@ -1,11 +1,13 @@
 <dependencies>
-    <iosPods>
-        <iosPod name='APDYandexAdapter' version='2.10.1.1' minTargetSdk='10.0'/>
-    </iosPods>
-    <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:yandex:2.10.1.9'/>
-        <repositories>
-            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
-        </repositories>
-    </androidPackages>
+<iosPods>
+    <iosPod name='APDYandexAdapter' version='2.10.2.1' minTargetSdk='10.0'/>
+</iosPods>
+<androidPackages>
+    <androidPackage spec='com.appodeal.ads.sdk.networks:yandex:2.10.2.10@aar'/>
+    <androidPackage spec='com.yandex.android:mobileads:4.1.1'/>
+    <androidPackage spec='com.yandex.android:mobmetricalib:3.20.1'/>
+    <repositories>
+    <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+</repositories>
+</androidPackages>
 </dependencies>

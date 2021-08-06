@@ -48,6 +48,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
         public const string XmlFileExtension = ".xml";
         public const string TwitterMoPub = "TwitterMoPub";
         public const string APDAppodealAdExchangeAdapter = "APDAppodealAdExchangeAdapter";
+        public const string APDBidMachineAdapter = "APDBidMachineAdapter";
         public const string Dependencies = "Dependencies";
 
         #endregion

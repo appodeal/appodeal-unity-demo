@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using UnityEditor;
@@ -28,7 +29,7 @@ namespace AppodealAds.Unity.Editor.InternalResources
         [SerializeField] private bool nSAppTransportSecurity;
 
         [SerializeField] private bool iOSSKAdNetworkItems;
-
+        [SerializeField] private List<string> iOsskAdNetworkItemsList;
 
         public static AppodealSettings Instance
         {
@@ -127,6 +128,12 @@ namespace AppodealAds.Unity.Editor.InternalResources
         {
             get { return iOSSKAdNetworkItems; }
             set { Instance.iOSSKAdNetworkItems = value; }
+        }
+
+        public List<string> IOSSkAdNetworkItemsList
+        {
+            get { return iOsskAdNetworkItemsList; }
+            set { Instance.iOsskAdNetworkItemsList = value; }
         }
 
         public void SaveAsync()

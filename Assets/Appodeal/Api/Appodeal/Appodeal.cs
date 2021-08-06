@@ -74,7 +74,7 @@ namespace AppodealAds.Unity.Api
         /// <summary>
         /// The version for the Appodeal Unity SDK, which includes specific versions of the Appodeal Android and iOS SDKs.
         /// </summary>
-        public const string APPODEAL_PLUGIN_VERSION = "2.14.2";
+        public const string APPODEAL_PLUGIN_VERSION = "2.14.3";
 
         public enum LogLevel
         {

@@ -41,12 +41,12 @@ namespace Appodeal.Unity.Editor.Utils
 
         private static void AddSkAdNetworkIds(BuildTarget buildTarget, string buildPath)
         {
-            if (!AppodealSettings.Instance.IOSSkAdNetworkItems) return;
-            if (AppodealInternalSettings.SKAdNetworkIdentifiers == null ||
-                AppodealInternalSettings.SKAdNetworkIdentifiers.Count <= 0) return;
-
-            if (buildTarget != BuildTarget.iOS) return;
+            
             if (string.IsNullOrEmpty(PlayerSettings.iOS.targetOSVersionString)) return;
+
+            if (!AppodealSettings.Instance.IOSSkAdNetworkItems && (AppodealSettings.Instance.IOSSkAdNetworkItemsList == null ||
+                                                                  AppodealSettings.Instance.IOSSkAdNetworkItemsList.Count <= 0))  return;
+            if (buildTarget != BuildTarget.iOS) return;
 
             var plistPath = buildPath + "/Info.plist";
             var plist = new PlistDocument();
@@ -74,7 +74,7 @@ namespace Appodeal.Unity.Editor.Utils
 
             if (array != null)
             {
-                foreach (var id in AppodealInternalSettings.SKAdNetworkIdentifiers)
+                foreach (var id in AppodealSettings.Instance.IOSSkAdNetworkItemsList)
                 {
                     if (ContainsSkAdNetworkIdentifier(array, id)) continue;
                     var added = array.AddDict();

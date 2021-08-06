@@ -917,7 +917,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                         {
                             if (podName != null && version != null && minTargetSdk != null)
                             {
-                                if (!podName.Contains(AppodealDependencyUtils.APDAppodealAdExchangeAdapter))
+                                if (!podName.Contains(AppodealDependencyUtils.APDAppodealAdExchangeAdapter) && !podName.Contains(AppodealDependencyUtils.APDBidMachineAdapter))
                                 {
                                     networkDependency.ios_info = new NetworkDependency.iOSDependency(podName,
                                         version,
