@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.appodeal.appodeal.unity">
   <application android:allowBackup="true" android:networkSecurityConfig="@xml/network_security_config" android:name="androidx.multidex.MultiDexApplication">
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
-    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-8502018518925256~9894311111" />
+    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-8502018518925256~9894311246" />
   </application>
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

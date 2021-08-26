@@ -1,12 +1,12 @@
 <dependencies>
-<iosPods>
-    <iosPod name='APDAmazonAdsAdapter' version='2.10.2.1' minTargetSdk='10.0'/>
-</iosPods>
-<androidPackages>
-    <androidPackage spec='com.appodeal.ads.sdk.networks:amazon_ads:2.10.2.3@aar'/>
-    <androidPackage spec='com.amazon.android:mobile-ads:6.0.0'/>
-    <repositories>
-    <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
-</repositories>
-</androidPackages>
+    <iosPods>
+        <iosPod name='APDAmazonAdsAdapter' version='2.10.2.1' minTargetSdk='10.0'/>
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:amazon_ads:2.10.2.3@aar'/>
+        <androidPackage spec='com.amazon.android:mobile-ads:6.0.0'/>
+        <repositories>
+            <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
+        </repositories>
+    </androidPackages>
 </dependencies>
