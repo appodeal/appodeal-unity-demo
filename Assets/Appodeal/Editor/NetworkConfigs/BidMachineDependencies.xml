@@ -1,15 +1,13 @@
 <dependencies>
     <iosPods>
-        <iosPod name='APDBidMachineAdapter' version='2.10.2.2' minTargetSdk='10.0'/>
+        <iosPod name='APDBidMachineAdapter' version='2.10.3.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:bidmachine:2.10.2.13@aar'/>
-        <androidPackage spec='io.bidmachine:ads:1.7.6'/>
-        <androidPackage spec='io.bidmachine:ads.networks.pangle:1.7.6.2'/>
-        <androidPackage spec='io.bidmachine:ads.networks.criteo:1.7.6.9'/>
-        <androidPackage spec='io.bidmachine:ads.networks.adcolony:1.7.6.9'/>
-        <androidPackage spec='io.bidmachine:ads.networks.my_target:1.7.6.6'/>
-        <androidPackage spec='io.bidmachine:ads.networks.facebook:1.7.6.7'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:bidmachine:2.10.3.15@aar'/>
+        <androidPackage spec='io.bidmachine:ads.networks.pangle:1.8.0.2'/>
+        <androidPackage spec='io.bidmachine:ads:1.8.0'/>
+        <androidPackage spec='io.bidmachine:ads.networks.amazon:1.8.0.5'/>
+        <androidPackage spec='io.bidmachine:ads.networks.criteo:1.8.0.9'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>

@@ -588,11 +588,6 @@ namespace AppodealAds.Unity.iOS
             AppodealObjCBridge.AppodealDisableLocationPermissionCheck();
         }
 
-        public void disableWriteExternalStoragePermissionCheck()
-        {
-            // Not supported for iOS SDK
-        }
-
         public void muteVideosIfCallsMuted(bool value)
         {
             // Not supported for iOS SDK

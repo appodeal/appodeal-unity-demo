@@ -20,8 +20,9 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
     {
         #region Constants
 
-        public const string PluginRequest = "https://mw-backend.appodeal.com/v1/unity";
-        public const string AdaptersRequest = "https://mw-backend.appodeal.com/v1/unity/config/ver/";
+        
+        public const string PluginRequest = "https://mw-backend.appodeal.com/v2/unity";
+        public const string AdaptersRequest = "https://mw-backend.appodeal.com/v2/unity/config/";
         public const string Network_configs_path = "Assets/Appodeal/Editor/NetworkConfigs/";
         public const string Replace_dependency_value = "com.appodeal.ads.sdk.networks:";
         public const string Replace_dependency_core = "com.appodeal.ads.sdk:core:";

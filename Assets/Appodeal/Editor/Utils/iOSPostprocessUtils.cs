@@ -234,14 +234,15 @@ namespace Appodeal.Unity.Editor.Utils
             "VideoToolbox",
             "WatchConnectivity",
             "WebKit",
-            "AppTrackingTransparency"
+            
         };
 
         private static readonly string[] weakFrameworkList =
         {
             "CoreMotion",
             "WebKit",
-            "Social"
+            "Social",
+            "AppTrackingTransparency"
         };
 
         private static readonly string[] platformLibs =

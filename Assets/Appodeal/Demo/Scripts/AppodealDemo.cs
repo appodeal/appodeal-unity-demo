@@ -210,7 +210,6 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             Appodeal.setUserAge(1);
             Appodeal.setUserGender(UserSettings.Gender.OTHER);
             Appodeal.disableLocationPermissionCheck();
-            Appodeal.disableWriteExternalStoragePermissionCheck();
             Appodeal.setTriggerOnLoadedOnPrecache(Appodeal.INTERSTITIAL, true);
             Appodeal.setSmartBanners(true);
             Appodeal.setBannerAnimation(false);
@@ -221,7 +220,6 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             Appodeal.setSharedAdsInstanceAcrossActivities(true);
             Appodeal.setAutoCache(Appodeal.INTERSTITIAL, false);
             Appodeal.setAutoCache(Appodeal.REWARDED_VIDEO, false);
-            Appodeal.setExtraData(ExtraData.APPSFLYER_ID, "1527256526604-2129416");
             Appodeal.setUseSafeArea(true);
 
             if (isConsent)

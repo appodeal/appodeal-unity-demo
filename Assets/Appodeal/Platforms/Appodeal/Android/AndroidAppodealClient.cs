@@ -302,12 +302,7 @@ namespace AppodealAds.Unity.Android
 
         public void disableLocationPermissionCheck()
         {
-            getAppodealClass().CallStatic("disableLocationPermissionCheck");
-        }
-
-        public void disableWriteExternalStoragePermissionCheck()
-        {
-            getAppodealClass().CallStatic("disableWriteExternalStoragePermissionCheck");
+            Debug.Log("Not support on Android platform");
         }
 
         public void setTriggerOnLoadedOnPrecache(int adTypes, bool onLoadedTriggerBoth)

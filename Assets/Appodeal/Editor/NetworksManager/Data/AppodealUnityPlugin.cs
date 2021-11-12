@@ -1,20 +1,40 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using UnityEngine;
 
 namespace Appodeal.Editor.AppodealManager.Data
 {
     [Serializable]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    public class Root
+    {
+        public Metadata metadata;
+        public AppodealUnityPlugin[] items;
+    }
+
+    [Serializable]
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    public class Metadata
+    {
+        public int per;
+        public int total;
+        public int page;
+    }
+
+
+    [Serializable]
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class AppodealUnityPlugin
     {
         public string created_at;
-        public string version;
         public string build_type;
-        public SupportedSdk[] sdks;
+        public long id;
+        public string updated_at;
         public string name;
         public string source;
-        public string updated_at;
-        public long id;
+        public string version;
+        public SupportedSdk[] sdks;
 
         public AppodealUnityPlugin(string name, string buildType, int id, string version,
             string updatedAt, string createdAt, SupportedSdk[] supportedSdks, string source)
@@ -28,22 +48,24 @@ namespace Appodeal.Editor.AppodealManager.Data
             sdks = supportedSdks;
             this.source = source;
         }
+    }
 
-        [Serializable]
-        public class SupportedSdk
+    [Serializable]
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    public class SupportedSdk
+    {
+        public int id;
+        public string platform;
+        public string version;
+        public string build_type;
+        public string updated_at;
+
+        public SupportedSdk(int id, string platform, string buildType, string version)
         {
-            public string build_type;
-            public string platform;
-            public int id;
-            public string version;
-
-            public SupportedSdk(int id, string platform, string buildType, string version)
-            {
-                this.id = id;
-                this.platform = platform;
-                build_type = buildType;
-                this.version = version;
-            }
+            this.id = id;
+            this.platform = platform;
+            build_type = buildType;
+            this.version = version;
         }
     }
 }

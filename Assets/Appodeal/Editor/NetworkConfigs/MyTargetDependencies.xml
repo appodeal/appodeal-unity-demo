@@ -1,11 +1,12 @@
 <dependencies>
     <iosPods>
-        <iosPod name='APDMyTargetAdapter' version='2.10.2.1' minTargetSdk='10.0'/>
+        <iosPod name='APDMyTargetAdapter' version='2.10.3.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:my_target:2.10.2.14@aar'/>
-        <androidPackage spec='com.my.target:mytarget-sdk:5.13.3'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:my_target:2.10.3.16@aar'/>
         <androidPackage spec='com.google.android.gms:play-services-ads-identifier:17.0.0'/>
+        <androidPackage spec='com.my.target:mytarget-sdk:5.14.2'/>
+        <androidPackage spec='io.bidmachine:ads.networks.my_target:1.8.0.6'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>

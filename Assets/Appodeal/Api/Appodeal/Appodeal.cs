@@ -74,8 +74,8 @@ namespace AppodealAds.Unity.Api
         /// <summary>
         /// The version for the Appodeal Unity SDK, which includes specific versions of the Appodeal Android and iOS SDKs.
         /// </summary>
-        public const string APPODEAL_PLUGIN_VERSION = "2.14.4";
-
+        public const string APPODEAL_PLUGIN_VERSION = "2.14.5";
+        
         public enum LogLevel
         {
             None,
@@ -459,16 +459,7 @@ namespace AppodealAds.Unity.Api
         {
             getInstance().disableLocationPermissionCheck();
         }
-        
-        /// <summary>
-        /// Disabling write external storage permission check only for Android platform.
-        /// See <see cref="Appodeal.disableWriteExternalStoragePermissionCheck"/> for resulting triggered event.
-        /// </summary>
-        public static void disableWriteExternalStoragePermissionCheck()
-        {
-            getInstance().disableWriteExternalStoragePermissionCheck();
-        }
-        
+
         /// <summary>
         /// Set user id.
         /// See <see cref="Appodeal.setUserId"/> for resulting triggered event.
