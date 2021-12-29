@@ -37,11 +37,6 @@ namespace AppodealAds.Unity.iOS
 
         #endregion
 
-        public void requestAndroidMPermissions(IPermissionGrantedListener listener)
-        {
-            Debug.LogWarning("Not supported on iOS platform");
-        }
-
         private static IInterstitialAdListener interstitialListener;
         private static INonSkippableVideoAdListener nonSkippableVideoListener;
         private static IRewardedVideoAdListener rewardedVideoListener;

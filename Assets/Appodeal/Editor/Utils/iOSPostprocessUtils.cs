@@ -34,18 +34,17 @@ namespace Appodeal.Unity.Editor.Utils
             var path = Path.Combine(buildPath, "Info.plist");
             AddGADApplicationIdentifier(path);
             AddNSUserTrackingUsageDescription(path);
+            AddNSLocationWhenInUseUsageDescription(path);
             AddNSCalendarsUsageDescription(path);
-            AddNSAppTransportSecurity();
             AddSkAdNetworkIds(buildTarget, buildPath);
         }
 
         private static void AddSkAdNetworkIds(BuildTarget buildTarget, string buildPath)
         {
-            
             if (string.IsNullOrEmpty(PlayerSettings.iOS.targetOSVersionString)) return;
 
-            if (!AppodealSettings.Instance.IOSSkAdNetworkItems && (AppodealSettings.Instance.IOSSkAdNetworkItemsList == null ||
-                                                                  AppodealSettings.Instance.IOSSkAdNetworkItemsList.Count <= 0))  return;
+            if (!AppodealSettings.Instance.IOSSkAdNetworkItems || (AppodealSettings.Instance.IOSSkAdNetworkItemsList?.Count ?? 0) <= 0)  return;
+
             if (buildTarget != BuildTarget.iOS) return;
 
             var plistPath = buildPath + "/Info.plist";
@@ -109,8 +108,8 @@ namespace Appodeal.Unity.Editor.Utils
         {
             if (!File.Exists("Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml"))
             {
-                Debug.Log(
-                    "Can't find Google Admob Config by path - Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml");
+                Debug.LogWarning(
+                    "Missing Admob config (Assets/Appodeal/Editor/NetworkConfigs/GoogleAdMobDependencies.xml).\nAdmob App Id won't be added.");
                 return;
             }
 
@@ -123,14 +122,17 @@ namespace Appodeal.Unity.Editor.Utils
 
             if (string.IsNullOrEmpty(AppodealSettings.Instance.AdMobIosAppId))
             {
+                Debug.LogError(
+                    "Admob App ID is not set via 'Appodeal/Appodeal Settings' tool.\nThe app may crash on startup!");
                 return;
             }
 
             if (!AppodealSettings.Instance.AdMobIosAppId.StartsWith("ca-app-pub-"))
             {
                 Debug.LogError(
-                    "Please enter a valid AdMob app ID within the Appodeal/AdMob settings tool.");
-                return;
+                        "Incorrect value. The app may crash on startup." +
+                        "\nPlease enter a valid AdMob App ID via 'Appodeal/Appodeal Settings' tool." +
+                        "\nAlternatively, change the value manually in Info.plist file.");
             }
 
             if (!CheckContainsKey(path, "GADApplicationIdentifier"))
@@ -150,7 +152,7 @@ namespace Appodeal.Unity.Editor.Utils
             }
         }
 
-        private void AddNSLocationWhenInUseUsageDescription(string path)
+        private static void AddNSLocationWhenInUseUsageDescription(string path)
         {
             if (!AppodealSettings.Instance.NSLocationWhenInUseUsageDescription) return;
             if (!CheckContainsKey(path, "NSLocationWhenInUseUsageDescription"))
@@ -169,16 +171,6 @@ namespace Appodeal.Unity.Editor.Utils
                 AddKeyToPlist(path, "NSCalendarsUsageDescription",
                     "$(PRODUCT_NAME)" + " " +
                     "needs your calendar to provide personalised advertising experience tailored to you.");
-            }
-        }
-
-        private static void AddNSAppTransportSecurity()
-        {
-            if (!AppodealSettings.Instance.NSAppTransportSecurity) return;
-
-            if (!PlayerSettings.iOS.allowHTTPDownload)
-            {
-                PlayerSettings.iOS.allowHTTPDownload = true;
             }
         }
 
@@ -263,6 +255,7 @@ namespace Appodeal.Unity.Editor.Utils
 
 #if UNITY_2019_3_OR_NEWER
            var target = project.GetUnityMainTargetGuid();
+           var unityFrameworkTarget = project.GetUnityFrameworkTargetGuid();
 #else
             var target = project.TargetGuidByName("Unity-iPhone");
 #endif
@@ -286,7 +279,8 @@ namespace Appodeal.Unity.Editor.Utils
             project.AddBuildProperty(target, "LIBRARY_SEARCH_PATHS", "$(SRCROOT)/Libraries");
             project.AddBuildProperty(target, "LIBRARY_SEARCH_PATHS", "$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)");
 #if UNITY_2019_3_OR_NEWER
-            project.AddBuildProperty(target, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "NO");
+            project.AddBuildProperty(target, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "YES");
+            project.AddBuildProperty(unityFrameworkTarget, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "NO");
 #else
             project.AddBuildProperty(target, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "YES");
 #endif

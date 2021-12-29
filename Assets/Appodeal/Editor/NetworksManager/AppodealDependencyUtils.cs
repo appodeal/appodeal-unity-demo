@@ -66,7 +66,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
             EditorUtility.ClearProgressBar();
             Debug.LogError(message);
             var option = EditorUtility.DisplayDialog("Internal error",
-                $"{message}. Please contact to Appodeal support.",
+                $"{message}. Please contact Appodeal support.",
                 "Ok");
             if (option)
             {
@@ -281,7 +281,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
         }
 
         public static NetworkDependency GetAppodealDependency(
-            Dictionary<string, NetworkDependency> networkDependencies)
+            SortedDictionary<string, NetworkDependency> networkDependencies)
         {
             NetworkDependency networkDependency = null;
             foreach (var dependency

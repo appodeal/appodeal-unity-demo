@@ -1,10 +1,10 @@
 <dependencies>
     <iosPods>
-        <iosPod name='APDOguryAdapter' version='2.10.3.1' minTargetSdk='10.0'/>
+        <iosPod name='APDOguryAdapter' version='2.11.0.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
         <androidPackage spec='co.ogury:ogury-sdk:5.1.0'/>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:ogury:2.10.3.10@aar'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:ogury:2.11.0.11@aar'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>

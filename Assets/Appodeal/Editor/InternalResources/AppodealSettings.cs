@@ -55,13 +55,13 @@ namespace AppodealAds.Unity.Editor.InternalResources
         public string AdMobAndroidAppId
         {
             get { return Instance.adMobAndroidAppId; }
-            set { Instance.adMobAndroidAppId = value; }
+            set { Instance.adMobAndroidAppId = value.Trim(); }
         }
 
         public string AdMobIosAppId
         {
             get { return Instance.adMobIosAppId; }
-            set { Instance.adMobIosAppId = value; }
+            set { Instance.adMobIosAppId = value.Trim(); }
         }
 
         public bool AccessCoarseLocationPermission
@@ -121,7 +121,18 @@ namespace AppodealAds.Unity.Editor.InternalResources
         public bool NSAppTransportSecurity
         {
             get { return nSAppTransportSecurity; }
-            set { Instance.nSAppTransportSecurity = value; }
+            set
+            {
+                Instance.nSAppTransportSecurity = value;
+#if UNITY_2018_1_OR_NEWER
+                if (BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.iOS, BuildTarget.iOS)) PlayerSettings.iOS.allowHTTPDownload = value;
+                else Instance.nSAppTransportSecurity = false;
+#elif UNITY_IOS
+                PlayerSettings.iOS.allowHTTPDownload = value;
+#else
+                Instance.nSAppTransportSecurity = false;
+#endif
+            }
         }
 
         public bool IOSSkAdNetworkItems
