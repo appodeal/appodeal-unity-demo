@@ -74,7 +74,7 @@ namespace AppodealAds.Unity.Api
         /// <summary>
         /// The version for the Appodeal Unity SDK, which includes specific versions of the Appodeal Android and iOS SDKs.
         /// </summary>
-        public const string APPODEAL_PLUGIN_VERSION = "2.14.5";
+        public const string APPODEAL_PLUGIN_VERSION = "2.15.0";
         
         public enum LogLevel
         {
@@ -452,7 +452,7 @@ namespace AppodealAds.Unity.Api
         }
         
         /// <summary>
-        /// Disabling location permission check only for Android platform.
+        /// Disabling location tracking (for iOS platform only).
         /// See <see cref="Appodeal.disableLocationPermissionCheck"/> for resulting triggered event.
         /// </summary>
         public static void disableLocationPermissionCheck()
@@ -491,7 +491,7 @@ namespace AppodealAds.Unity.Api
         }
         
         /// <summary>
-        /// Disabling write external storage permission check only for Android platform.
+        /// Set test mode.
         /// See <see cref="Appodeal.setTesting"/> for resulting triggered event.
         /// </summary>
         public static void setTesting(bool test)
@@ -595,16 +595,6 @@ namespace AppodealAds.Unity.Api
         public static void setSegmentFilter(string name, string value)
         {
             getInstance().setSegmentFilter(name, value);
-        }
-
-        /// <summary>
-        /// Request WRITE_EXTERNAL_STORAGE and ACCESS_COARSE_LOCATION permissions for Android M.
-        /// See <see cref="Appodeal.requestAndroidMPermissions"/> for resulting triggered event.
-        /// <param name="listener">listener implementation of Appodeal/Common/Appodeal/IPermissionGrantedListener</param>
-        /// </summary>  
-        public static void requestAndroidMPermissions(IPermissionGrantedListener listener)
-        {
-            getInstance().requestAndroidMPermissions(listener);
         }
         
         /// <summary>

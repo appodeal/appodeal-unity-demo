@@ -302,7 +302,7 @@ namespace AppodealAds.Unity.Android
 
         public void disableLocationPermissionCheck()
         {
-            Debug.Log("Not support on Android platform");
+            Debug.Log("Not supported on Android platform");
         }
 
         public void setTriggerOnLoadedOnPrecache(int adTypes, bool onLoadedTriggerBoth)
@@ -338,22 +338,22 @@ namespace AppodealAds.Unity.Android
 
         public void setSegmentFilter(string name, bool value)
         {
-            getAppodealClass().CallStatic("setSegmentFilter", name, value);
+            Debug.Log("Not supported on Android platform. Use corresponding setCustomFilter method instead");
         }
 
         public void setSegmentFilter(string name, int value)
         {
-            getAppodealClass().CallStatic("setSegmentFilter", name, value);
+            Debug.Log("Not supported on Android platform. Use corresponding setCustomFilter method instead");
         }
         
         public void setSegmentFilter(string name, double value)
         {
-            getAppodealClass().CallStatic("setSegmentFilter", name, value);
+            Debug.Log("Not supported on Android platform. Use corresponding setCustomFilter method instead");
         }
 
         public void setSegmentFilter(string name, string value)
         {
-            getAppodealClass().CallStatic("setSegmentFilter", name, value);
+            Debug.Log("Not supported on Android platform. Use corresponding setCustomFilter method instead");
         }
         
         public void setCustomFilter(string name, bool value)
@@ -510,12 +510,6 @@ namespace AppodealAds.Unity.Android
         public void setMrecCallbacks(IMrecAdListener listener)
         {
             getAppodealClass().CallStatic("setMrecCallbacks", new AppodealMrecCallbacks(listener));
-        }
-
-        public void requestAndroidMPermissions(IPermissionGrantedListener listener)
-        {
-            getAppodealClass().CallStatic("requestAndroidMPermissions", getActivity(),
-                new AppodealPermissionCallbacks(listener));
         }
         
         public void setSharedAdsInstanceAcrossActivities(bool value)

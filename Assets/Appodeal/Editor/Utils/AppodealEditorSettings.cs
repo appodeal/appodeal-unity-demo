@@ -4,7 +4,6 @@ using Appodeal.Editor.AppodealManager.AppodealDependencies;
 #endif
 using UnityEditor;
 using UnityEngine;
-using AppodealAds.Unity.Editor.Checkers;
 
 namespace AppodealAds.Unity.Editor.Utils
 {
@@ -29,20 +28,6 @@ namespace AppodealAds.Unity.Editor.Utils
             AppodealAdapterManager.ShowSdkManager();
         }
 #endif
-        
-// #if !UNITY_2019_3_OR_NEWER
-//         [MenuItem("Appodeal/Check Integration")]
-//         public static void TestWindow()
-//         {
-//             CheckerWindow.GetWindow().Show();
-//         }
-//
-//         [MenuItem("Appodeal/Filter Android Architectures")]
-//         public static void FilterAndroidArchitectures()
-//         {
-//             ArchitectureFilter.PrepareBuild();
-//         }
-// #endif
         
         [MenuItem("Appodeal/Appodeal Settings")]
         public static void SetAdMobAppId()

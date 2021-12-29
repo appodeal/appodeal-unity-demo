@@ -162,11 +162,6 @@ namespace AppodealAds.Unity.Dummy
             Debug.Log("Call to Appodeal.disableLocationPermissionCheck on not supported platform. To test advertising, install your application on the Android/iOS device.");
         }
 
-        public void disableWriteExternalStoragePermissionCheck()
-        {
-            Debug.Log("Call to Appodeal.disableWriteExternalStoragePermissionCheck on not supported platform. To test advertising, install your application on the Android/iOS device.");
-        }
-
         public void setTriggerOnLoadedOnPrecache(int adTypes, bool onLoadedTriggerBoth)
         {
             Debug.Log("Call to Appodeal.setTriggerOnLoadedOnPrecache on not supported platform. To test advertising, install your application on the Android/iOS device.");
@@ -317,16 +312,6 @@ namespace AppodealAds.Unity.Dummy
         public void setMrecCallbacks(IMrecAdListener listener)
         {
             Debug.Log("Call to Appodeal.setMrecCallbacks on not supported platform. To test advertising, install your application on the Android/iOS device.");
-        }
-
-        public void requestAndroidMPermissions(IPermissionGrantedListener listener)
-        {
-            Debug.Log("Call to Appodeal.requestAndroidMPermissions on not supported platform. To test advertising, install your application on the Android/iOS device.");
-        }
-
-        public void requestAndroidMPermissions()
-        {
-            Debug.Log("Call to Appodeal.requestAndroidMPermissions on not supported platform. To test advertising, install your application on the Android/iOS device.");
         }
 
         public void destroy(int adTypes)

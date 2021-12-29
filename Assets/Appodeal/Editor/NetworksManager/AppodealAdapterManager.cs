@@ -36,11 +36,11 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
     {
         #region Dictionaries
 
-        private Dictionary<string, NetworkDependency> internalDependencies =
-            new Dictionary<string, NetworkDependency>();
+        private SortedDictionary<string, NetworkDependency> internalDependencies =
+            new SortedDictionary<string, NetworkDependency>();
 
-        private Dictionary<string, NetworkDependency> latestDependencies =
-            new Dictionary<string, NetworkDependency>();
+        private SortedDictionary<string, NetworkDependency> latestDependencies =
+            new SortedDictionary<string, NetworkDependency>();
 
         #endregion
 
@@ -95,9 +95,9 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
         public void Reset()
         {
             internalDependencies =
-                new Dictionary<string, NetworkDependency>();
+                new SortedDictionary<string, NetworkDependency>();
             latestDependencies =
-                new Dictionary<string, NetworkDependency>();
+                new SortedDictionary<string, NetworkDependency>();
 
             if (downloader != null)
             {
@@ -127,6 +127,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 
         private void OnGUI()
         {
+            this.minSize = new Vector2(700, 900);
             scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition,
                 false,
                 false);
@@ -557,12 +558,15 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                         AppodealDependencyUtils.ReplaceBetaVersion(latestVersion),
                         packageInfoStyle);
                     GUILayout.Space(15);
+                    Color defaultColor = GUI.backgroundColor;
+                    GUI.backgroundColor = Color.green;
                     if (GUILayout.Button(
                         new GUIContent { text = AppodealDependencyUtils.ActionImport },
                         btnFieldWidth))
                     {
                         ImportConfig(nameDep, content);
                     }
+                    GUI.backgroundColor = defaultColor;
 
                     GUILayout.Space(5);
                     GUILayout.Space(5);
@@ -664,6 +668,8 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
         {
             if (action == -1)
             {
+                Color defaultColor = GUI.backgroundColor;
+                GUI.backgroundColor = Color.red;
                 if (GUILayout.Button(
                     new GUIContent { text = AppodealDependencyUtils.ActionUpdate },
                     btnFieldWidth))
@@ -671,6 +677,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                     UpdateDependency(nameDependency, previous, latest);
                     UpdateWindow();
                 }
+                GUI.backgroundColor = defaultColor;
             }
             else
             {
@@ -748,11 +755,14 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                 }
                 else
                 {
-                    if (GUILayout.Button(new GUIContent { text = AppodealDependencyUtils.ActionImport },
+                    Color defaultColor = GUI.backgroundColor;
+                    GUI.backgroundColor = Color.red;
+                    if (GUILayout.Button(new GUIContent { text = AppodealDependencyUtils.ActionUpdate },
                         btnFieldWidth))
                     {
                         this.StartCoroutine(DownloadUnityPlugin(plugin.source, plugin.version));
                     }
+                    GUI.backgroundColor = defaultColor;
                 }
 
                 GUILayout.Space(15);
@@ -866,6 +876,13 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
                             {
                                 latestDependencies.Add(networkDependency.name, networkDependency);
                             }
+                        }
+                        
+                        var missingAdapters = internalDependencies.Keys.Where(key => !latestDependencies.ContainsKey(key)).ToList();
+                        if (missingAdapters.Count > 0) {
+                            AppodealDependencyUtils.ShowInternalErrorDialog(this,
+                                $"Out-of-use appodeal adapters were found: {string.Join(", ", missingAdapters)}",
+                            string.Empty);
                         }
                     }
                 }

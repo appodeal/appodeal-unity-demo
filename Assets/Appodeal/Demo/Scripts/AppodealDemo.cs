@@ -11,8 +11,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     [SuppressMessage("ReSharper", "ParameterHidesMember")]
     public class AppodealDemo : MonoBehaviour, IConsentFormListener, IConsentInfoUpdateListener,
-        IBannerAdListener, IMrecAdListener, IRewardedVideoAdListener, IInterstitialAdListener,
-        IPermissionGrantedListener
+        IBannerAdListener, IMrecAdListener, IRewardedVideoAdListener, IInterstitialAdListener
     {
         #region Constants
 
@@ -61,11 +60,6 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
             btnShowRewardedVideo.GetComponentInChildren<Text>().text = CACHE_REWARDED_VIDEO;
 
             consentManager = ConsentManager.getInstance();
-        }
-
-        private void Awake()
-        {
-            Appodeal.requestAndroidMPermissions(this);
         }
 
         private void OnDestroy()
@@ -531,33 +525,5 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
         }
 
         #endregion
-
-        #region PermissionGrantedListener
-
-        public void writeExternalStorageResponse(int result)
-        {
-            if (result == 0)
-            {
-                Debug.Log("WRITE_EXTERNAL_STORAGE permission granted");
-            }
-            else
-            {
-                Debug.Log("WRITE_EXTERNAL_STORAGE permission grant refused");
-            }
-        }
-
-        public void accessCoarseLocationResponse(int result)
-        {
-            if (result == 0)
-            {
-                Debug.Log("ACCESS_COARSE_LOCATION permission granted");
-            }
-            else
-            {
-                Debug.Log("ACCESS_COARSE_LOCATION permission grant refused");
-            }
-        }
-
-        #endregion PermissionGrantedListener
     }
 }
