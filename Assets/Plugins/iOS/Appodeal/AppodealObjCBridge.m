@@ -308,6 +308,7 @@ static AppodealBannerViewDelegate *AppodealBannerViewDelegateInstance;
 void AppodealSetBannerViewDelegate(AppodealBannerViewDidLoadCallback bannerViewDidLoadAd,
                                    AppodealBannerCallbacks bannerViewDidFailToLoadAd,
                                    AppodealBannerCallbacks bannerViewDidClick,
+                                   AppodealBannerCallbacks bannerViewDidShow,
                                    AppodealBannerCallbacks bannerViewDidExpired) {
     
     AppodealBannerViewDelegateInstance = [AppodealBannerViewDelegate new];
@@ -315,6 +316,7 @@ void AppodealSetBannerViewDelegate(AppodealBannerViewDidLoadCallback bannerViewD
     AppodealBannerViewDelegateInstance.bannerViewDidLoadAdCallback = bannerViewDidLoadAd;
     AppodealBannerViewDelegateInstance.bannerViewDidFailToLoadAdCallback = bannerViewDidFailToLoadAd;
     AppodealBannerViewDelegateInstance.bannerViewDidClickCallback = bannerViewDidClick;
+    AppodealBannerViewDelegateInstance.bannerViewDidShowCallback = bannerViewDidShow;
     AppodealBannerViewDelegateInstance.bannerViewDidExpiredCallback = bannerViewDidExpired;
     
     if(!bannerUnity) {
@@ -327,6 +329,7 @@ static AppodealMrecViewDelegate *AppodealMrecViewDelegateInstance;
 void AppodealSetMrecViewDelegate(AppodealMrecViewDidLoadCallback mrecViewDidLoadAd,
                                  AppodealMrecViewCallbacks mrecViewDidFailToLoadAd,
                                  AppodealMrecViewCallbacks mrecViewDidClick,
+                                 AppodealBannerCallbacks mrecViewDidShow,
                                  AppodealMrecViewCallbacks mrecViewDidExpired) {
     
     AppodealMrecViewDelegateInstance = [AppodealMrecViewDelegate new];
@@ -334,6 +337,7 @@ void AppodealSetMrecViewDelegate(AppodealMrecViewDidLoadCallback mrecViewDidLoad
     AppodealMrecViewDelegateInstance.mrecViewDidLoadAdCallback = mrecViewDidLoadAd;
     AppodealMrecViewDelegateInstance.mrecViewDidFailToLoadAdCallback = mrecViewDidFailToLoadAd;
     AppodealMrecViewDelegateInstance.mrecViewDidClickCallback = mrecViewDidClick;
+    AppodealMrecViewDelegateInstance.mrecViewDidShowCallback = mrecViewDidShow;
     AppodealMrecViewDelegateInstance.mrecViewDidExpiredCallback = mrecViewDidExpired;
     
     if (!mrecUnity) {
