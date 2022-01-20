@@ -242,7 +242,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
 
         public void ShowInterstitial()
         {
-            if (Appodeal.canShow(Appodeal.INTERSTITIAL) && !Appodeal.isPrecache(Appodeal.INTERSTITIAL))
+            if (Appodeal.isLoaded(Appodeal.INTERSTITIAL) && Appodeal.canShow(Appodeal.INTERSTITIAL, "default") && !Appodeal.isPrecache(Appodeal.INTERSTITIAL))
             {
                 Appodeal.show(Appodeal.INTERSTITIAL);
             }
@@ -254,7 +254,7 @@ namespace ConsentManager.ConsentManagerDemo.Scripts
 
         public void ShowRewardedVideo()
         {
-            if (Appodeal.canShow(Appodeal.REWARDED_VIDEO))
+            if (Appodeal.isLoaded(Appodeal.REWARDED_VIDEO) && Appodeal.canShow(Appodeal.REWARDED_VIDEO, "default"))
             {
                 Appodeal.show(Appodeal.REWARDED_VIDEO);
             }

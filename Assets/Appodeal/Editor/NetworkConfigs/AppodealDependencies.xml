@@ -15,6 +15,6 @@
         </repositories>
     </androidPackages>
     <iosPods>
-        <iosPod name='Appodeal' version='2.11.0' minTargetSdk='10.0'/>
+        <iosPod name='Appodeal' version='2.11.1' minTargetSdk='10.0'/>
     </iosPods>
 </dependencies>

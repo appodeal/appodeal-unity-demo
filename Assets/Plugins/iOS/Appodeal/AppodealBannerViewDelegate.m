@@ -19,9 +19,15 @@
     [self reattachTouchProcessingView:bannerView];
 }
 
-- (void)bannerViewDidReceiveTapAction:(APDBannerView *)bannerView {
+- (void)bannerViewDidInteract:(APDBannerView *)bannerView {
     if(self.bannerViewDidClickCallback) {
         self.bannerViewDidClickCallback();
+    }
+}
+
+- (void)bannerViewDidShow:(APDBannerView *)bannerView {
+    if(self.bannerViewDidShowCallback) {
+        self.bannerViewDidShowCallback();
     }
 }
 

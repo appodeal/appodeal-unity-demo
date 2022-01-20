@@ -1,8 +1,15 @@
 # Appodeal Unity Plugin
 
-Stable version of Unity Appodeal SDK is 2.15.0 SDK integration documentation: [docs](https://wiki.appodeal.com/en/unity/get-started)
+Stable version of Unity Appodeal SDK is 2.15.1. SDK integration documentation: [docs](https://wiki.appodeal.com/en/unity/get-started)
 
 ## Changelog
+
+2.15.1 (January 20, 2021)
+
++ Updated Appodeal Android SDK to 2.11.0.1
++ Updated Appodeal iOS SDK to 2.11.1
++ Updated networks configs
++ Fixed mrec callbacks
 
 2.15.0 (December 29, 2021)
 

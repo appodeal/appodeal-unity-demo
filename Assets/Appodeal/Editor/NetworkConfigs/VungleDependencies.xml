@@ -1,6 +1,6 @@
 <dependencies>
     <iosPods>
-        <iosPod name='APDVungleAdapter' version='2.11.0.1' minTargetSdk='10.0'/>
+        <iosPod name='APDVungleAdapter' version='2.11.1.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
         <androidPackage spec='androidx.core:core:1.2.0'/>

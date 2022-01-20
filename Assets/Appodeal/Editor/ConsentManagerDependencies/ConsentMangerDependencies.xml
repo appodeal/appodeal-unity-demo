@@ -1,6 +1,6 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="com.explorestack:consent:1.0.3">
+        <androidPackage spec="com.explorestack:consent:1.0.5">
             <repositories>
                 <repository>https://artifactory.appodeal.com/appodeal</repository>
             </repositories>
