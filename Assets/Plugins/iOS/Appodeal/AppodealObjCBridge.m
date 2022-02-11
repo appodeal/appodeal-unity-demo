@@ -306,10 +306,10 @@ void AppodealSetUserGender(int gender) {
 
 static AppodealBannerViewDelegate *AppodealBannerViewDelegateInstance;
 void AppodealSetBannerViewDelegate(AppodealBannerViewDidLoadCallback bannerViewDidLoadAd,
-                                   AppodealBannerCallbacks bannerViewDidFailToLoadAd,
-                                   AppodealBannerCallbacks bannerViewDidClick,
-                                   AppodealBannerCallbacks bannerViewDidShow,
-                                   AppodealBannerCallbacks bannerViewDidExpired) {
+                                   AppodealBannerViewCallbacks bannerViewDidFailToLoadAd,
+                                   AppodealBannerViewCallbacks bannerViewDidClick,
+                                   AppodealBannerViewCallbacks bannerViewDidShow,
+                                   AppodealBannerViewCallbacks bannerViewDidExpired) {
     
     AppodealBannerViewDelegateInstance = [AppodealBannerViewDelegate new];
     
@@ -329,7 +329,7 @@ static AppodealMrecViewDelegate *AppodealMrecViewDelegateInstance;
 void AppodealSetMrecViewDelegate(AppodealMrecViewDidLoadCallback mrecViewDidLoadAd,
                                  AppodealMrecViewCallbacks mrecViewDidFailToLoadAd,
                                  AppodealMrecViewCallbacks mrecViewDidClick,
-                                 AppodealBannerCallbacks mrecViewDidShow,
+                                 AppodealMrecViewCallbacks mrecViewDidShow,
                                  AppodealMrecViewCallbacks mrecViewDidExpired) {
     
     AppodealMrecViewDelegateInstance = [AppodealMrecViewDelegate new];
