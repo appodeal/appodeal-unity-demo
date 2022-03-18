@@ -5,9 +5,9 @@
     <androidPackages>
         <androidPackage spec='androidx.core:core:1.2.0'/>
         <androidPackage spec='com.google.android.gms:play-services-ads-identifier:17.0.0'/>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:vungle:2.11.0.12@aar'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:vungle:2.11.0.13@aar'/>
         <androidPackage spec='com.google.android.gms:play-services-basement:17.6.0'/>
-        <androidPackage spec='com.vungle:publisher-sdk-android:6.10.4'/>
+        <androidPackage spec='com.vungle:publisher-sdk-android:6.10.5'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>
