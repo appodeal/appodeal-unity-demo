@@ -3,9 +3,9 @@
         <iosPod name='APDYandexAdapter' version='2.11.1.1' minTargetSdk='10.0'/>
     </iosPods>
     <androidPackages>
-        <androidPackage spec='com.yandex.android:mobmetricalib:4.0.0'/>
-        <androidPackage spec='com.yandex.android:mobileads:4.5.0'/>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:yandex:2.11.0.15@aar'/>
+        <androidPackage spec='com.yandex.android:mobmetricalib:4.1.1'/>
+        <androidPackage spec='com.yandex.android:mobileads:5.0.0'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:yandex:2.11.1.16@aar'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>

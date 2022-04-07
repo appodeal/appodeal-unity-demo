@@ -127,7 +127,7 @@ namespace Appodeal.Editor.AppodealManager.AppodealDependencies
 
         private void OnGUI()
         {
-            this.minSize = new Vector2(700, 900);
+            this.minSize = new Vector2(650, 650);
             scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition,
                 false,
                 false);

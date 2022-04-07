@@ -5,8 +5,8 @@
     <androidPackages>
         <androidPackage spec='com.google.android.gms:play-services-ads-identifier:17.0.0'/>
         <androidPackage spec='com.google.android.gms:play-services-base:17.0.0'/>
-        <androidPackage spec='com.ironsource.sdk:mediationsdk:7.2.1'/>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:ironsource:2.11.0.20@aar'/>
+        <androidPackage spec='com.ironsource.sdk:mediationsdk:7.2.1.1'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:ironsource:2.11.1.21@aar'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>

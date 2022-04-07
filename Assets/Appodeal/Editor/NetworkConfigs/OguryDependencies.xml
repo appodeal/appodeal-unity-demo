@@ -4,7 +4,7 @@
     </iosPods>
     <androidPackages>
         <androidPackage spec='co.ogury:ogury-sdk:5.2.0'/>
-        <androidPackage spec='com.appodeal.ads.sdk.networks:ogury:2.11.0.12@aar'/>
+        <androidPackage spec='com.appodeal.ads.sdk.networks:ogury:2.11.1.12@aar'/>
         <repositories>
             <repository>https://artifactory.appodeal.com/artifactory/appodeal</repository>
         </repositories>
