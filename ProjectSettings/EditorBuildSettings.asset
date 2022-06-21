@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Appodeal/Demo/Scenes/AppodealDemoScene.unity
-    guid: 0765b2f4d7cf441fb83dec76ff0ed553
+    path: Assets/Samples/Appodeal/3.0.0/Usage Sample/AppodealDemoScene.unity
+    guid: 8267ac0dcd70a45a781bbe808efc9e33
   m_configObjects: {}
