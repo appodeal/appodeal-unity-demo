@@ -2,62 +2,65 @@
   <packages>
     <package>androidx.core:core:1.7.0</package>
     <package>com.adcolony:sdk:4.8.0</package>
-    <package>com.adjust.sdk:adjust-android:4.30.1</package>
+    <package>com.adjust.sdk:adjust-android:4.32.0</package>
     <package>com.android.installreferrer:installreferrer:2.2</package>
-    <package>com.applovin:applovin-sdk:11.4.1</package>
-    <package>com.appodeal.ads.sdk.core:internal:3.0.0</package>
-    <package>com.appodeal.ads.sdk.core:public:3.0.0</package>
-    <package>com.appodeal.ads.sdk.networks:a4g:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:adcolony:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:admob:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:applovin:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:appodeal:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk.networks:bidmachine:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:facebook:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:ironsource:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:mraid:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk.networks:my_target:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:nast:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk.networks:notsy:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:unity_ads:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk.networks:vast:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk.networks:vungle:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.networks:yandex:3.0.0.1</package>
-    <package>com.appodeal.ads.sdk.services:adjust:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk.services:appsflyer:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk.services:facebook_analytics:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk.services:firebase:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk.services:stack_analytics:3.0.0.0</package>
-    <package>com.appodeal.ads.sdk:core:3.0.0</package>
-    <package>com.appodeal.ads:advertising:3.0.0</package>
-    <package>com.appodeal.ads:consent:3.0.0</package>
-    <package>com.appodeal.ads:network:3.0.0</package>
-    <package>com.appsflyer:adrevenue:6.5.4</package>
-    <package>com.appsflyer:af-android-sdk:6.6.1</package>
+    <package>com.applovin:applovin-sdk:11.5.3</package>
+    <package>com.appodeal.ads.sdk.core:internal:3.0.1</package>
+    <package>com.appodeal.ads.sdk.core:public:3.0.1</package>
+    <package>com.appodeal.ads.sdk.networks:a4g:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:adcolony:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:admob:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:applovin:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:appodeal:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:bidmachine:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:facebook:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:ironsource:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:mraid:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:my_target:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:nast:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:notsy:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:unity_ads:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:vast:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:vungle:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.networks:yandex:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.services:adjust:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.services:appsflyer:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.services:facebook_analytics:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.services:firebase:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.services:sentry_analytics:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk.services:stack_analytics:3.0.1.0</package>
+    <package>com.appodeal.ads.sdk:core:3.0.1</package>
+    <package>com.appodeal.ads:advertising:3.0.1</package>
+    <package>com.appodeal.ads:consent:3.0.1</package>
+    <package>com.appodeal.ads:network:3.0.1</package>
+    <package>com.appsflyer:adrevenue:6.9.0</package>
+    <package>com.appsflyer:af-android-sdk:6.9.2</package>
     <package>com.explorestack.adjust:sdk-purchase:1.1.2</package>
-    <package>com.explorestack:iab:0.9.8</package>
+    <package>com.explorestack:iab:1.0.0</package>
     <package>com.facebook.android:audience-network-sdk:6.11.0</package>
-    <package>com.facebook.android:facebook-core:13.2.0</package>
-    <package>com.google.android.gms:play-services-ads:21.0.0</package>
+    <package>com.facebook.android:facebook-core:15.0.1</package>
+    <package>com.google.android.exoplayer:exoplayer:2.17.1</package>
+    <package>com.google.android.gms:play-services-ads:21.2.0</package>
     <package>com.google.android.gms:play-services-ads-identifier:18.0.1</package>
     <package>com.google.android.gms:play-services-base:18.0.1</package>
-    <package>com.google.android.gms:play-services-basement:18.0.0</package>
-    <package>com.google.firebase:firebase-analytics-ktx:21.0.0</package>
-    <package>com.google.firebase:firebase-config-ktx:21.1.0</package>
-    <package>com.ironsource.sdk:mediationsdk:7.2.2.1</package>
-    <package>com.my.target:mytarget-sdk:5.15.2</package>
-    <package>com.unity3d.ads:unity-ads:4.2.1</package>
-    <package>com.vungle:publisher-sdk-android:6.11.0</package>
-    <package>com.yandex.android:mobileads:5.1.1</package>
-    <package>com.yandex.android:mobmetricalib:5.0.0</package>
-    <package>io.bidmachine:ads.networks.adcolony:1.9.4.10</package>
-    <package>io.bidmachine:ads.networks.amazon:1.9.4.6</package>
-    <package>io.bidmachine:ads.networks.criteo:1.9.4.10</package>
-    <package>io.bidmachine:ads.networks.facebook:1.9.4.11</package>
-    <package>io.bidmachine:ads.networks.my_target:1.9.4.8</package>
-    <package>io.bidmachine:ads.networks.pangle:1.9.4.3</package>
-    <package>io.bidmachine:ads.networks.vungle:1.9.4.1</package>
-    <package>io.bidmachine:ads:1.9.4</package>
+    <package>com.google.android.gms:play-services-basement:18.1.0</package>
+    <package>com.google.firebase:firebase-analytics-ktx:21.1.1</package>
+    <package>com.google.firebase:firebase-config-ktx:21.1.2</package>
+    <package>com.ironsource.sdk:mediationsdk:7.2.4.1</package>
+    <package>com.my.target:mytarget-sdk:5.15.4</package>
+    <package>com.unity3d.ads:unity-ads:4.4.1</package>
+    <package>com.vungle:publisher-sdk-android:6.12.0</package>
+    <package>com.yandex.android:mobileads:5.3.0</package>
+    <package>com.yandex.android:mobmetricalib:5.2.0</package>
+    <package>io.bidmachine:ads.networks.adcolony:1.9.10.11</package>
+    <package>io.bidmachine:ads.networks.amazon:1.9.10.7</package>
+    <package>io.bidmachine:ads.networks.criteo:1.9.10.10</package>
+    <package>io.bidmachine:ads.networks.meta_audience:1.9.10.12</package>
+    <package>io.bidmachine:ads.networks.my_target:1.9.10.9</package>
+    <package>io.bidmachine:ads.networks.pangle:1.9.10.4</package>
+    <package>io.bidmachine:ads.networks.vungle:1.9.10.2</package>
+    <package>io.bidmachine:ads:1.9.10</package>
+    <package>io.sentry:sentry-android:6.4.2</package>
     <package>org.jetbrains.kotlin:kotlin-stdlib:1.6.10</package>
     <package>org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0</package>
     <package>org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0</package>
