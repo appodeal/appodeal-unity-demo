@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDIABAdapter" version="3.0.1.1" minTargetSdk="10.0" />
+        <iosPod name="BDMIABAdapter" version="~> 1.9.5" minTargetSdk="10.0" />
+    </iosPods>
+</dependencies>

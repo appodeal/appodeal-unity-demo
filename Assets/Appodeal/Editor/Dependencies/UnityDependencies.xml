@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDUnityAdapter" version="3.0.1.1" minTargetSdk="10.0" />
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0" />
+        <androidPackage spec="com.unity3d.ads:unity-ads:4.4.1" />
+        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.6.10" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0" />
+        <androidPackage spec="com.appodeal.ads.sdk:core:3.0.1" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:unity_ads:3.0.1.0" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

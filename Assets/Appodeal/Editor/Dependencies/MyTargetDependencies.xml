@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDMyTargetAdapter" version="3.0.1.1" minTargetSdk="10.0" />
+        <iosPod name="BDMMyTargetAdapter" version="~> 1.9.5" minTargetSdk="10.0" />
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec="io.bidmachine:ads.networks.my_target:1.9.10.9" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:my_target:3.0.1.0" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0" />
+        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.6.10" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0" />
+        <androidPackage spec="com.my.target:mytarget-sdk:5.15.4" />
+        <androidPackage spec="com.appodeal.ads.sdk:core:3.0.1" />
+        <androidPackage spec="com.google.android.gms:play-services-ads-identifier:18.0.1" />
+        <androidPackage spec="com.google.android.exoplayer:exoplayer:2.17.1" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

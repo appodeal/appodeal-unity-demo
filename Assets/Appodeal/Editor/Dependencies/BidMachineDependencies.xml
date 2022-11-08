@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDBidMachineAdapter" version="3.0.1.1" minTargetSdk="10.0" />
+        <iosPod name="BDMCriteoAdapter" version="~> 1.9.5" minTargetSdk="10.0" />
+        <iosPod name="BDMPangleAdapter" version="~> 1.9.5" minTargetSdk="10.0" />
+        <iosPod name="BDMAmazonAdapter" version="~> 1.9.5" minTargetSdk="10.0" />
+        <iosPod name="BDMSmaatoAdapter" version="~> 1.9.5" minTargetSdk="10.0" />
+        <iosPod name="BDMNotsyAdapter" version="~> 1.9.5" minTargetSdk="10.0" />
+        <iosPod name="BDMTapjoyAdapter" version="~> 1.9.5" minTargetSdk="10.0" />
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec="com.appodeal.ads.sdk:core:3.0.1" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:bidmachine:3.0.1.0" />
+        <androidPackage spec="io.bidmachine:ads.networks.amazon:1.9.10.7" />
+        <androidPackage spec="io.bidmachine:ads.networks.criteo:1.9.10.10" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0" />
+        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.6.10" />
+        <androidPackage spec="io.bidmachine:ads.networks.pangle:1.9.10.4" />
+        <androidPackage spec="io.bidmachine:ads:1.9.10" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

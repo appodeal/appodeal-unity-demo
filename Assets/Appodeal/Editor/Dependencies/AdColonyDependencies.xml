@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDAdColonyAdapter" version="3.0.1.1" minTargetSdk="10.0" />
+        <iosPod name="BDMAdColonyAdapter" version="~> 1.9.5" minTargetSdk="10.0" />
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:adcolony:3.0.1.0" />
+        <androidPackage spec="com.adcolony:sdk:4.8.0" />
+        <androidPackage spec="com.appodeal.ads.sdk:core:3.0.1" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0" />
+        <androidPackage spec="com.google.android.gms:play-services-ads-identifier:18.0.1" />
+        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0" />
+        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.6.10" />
+        <androidPackage spec="io.bidmachine:ads.networks.adcolony:1.9.10.11" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>
