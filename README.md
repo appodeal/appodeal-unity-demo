@@ -4,6 +4,20 @@ Stable version of Unity Appodeal SDK is 2.15.4. SDK integration documentation: [
 
 ## Changelog
 
+3.0.1 (November 08, 2022)
+
++ Updated Appodeal Android SDK to 3.0.1
++ Updated Appodeal iOS SDK to 3.0.1
++ Updated EDM Unity Plugin to 1.2.174
++ Removed Dummy.swift file as the new version of EDM plugin creates it by default
++ Changed Xcode project settings: bitcode is now off by default as Apple deprecated it
++ Implemented Events
++ Implemented GetReward method
++ Implemented OnAdRevenueReceived callback
++ Fixed a bug with Dependency Manager on Windows
++ Fixed a bug with re-importing plugin data when rebuilding Library dir
++ Minor improvements
+
 3.0.0 (June 21, 2022)
 
 + Updated Appodeal Android SDK to 3.0.0
