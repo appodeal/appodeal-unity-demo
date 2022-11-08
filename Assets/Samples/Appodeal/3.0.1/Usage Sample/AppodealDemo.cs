@@ -12,11 +12,8 @@ using AppodealStack.ConsentManagement.Common;
 // ReSharper disable CheckNamespace
 namespace AppodealSample
 {
-    public class AppodealDemo : MonoBehaviour, IAppodealInitializationListener, IInAppPurchaseValidationListener,
-                                IBannerAdListener, IInterstitialAdListener, IRewardedVideoAdListener, IMrecAdListener,
-                                IConsentFormListener, IConsentInfoUpdateListener
+    public class AppodealDemo : MonoBehaviour
     {
-
         #region Constants
 
         private const string InterstitialShow = "Show Interstitial";
@@ -163,7 +160,10 @@ namespace AppodealSample
 
         public void RequestConsentInfoUpdate()
         {
-            _consentManager?.RequestConsentInfoUpdate(AppKey, this);
+            ConsentManagerCallbacks.ConsentInfo.OnUpdated += OnConsentInfoUpdated;
+            ConsentManagerCallbacks.ConsentInfo.OnFailedToUpdate += OnFailedToUpdateConsentInfo;
+
+            _consentManager?.RequestConsentInfoUpdate(AppKey);
         }
 
         public void SetCustomVendor()
@@ -204,7 +204,12 @@ namespace AppodealSample
 
         public void LoadConsentForm()
         {
-            _consentForm = ConsentForm.GetInstance(this);
+            ConsentManagerCallbacks.ConsentForm.OnLoaded += OnConsentFormLoaded;
+            ConsentManagerCallbacks.ConsentForm.OnExceptionOccurred += OnConsentFormExceptionOccurred;
+            ConsentManagerCallbacks.ConsentForm.OnOpened += OnConsentFormOpened;
+            ConsentManagerCallbacks.ConsentForm.OnClosed += OnConsentFormClosed;
+
+            _consentForm = ConsentForm.GetInstance();
             _consentForm?.Load();
         }
 
@@ -288,10 +293,7 @@ namespace AppodealSample
             interstitialButtonText.text =  interstitialAutoCacheToggle.isOn ? InterstitialCaching : InterstitialCache;
             rewardedVideoButtonText.text =  rewardedVideoAutoCacheToggle.isOn ? RewardedVideoCaching : RewardedVideoCache;
 
-            Appodeal.SetMrecCallbacks(this);
-            Appodeal.SetBannerCallbacks(this);
-            Appodeal.SetInterstitialCallbacks(this);
-            Appodeal.SetRewardedVideoCallbacks(this);
+            SetAppodealCallbacks();
 
             if (isConsent)
             {
@@ -308,7 +310,7 @@ namespace AppodealSample
                           (interstitialInitializationToggle.isOn ? AppodealAdType.Interstitial : 0) |
                           (rewardedVideoInitializationToggle.isOn ? AppodealAdType.RewardedVideo : 0);
 
-            Appodeal.Initialize(AppKey, adTypes, this);
+            Appodeal.Initialize(AppKey, adTypes);
         }
 
         public void ShowInterstitial()
@@ -401,7 +403,7 @@ namespace AppodealSample
                 .WithSku("sku")
                 .Build();
 
-            Appodeal.ValidatePlayStoreInAppPurchase(purchase, this);
+            Appodeal.ValidatePlayStoreInAppPurchase(purchase);
 #elif UNITY_IOS
             var additionalParams = new Dictionary<string, string> { { "key1", "value1" }, { "key2", "value2" } };
 
@@ -413,7 +415,7 @@ namespace AppodealSample
                 .WithPrice("2.89")
                 .Build();
 
-            Appodeal.ValidateAppStoreInAppPurchase(purchase, this);
+            Appodeal.ValidateAppStoreInAppPurchase(purchase);
 #endif
         }
 
@@ -424,11 +426,59 @@ namespace AppodealSample
 
         #endregion
 
-        #region IAppodealInitializeListener implementation
+        #region Appodeal Callbacks Initialization
 
-        public void OnInitializationFinished(List<string> errors)
+        private void SetAppodealCallbacks()
         {
-            string output = errors == null ? String.Empty : String.Join(", ", errors);
+            AppodealCallbacks.Sdk.OnInitialized += OnInitializationFinished;
+
+            AppodealCallbacks.AdRevenue.OnReceived += (sender, args) =>
+            {
+                Debug.Log($"[APDUnity] [Callback] OnAdRevenueReceived({args.Ad.ToJsonString(true)})");
+            };
+
+            AppodealCallbacks.InAppPurchase.OnValidationSucceeded += OnInAppPurchaseValidationSucceeded;
+            AppodealCallbacks.InAppPurchase.OnValidationFailed += OnInAppPurchaseValidationFailed;
+
+            AppodealCallbacks.Mrec.OnLoaded += (sender, args) => OnMrecLoaded(args.IsPrecache);
+            AppodealCallbacks.Mrec.OnFailedToLoad += (sender, args) => OnMrecFailedToLoad();
+            AppodealCallbacks.Mrec.OnShown += (sender, args) => OnMrecShown();
+            AppodealCallbacks.Mrec.OnShowFailed += (sender, args) => OnMrecShowFailed();
+            AppodealCallbacks.Mrec.OnClicked += (sender, args) => OnMrecClicked();
+            AppodealCallbacks.Mrec.OnExpired += (sender, args) => OnMrecExpired();
+
+            AppodealCallbacks.Banner.OnLoaded += OnBannerLoaded;
+            AppodealCallbacks.Banner.OnFailedToLoad += OnBannerFailedToLoad;
+            AppodealCallbacks.Banner.OnShown += OnBannerShown;
+            AppodealCallbacks.Banner.OnShowFailed += OnBannerShowFailed;
+            AppodealCallbacks.Banner.OnClicked += OnBannerClicked;
+            AppodealCallbacks.Banner.OnExpired += OnBannerExpired;
+
+            AppodealCallbacks.Interstitial.OnLoaded += OnInterstitialLoaded;
+            AppodealCallbacks.Interstitial.OnFailedToLoad += OnInterstitialFailedToLoad;
+            AppodealCallbacks.Interstitial.OnShown += OnInterstitialShown;
+            AppodealCallbacks.Interstitial.OnShowFailed += OnInterstitialShowFailed;
+            AppodealCallbacks.Interstitial.OnClosed += OnInterstitialClosed;
+            AppodealCallbacks.Interstitial.OnClicked += OnInterstitialClicked;
+            AppodealCallbacks.Interstitial.OnExpired += OnInterstitialExpired;
+
+            AppodealCallbacks.RewardedVideo.OnLoaded += OnRewardedVideoLoaded;
+            AppodealCallbacks.RewardedVideo.OnFailedToLoad += OnRewardedVideoFailedToLoad;
+            AppodealCallbacks.RewardedVideo.OnShown += OnRewardedVideoShown;
+            AppodealCallbacks.RewardedVideo.OnShowFailed += OnRewardedVideoShowFailed;
+            AppodealCallbacks.RewardedVideo.OnClosed += OnRewardedVideoClosed;
+            AppodealCallbacks.RewardedVideo.OnFinished += OnRewardedVideoFinished;
+            AppodealCallbacks.RewardedVideo.OnClicked += OnRewardedVideoClicked;
+            AppodealCallbacks.RewardedVideo.OnExpired += OnRewardedVideoExpired;
+        }
+
+        #endregion
+
+        #region Initialization Callback
+
+        private void OnInitializationFinished(object sender, SdkInitializedEventArgs e)
+        {
+            string output = e.Errors == null ? String.Empty : String.Join(", ", e.Errors);
             Debug.Log($"[APDUnity] [Callback] OnInitializationFinished(errors:[{output}])");
 
             Debug.Log($"[APDUnity] [Appodeal] IsAutoCacheEnabled() for banner: {Appodeal.IsAutoCacheEnabled(AppodealAdType.Banner)}");
@@ -436,7 +486,7 @@ namespace AppodealSample
             Debug.Log($"[APDUnity] [Appodeal] IsSmartBannersEnabled(): {Appodeal.IsSmartBannersEnabled()}");
             Debug.Log($"[APDUnity] [Appodeal] GetUserId(): {Appodeal.GetUserId()}");
             Debug.Log($"[APDUnity] [Appodeal] GetSegmentId(): {Appodeal.GetSegmentId()}");
-            Debug.Log($"[APDUnity] [Appodeal] GetRewardParameters(): {Appodeal.GetRewardParameters()}");
+            Debug.Log($"[APDUnity] [Appodeal] GetReward(): {Appodeal.GetReward().ToJsonString()}");
             Debug.Log($"[APDUnity] [Appodeal] GetNativeSDKVersion(): {Appodeal.GetNativeSDKVersion()}");
 
             var networksList = Appodeal.GetNetworks(AppodealAdType.RewardedVideo);
@@ -458,220 +508,219 @@ namespace AppodealSample
 
         #endregion
 
-        #region IInAppPurchaseValidationListener implementation
+        #region InAppPurchaseValidation Callbacks
 
-        public void OnInAppPurchaseValidationSucceeded(string json)
+        private void OnInAppPurchaseValidationSucceeded(object sender, InAppPurchaseEventArgs e)
         {
-            Debug.Log($"[APDUnity] [Callback] OnInAppPurchaseValidationSucceeded(string json:\n{json})");
+            Debug.Log($"[APDUnity] [Callback] OnInAppPurchaseValidationSucceeded(string json:\n{e.Json})");
         }
 
-        public void OnInAppPurchaseValidationFailed(string json)
+        private void OnInAppPurchaseValidationFailed(object sender, InAppPurchaseEventArgs e)
         {
-            Debug.Log($"[APDUnity] [Callback] OnInAppPurchaseValidationFailed(string json:\n{json})");
-        }
-
-        #endregion
-
-        #region IBannerAdListener implementation
-
-        public void OnBannerLoaded(int height, bool isPrecache)
-        {
-            Debug.Log($"[APDUnity] [Callback] OnBannerLoaded(int height:{height}, bool precache:{isPrecache})");
-            Debug.Log($"[APDUnity] GetPredictedEcpm(): {Appodeal.GetPredictedEcpm(AppodealAdType.Banner)}");
-        }
-
-        public void OnBannerFailedToLoad()
-        {
-            Debug.Log("[APDUnity] [Callback] OnBannerFailedToLoad()");
-        }
-
-        public void OnBannerShown()
-        {
-            Debug.Log("[APDUnity] [Callback] OnBannerShown()");
-        }
-
-        public void OnBannerShowFailed()
-        {
-            Debug.Log("[APDUnity] [Callback] OnBannerShowFailed()");
-        }
-
-        public void OnBannerClicked()
-        {
-            Debug.Log("[APDUnity] [Callback] OnBannerClicked()");
-        }
-
-        public void OnBannerExpired()
-        {
-            Debug.Log("[APDUnity] [Callback] OnBannerExpired()");
+            Debug.Log($"[APDUnity] [Callback] OnInAppPurchaseValidationFailed(string json:\n{e.Json})");
         }
 
         #endregion
 
-        #region IInterstitialAdListener implementation
+        #region MrecAd Callbacks
 
-        public void OnInterstitialLoaded(bool isPrecache)
-        {
-            if (!isPrecache) _shouldChangeIntText = true;
-            Debug.Log($"[APDUnity] [Callback] OnInterstitialLoaded(bool isPrecache:{isPrecache})");
-            Debug.Log($"[APDUnity] GetPredictedEcpm(): {Appodeal.GetPredictedEcpm(AppodealAdType.Interstitial)}");
-        }
-
-        public void OnInterstitialFailedToLoad()
-        {
-            Debug.Log("[APDUnity] [Callback] OnInterstitialFailedToLoad()");
-        }
-
-        public void OnInterstitialShowFailed()
-        {
-            Debug.Log("[APDUnity] [Callback] OnInterstitialShowFailed()");
-        }
-
-        public void OnInterstitialShown()
-        {
-            Debug.Log("[APDUnity] [Callback] OnInterstitialShown()");
-        }
-
-        public void OnInterstitialClosed()
-        {
-            _shouldChangeIntText = true;
-            Debug.Log("[APDUnity] [Callback] OnInterstitialClosed()");
-        }
-
-        public void OnInterstitialClicked()
-        {
-            Debug.Log("[APDUnity] [Callback] OnInterstitialClicked()");
-        }
-
-        public void OnInterstitialExpired()
-        {
-            Debug.Log("[APDUnity] [Callback] OnInterstitialExpired()");
-        }
-
-        #endregion
-
-        #region IRewardedVideoAdListener implementation
-
-        public void OnRewardedVideoLoaded(bool isPrecache)
-        {
-            _shouldChangeRewText = true;
-            Debug.Log($"[APDUnity] [Callback] OnRewardedVideoLoaded(bool isPrecache:{isPrecache})");
-            Debug.Log($"[APDUnity] GetPredictedEcpm(): {Appodeal.GetPredictedEcpm(AppodealAdType.RewardedVideo)}");
-        }
-
-        public void OnRewardedVideoFailedToLoad()
-        {
-            Debug.Log("[APDUnity] [Callback] OnRewardedVideoFailedToLoad()");
-        }
-
-        public void OnRewardedVideoShowFailed()
-        {
-            Debug.Log("[APDUnity] [Callback] OnRewardedVideoShowFailed()");
-        }
-
-        public void OnRewardedVideoShown()
-        {
-            Debug.Log("[APDUnity] [Callback] OnRewardedVideoShown()");
-        }
-
-        public void OnRewardedVideoClosed(bool finished)
-        {
-            _shouldChangeRewText = true;
-            Debug.Log($"[APDUnity] [Callback] OnRewardedVideoClosed(bool finished:{finished})");
-        }
-
-        public void OnRewardedVideoFinished(double amount, string currency)
-        {
-            Debug.Log($"[APDUnity] [Callback] OnRewardedVideoFinished(double amount:{amount}, string name:{currency})");
-        }
-
-        public void OnRewardedVideoExpired()
-        {
-            Debug.Log("[APDUnity] [Callback] OnRewardedVideoExpired()");
-        }
-
-        public void OnRewardedVideoClicked()
-        {
-            Debug.Log("[APDUnity] [Callback] OnRewardedVideoClicked()");
-        }
-
-        #endregion
-
-        #region IMrecAdListener implementation
-
-        public void OnMrecLoaded(bool isPrecache)
+        private void OnMrecLoaded(bool isPrecache)
         {
             Debug.Log($"[APDUnity] [Callback] OnMrecLoaded(bool isPrecache:{isPrecache})");
             Debug.Log($"[APDUnity] GetPredictedEcpm(): {Appodeal.GetPredictedEcpm(AppodealAdType.Mrec)}");
         }
 
-        public void OnMrecFailedToLoad()
+        private void OnMrecFailedToLoad()
         {
             Debug.Log("[APDUnity] [Callback] OnMrecFailedToLoad()");
         }
 
-        public void OnMrecShown()
+        private void OnMrecShown()
         {
             Debug.Log("[APDUnity] [Callback] OnMrecShown()");
         }
 
-        public void OnMrecShowFailed()
+        private void OnMrecShowFailed()
         {
             Debug.Log("[APDUnity] [Callback] OnMrecShowFailed()");
         }
 
-        public void OnMrecClicked()
+        private void OnMrecClicked()
         {
             Debug.Log("[APDUnity] [Callback] OnMrecClicked()");
         }
 
-        public void OnMrecExpired()
+        private void OnMrecExpired()
         {
             Debug.Log("[APDUnity] [Callback] OnMrecExpired()");
         }
 
         #endregion
 
-        #region IConsentFormListener implementation
+        #region BannerAd Callbacks
 
-        public void OnConsentFormLoaded()
+        private void OnBannerLoaded(object sender, BannerLoadedEventArgs e)
+        {
+            Debug.Log($"[APDUnity] [Callback] OnBannerLoaded(int height:{e.Height}, bool precache:{e.IsPrecache})");
+            Debug.Log($"[APDUnity] GetPredictedEcpm(): {Appodeal.GetPredictedEcpm(AppodealAdType.Banner)}");
+        }
+
+        private void OnBannerFailedToLoad(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnBannerFailedToLoad()");
+        }
+
+        private void OnBannerShown(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnBannerShown()");
+        }
+
+        private void OnBannerShowFailed(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnBannerShowFailed()");
+        }
+
+        private void OnBannerClicked(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnBannerClicked()");
+        }
+
+        private void OnBannerExpired(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnBannerExpired()");
+        }
+
+        #endregion
+
+        #region InterstitialAd Callbacks
+
+        private void OnInterstitialLoaded(object sender, AdLoadedEventArgs e)
+        {
+            if (!e.IsPrecache) _shouldChangeIntText = true;
+            Debug.Log($"[APDUnity] [Callback] OnInterstitialLoaded(bool isPrecache:{e.IsPrecache})");
+            Debug.Log($"[APDUnity] GetPredictedEcpm(): {Appodeal.GetPredictedEcpm(AppodealAdType.Interstitial)}");
+        }
+
+        private void OnInterstitialFailedToLoad(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnInterstitialFailedToLoad()");
+        }
+
+        private void OnInterstitialShowFailed(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnInterstitialShowFailed()");
+        }
+
+        private void OnInterstitialShown(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnInterstitialShown()");
+        }
+
+        private void OnInterstitialClosed(object sender, EventArgs e)
+        {
+            _shouldChangeIntText = true;
+            Debug.Log("[APDUnity] [Callback] OnInterstitialClosed()");
+        }
+
+        private void OnInterstitialClicked(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnInterstitialClicked()");
+        }
+
+        private void OnInterstitialExpired(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnInterstitialExpired()");
+        }
+
+        #endregion
+
+        #region RewardedVideoAd Callbacks
+
+        private void OnRewardedVideoLoaded(object sender, AdLoadedEventArgs e)
+        {
+            _shouldChangeRewText = true;
+            Debug.Log($"[APDUnity] [Callback] OnRewardedVideoLoaded(bool isPrecache:{e.IsPrecache})");
+            Debug.Log($"[APDUnity] GetPredictedEcpm(): {Appodeal.GetPredictedEcpm(AppodealAdType.RewardedVideo)}");
+        }
+
+        private void OnRewardedVideoFailedToLoad(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnRewardedVideoFailedToLoad()");
+        }
+
+        private void OnRewardedVideoShowFailed(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnRewardedVideoShowFailed()");
+        }
+
+        private void OnRewardedVideoShown(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnRewardedVideoShown()");
+        }
+
+        private void OnRewardedVideoClosed(object sender, RewardedVideoClosedEventArgs e)
+        {
+            _shouldChangeRewText = true;
+            Debug.Log($"[APDUnity] [Callback] OnRewardedVideoClosed(bool finished:{e.Finished})");
+        }
+
+        private void OnRewardedVideoFinished(object sender, RewardedVideoFinishedEventArgs e)
+        {
+            Debug.Log($"[APDUnity] [Callback] OnRewardedVideoFinished(double amount:{e.Amount}, string name:{e.Currency})");
+        }
+
+        private void OnRewardedVideoExpired(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnRewardedVideoExpired()");
+        }
+
+        private void OnRewardedVideoClicked(object sender, EventArgs e)
+        {
+            Debug.Log("[APDUnity] [Callback] OnRewardedVideoClicked()");
+        }
+
+        #endregion
+
+        #region ConsentForm Callbacks
+
+        private void OnConsentFormLoaded(object sender, EventArgs e)
         {
             Debug.Log("[APDUnity] [Callback] OnConsentFormLoaded()");
         }
 
-        public void OnConsentFormError(IConsentManagerException exception)
+        private void OnConsentFormExceptionOccurred(object sender, ConsentManagerExceptionEventArgs e)
         {
-            Debug.Log("[APDUnity] [Callback] OnConsentFormError(ConsentManagerException exception)");
-            Debug.Log($"[APDUnity] [ConsentManagerException] GetReason(): {exception?.GetReason()}, GetCode(): {exception?.GetCode()}");
+            Debug.Log("[APDUnity] [Callback] OnConsentFormExceptionOccurred(ConsentManagerException exception)");
+            Debug.Log($"[APDUnity] [ConsentManagerException] GetReason(): {e.Exception?.GetReason()}, GetCode(): {e.Exception?.GetCode()}");
         }
 
-        public void OnConsentFormOpened()
+        private void OnConsentFormOpened(object sender, EventArgs e)
         {
             Debug.Log("[APDUnity] [Callback] OnConsentFormOpened()");
         }
 
-        public void OnConsentFormClosed(IConsent consent)
+        private void OnConsentFormClosed(object sender, ConsentEventArgs e)
         {
-            _consent = consent;
+            _consent = e.Consent;
             Debug.Log("[APDUnity] [Callback] OnConsentFormClosed(IConsent consent)");
         }
 
         #endregion
 
-        #region IConsentInfoUpdateListener implementation
+        #region ConsentInfo Callbacks
 
-        public void OnConsentInfoUpdated(IConsent consent)
+        private void OnConsentInfoUpdated(object sender, ConsentEventArgs e)
         {
-            _consent = consent;
+            _consent = e.Consent;
             Debug.Log("[APDUnity] [Callback] OnConsentInfoUpdated(IConsent consent)");
         }
 
-        public void OnFailedToUpdateConsentInfo(IConsentManagerException error)
+        private void OnFailedToUpdateConsentInfo(object sender, ConsentManagerExceptionEventArgs e)
         {
             Debug.Log("[APDUnity] [Callback] OnFailedToUpdateConsentInfo(ConsentManagerException error)");
-            Debug.Log($"[APDUnity] [ConsentManagerException] GetReason(): {error?.GetReason()}, GetCode(): {error?.GetCode()}");
+            Debug.Log($"[APDUnity] [ConsentManagerException] GetReason(): {e.Exception?.GetReason()}, GetCode(): {e.Exception?.GetCode()}");
         }
 
         #endregion
-
     }
 }

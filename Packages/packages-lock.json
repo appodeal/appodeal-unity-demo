@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.appodeal.appodeal-unity-plugin-upm": {
-      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.0.0",
+      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.0.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "2477ee876efb8ed49a9f90db093052104821b916"
+      "hash": "18127eb704e49f8801575c0067a56a077907903f"
     },
     "com.unity.collab-proxy": {
       "version": "1.14.18",
