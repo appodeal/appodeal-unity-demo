@@ -1,8 +1,16 @@
 # Appodeal Unity Plugin
 
-Stable version of Unity Appodeal SDK is 3.0.1. SDK integration documentation: [docs](https://wiki.appodeal.com/en/unity/get-started)
+Stable version of Unity Appodeal SDK is 3.0.2. SDK integration documentation: [docs](https://wiki.appodeal.com/en/unity/get-started)
 
 ## Changelog
+
+3.0.2 (January 17, 2023)
+
++ Updated Appodeal Android SDK to 3.0.2
++ Updated Appodeal iOS SDK to 3.0.2
++ Added Meta Client Token (iOS) to Appodeal Settings
++ Fixed wrong editor version scripting symbol
++ Minor improvements
 
 3.0.1 (November 08, 2022)
 
