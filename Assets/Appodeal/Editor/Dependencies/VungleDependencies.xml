@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDVungleAdapter" version="3.0.2.1" minTargetSdk="11.0" />
-        <iosPod name="BidMachineVungleAdapter" version="~> 2.0.0.1" minTargetSdk="11.0" />
+        <iosPod name="APDVungleAdapter" version="3.1.3.0-beta.1" minTargetSdk="11.0" />
+        <iosPod name="BidMachineVungleAdapter" version="~> 2.0.1.0" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:vungle:3.0.2.0" />
-        <androidPackage spec="com.appodeal.ads.sdk:core:3.0.2" />
-        <androidPackage spec="io.bidmachine:ads.networks.vungle:2.1.5.2" />
-        <androidPackage spec="com.vungle:publisher-sdk-android:6.12.0" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:vungle:3.1.3.0-beta.1" />
+        <androidPackage spec="com.appodeal.ads.sdk:core:3.1.3-beta.1" />
+        <androidPackage spec="io.bidmachine:ads.networks.vungle:2.1.13.2" />
+        <androidPackage spec="com.vungle:publisher-sdk-android:6.12.1" />
         <androidPackage spec="com.google.android.gms:play-services-basement:18.1.0" />
         <androidPackage spec="com.google.android.gms:play-services-ads-identifier:18.0.1" />
         <androidPackage spec="androidx.core:core:1.7.0" />
@@ -16,7 +16,7 @@
         <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4" />
         <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4" />
         <repositories>
-            <repository>https://artifactory.appodeal.com/appodeal</repository>
+            <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
         </repositories>
     </androidPackages>
 </dependencies>
