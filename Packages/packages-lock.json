@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "com.appodeal.appodeal-unity-plugin-upm": {
-      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.1.3-beta.1",
+      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.1.3-beta.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.google.external-dependency-manager": "1.2.175"
       },
-      "hash": "cf38586ffde6715da762df784ff44eeebed68c2c"
+      "hash": "d2b37ec2f2912724d69e3e824ea2218fe3a23529"
     },
     "com.google.external-dependency-manager": {
       "version": "file:Sources/com.google.external-dependency-manager-1.2.176.tgz",
@@ -30,7 +30,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.21",
+      "version": "3.0.24",
       "depth": 0,
       "source": "registry",
       "dependencies": {
