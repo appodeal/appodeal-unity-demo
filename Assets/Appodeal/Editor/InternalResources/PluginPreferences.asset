@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f022f68a7d874eb1b321b3d85472ab8, type: 3}
   m_Name: PluginPreferences
   m_EditorClassIdentifier: 
-  shouldIgnoreEdmInstallation: 0
-  isEdmImported: 1
   areAdaptersImported: 1
   isAndroidLibraryImported: 1
