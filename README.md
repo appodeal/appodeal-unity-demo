@@ -1,8 +1,20 @@
 # Appodeal Unity Plugin
 
-Stable version of Unity Appodeal SDK is 3.0.2. SDK integration documentation: [docs](https://wiki.appodeal.com/en/unity/get-started)
+Stable version of Unity Appodeal SDK is 3.1.3. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
 
 ## Changelog
+
+3.1.3 (September 08, 2023)
+
++ Updated Appodeal Android SDK to v3.1.3
++ Updated Appodeal iOS SDK to v3.1.3
++ Synced context for callbacks on Android
++ Switched EDM distribution to UPM one
++ Bumped minimal EDM version to v1.2.175
++ Made editor ads improvements & fixes
++ Removed deprecated methods & classes
++ Added Appodeal.GetPredictedEcpmForPlacement method
++ Minor improvements
 
 3.0.2 (January 17, 2023)
 
