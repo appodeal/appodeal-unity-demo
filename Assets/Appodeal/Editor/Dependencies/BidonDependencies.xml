@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDBidonAdapter" version="3.2.0.0-beta.1" minTargetSdk="12.0" />
+        <iosPod name="BidonAdapterBidMachine" version="~> 0.4" minTargetSdk="12.0" />
+        <sources>
+            <source>https://github.com/bidon-io/CocoaPods_Specs.git</source>
+        </sources>
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:bidon:3.2.0.0-beta.1" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

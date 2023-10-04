@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDFirebaseAdapter" version="3.2.0.0-beta.1" minTargetSdk="12.0" />
+        <iosPod name="APDYandexAdapter" version="3.2.0.0-beta.1" minTargetSdk="13.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.services:firebase:3.2.0.0-beta.1" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:yandex:3.2.0.0-beta.1" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
         </repositories>
