@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDUnityAdapter" version="3.2.0.0-beta.1" minTargetSdk="12.0" />
-        <iosPod name="BidonAdapterUnityAds" version="~> 0.4" minTargetSdk="12.0" />
+        <iosPod name="APDUnityAdapter" version="3.2.0.0-beta.2" minTargetSdk="12.0" />
+        <iosPod name="BidonAdapterUnityAds" version="~> 0.4.5" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:unity_ads:3.2.0.0-beta.1" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:unity_ads:3.2.0.1-beta.2" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
         </repositories>
