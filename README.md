@@ -5,6 +5,16 @@ Stable version of Unity Appodeal SDK is 3.1.3. SDK integration documentation:
 
 ## Changelog
 
+3.2.0-beta.2 (November 23, 2023)
+
++ Updated Appodeal Android SDK to v3.2.0-beta.2
++ Updated Appodeal iOS SDK to v3.2.0-beta.2
++ Updated appodeal.androidlib dir content
++ Fixed iOS bridge dismiss callbacks
++ Fixed android `onRewardedVideoFinished` callback
++ Fixed conversion to java types
++ Fixed Firebase json validation
+
 3.2.0-beta.1 (October 04, 2023)
 
 + Updated Appodeal Android SDK to v3.2.0-beta.1
