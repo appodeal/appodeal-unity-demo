@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDStackAnalyticsAdapter" version="3.1.3.0" minTargetSdk="11.0" />
+        <iosPod name="APDStackAnalyticsAdapter" version="3.2.0.0" minTargetSdk="12.0" />
+        <iosPod name="APDStackCrashReporterAdapter" version="3.2.0.0" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.services:stack_analytics:3.1.3.0" />
-        <androidPackage spec="com.appodeal.ads:network:3.1.3" />
-        <androidPackage spec="com.appodeal.ads.sdk.core:public:3.1.3" />
-        <androidPackage spec="com.appodeal.ads.sdk.core:internal:3.1.3" />
-        <androidPackage spec="com.appodeal.ads:extensions:3.1.3" />
-        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.7.10" />
-        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4" />
-        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4" />
+        <androidPackage spec="com.appodeal.ads.sdk.services:stack_analytics:3.2.0.0" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal</repository>
         </repositories>

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
-    <iosPods>
-        <iosPod name="APDIronSourceAdapter" version="3.2.0.0" minTargetSdk="12.0" />
-    </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:ironsource:3.2.0.0" />
+        <androidPackage spec="com.appodeal.ads.sdk.services:sentry_analytics:3.2.0.0" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal</repository>
         </repositories>
