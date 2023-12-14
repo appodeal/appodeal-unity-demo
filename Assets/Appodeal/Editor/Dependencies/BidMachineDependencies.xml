@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDBidMachineAdapter" version="3.1.3.0" minTargetSdk="12.0" />
-        <iosPod name="BidMachineAmazonAdapter" version="~> 2.3.0.0" minTargetSdk="12.0" />
-        <iosPod name="BidMachineCriteoAdapter" version="~> 2.3.0.0" minTargetSdk="12.0" />
-        <iosPod name="BidMachineMintegralAdapter" version="~> 2.3.0.0" minTargetSdk="12.0" />
-        <iosPod name="BidMachinePangleAdapter" version="~> 2.3.0.0" minTargetSdk="12.0" />
-        <iosPod name="BidMachineSmaatoAdapter" version="~> 2.3.0.0" minTargetSdk="12.0" />
-        <iosPod name="BidMachineTapjoyAdapter" version="~> 2.3.0.0" minTargetSdk="12.0" />
+        <iosPod name="APDBidMachineAdapter" version="3.2.0.0" minTargetSdk="12.0" />
+        <iosPod name="BidMachineAmazonAdapter" version="= 2.3.0.1" minTargetSdk="12.0" />
+        <iosPod name="BidMachineCriteoAdapter" version="~> 2.3.0" minTargetSdk="12.0" />
+        <iosPod name="BidMachinePangleAdapter" version="~> 2.3.0" minTargetSdk="12.0" />
+        <iosPod name="BidMachineSmaatoAdapter" version="~> 2.3.0" minTargetSdk="12.0" />
+        <iosPod name="BidMachineTapjoyAdapter" version="~> 2.3.0" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:bidmachine:3.1.3.0" />
-        <androidPackage spec="com.appodeal.ads.sdk:core:3.1.3" />
-        <androidPackage spec="io.bidmachine:ads:2.3.1" />
-        <androidPackage spec="io.bidmachine:ads.networks.amazon:2.3.1.12" />
-        <androidPackage spec="io.bidmachine:ads.networks.criteo:2.3.1.11" />
-        <androidPackage spec="io.bidmachine:ads.networks.mintegral:2.3.1.3" />
-        <androidPackage spec="io.bidmachine:ads.networks.pangle:2.3.1.6" />
-        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.7.10" />
-        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4" />
-        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:bidmachine:3.2.0.0" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal</repository>
         </repositories>

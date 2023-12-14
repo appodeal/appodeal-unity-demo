@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDAdjustAdapter" version="3.1.3.0" minTargetSdk="11.0">
+        <iosPod name="APDAdjustAdapter" version="3.2.0.0" minTargetSdk="12.0">
             <sources>
                 <source>https://github.com/appodeal/CocoaPods.git</source>
             </sources>
         </iosPod>
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.services:adjust:3.1.3.0" />
-        <androidPackage spec="com.appodeal.ads.sdk.core:public:3.1.3" />
-        <androidPackage spec="com.appodeal.ads.sdk.core:internal:3.1.3" />
-        <androidPackage spec="com.appodeal.ads:extensions:3.1.3" />
-        <androidPackage spec="com.adjust.sdk:adjust-android:4.33.4" />
-        <androidPackage spec="com.explorestack.adjust:sdk-purchase:1.1.2" />
-        <androidPackage spec="com.android.installreferrer:installreferrer:2.2" />
-        <androidPackage spec="com.google.android.gms:play-services-ads-identifier:18.0.1" />
-        <androidPackage spec="org.jetbrains.kotlin:kotlin-stdlib:1.7.10" />
-        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4" />
-        <androidPackage spec="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4" />
+        <androidPackage spec="com.appodeal.ads.sdk.services:adjust:3.2.0.0" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal</repository>
         </repositories>
