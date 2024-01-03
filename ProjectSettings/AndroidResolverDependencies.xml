@@ -1,28 +1,28 @@
 <dependencies>
   <packages>
-    <package>com.appodeal.ads.sdk.networks:adcolony:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:admob:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:applovin:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:bidmachine:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:bidon:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:bigo_ads:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:dt_exchange:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:iab:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:inmobi:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:ironsource:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:meta:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:mintegral:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:my_target:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:unity_ads:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:vungle:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk.networks:yandex:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.services:adjust:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.services:appsflyer:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.services:facebook_analytics:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.services:firebase:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.services:sentry_analytics:3.2.0.1-beta.2</package>
-    <package>com.appodeal.ads.sdk.services:stack_analytics:3.2.0.0-beta.2</package>
-    <package>com.appodeal.ads.sdk:core:3.2.0-beta.2</package>
+    <package>com.appodeal.ads.sdk.networks:adcolony:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:admob:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:applovin:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:bidmachine:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:bidon:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:bigo_ads:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:dt_exchange:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:iab:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:inmobi:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:ironsource:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:meta:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:mintegral:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:my_target:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:unity_ads:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:vungle:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.networks:yandex:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.services:adjust:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.services:appsflyer:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.services:facebook_analytics:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.services:firebase:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.services:sentry_analytics:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk.services:stack_analytics:3.2.0.0</package>
+    <package>com.appodeal.ads.sdk:core:3.2.0</package>
   </packages>
   <files />
   <settings>

@@ -1,9 +1,13 @@
 # Appodeal Unity Plugin
 
-Stable version of Unity Appodeal SDK is 3.1.3. SDK integration documentation:
-[docs](https://docs.appodeal.com/unity/get-started)
+Stable version of Unity Appodeal SDK is 3.2.0. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
 
 ## Changelog
+
+3.2.0 (December 14, 2023)
+
++ Updated Appodeal Android SDK to v3.2.0
++ Updated Appodeal iOS SDK to v3.2.0
 
 3.2.0-beta.2 (November 23, 2023)
 
@@ -23,10 +27,17 @@ Stable version of Unity Appodeal SDK is 3.1.3. SDK integration documentation:
 + Replaced deprecated iOS methods
 + Minor fixes
 
-3.1.3 (September 07, 2023)
+3.1.3 (September 08, 2023)
 
 + Updated Appodeal Android SDK to v3.1.3
 + Updated Appodeal iOS SDK to v3.1.3
++ Synced context for callbacks on Android
++ Switched EDM distribution to UPM one
++ Bumped minimal EDM version to v1.2.175
++ Made editor ads improvements & fixes
++ Removed deprecated methods & classes
++ Added `Appodeal.GetPredictedEcpmForPlacement` method
++ Minor improvements
 
 3.1.3-beta.2 (June 28, 2023)
 
@@ -37,13 +48,9 @@ Stable version of Unity Appodeal SDK is 3.1.3. SDK integration documentation:
 
 + Updated Appodeal Android SDK to v3.1.3-beta.1
 + Updated Appodeal iOS SDK to v3.1.3-beta.1
-+ Synced context for callbacks on Android
-+ Switched EDM distribution to UPM one
-+ Bumped minimal EDM version to v1.2.175
-+ Made editor ads improvements & fixes
-+ Removed deprecated methods & classes
-+ Added <code>Appodeal.GetPredictedEcpmForPlacement</code> method
-+ Minor improvements
++ Updated ad networks in `AppodealNetworks` class
++ Replaced deprecated iOS methods
++ Minor fixes
 
 3.0.2 (January 17, 2023)
 

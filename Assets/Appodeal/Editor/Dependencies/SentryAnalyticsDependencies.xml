@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<dependencies>
-    <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.services:sentry_analytics:3.2.0.1-beta.2" />
-        <repositories>
-            <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
-        </repositories>
-    </androidPackages>
-</dependencies>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDVungleAdapter" version="3.2.0.0-beta.2" minTargetSdk="12.0" />
+        <iosPod name="APDVungleAdapter" version="3.2.0.0" minTargetSdk="12.0" />
         <iosPod name="BidMachineVungleAdapter" version="~> 2.3.0" minTargetSdk="12.0" />
-        <iosPod name="BidonAdapterVungle" version="~> 0.4.5" minTargetSdk="12.0" />
+        <iosPod name="BidonAdapterVungle" version="~> 0.4.6" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:vungle:3.2.0.0-beta.2" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:vungle:3.2.0.0" />
         <repositories>
-            <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
         </repositories>
     </androidPackages>
 </dependencies>
