@@ -6,8 +6,6 @@ using UnityEngine.UI;
 using UnityEngine.Assertions;
 using AppodealStack.Monetization.Api;
 using AppodealStack.Monetization.Common;
-using AppodealStack.ConsentManagement.Api;
-using AppodealStack.ConsentManagement.Common;
 
 // ReSharper disable CheckNamespace
 namespace AppodealSample
@@ -62,14 +60,6 @@ namespace AppodealSample
 
         #endregion
 
-        #region Appodeal ConsentManager Fields
-
-        private IConsent        _consent;
-        private ConsentForm     _consentForm;
-        private ConsentManager  _consentManager;
-
-        #endregion
-
         #region  Other Demo Scene Fields
 
         private bool _shouldChangeIntText, _shouldChangeRewText;
@@ -108,9 +98,6 @@ namespace AppodealSample
             previousPanelButton.interactable = false;
 
             pluginVersionText.text = $"Appodeal Unity Plugin v{AppodealVersions.GetPluginVersion()}";
-
-            _consentManager = ConsentManager.GetInstance();
-            _consentManager.SetStorage(ConsentManagerStorage.SharedPreference);
         }
 
         private void Update()
@@ -156,108 +143,11 @@ namespace AppodealSample
 
         #endregion
 
-        #region Appodeal Consent Management
-
-        public void RequestConsentInfoUpdate()
-        {
-            ConsentManagerCallbacks.ConsentInfo.OnUpdated += OnConsentInfoUpdated;
-            ConsentManagerCallbacks.ConsentInfo.OnFailedToUpdate += OnFailedToUpdateConsentInfo;
-
-            _consentManager?.RequestConsentInfoUpdate(AppKey);
-        }
-
-        public void SetCustomVendor()
-        {
-            var customVendor = new Vendor.Builder("Test Vendor", "com.appodeal.test", "https://appodeal.com")
-                .SetPurposeIds(new List<int> {4, 7})
-                .SetFeatureIds(new List<int> {1, 2})
-                .SetLegitimateInterestPurposeIds(new List<int> {1})
-                .Build();
-
-            _consentManager?.SetCustomVendor(customVendor);
-
-            var vendor = _consentManager?.GetCustomVendor("com.appodeal.test");
-            if (vendor == null) return;
-
-            Debug.Log($"[APDUnity] [Vendor] GetName(): {vendor.GetName()}");
-            Debug.Log($"[APDUnity] [Vendor] GetBundle(): {vendor.GetBundle()}");
-            Debug.Log($"[APDUnity] [Vendor] GetPolicyUrl(): {vendor.GetPolicyUrl()}");
-            vendor.GetPurposeIds().ForEach(purposeId => Debug.Log($"[APDUnity] [Vendor] GetPurposeIds(): {purposeId}"));
-            vendor.GetFeatureIds().ForEach(featureId => Debug.Log($"[APDUnity] [Vendor] GetFeatureIds(): {featureId}"));
-            vendor.GetLegitimateInterestPurposeIds().ForEach(id => Debug.Log($"[APDUnity] [Vendor] GetLegitimateInterestPurposeIds(): {id}"));
-        }
-
-        public void ShouldShowForm()
-        {
-            Debug.Log($"[APDUnity] [ConsentManager] ShouldShowConsentDialog(): {_consentManager?.ShouldShowConsentDialog()}");
-        }
-
-        public void GetConsentZone()
-        {
-            Debug.Log($"[APDUnity] [ConsentManager] GetConsentZone(): {_consentManager?.GetConsentZone()}");
-        }
-
-        public void GetConsentStatus()
-        {
-            Debug.Log($"[APDUnity] [ConsentManager] GetConsentStatus(): {_consentManager?.GetConsentStatus()}");
-        }
-
-        public void LoadConsentForm()
-        {
-            ConsentManagerCallbacks.ConsentForm.OnLoaded += OnConsentFormLoaded;
-            ConsentManagerCallbacks.ConsentForm.OnExceptionOccurred += OnConsentFormExceptionOccurred;
-            ConsentManagerCallbacks.ConsentForm.OnOpened += OnConsentFormOpened;
-            ConsentManagerCallbacks.ConsentForm.OnClosed += OnConsentFormClosed;
-
-            _consentForm = ConsentForm.GetInstance();
-            _consentForm?.Load();
-        }
-
-        public void IsLoadedConsentForm()
-        {
-            if (_consentForm == null) return;
-            Debug.Log($"[APDUnity] [ConsentForm] IsLoadedConsentForm(): {_consentForm.IsLoaded()}");
-        }
-
-        public void ShowConsentForm()
-        {
-            if (_consentForm != null)
-            {
-                _consentForm.Show();
-            }
-            else
-            {
-                Debug.Log("[APDUnity] [ConsentForm] form is null");
-            }
-        }
-
-        public void PrintIabString()
-        {
-            if (_consentManager?.GetConsent() == null) return;
-            Debug.Log($"[APDUnity] [Consent] GetIabConsentString(): {_consentManager.GetConsent().GetIabConsentString()}");
-        }
-
-        public void PrintCurrentConsent()
-        {
-            if (_consentManager?.GetConsent() == null) return;
-            Debug.Log($"[APDUnity] [Consent] HasConsentForVendor(): {_consentManager.GetConsent().HasConsentForVendor("com.appodeal.test")}");
-            Debug.Log($"[APDUnity] [Consent] GetStatus(): {_consentManager.GetConsent().GetStatus()}");
-            Debug.Log($"[APDUnity] [Consent] GetZone(): {_consentManager.GetConsent().GetZone()}");
-        }
-
-        public void PrintAuthorizationStatus()
-        {
-            if (_consentManager?.GetConsent() == null) return;
-            Debug.Log($"[APDUnity] [Consent] GetAuthorizationStatus(): {_consentManager.GetConsent().GetAuthorizationStatus()}");
-        }
-
-        #endregion
-
         #region Appodeal Monetization
 
         public void Initialize()
         {
-            InitWithConsent(_consent != null);
+            InitWithConsent(!testingToggle.isOn);
         }
 
         private void InitWithConsent(bool isConsent)
@@ -297,9 +187,10 @@ namespace AppodealSample
 
             if (isConsent)
             {
-                Appodeal.UpdateConsent(_consent);
+                Appodeal.UpdateCcpaConsent(CcpaUserConsent.OptIn);
+                Appodeal.UpdateGdprConsent(GdprUserConsent.Personalized);
             }
-            else if (!testingToggle.isOn)
+            else
             {
                 Appodeal.UpdateCcpaConsent(CcpaUserConsent.OptOut);
                 Appodeal.UpdateGdprConsent(GdprUserConsent.NonPersonalized);
@@ -677,48 +568,6 @@ namespace AppodealSample
         private void OnRewardedVideoClicked(object sender, EventArgs e)
         {
             Debug.Log("[APDUnity] [Callback] OnRewardedVideoClicked()");
-        }
-
-        #endregion
-
-        #region ConsentForm Callbacks
-
-        private void OnConsentFormLoaded(object sender, EventArgs e)
-        {
-            Debug.Log("[APDUnity] [Callback] OnConsentFormLoaded()");
-        }
-
-        private void OnConsentFormExceptionOccurred(object sender, ConsentManagerExceptionEventArgs e)
-        {
-            Debug.Log("[APDUnity] [Callback] OnConsentFormExceptionOccurred(ConsentManagerException exception)");
-            Debug.Log($"[APDUnity] [ConsentManagerException] GetReason(): {e.Exception?.GetReason()}, GetCode(): {e.Exception?.GetCode()}");
-        }
-
-        private void OnConsentFormOpened(object sender, EventArgs e)
-        {
-            Debug.Log("[APDUnity] [Callback] OnConsentFormOpened()");
-        }
-
-        private void OnConsentFormClosed(object sender, ConsentEventArgs e)
-        {
-            _consent = e.Consent;
-            Debug.Log("[APDUnity] [Callback] OnConsentFormClosed(IConsent consent)");
-        }
-
-        #endregion
-
-        #region ConsentInfo Callbacks
-
-        private void OnConsentInfoUpdated(object sender, ConsentEventArgs e)
-        {
-            _consent = e.Consent;
-            Debug.Log("[APDUnity] [Callback] OnConsentInfoUpdated(IConsent consent)");
-        }
-
-        private void OnFailedToUpdateConsentInfo(object sender, ConsentManagerExceptionEventArgs e)
-        {
-            Debug.Log("[APDUnity] [Callback] OnFailedToUpdateConsentInfo(ConsentManagerException error)");
-            Debug.Log($"[APDUnity] [ConsentManagerException] GetReason(): {e.Exception?.GetReason()}, GetCode(): {e.Exception?.GetCode()}");
         }
 
         #endregion

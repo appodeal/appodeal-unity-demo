@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDMyTargetAdapter" version="3.2.0.0" minTargetSdk="12.0" />
-        <iosPod name="BidMachineMyTargetAdapter" version="~> 2.3.0" minTargetSdk="12.0" />
+        <iosPod name="APDMyTargetAdapter" version="3.2.1.0-beta.1" minTargetSdk="12.4" />
+        <iosPod name="BidMachineMyTargetAdapter" version="~> 2.4.0" minTargetSdk="12.4" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:my_target:3.2.0.0" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:my_target:3.2.1.0-beta.1" />
         <repositories>
-            <repository>https://artifactory.appodeal.com/appodeal</repository>
+            <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
         </repositories>
     </androidPackages>
 </dependencies>
