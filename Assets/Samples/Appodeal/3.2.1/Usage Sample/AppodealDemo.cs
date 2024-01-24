@@ -147,7 +147,7 @@ namespace AppodealSample
 
         public void Initialize()
         {
-            InitWithConsent(!testingToggle.isOn);
+            InitWithConsent(testingToggle.isOn);
         }
 
         private void InitWithConsent(bool isConsent)
@@ -189,11 +189,6 @@ namespace AppodealSample
             {
                 Appodeal.UpdateCcpaConsent(CcpaUserConsent.OptIn);
                 Appodeal.UpdateGdprConsent(GdprUserConsent.Personalized);
-            }
-            else
-            {
-                Appodeal.UpdateCcpaConsent(CcpaUserConsent.OptOut);
-                Appodeal.UpdateGdprConsent(GdprUserConsent.NonPersonalized);
             }
 
             int adTypes = (mrecInitializationToggle.isOn ? AppodealAdType.Mrec : 0) |

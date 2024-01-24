@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDMetaAudienceNetworkAdapter" version="3.2.1.0-beta.1" minTargetSdk="12.0" />
+        <iosPod name="APDMetaAudienceNetworkAdapter" version="3.2.1.0" minTargetSdk="12.0" />
         <iosPod name="BidMachineMetaAudienceAdapter" version="~> 2.4.0" minTargetSdk="12.0" />
         <iosPod name="BidonAdapterMetaAudienceNetwork" version="~> 0.4.7" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:meta:3.2.1.0-beta.1" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:meta:3.2.1.0" />
         <repositories>
-            <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
         </repositories>
     </androidPackages>
 </dependencies>
