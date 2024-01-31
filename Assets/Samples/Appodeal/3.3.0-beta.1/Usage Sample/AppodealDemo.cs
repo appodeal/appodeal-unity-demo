@@ -147,10 +147,10 @@ namespace AppodealSample
 
         public void Initialize()
         {
-            InitWithConsent(testingToggle.isOn);
+            InitAppodeal();
         }
 
-        private void InitWithConsent(bool isConsent)
+        private void InitAppodeal()
         {
             Appodeal.SetLogLevel(loggingToggle.isOn ? AppodealLogLevel.Verbose : AppodealLogLevel.None);
             Appodeal.SetTesting(testingToggle.isOn);
@@ -184,12 +184,6 @@ namespace AppodealSample
             rewardedVideoButtonText.text =  rewardedVideoAutoCacheToggle.isOn ? RewardedVideoCaching : RewardedVideoCache;
 
             SetAppodealCallbacks();
-
-            if (isConsent)
-            {
-                Appodeal.UpdateCcpaConsent(CcpaUserConsent.OptIn);
-                Appodeal.UpdateGdprConsent(GdprUserConsent.Personalized);
-            }
 
             int adTypes = (mrecInitializationToggle.isOn ? AppodealAdType.Mrec : 0) |
                           (bannerInitializationToggle.isOn ? AppodealAdType.Banner : 0) |

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDMetaAudienceNetworkAdapter" version="3.2.1.0" minTargetSdk="12.0" />
-        <iosPod name="BidMachineMetaAudienceAdapter" version="~> 2.4.0" minTargetSdk="12.0" />
+        <iosPod name="APDMetaAudienceNetworkAdapter" version="3.3.0.0-beta.1" minTargetSdk="12.0" />
+        <iosPod name="BidMachineMetaAudienceAdapter" version="~> 2.4.0.1" minTargetSdk="12.0" />
         <iosPod name="BidonAdapterMetaAudienceNetwork" version="~> 0.4.7" minTargetSdk="12.0" />
+        <iosPod name="AppLovinMediationFacebookAdapter" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:meta:3.2.1.0" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:meta:3.3.0.0-beta.1" />
+        <androidPackage spec="io.bidmachine:ads.networks.meta_audience:2.4.0.14" />
+        <androidPackage spec="org.bidon:meta-adapter:0.4.27.0" />
+        <androidPackage spec="com.applovin.mediation:facebook-adapter:6.16.0.2" />
         <repositories>
-            <repository>https://artifactory.appodeal.com/appodeal</repository>
+            <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
         </repositories>
     </androidPackages>
 </dependencies>

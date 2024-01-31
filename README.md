@@ -4,6 +4,15 @@ Stable version of Unity Appodeal SDK is 3.2.1. SDK integration documentation: [d
 
 ## Changelog
 
+3.3.0-beta.1 (January 31, 2024)
+
++ Updated Appodeal Android SDK to v3.3.0-beta.1
++ Updated Appodeal iOS SDK to v3.3.0-beta.1
++ Removed `UpdateGdprConsent()` method
++ Removed `UpdateCcpaConsent()` method
++ Removed `GdprUserConsent` enum
++ Removed `CcpaUserConsent` enum
+
 3.2.1 (January 24, 2024)
 
 + Updated Appodeal Android SDK to v3.2.1
