@@ -8,7 +8,7 @@
             url "https://maven.google.com"
         }
         maven {
-            url "https://artifactory.appodeal.com/appodeal" // Assets/Appodeal/Editor/Dependencies/AdColonyDependencies.xml:11, Assets/Appodeal/Editor/Dependencies/AdjustDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/AppLovinDependencies.xml:11, Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/AppsFlyerDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:15, Assets/Appodeal/Editor/Dependencies/BidonDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/BigoAdsDependencies.xml:11, Assets/Appodeal/Editor/Dependencies/DTExchangeDependencies.xml:11, Assets/Appodeal/Editor/Dependencies/FirebaseDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/IABDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/InMobiDependencies.xml:11, Assets/Appodeal/Editor/Dependencies/IronSourceDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/MetaDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/MintegralDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:11, Assets/Appodeal/Editor/Dependencies/SentryDependencies.xml:7, Assets/Appodeal/Editor/Dependencies/UnityDependencies.xml:11, Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:10
+            url "https://artifactory.appodeal.com/appodeal-beta-public" // Assets/Appodeal/Editor/Dependencies/AdjustDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/AmazonDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/AppLovinDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/AppLovinMAXDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/AppsFlyerDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:13, Assets/Appodeal/Editor/Dependencies/BidonDependencies.xml:11, Assets/Appodeal/Editor/Dependencies/BigoAdsDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/CriteoDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/DTExchangeDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/FirebaseDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:18, Assets/Appodeal/Editor/Dependencies/IABDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/InMobiDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/IronSourceDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:16, Assets/Appodeal/Editor/Dependencies/MetaDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/MintegralDependencies.xml:16, Assets/Appodeal/Editor/Dependencies/MobileFuseDependencies.xml:8, Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/PangleDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/SentryDependencies.xml:10, Assets/Appodeal/Editor/Dependencies/TapjoyDependencies.xml:12, Assets/Appodeal/Editor/Dependencies/UnityDependencies.xml:14, Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:16, Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:12
         }
         mavenLocal()
         mavenCentral()
@@ -21,28 +21,65 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
-    implementation 'com.appodeal.ads.sdk.networks:adcolony:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/AdColonyDependencies.xml:8
-    implementation 'com.appodeal.ads.sdk.networks:admob:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:9
-    implementation 'com.appodeal.ads.sdk.networks:applovin:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/AppLovinDependencies.xml:8
-    implementation 'com.appodeal.ads.sdk.networks:bidmachine:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:12
-    implementation 'com.appodeal.ads.sdk.networks:bidon:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/BidonDependencies.xml:9
-    implementation 'com.appodeal.ads.sdk.networks:bigo_ads:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/BigoAdsDependencies.xml:8
-    implementation 'com.appodeal.ads.sdk.networks:dt_exchange:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/DTExchangeDependencies.xml:8
-    implementation 'com.appodeal.ads.sdk.networks:iab:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/IABDependencies.xml:7
-    implementation 'com.appodeal.ads.sdk.networks:inmobi:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/InMobiDependencies.xml:8
-    implementation 'com.appodeal.ads.sdk.networks:ironsource:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/IronSourceDependencies.xml:7
-    implementation 'com.appodeal.ads.sdk.networks:meta:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:9
-    implementation 'com.appodeal.ads.sdk.networks:mintegral:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/MintegralDependencies.xml:9
-    implementation 'com.appodeal.ads.sdk.networks:my_target:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:8
-    implementation 'com.appodeal.ads.sdk.networks:unity_ads:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/UnityDependencies.xml:8
-    implementation 'com.appodeal.ads.sdk.networks:vungle:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:9
-    implementation 'com.appodeal.ads.sdk.networks:yandex:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:7
-    implementation 'com.appodeal.ads.sdk.services:adjust:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/AdjustDependencies.xml:11
-    implementation 'com.appodeal.ads.sdk.services:appsflyer:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/AppsFlyerDependencies.xml:7
-    implementation 'com.appodeal.ads.sdk.services:facebook_analytics:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/MetaDependencies.xml:7
-    implementation 'com.appodeal.ads.sdk.services:firebase:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/FirebaseDependencies.xml:7
-    implementation 'com.appodeal.ads.sdk.services:sentry_analytics:3.2.1.0' // Assets/Appodeal/Editor/Dependencies/SentryDependencies.xml:4
-    implementation 'com.appodeal.ads.sdk:core:3.2.1' // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:7
+    implementation 'com.applovin.mediation:bidmachine-adapter:2.4.0.0' // Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:10
+    implementation 'com.applovin.mediation:facebook-adapter:6.16.0.2' // Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:13
+    implementation 'com.applovin.mediation:fyber-adapter:8.2.5.0' // Assets/Appodeal/Editor/Dependencies/DTExchangeDependencies.xml:11
+    implementation 'com.applovin.mediation:google-adapter:22.6.0.0' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:14
+    implementation 'com.applovin.mediation:google-ad-manager-adapter:22.6.0.0' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:15
+    implementation 'com.applovin.mediation:ironsource-adapter:7.6.0.0.0' // Assets/Appodeal/Editor/Dependencies/IronSourceDependencies.xml:9
+    implementation 'com.applovin.mediation:mintegral-adapter:16.5.91.0' // Assets/Appodeal/Editor/Dependencies/MintegralDependencies.xml:13
+    implementation 'com.applovin.mediation:mytarget-adapter:5.20.0.0' // Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:11
+    implementation 'com.applovin.mediation:unityads-adapter:4.9.2.0' // Assets/Appodeal/Editor/Dependencies/UnityDependencies.xml:11
+    implementation 'com.applovin.mediation:vungle-adapter:7.0.0.0' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:13
+    implementation 'com.applovin.mediation:yandex-adapter:6.1.0.0' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:9
+    implementation 'com.appodeal.ads.sdk.networks:admob:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:11
+    implementation 'com.appodeal.ads.sdk.networks:amazon:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/AmazonDependencies.xml:9
+    implementation 'com.appodeal.ads.sdk.networks:applovin:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/AppLovinDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:applovin_max:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/AppLovinMAXDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk.networks:bidmachine:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:bidon:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/BidonDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:bigo_ads:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/BigoAdsDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:criteo:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/CriteoDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:dt_exchange:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/DTExchangeDependencies.xml:9
+    implementation 'com.appodeal.ads.sdk.networks:iab:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/IABDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk.networks:inmobi:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/InMobiDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:ironsource:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/IronSourceDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:meta:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:10
+    implementation 'com.appodeal.ads.sdk.networks:mintegral:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/MintegralDependencies.xml:10
+    implementation 'com.appodeal.ads.sdk.networks:mobilefuse:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/MobileFuseDependencies.xml:4
+    implementation 'com.appodeal.ads.sdk.networks:my_target:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:9
+    implementation 'com.appodeal.ads.sdk.networks:pangle:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/PangleDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:tapjoy:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/TapjoyDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.networks:unity_ads:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/UnityDependencies.xml:9
+    implementation 'com.appodeal.ads.sdk.networks:vungle:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:10
+    implementation 'com.appodeal.ads.sdk.networks:yandex:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/YandexDependencies.xml:8
+    implementation 'com.appodeal.ads.sdk.services:adjust:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/AdjustDependencies.xml:11
+    implementation 'com.appodeal.ads.sdk.services:appsflyer:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/AppsFlyerDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk.services:facebook_analytics:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/MetaDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk.services:firebase:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/FirebaseDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk.services:sentry_analytics:3.3.0.0-beta.1' // Assets/Appodeal/Editor/Dependencies/SentryDependencies.xml:7
+    implementation 'com.appodeal.ads.sdk:core:3.3.0-beta.1' // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:7
+    implementation 'io.bidmachine:ads.networks.amazon:2.4.0.12' // Assets/Appodeal/Editor/Dependencies/AmazonDependencies.xml:10
+    implementation 'io.bidmachine:ads.networks.criteo:2.4.0.11' // Assets/Appodeal/Editor/Dependencies/CriteoDependencies.xml:9
+    implementation 'io.bidmachine:ads.networks.meta_audience:2.4.0.14' // Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:11
+    implementation 'io.bidmachine:ads.networks.mintegral:2.4.0.6' // Assets/Appodeal/Editor/Dependencies/MintegralDependencies.xml:11
+    implementation 'io.bidmachine:ads.networks.my_target:2.4.0.12' // Assets/Appodeal/Editor/Dependencies/MyTargetDependencies.xml:10
+    implementation 'io.bidmachine:ads.networks.pangle:2.4.0.6' // Assets/Appodeal/Editor/Dependencies/PangleDependencies.xml:9
+    implementation 'io.bidmachine:ads.networks.tapjoy:2.4.0.10' // Assets/Appodeal/Editor/Dependencies/TapjoyDependencies.xml:9
+    implementation 'io.bidmachine:ads.networks.vungle:2.4.0.4' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:11
+    implementation 'org.bidon:admob-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:12
+    implementation 'org.bidon:amazon-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/AmazonDependencies.xml:11
+    implementation 'org.bidon:applovin-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/AppLovinDependencies.xml:9
+    implementation 'org.bidon:bidmachine-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/BidMachineDependencies.xml:9
+    implementation 'org.bidon:bigoads-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/BigoAdsDependencies.xml:9
+    implementation 'org.bidon:dtexchange-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/DTExchangeDependencies.xml:10
+    implementation 'org.bidon:gam-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/GoogleAdMobDependencies.xml:13
+    implementation 'org.bidon:inmobi-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/InMobiDependencies.xml:9
+    implementation 'org.bidon:meta-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/MetaAudienceNetworkDependencies.xml:12
+    implementation 'org.bidon:mintegral-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/MintegralDependencies.xml:12
+    implementation 'org.bidon:mobilefuse-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/MobileFuseDependencies.xml:5
+    implementation 'org.bidon:unityads-adapter:0.4.27.0' // Assets/Appodeal/Editor/Dependencies/UnityDependencies.xml:10
+    implementation 'org.bidon:vungle-adapter:0.4.27.1' // Assets/Appodeal/Editor/Dependencies/VungleDependencies.xml:12
 // Android Resolver Dependencies End
 **DEPS**}
 
