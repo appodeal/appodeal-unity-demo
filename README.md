@@ -4,6 +4,12 @@ Stable version of Unity Appodeal SDK is 3.2.1. SDK integration documentation: [d
 
 ## Changelog
 
+3.3.0-beta.2 (February 22, 2024)
+
++ Updated Appodeal Android SDK to v3.3.0-beta.2
++ Updated Appodeal iOS SDK to v3.3.0-beta.2
++ Disabled Appodeal Dependency Manager tool
+
 3.3.0-beta.1 (January 31, 2024)
 
 + Updated Appodeal Android SDK to v3.3.0-beta.1
