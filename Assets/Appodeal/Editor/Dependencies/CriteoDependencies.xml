@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDCriteoAdapter" version="3.3.0.0-beta.1" minTargetSdk="12.0" />
+        <iosPod name="APDCriteoAdapter" version="3.3.0.0-beta.2" minTargetSdk="12.0" />
         <iosPod name="BidMachineCriteoAdapter" version="~> 2.4.0.0" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:criteo:3.3.0.0-beta.1" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:criteo:3.3.0.0-beta.2" />
         <androidPackage spec="io.bidmachine:ads.networks.criteo:2.4.0.11" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>

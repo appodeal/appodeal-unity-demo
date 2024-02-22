@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDDTExchangeAdapter" version="3.3.0.0-beta.1" minTargetSdk="12.0" />
+        <iosPod name="APDDTExchangeAdapter" version="3.3.0.0-beta.2" minTargetSdk="12.0" />
         <iosPod name="BidonAdapterDTExchange" version="~> 0.4.7.3" minTargetSdk="12.0" />
         <iosPod name="AppLovinMediationFyberAdapter" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:dt_exchange:3.3.0.0-beta.1" />
-        <androidPackage spec="org.bidon:dtexchange-adapter:0.4.27.0" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:dt_exchange:3.3.0.0-beta.2" />
+        <androidPackage spec="org.bidon:dtexchange-adapter:0.4.29.0" />
         <androidPackage spec="com.applovin.mediation:fyber-adapter:8.2.5.0" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>

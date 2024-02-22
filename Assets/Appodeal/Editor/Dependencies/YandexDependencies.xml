@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDYandexAdapter" version="3.3.0.0-beta.1" minTargetSdk="12.0" />
+        <iosPod name="APDYandexAdapter" version="3.3.0.0-beta.2" minTargetSdk="12.0" />
         <iosPod name="AppLovinMediationYandexAdapter" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:yandex:3.3.0.0-beta.1" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:yandex:3.3.0.0-beta.2" />
         <androidPackage spec="com.applovin.mediation:yandex-adapter:6.1.0.0" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
