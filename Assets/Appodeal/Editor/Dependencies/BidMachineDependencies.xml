@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDBidMachineAdapter" version="3.3.0.0-beta.2" minTargetSdk="12.0" />
+        <iosPod name="APDBidMachineAdapter" version="3.3.0.0-beta.3" minTargetSdk="12.0" />
         <iosPod name="AppLovinMediationBidMachineAdapter" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:bidmachine:3.3.0.0-beta.2" />
-        <androidPackage spec="org.bidon:bidmachine-adapter:0.4.29.0" />
-        <androidPackage spec="com.applovin.mediation:bidmachine-adapter:2.4.0.0" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:bidmachine:3.3.0.0-beta.3" />
+        <androidPackage spec="org.bidon:bidmachine-adapter:0.4.29.1" />
+        <androidPackage spec="com.applovin.mediation:bidmachine-adapter:2.5.2.0" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
         </repositories>
