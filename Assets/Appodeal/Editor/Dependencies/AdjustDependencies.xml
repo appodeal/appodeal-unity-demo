@@ -8,7 +8,7 @@
         </iosPod>
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.services:adjust:3.3.0.0-beta.4" />
+        <androidPackage spec="com.appodeal.ads.sdk.services:adjust:3.3.0.0-beta.5" />
         <repositories>
             <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
         </repositories>

@@ -6,7 +6,7 @@
         <iosPod name="AppLovinMediationInMobiAdapter" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:inmobi:3.3.0.0-beta.4" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:inmobi:3.3.0.0-beta.5" />
         <androidPackage spec="org.bidon:inmobi-adapter:0.4.29.1" />
         <androidPackage spec="com.applovin.mediation:inmobi-adapter:10.6.7.0" />
         <repositories>

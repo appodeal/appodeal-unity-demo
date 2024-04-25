@@ -6,7 +6,7 @@
         <iosPod name="AppLovinMediationUnityAdsAdapter" minTargetSdk="11.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:unity_ads:3.3.0.0-beta.4" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:unity_ads:3.3.0.0-beta.5" />
         <androidPackage spec="org.bidon:unityads-adapter:0.4.29.2" />
         <androidPackage spec="com.applovin.mediation:unityads-adapter:4.10.0.0" />
         <repositories>
