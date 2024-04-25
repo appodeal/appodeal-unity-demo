@@ -6,7 +6,7 @@
         <iosPod name="AppLovinMediationMyTargetAdapter" minTargetSdk="12.4" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:my_target:3.3.0.0-beta.4" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:my_target:3.3.0.0-beta.5" />
         <androidPackage spec="io.bidmachine:ads.networks.my_target:2.6.0.15" />
         <androidPackage spec="com.applovin.mediation:mytarget-adapter:5.20.1.0" />
         <repositories>

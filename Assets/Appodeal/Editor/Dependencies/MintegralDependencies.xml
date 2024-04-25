@@ -7,7 +7,7 @@
         <iosPod name="AppLovinMediationMintegralAdapter" minTargetSdk="11.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:mintegral:3.3.0.0-beta.4" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:mintegral:3.3.0.0-beta.5" />
         <androidPackage spec="io.bidmachine:ads.networks.mintegral:2.6.0.7" />
         <androidPackage spec="org.bidon:mintegral-adapter:0.4.29.1" />
         <androidPackage spec="com.applovin.mediation:mintegral-adapter:16.6.71.0" />

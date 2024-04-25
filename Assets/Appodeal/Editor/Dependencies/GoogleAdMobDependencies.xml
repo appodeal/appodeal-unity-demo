@@ -8,7 +8,7 @@
         <iosPod name="AppLovinMediationGoogleAdManagerAdapter" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:admob:3.3.0.0-beta.4" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:admob:3.3.0.0-beta.5" />
         <androidPackage spec="org.bidon:admob-adapter:0.4.29.1" />
         <androidPackage spec="org.bidon:gam-adapter:0.4.29.1" />
         <androidPackage spec="com.applovin.mediation:google-adapter:23.0.0.1" />
