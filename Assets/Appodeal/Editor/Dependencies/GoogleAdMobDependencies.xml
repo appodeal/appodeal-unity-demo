@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDGoogleAdMobAdapter" version="3.3.0.0-beta.4" minTargetSdk="12.0" />
+        <iosPod name="APDGoogleAdMobAdapter" version="3.3.0.0" minTargetSdk="12.0" />
         <iosPod name="BidonAdapterGoogleAdManager" version="0.4.8.0" minTargetSdk="12.0" />
         <iosPod name="BidonAdapterGoogleMobileAds" version="0.4.8.0" minTargetSdk="12.0" />
         <iosPod name="AppLovinMediationGoogleAdapter" minTargetSdk="12.0" />
         <iosPod name="AppLovinMediationGoogleAdManagerAdapter" minTargetSdk="12.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:admob:3.3.0.0-beta.5" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:admob:3.3.0.0" />
         <androidPackage spec="org.bidon:admob-adapter:0.4.29.1" />
         <androidPackage spec="org.bidon:gam-adapter:0.4.29.1" />
         <androidPackage spec="com.applovin.mediation:google-adapter:23.0.0.1" />
         <androidPackage spec="com.applovin.mediation:google-ad-manager-adapter:23.0.0.1" />
         <repositories>
-            <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
         </repositories>
     </androidPackages>
 </dependencies>

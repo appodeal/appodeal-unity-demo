@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dependencies>
     <iosPods>
-        <iosPod name="APDMintegralAdapter" version="3.3.0.0-beta.4" minTargetSdk="12.0" />
+        <iosPod name="APDMintegralAdapter" version="3.3.0.0" minTargetSdk="12.0" />
         <iosPod name="BidMachineMintegralAdapter" version="2.6.0.0" minTargetSdk="12.0" />
         <iosPod name="BidonAdapterMintegral" version="0.4.8.0" minTargetSdk="12.0" />
-        <iosPod name="AppLovinMediationMintegralAdapter" minTargetSdk="11.0" />
+        <iosPod name="AppLovinMediationMintegralAdapter" version="7.6.1.0.0" minTargetSdk="11.0" />
     </iosPods>
     <androidPackages>
-        <androidPackage spec="com.appodeal.ads.sdk.networks:mintegral:3.3.0.0-beta.5" />
+        <androidPackage spec="com.appodeal.ads.sdk.networks:mintegral:3.3.0.0" />
         <androidPackage spec="io.bidmachine:ads.networks.mintegral:2.6.0.7" />
         <androidPackage spec="org.bidon:mintegral-adapter:0.4.29.1" />
         <androidPackage spec="com.applovin.mediation:mintegral-adapter:16.6.71.0" />
         <repositories>
-            <repository>https://artifactory.appodeal.com/appodeal-beta-public</repository>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
         </repositories>
     </androidPackages>
 </dependencies>
