@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDSmaatoAdapter" version="3.3.0.0" minTargetSdk="12.0" />
+        <iosPod name="BidMachineSmaatoAdapter" version="2.6.0.0" minTargetSdk="12.0" />
+    </iosPods>
+</dependencies>

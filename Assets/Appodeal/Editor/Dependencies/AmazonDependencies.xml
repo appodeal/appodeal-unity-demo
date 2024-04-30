@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDAmazonAdapter" version="3.3.0.0" minTargetSdk="12.0" />
+        <iosPod name="BidMachineAmazonAdapter" version="2.6.0.1" minTargetSdk="12.0" />
+        <iosPod name="BidonAdapterAmazon" version="0.4.8.0" minTargetSdk="12.0" />
+        <iosPod name="AppLovinMediationAmazonAdMarketplaceAdapter" minTargetSdk="12.0" />
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:amazon:3.3.0.0" />
+        <androidPackage spec="io.bidmachine:ads.networks.amazon:2.6.0.13" />
+        <androidPackage spec="org.bidon:amazon-adapter:0.4.29.1" />
+        <androidPackage spec="com.applovin.mediation:amazon-tam-adapter:9.9.3.2" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>

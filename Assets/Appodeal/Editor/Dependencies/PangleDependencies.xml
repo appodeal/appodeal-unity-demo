@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <iosPods>
+        <iosPod name="APDPangleAdapter" version="3.3.0.0" minTargetSdk="12.0" />
+        <iosPod name="BidMachinePangleAdapter" version="2.6.0.0" minTargetSdk="12.0" />
+    </iosPods>
+    <androidPackages>
+        <androidPackage spec="com.appodeal.ads.sdk.networks:pangle:3.3.0.0" />
+        <androidPackage spec="io.bidmachine:ads.networks.pangle:2.6.0.7" />
+        <repositories>
+            <repository>https://artifactory.appodeal.com/appodeal</repository>
+        </repositories>
+    </androidPackages>
+</dependencies>
