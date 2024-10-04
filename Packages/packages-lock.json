@@ -1,22 +1,22 @@
 {
   "dependencies": {
     "com.appodeal.mediation": {
-      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.3.0-beta.5",
+      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.4.0-beta.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.google.external-dependency-manager": "1.2.175"
       },
-      "hash": "b58ddd7ab6f4ed44d42316d7050022dee384a2a5"
+      "hash": "0f6fd07c69e9140b655d47c66b821cebc170039d"
     },
     "com.google.external-dependency-manager": {
-      "version": "file:Sources/com.google.external-dependency-manager-1.2.176.tgz",
+      "version": "file:Sources/com.google.external-dependency-manager-1.2.182.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {}
     },
     "com.unity.collab-proxy": {
-      "version": "2.0.7",
+      "version": "2.5.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -30,7 +30,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.28",
+      "version": "3.0.31",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -66,7 +66,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.8",
+      "version": "3.0.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -75,13 +75,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.4.8",
+      "version": "1.6.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
+        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.director": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"
