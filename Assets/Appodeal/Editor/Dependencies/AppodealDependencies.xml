@@ -1,37 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dependencies>
 	<iosPods>
-		<iosPod id="appodeal" name="Appodeal" version="3.4.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_adjust" name="APDAdjustAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_admob" name="APDGoogleAdMobAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_amazon" name="APDAmazonAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_applovin" name="APDAppLovinAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_appsflyer" name="APDAppsFlyerAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_bidmachine" name="APDBidMachineAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_bidon" name="APDBidonAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_bigo_ads" name="APDBigoAdsAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_dt_exchange" name="APDDTExchangeAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_facebook_analytics" name="APDFacebookAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_firebase" name="APDFirebaseAdapter" version="3.4.0.0-beta.1" minTargetSdk="13.0" />
-		<iosPod id="appodeal_iab" name="APDIABAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_inmobi" name="APDInMobiAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_ironsource" name="APDIronSourceAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_max" name="APDAppLovinMAXAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_meta_audience_network" name="APDMetaAudienceNetworkAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_mintegral" name="APDMintegralAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_my_target" name="APDMyTargetAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.4" />
-		<iosPod id="appodeal_pangle" name="APDPangleAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_sentry" name="APDSentryAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_smaato" name="APDSmaatoAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_unity_ads" name="APDUnityAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_vungle" name="APDVungleAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_yandex_ads" name="APDYandexAdapter" version="3.4.0.0-beta.1" minTargetSdk="12.0" />
+		<iosPod id="appodeal" name="Appodeal" version="3.4.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_adjust" name="APDAdjustAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_admob" name="APDGoogleAdMobAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_amazon" name="APDAmazonAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_applovin" name="APDAppLovinAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_appsflyer" name="APDAppsFlyerAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_bidmachine" name="APDBidMachineAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_bidon" name="APDBidonAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_bigo_ads" name="APDBigoAdsAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_dt_exchange" name="APDDTExchangeAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_facebook_analytics" name="APDFacebookAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_firebase" name="APDFirebaseAdapter" version="3.4.0.0-beta.2" minTargetSdk="13.0" />
+		<iosPod id="appodeal_iab" name="APDIABAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_inmobi" name="APDInMobiAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_ironsource" name="APDIronSourceAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_max" name="APDAppLovinMAXAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_meta_audience_network" name="APDMetaAudienceNetworkAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_mintegral" name="APDMintegralAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_my_target" name="APDMyTargetAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.4" />
+		<iosPod id="appodeal_pangle" name="APDPangleAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_sentry" name="APDSentryAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_unity_ads" name="APDUnityAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_vungle" name="APDVungleAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
+		<iosPod id="appodeal_yandex_ads" name="APDYandexAdapter" version="3.4.0.0-beta.2" minTargetSdk="12.0" />
 		<iosPod id="bidmachine_amazon" name="BidMachineAmazonAdapter" version="3.0.1.0" minTargetSdk="12.0" />
 		<iosPod id="bidmachine_meta_audience_network" name="BidMachineMetaAudienceAdapter" version="3.0.1.0" minTargetSdk="12.0" />
 		<iosPod id="bidmachine_mintegral" name="BidMachineMintegralAdapter" version="3.0.1.0" minTargetSdk="12.0" />
 		<iosPod id="bidmachine_my_target" name="BidMachineMyTargetAdapter" version="3.0.1.1" minTargetSdk="12.4" />
 		<iosPod id="bidmachine_pangle" name="BidMachinePangleAdapter" version="3.0.1.0" minTargetSdk="12.0" />
-		<iosPod id="bidmachine_smaato" name="BidMachineSmaatoAdapter" version="3.0.1.0" minTargetSdk="12.0" />
 		<iosPod id="bidmachine_vungle" name="BidMachineVungleAdapter" version="3.0.1.0" minTargetSdk="12.0" />
 		<iosPod id="bidon_admob" name="BidonAdapterGoogleMobileAds" version="0.7.0.0-beta.1" minTargetSdk="12.0" />
 		<iosPod id="bidon_applovin" name="BidonAdapterAppLovin" version="0.7.0.0-beta.1" minTargetSdk="12.0" />
