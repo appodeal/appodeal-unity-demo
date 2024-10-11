@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "com.appodeal.mediation": {
-      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.4.0-beta.1",
+      "version": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.4.0-beta.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.google.external-dependency-manager": "1.2.175"
       },
-      "hash": "0f6fd07c69e9140b655d47c66b821cebc170039d"
+      "hash": "3ef7534a8e8530b0358013e000e071383f810ef7"
     },
     "com.google.external-dependency-manager": {
       "version": "file:Sources/com.google.external-dependency-manager-1.2.182.tgz",
