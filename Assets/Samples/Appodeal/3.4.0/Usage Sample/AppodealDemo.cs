@@ -1,13 +1,14 @@
-﻿using System;
-using System.Linq;
+﻿// ReSharper Disable CheckNamespace
+
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 using AppodealStack.Monetization.Api;
 using AppodealStack.Monetization.Common;
 
-// ReSharper disable CheckNamespace
 namespace AppodealSample
 {
     public class AppodealDemo : MonoBehaviour
@@ -48,11 +49,11 @@ namespace AppodealSample
 
         #region Appodeal Application Key
 
-#if UNITY_EDITOR && !UNITY_ANDROID && !UNITY_IPHONE
+#if UNITY_EDITOR && !UNITY_ANDROID && !UNITY_IOS
         private const string AppKey = "";
 #elif UNITY_ANDROID
         private const string AppKey = "fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f";
-#elif UNITY_IPHONE
+#elif UNITY_IOS
         private const string AppKey = "466de0d625e01e8811c588588a42a55970bc7c132649eede";
 #else
 	    private const string AppKey = "";
@@ -312,7 +313,7 @@ namespace AppodealSample
         {
             AppodealCallbacks.Sdk.OnInitialized += OnInitializationFinished;
 
-            AppodealCallbacks.AdRevenue.OnReceived += (sender, args) =>
+            AppodealCallbacks.AdRevenue.OnReceived += (_, args) =>
             {
                 Debug.Log($"[APDUnity] [Callback] OnAdRevenueReceived({args.Ad.ToJsonString(true)})");
             };
@@ -320,12 +321,12 @@ namespace AppodealSample
             AppodealCallbacks.InAppPurchase.OnValidationSucceeded += OnInAppPurchaseValidationSucceeded;
             AppodealCallbacks.InAppPurchase.OnValidationFailed += OnInAppPurchaseValidationFailed;
 
-            AppodealCallbacks.Mrec.OnLoaded += (sender, args) => OnMrecLoaded(args.IsPrecache);
-            AppodealCallbacks.Mrec.OnFailedToLoad += (sender, args) => OnMrecFailedToLoad();
-            AppodealCallbacks.Mrec.OnShown += (sender, args) => OnMrecShown();
-            AppodealCallbacks.Mrec.OnShowFailed += (sender, args) => OnMrecShowFailed();
-            AppodealCallbacks.Mrec.OnClicked += (sender, args) => OnMrecClicked();
-            AppodealCallbacks.Mrec.OnExpired += (sender, args) => OnMrecExpired();
+            AppodealCallbacks.Mrec.OnLoaded += (_, args) => OnMrecLoaded(args.IsPrecache);
+            AppodealCallbacks.Mrec.OnFailedToLoad += (_, _) => OnMrecFailedToLoad();
+            AppodealCallbacks.Mrec.OnShown += (_, _) => OnMrecShown();
+            AppodealCallbacks.Mrec.OnShowFailed += (_, _) => OnMrecShowFailed();
+            AppodealCallbacks.Mrec.OnClicked += (_, _) => OnMrecClicked();
+            AppodealCallbacks.Mrec.OnExpired += (_, _) => OnMrecExpired();
 
             AppodealCallbacks.Banner.OnLoaded += OnBannerLoaded;
             AppodealCallbacks.Banner.OnFailedToLoad += OnBannerFailedToLoad;
