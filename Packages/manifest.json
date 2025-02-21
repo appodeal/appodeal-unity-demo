@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.appodeal.mediation": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.4.1",
+    "com.appodeal.mediation": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.4.2",
     "com.google.external-dependency-manager": "file:Sources/com.google.external-dependency-manager-1.2.182.tgz",
     "com.unity.collab-proxy": "2.5.2",
     "com.unity.ide.rider": "3.0.34",
