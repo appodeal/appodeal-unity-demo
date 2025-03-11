@@ -1,8 +1,17 @@
 # Appodeal Unity Plugin
 
-Stable version of Unity Appodeal SDK is 3.4.2. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
+Stable version of Unity Appodeal SDK is 3.5.0. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
 
 ## Changelog
+
+3.5.0 (March 11, 2025)
+
++ Updated Appodeal Android SDK to v3.5.0
++ Updated Appodeal iOS SDK to v3.5.0
++ Implemented `SetBidonEndpoint` and `GetBidonEndpoint` public API methods
++ Replaced certain SDK logos in Plugin's Dependency Manager
++ Added mediation engines ordering in Plugin's Dependency Manager
++ Added descriptions for new adapters in Plugin's Dependency Manager
 
 3.4.2 (February 21, 2025)
 

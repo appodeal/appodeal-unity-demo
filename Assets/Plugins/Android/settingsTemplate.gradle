@@ -19,16 +19,16 @@ dependencyResolutionManagement {
 // Android Resolver Repos Start
         def unityProjectPath = $/file:///**DIR_UNITYPROJECT**/$.replace("\\", "/")
         maven {
-            url "https://artifactory.appodeal.com/appodeal" // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:135
+            url "https://artifactory.appodeal.com/appodeal" // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:193
         }
         maven {
-            url "https://artifactory.bidmachine.io/bidmachine" // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:135
+            url "https://artifactory.bidmachine.io/bidmachine" // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:193
         }
         maven {
-            url "https://artifactory.bidon.org/bidon" // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:135
+            url "https://artifactory.bidon.org/bidon" // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:193
         }
         maven {
-            url "https://repo1.maven.org/maven2" // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:135
+            url "https://repo1.maven.org/maven2" // Assets/Appodeal/Editor/Dependencies/AppodealDependencies.xml:193
         }
         mavenLocal()
 // Android Resolver Repos End
