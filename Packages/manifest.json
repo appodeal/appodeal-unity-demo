@@ -3,7 +3,7 @@
     "com.appodeal.mediation": "https://github.com/appodeal/appodeal-unity-plugin-upm.git#v3.5.1",
     "com.google.external-dependency-manager": "file:Sources/com.google.external-dependency-manager-1.2.182.tgz",
     "com.unity.collab-proxy": "2.5.2",
-    "com.unity.ide.rider": "3.0.35",
+    "com.unity.ide.rider": "3.0.36",
     "com.unity.ide.visualstudio": "2.0.23",
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.test-framework": "1.1.33",
