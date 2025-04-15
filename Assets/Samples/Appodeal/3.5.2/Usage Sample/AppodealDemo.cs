@@ -44,6 +44,11 @@ namespace AppodealSample
         [SerializeField] private Text               pluginVersionText;
         [SerializeField] private Text               interstitialButtonText;
         [SerializeField] private Text               rewardedVideoButtonText;
+        [SerializeField] private Toggle             allServicesToggle;
+        [SerializeField] private Toggle             adjustServiceToggle;
+        [SerializeField] private Toggle             appsFlyerServiceToggle;
+        [SerializeField] private Toggle             facebookServiceToggle;
+        [SerializeField] private Toggle             firebaseServiceToggle;
 
         #endregion
 
@@ -64,6 +69,8 @@ namespace AppodealSample
         #region  Other Demo Scene Fields
 
         private bool _shouldChangeIntText, _shouldChangeRewText;
+
+        private List<Toggle> _serviceToggles;
 
         #endregion
 
@@ -90,6 +97,19 @@ namespace AppodealSample
             Assert.IsNotNull(pluginVersionText);
             Assert.IsNotNull(interstitialButtonText);
             Assert.IsNotNull(rewardedVideoButtonText);
+            Assert.IsNotNull(allServicesToggle);
+            Assert.IsNotNull(adjustServiceToggle);
+            Assert.IsNotNull(appsFlyerServiceToggle);
+            Assert.IsNotNull(facebookServiceToggle);
+            Assert.IsNotNull(firebaseServiceToggle);
+
+            _serviceToggles = new List<Toggle>
+            {
+                adjustServiceToggle,
+                appsFlyerServiceToggle,
+                facebookServiceToggle,
+                firebaseServiceToggle,
+            };
         }
 
         private void Start()
@@ -140,6 +160,30 @@ namespace AppodealSample
             panels[index + 1].SetActive(true);
             if (index - 1 <= 0) previousPanelButton.interactable = true;
             if (index + 2 >= panels.Count) nextPanelButton.interactable = false;
+        }
+
+        public void OnServiceToggleValueChanged()
+        {
+            if (_serviceToggles.Any(toggle => !toggle.isOn)) return;
+
+            allServicesToggle.isOn = true;
+            _serviceToggles.ForEach(toggle => toggle.interactable = false);
+        }
+
+        public void OnAllServicesToggleValueChanged(bool isOn)
+        {
+            if (isOn)
+            {
+                _serviceToggles.ForEach(toggle =>
+                {
+                    toggle.isOn = true;
+                    toggle.interactable = false;
+                });
+            }
+            else
+            {
+                _serviceToggles.ForEach(toggle => toggle.interactable = true);
+            }
         }
 
         #endregion
@@ -302,7 +346,20 @@ namespace AppodealSample
 
         public void LogEvent()
         {
-            Appodeal.LogEvent("test_event", new Dictionary<string, object> { { "test_key_1", 42 }, { "test_key_2", "test_value" } });
+            var eventParams = new Dictionary<string, object> { { "test_key_1", 42 }, { "test_key_2", "test_value" } };
+            if (allServicesToggle.isOn)
+            {
+                Appodeal.LogEvent("test_event", eventParams);
+            }
+            else
+            {
+                AppodealService services = 0;
+                if (adjustServiceToggle.isOn) services |= AppodealService.Adjust;
+                if (appsFlyerServiceToggle.isOn) services |= AppodealService.AppsFlyer;
+                if (facebookServiceToggle.isOn) services |= AppodealService.Facebook;
+                if (firebaseServiceToggle.isOn) services |= AppodealService.Firebase;
+                Appodeal.LogEvent("test_event", eventParams, services);
+            }
         }
 
         #endregion
@@ -385,6 +442,10 @@ namespace AppodealSample
             networksList = Appodeal.GetNetworks(AppodealAdType.Mrec);
             output = networksList == null ? String.Empty : String.Join(", ", (networksList.ToArray()));
             Debug.Log($"[APDUnity] [Appodeal] GetNetworks() for Mrec: {output}");
+
+            pluginVersionText.text = $"Appodeal Unity Plugin v{ AppodealVersions.GetPluginVersion() } & SDK v{ Appodeal.GetNativeSDKVersion() }";
+
+            Appodeal.ShowMediationDebugger();
         }
 
         #endregion
