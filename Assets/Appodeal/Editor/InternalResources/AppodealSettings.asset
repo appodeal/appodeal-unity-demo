@@ -271,11 +271,13 @@ MonoBehaviour:
   - zh3b7bxvad.skadnetwork
   - zmvfpc5aq8.skadnetwork
   - zq492l623r.skadnetwork
+  facebookAutoConfiguration: 0
   facebookAndroidAppId: 
   facebookIosAppId: 
   facebookAndroidClientToken: 
   facebookIosClientToken: 
-  firebaseAutoConfiguration: 0
-  facebookAutoConfiguration: 0
   facebookAutoLogAppEvents: 0
   facebookAdvertiserIDCollection: 0
+  firebaseAutoConfiguration: 0
+  isMaxAdReviewEnabled: 0
+  maxSdkKey: 
