@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dependencies pluginVersion="4.0.0">
+<dependencies pluginVersion="4.1.0">
 	<iosPods>
-		<iosPod id="appodeal" name="Appodeal" version="4.0.0" minTargetSdk="12.0" />
-		<iosPod id="appodeal_adjust" name="AppodealAdjustAdapter" version="5.4.6.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal" name="Appodeal" version="4.1.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal_adjust" name="AppodealAdjustAdapter" version="5.4.6.1" minTargetSdk="12.0" />
 		<iosPod id="appodeal_admob" name="AppodealGoogleAdMobAdapter" version="12.13.0.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_amazon" name="AppodealAmazonAdapter" version="5.3.2.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_applovin" name="AppodealAppLovinAdapter" version="13.5.1.0" minTargetSdk="12.0" />
-		<iosPod id="appodeal_appsflyer" name="AppodealAppsFlyerAdapter" version="6.17.7.0" minTargetSdk="12.0" />
-		<iosPod id="appodeal_bidmachine" name="AppodealBidMachineAdapter" version="3.5.0.0" minTargetSdk="12.0" />
-		<iosPod id="appodeal_bidon" name="AppodealBidonAdapter" version="0.14.0.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal_appsflyer" name="AppodealAppsFlyerAdapter" version="6.17.7.1" minTargetSdk="12.0" />
+		<iosPod id="appodeal_bidmachine" name="AppodealBidMachineAdapter" version="3.6.1.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal_bidon" name="AppodealBidonAdapter" version="0.14.0.1" minTargetSdk="12.0" />
 		<iosPod id="appodeal_bigo_ads" name="AppodealBigoAdsAdapter" version="5.0.0.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_dt_exchange" name="AppodealDTExchangeAdapter" version="8.4.1.0" minTargetSdk="13.0" />
 		<iosPod id="appodeal_facebook_analytics" name="AppodealFacebookAdapter" version="18.0.1.0" minTargetSdk="12.0" />
-		<iosPod id="appodeal_firebase" name="AppodealFirebaseAdapter" version="12.4.0.0" minTargetSdk="15.0" />
+		<iosPod id="appodeal_firebase" name="AppodealFirebaseAdapter" version="12.4.0.1" minTargetSdk="15.0" />
 		<iosPod id="appodeal_iab" name="AppodealIABAdapter" version="3.4.7.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_inmobi" name="AppodealInMobiAdapter" version="11.1.0.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_ironsource" name="AppodealIronSourceAdapter" version="9.1.0.0.0" minTargetSdk="13.0" />
 		<iosPod id="appodeal_levelplay" name="AppodealLevelPlayAdapter" version="9.1.0.0.0" minTargetSdk="13.0" />
-		<iosPod id="appodeal_max" name="AppodealAppLovinMAXAdapter" version="13.5.1.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal_max" name="AppodealAppLovinMAXAdapter" version="13.5.1.1" minTargetSdk="12.0" />
 		<iosPod id="appodeal_meta_audience_network" name="AppodealMetaAudienceNetworkAdapter" version="6.20.1.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_mintegral" name="AppodealMintegralAdapter" version="7.7.9.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_my_target" name="AppodealMyTargetAdapter" version="5.36.2.0" minTargetSdk="12.4" />
@@ -27,7 +27,7 @@
 		<iosPod id="appodeal_yandex_ads" name="AppodealYandexAdapter" version="7.17.0.1" minTargetSdk="13.0" />
 		<iosPod id="bidon_amazon" name="BidonAdapterAmazon" version="5.3.2.0" minTargetSdk="12.0" />
 		<iosPod id="bidon_applovin" name="BidonAdapterAppLovin" version="13.5.1.0" minTargetSdk="12.0" />
-		<iosPod id="bidon_bidmachine" name="BidonAdapterBidMachine" version="3.5.0.0" minTargetSdk="12.0" />
+		<iosPod id="bidon_bidmachine" name="BidonAdapterBidMachine" version="3.6.1.0" minTargetSdk="12.0" />
 		<iosPod id="bidon_bigo_ads" name="BidonAdapterBigoAds" version="5.0.0.0" minTargetSdk="12.0" />
 		<iosPod id="bidon_chartboost" name="BidonAdapterChartboost" version="9.10.1.0" minTargetSdk="12.0" />
 		<iosPod id="bidon_dt_exchange" name="BidonAdapterDTExchange" version="8.4.1.0" minTargetSdk="13.0" />
@@ -43,9 +43,10 @@
 		<iosPod id="bidon_unity_ads" name="BidonAdapterUnityAds" version="4.16.3.0" minTargetSdk="13.0" />
 		<iosPod id="bidon_vungle" name="BidonAdapterVungle" version="7.6.2.0" minTargetSdk="12.0" />
 		<iosPod id="bidon_yandex_ads" name="BidonAdapterYandex" version="7.17.0.0" minTargetSdk="13.0" />
+		<iosPod id="bidon_zmaticoo" name="BidonAdapterZmaticoo" version="1.5.6.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_admob" name="IronSourceAdMobAdapter" version="5.3.0.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_applovin" name="IronSourceAppLovinAdapter" version="5.3.0.0" minTargetSdk="12.0" />
-		<iosPod id="levelplay_bidmachine" name="IronSourceBidMachineAdapter" version="5.1.0.0" minTargetSdk="12.0" />
+		<iosPod id="levelplay_bidmachine" name="IronSourceBidMachineAdapter" version="5.4.0.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_bigo_ads" name="IronSourceBigoAdapter" version="5.1.0.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_dt_exchange" name="IronSourceFyberAdapter" version="5.2.0.0" minTargetSdk="13.0" />
 		<iosPod id="levelplay_inmobi" name="IronSourceInMobiAdapter" version="5.3.0.0" minTargetSdk="12.0" />
@@ -62,7 +63,7 @@
 		<iosPod id="levelplay_vungle" name="IronSourceVungleAdapter" version="5.3.0.0" minTargetSdk="12.0" />
 		<iosPod id="max_admob" name="AppLovinMediationGoogleAdapter" version="12.13.0.0" minTargetSdk="12.0" />
 		<iosPod id="max_amazon" name="AppLovinMediationAmazonAdMarketplaceAdapter" version="5.3.2.0" minTargetSdk="12.0" />
-		<iosPod id="max_bidmachine" name="AppLovinMediationBidMachineAdapter" version="3.5.0.0.0" minTargetSdk="12.0" />
+		<iosPod id="max_bidmachine" name="AppLovinMediationBidMachineAdapter" version="3.6.1.0.0" minTargetSdk="12.0" />
 		<iosPod id="max_bigo_ads" name="AppLovinMediationBigoAdsAdapter" version="5.0.0.0" minTargetSdk="12.0" />
 		<iosPod id="max_chartboost" name="AppLovinMediationChartboostAdapter" version="9.10.1.0" minTargetSdk="12.0" />
 		<iosPod id="max_dt_exchange" name="AppLovinMediationFyberAdapter" version="8.4.1.0" minTargetSdk="13.0" />
@@ -88,24 +89,24 @@
 		</sources>
 	</iosPods>
 	<androidPackages>
-		<androidPackage id="appodeal" spec="com.appodeal.ads.sdk:core:4.0.0" />
-		<androidPackage id="appodeal_adjust" spec="com.appodeal.ads.sdk.adapters:adjust:5.4.6.0" />
+		<androidPackage id="appodeal" spec="com.appodeal.ads.sdk:core:4.1.0" />
+		<androidPackage id="appodeal_adjust" spec="com.appodeal.ads.sdk.adapters:adjust:5.4.6.1" />
 		<androidPackage id="appodeal_admob" spec="com.appodeal.ads.sdk.adapters:admob:24.7.0.0" />
-		<androidPackage id="appodeal_amazon" spec="com.appodeal.ads.sdk.adapters:amazon:11.1.1.0" />
+		<androidPackage id="appodeal_amazon" spec="com.appodeal.ads.sdk.adapters:amazon:11.1.1.1" />
 		<androidPackage id="appodeal_applovin" spec="com.appodeal.ads.sdk.adapters:applovin:13.5.1.0" />
-		<androidPackage id="appodeal_appsflyer" spec="com.appodeal.ads.sdk.adapters:appsflyer:6.17.3.0" />
-		<androidPackage id="appodeal_bidmachine" spec="com.appodeal.ads.sdk.adapters:bidmachine:3.5.0.0" />
+		<androidPackage id="appodeal_appsflyer" spec="com.appodeal.ads.sdk.adapters:appsflyer:6.17.3.1" />
+		<androidPackage id="appodeal_bidmachine" spec="com.appodeal.ads.sdk.adapters:bidmachine:3.6.1.0" />
 		<androidPackage id="appodeal_bidon" spec="com.appodeal.ads.sdk.adapters:bidon:0.13.0.0" />
 		<androidPackage id="appodeal_bigo_ads" spec="com.appodeal.ads.sdk.adapters:bigo_ads:5.6.2.0" />
 		<androidPackage id="appodeal_chartboost" spec="com.appodeal.ads.sdk.adapters:chartboost:9.10.2.0" />
 		<androidPackage id="appodeal_dt_exchange" spec="com.appodeal.ads.sdk.adapters:dt_exchange:8.4.1.0" />
 		<androidPackage id="appodeal_facebook_analytics" spec="com.appodeal.ads.sdk.adapters:facebook_analytics:18.0.3.0" />
-		<androidPackage id="appodeal_firebase" spec="com.appodeal.ads.sdk.adapters:firebase:23.0.0.0" />
+		<androidPackage id="appodeal_firebase" spec="com.appodeal.ads.sdk.adapters:firebase:23.0.0.1" />
 		<androidPackage id="appodeal_iab" spec="com.appodeal.ads.sdk.adapters:iab:1.8.1.0" />
 		<androidPackage id="appodeal_inmobi" spec="com.appodeal.ads.sdk.adapters:inmobi:11.1.0.0" />
 		<androidPackage id="appodeal_ironsource" spec="com.appodeal.ads.sdk.adapters:ironsource:9.1.0.0" />
 		<androidPackage id="appodeal_levelplay" spec="com.appodeal.ads.sdk.adapters:level_play:9.1.0.0" />
-		<androidPackage id="appodeal_max" spec="com.appodeal.ads.sdk.adapters:applovin_max:13.5.1.0" />
+		<androidPackage id="appodeal_max" spec="com.appodeal.ads.sdk.adapters:applovin_max:13.5.1.1" />
 		<androidPackage id="appodeal_meta_audience_network" spec="com.appodeal.ads.sdk.adapters:meta:6.20.0.0" />
 		<androidPackage id="appodeal_mintegral" spec="com.appodeal.ads.sdk.adapters:mintegral:17.0.31.0" />
 		<androidPackage id="appodeal_mobilefuse" spec="com.appodeal.ads.sdk.adapters:mobilefuse:1.9.3.0" />
@@ -122,14 +123,15 @@
 		<androidPackage id="appodeal_verve" spec="com.appodeal.ads.sdk.adapters:verve:3.7.1.0" />
 		<androidPackage id="appodeal_vungle" spec="com.appodeal.ads.sdk.adapters:vungle:7.6.1.0" />
 		<androidPackage id="appodeal_yandex_ads" spec="com.appodeal.ads.sdk.adapters:yandex:7.17.0.0" />
-		<androidPackage id="bidmachine_amazon" spec="io.bidmachine:ads.networks.amazon:3.5.0.20" />
-		<androidPackage id="bidmachine_mintegral" spec="io.bidmachine:ads.networks.mintegral:3.5.0.16" />
-		<androidPackage id="bidmachine_my_target" spec="io.bidmachine:ads.networks.my_target:3.5.0.21" />
-		<androidPackage id="bidmachine_pangle" spec="io.bidmachine:ads.networks.pangle:3.5.0.15" />
-		<androidPackage id="bidmachine_vungle" spec="io.bidmachine:ads.networks.vungle:3.5.0.11" />
+		<androidPackage id="bidmachine_amazon" spec="io.bidmachine:ads.networks.amazon:11.1.1.0" />
+		<androidPackage id="bidmachine_meta_audience_network" spec="io.bidmachine:ads.networks.meta_audience:6.20.0.0" />
+		<androidPackage id="bidmachine_mintegral" spec="io.bidmachine:ads.networks.mintegral:17.0.31.0" />
+		<androidPackage id="bidmachine_my_target" spec="io.bidmachine:ads.networks.my_target:5.27.4.0" />
+		<androidPackage id="bidmachine_pangle" spec="io.bidmachine:ads.networks.pangle:7.7.0.2.0" />
+		<androidPackage id="bidmachine_vungle" spec="io.bidmachine:ads.networks.vungle:7.6.1.0" />
 		<androidPackage id="bidon_amazon" spec="org.bidon:amazon-adapter:11.1.1.0" />
 		<androidPackage id="bidon_applovin" spec="org.bidon:applovin-adapter:13.5.1.0" />
-		<androidPackage id="bidon_bidmachine" spec="org.bidon:bidmachine-adapter:3.5.0.0" />
+		<androidPackage id="bidon_bidmachine" spec="org.bidon:bidmachine-adapter:3.6.1.0" />
 		<androidPackage id="bidon_bigo_ads" spec="org.bidon:bigoads-adapter:5.6.2.0" />
 		<androidPackage id="bidon_chartboost" spec="org.bidon:chartboost-adapter:9.10.2.0" />
 		<androidPackage id="bidon_dt_exchange" spec="org.bidon:dtexchange-adapter:8.4.1.0" />
@@ -145,26 +147,26 @@
 		<androidPackage id="bidon_unity_ads" spec="org.bidon:unityads-adapter:4.16.4.1" />
 		<androidPackage id="bidon_vungle" spec="org.bidon:vungle-adapter:7.6.1.0" />
 		<androidPackage id="bidon_yandex_ads" spec="org.bidon:yandex-adapter:7.17.0.0" />
+		<androidPackage id="bidon_zmaticoo" spec="org.bidon:zmaticoo-adapter:2.0.5.0.0" />
 		<androidPackage id="levelplay_admob" spec="com.unity3d.ads-mediation:admob-adapter:5.2.0" />
 		<androidPackage id="levelplay_applovin" spec="com.unity3d.ads-mediation:applovin-adapter:5.2.0" />
-		<androidPackage id="levelplay_bidmachine" spec="com.unity3d.ads-mediation:bidmachine-adapter:5.1.0" />
-		<androidPackage id="levelplay_bigo_ads" spec="com.unity3d.ads-mediation:bigo-adapter:5.2.0" />
+		<androidPackage id="levelplay_bigo_ads" spec="com.unity3d.ads-mediation:bigo-adapter:5.3.0" />
 		<androidPackage id="levelplay_dt_exchange" spec="com.unity3d.ads-mediation:fyber-adapter:5.1.0" />
 		<androidPackage id="levelplay_inmobi" spec="com.unity3d.ads-mediation:inmobi-adapter:5.3.0" />
 		<androidPackage id="levelplay_meta_audience_network" spec="com.unity3d.ads-mediation:facebook-adapter:5.0.0" />
-		<androidPackage id="levelplay_mintegral" spec="com.unity3d.ads-mediation:mintegral-adapter:5.3.0" />
-		<androidPackage id="levelplay_mobilefuse" spec="com.unity3d.ads-mediation:mobilefuse-adapter:5.0.0" />
+		<androidPackage id="levelplay_mintegral" spec="com.unity3d.ads-mediation:mintegral-adapter:5.6.0" />
+		<androidPackage id="levelplay_mobilefuse" spec="com.unity3d.ads-mediation:mobilefuse-adapter:5.1.0" />
 		<androidPackage id="levelplay_moloco" spec="com.unity3d.ads-mediation:moloco-adapter:5.5.0" />
 		<androidPackage id="levelplay_my_target" spec="com.unity3d.ads-mediation:mytarget-adapter:5.2.0" />
-		<androidPackage id="levelplay_ogury" spec="com.unity3d.ads-mediation:ogury-adapter:5.1.0" />
+		<androidPackage id="levelplay_ogury" spec="com.unity3d.ads-mediation:ogury-adapter:5.2.0" />
 		<androidPackage id="levelplay_pangle" spec="com.unity3d.ads-mediation:pangle-adapter:5.3.0" />
 		<androidPackage id="levelplay_smaato" spec="com.unity3d.ads-mediation:smaato-adapter:5.0.0" />
 		<androidPackage id="levelplay_unity_ads" spec="com.unity3d.ads-mediation:unityads-adapter:5.3.0" />
 		<androidPackage id="levelplay_verve" spec="com.unity3d.ads-mediation:verve-adapter:5.2.0" />
-		<androidPackage id="levelplay_vungle" spec="com.unity3d.ads-mediation:vungle-adapter:5.2.0" />
+		<androidPackage id="levelplay_vungle" spec="com.unity3d.ads-mediation:vungle-adapter:5.4.0" />
 		<androidPackage id="max_admob" spec="com.applovin.mediation:google-adapter:24.7.0.0" />
 		<androidPackage id="max_amazon" spec="com.applovin.mediation:amazon-tam-adapter:11.1.1.0" />
-		<androidPackage id="max_bidmachine" spec="com.applovin.mediation:bidmachine-adapter:3.5.0.0" />
+		<androidPackage id="max_bidmachine" spec="com.applovin.mediation:bidmachine-adapter:3.6.1.0" />
 		<androidPackage id="max_bigo_ads" spec="com.applovin.mediation:bigoads-adapter:5.6.2.0" />
 		<androidPackage id="max_chartboost" spec="com.applovin.mediation:chartboost-adapter:9.10.2.0" />
 		<androidPackage id="max_dt_exchange" spec="com.applovin.mediation:fyber-adapter:8.4.1.0" />
@@ -186,7 +188,6 @@
 		<androidPackage id="max_yandex_ads" spec="com.applovin.mediation:yandex-adapter:7.17.0.0" />
 		<repositories>
 			<repository>https://artifactory.appodeal.com/appodeal</repository>
-			<repository>https://artifactory.bidmachine.io/bidmachine</repository>
 			<repository>https://artifactory.bidon.org/bidon</repository>
 			<repository>https://repo1.maven.org/maven2</repository>
 		</repositories>
