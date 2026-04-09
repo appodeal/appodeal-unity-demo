@@ -1,8 +1,21 @@
 # Appodeal Unity Plugin
 
-Stable version of Unity Appodeal SDK is 4.0.0. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
+Stable version of Unity Appodeal SDK is 4.1.0. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
 
 ## Changelog
+
+4.1.0 (April 09, 2026)
+
++ Updated Appodeal Android SDK to v4.1.0
++ Updated Appodeal iOS SDK to v4.1.0
++ Implemented custom Appodeal SDK endpoint configuration
++ Added `AdAttributionKit` identifier support on iOS
++ Added `UxmlElement` attribute support for Unity 6.0+ UI Toolkit
++ Added release preparation workflow and configuration
++ Renamed AppLovin MAX CocoaPods prefix from `APD` to `Appodeal`
++ Changed ad revenue callbacks to run on a background thread
++ Disabled iOS native plugin files for `tvOS` builds
++ Configured iOS pods validation to run only when dependency definitions change
 
 4.0.0 (February 02, 2026)
 
