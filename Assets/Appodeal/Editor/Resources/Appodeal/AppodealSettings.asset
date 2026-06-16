@@ -284,6 +284,15 @@ MonoBehaviour:
   - zh3b7bxvad.skadnetwork
   - zmvfpc5aq8.skadnetwork
   - zq492l623r.skadnetwork
+  iosAakIds: 1
+  iosAakIdsList:
+  - 6lz2ygh3q6.adattributionkit
+  - 77y3x8wds4.adattributionkit
+  - m2jqnlggk3.adattributionkit
+  - p2jcxbzuuv.adattributionkit
+  - pg7ctvrt6f.adattributionkit
+  - raa6f494kr.adattributionkit
+  - thzdn4h5nc.adattributionkit
   facebookAutoConfiguration: 0
   facebookAndroidAppId: 
   facebookIosAppId: 
