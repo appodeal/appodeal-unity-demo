@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938f2ffed8844cf38882cc14e7d1605d, type: 3}
   m_Name: AppodealDmChoices
   m_EditorClassIdentifier: 
-  checkPeriodicallyForAdapterUpdates: 0
-  updateAdaptersAutomatically: 0
+  validateDependenciesPeriodically: 1
   checkPeriodicallyForPluginUpdates: 0
   includePluginBetaVersions: 0
   enableVerboseLogging: 0
-  lastSyncSdkStates: []
+  selectionMode: 0
+  customSelections: []

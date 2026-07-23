@@ -41,6 +41,8 @@ namespace AppodealSample
         [SerializeField] private Toggle             bannerAnimationToggle;
         [SerializeField] private Toggle             interstitialAutoCacheToggle;
         [SerializeField] private Toggle             rewardedVideoAutoCacheToggle;
+        [SerializeField] private Toggle             nonPersonalizedTrueToggle;
+        [SerializeField] private Toggle             nonPersonalizedFalseToggle;
         [SerializeField] private Text               pluginVersionText;
         [SerializeField] private Text               interstitialButtonText;
         [SerializeField] private Text               rewardedVideoButtonText;
@@ -96,6 +98,8 @@ namespace AppodealSample
             Assert.IsNotNull(bannerAnimationToggle);
             Assert.IsNotNull(interstitialAutoCacheToggle);
             Assert.IsNotNull(rewardedVideoAutoCacheToggle);
+            Assert.IsNotNull(nonPersonalizedTrueToggle);
+            Assert.IsNotNull(nonPersonalizedFalseToggle);
             Assert.IsNotNull(pluginVersionText);
             Assert.IsNotNull(interstitialButtonText);
             Assert.IsNotNull(rewardedVideoButtonText);
@@ -219,6 +223,9 @@ namespace AppodealSample
             Appodeal.SetLocationTracking(false);
             Appodeal.MuteVideosIfCallsMuted(true);
             Appodeal.SetChildDirectedTreatment(false);
+
+            if (nonPersonalizedTrueToggle.isOn) Appodeal.SetNonPersonalized(true);
+            else if (nonPersonalizedFalseToggle.isOn) Appodeal.SetNonPersonalized(false);
 
             Appodeal.SetTriggerOnLoadedOnPrecache(AppodealAdType.Interstitial, true);
 
