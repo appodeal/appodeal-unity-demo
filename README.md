@@ -1,8 +1,17 @@
 # Appodeal Unity Plugin
 
-Stable version of Unity Appodeal SDK is 4.2.0. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
+Stable version of Unity Appodeal SDK is 4.3.0. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
 
 ## Changelog
+
+4.3.0 (July 23, 2026)
+
++ Updated Appodeal Android SDK to v4.3.0
++ Updated Appodeal iOS SDK to v4.3.0
++ Changed Appodeal asset GUID to resolve Unity IAP conflict
++ Routed MREC readiness and lifecycle to the standalone MREC view on iOS
++ Changed plugin version lookup to use `PackageInfo.FindForAssembly`
++ Implemented `SetNonPersonalized` public API method
 
 4.2.0 (June 16, 2026)
 
