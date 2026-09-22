@@ -10,10 +10,11 @@
       "hash": "847771ecaf318da6e7d8fdb1ffb3b1b0c7c83b0e"
     },
     "com.google.external-dependency-manager": {
-      "version": "file:Sources/com.google.external-dependency-manager-1.2.182.tgz",
+      "version": "https://github.com/googlesamples/unity-jar-resolver.git?path=upm#v1.2.189",
       "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "1a9384872d6b8b954a8c0115fdcdf146c995062a"
     },
     "com.unity.collab-proxy": {
       "version": "2.5.2",
