@@ -1,8 +1,21 @@
 # Appodeal Unity Plugin
 
-Stable version of Unity Appodeal SDK is 4.3.0. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
+Stable version of Unity Appodeal SDK is 4.4.0. SDK integration documentation: [docs](https://docs.appodeal.com/unity/get-started)
 
 ## Changelog
+
+4.4.0 (September 23, 2026)
+
++ Updated Appodeal Android SDK to v4.4.0
++ Updated Appodeal iOS SDK to v4.4.0
++ Added an iOS post-process step that embeds Swift Package dynamic frameworks and resource bundles into the app and adds the `-ObjC` linker flag to `UnityFramework`
++ Added Swift Package entries support to the Dependency Manager: `swiftPackage` / `remoteSwiftPackage` nodes are preserved in `Dependencies.xml` and shown in the dependencies diff
++ Fixed AdMob App ID setup being skipped when the AdMob adapter is resolved via Swift Package Manager
++ Fixed AppLovin MAX Ad Review installation being skipped when MAX is linked via Swift Package Manager
++ Fixed `GoogleService-Info.plist` copy failing on append iOS builds
++ Fixed duplicate Facebook URL scheme entries in `Info.plist` on append iOS builds
++ Fixed the Dependency Manager window opening blank from the top bar menu
++ Removed `SetLocationTracking` API (the native method no longer exists in the iOS SDK; on Android it was a no-op)
 
 4.3.0 (July 23, 2026)
 
