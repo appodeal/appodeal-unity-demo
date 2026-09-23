@@ -220,7 +220,6 @@ namespace AppodealSample
             Appodeal.SetTabletBanners(tabletBannerToggle.isOn);
             Appodeal.SetBannerAnimation(bannerAnimationToggle.isOn);
 
-            Appodeal.SetLocationTracking(false);
             Appodeal.MuteVideosIfCallsMuted(true);
             Appodeal.SetChildDirectedTreatment(false);
 
