@@ -1,11 +1,125 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dependencies pluginVersion="4.3.0">
+<dependencies pluginVersion="4.4.0">
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package.git" version="4.4.0">
+		<swiftPackage name="AppodealSDK" replacesPod="Appodeal" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-Adjust.git" version="5070002.0.0">
+		<swiftPackage name="AppodealAdjustAdapter" replacesPod="AppodealAdjustAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-Google.git" version="13050000.0.3">
+		<swiftPackage name="APDGoogleAdMobAdapter" replacesPod="AppodealGoogleAdMobAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-AppLovin.git" version="13060300.0.0">
+		<swiftPackage name="AppodealAppLovinAdapter" replacesPod="AppodealAppLovinAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-AppsFlyer.git" version="6180002.0.0">
+		<swiftPackage name="AppodealAppsFlyerAdapter" replacesPod="AppodealAppsFlyerAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-BidMachine.git" version="3070102.0.0">
+		<swiftPackage name="AppodealBidMachineAdapter" replacesPod="AppodealBidMachineAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-DTExchange.git" version="8040700.0.0">
+		<swiftPackage name="AppodealDTExchangeAdapter" replacesPod="AppodealDTExchangeAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-Facebook.git" version="18000300.0.0">
+		<swiftPackage name="AppodealFacebookAdapter" replacesPod="AppodealFacebookAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-Firebase.git" version="12150000.0.2">
+		<swiftPackage name="AppodealFirebaseAdapter" replacesPod="AppodealFirebaseAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-IAB.git" version="4040000.0.0">
+		<swiftPackage name="AppodealIABAdapter" replacesPod="AppodealIABAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-InMobi.git" version="11030000.0.0">
+		<swiftPackage name="AppodealInMobiAdapter" replacesPod="AppodealInMobiAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-MAX.git" version="13060301.0.1">
+		<swiftPackage name="AppodealAppLovinMAXAdapter" replacesPod="AppodealAppLovinMAXAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-Meta.git" version="6210100.0.0">
+		<swiftPackage name="AppodealMetaAudienceNetworkAdapter" replacesPod="AppodealMetaAudienceNetworkAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-Mintegral.git" version="8010600.0.0">
+		<swiftPackage name="AppodealMintegralAdapter" replacesPod="AppodealMintegralAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-MyTarget.git" version="5430000.0.0">
+		<swiftPackage name="AppodealMyTargetAdapter" replacesPod="AppodealMyTargetAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-Sentry.git" version="8570201.0.0">
+		<swiftPackage name="AppodealSentryAdapter" replacesPod="AppodealSentryAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-UnityAds.git" version="4200000.0.0">
+		<swiftPackage name="AppodealUnityAdapter" replacesPod="AppodealUnityAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-Vungle.git" version="7070300.0.0">
+		<swiftPackage name="AppodealVungleAdapter" replacesPod="AppodealVungleAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/appodeal/Appodeal-Swift-Package-Yandex.git" version="8030001.0.0">
+		<swiftPackage name="AppodealYandexAdapter" replacesPod="AppodealYandexAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Google.git" version="13050000.0.0">
+		<swiftPackage name="AppLovinMediationGoogleAdapter" replacesPod="AppLovinMediationGoogleAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-BidMachine.git" version="307010000.0.0">
+		<swiftPackage name="AppLovinMediationBidMachineAdapter" replacesPod="AppLovinMediationBidMachineAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Chartboost.git" version="9130000.0.0">
+		<swiftPackage name="AppLovinMediationChartboostAdapter" replacesPod="AppLovinMediationChartboostAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Fyber.git" version="8040700.0.0">
+		<swiftPackage name="AppLovinMediationFyberAdapter" replacesPod="AppLovinMediationFyberAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-GoogleAdsManager.git" version="13050000.0.0">
+		<swiftPackage name="AppLovinMediationGoogleAdManagerAdapter" replacesPod="AppLovinMediationGoogleAdManagerAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-InMobi.git" version="11030001.0.0">
+		<swiftPackage name="AppLovinMediationInMobiAdapter" replacesPod="AppLovinMediationInMobiAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-IronSource.git" version="906000001.0.0">
+		<swiftPackage name="AppLovinMediationIronSourceAdapter" replacesPod="AppLovinMediationIronSourceAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Meta.git" version="6210100.0.0">
+		<swiftPackage name="AppLovinMediationFacebookAdapter" replacesPod="AppLovinMediationFacebookAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Mintegral.git" version="801060000.0.0">
+		<swiftPackage name="AppLovinMediationMintegralAdapter" replacesPod="AppLovinMediationMintegralAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-MobileFuse.git" version="1110000.0.0">
+		<swiftPackage name="AppLovinMediationMobileFuseAdapter" replacesPod="AppLovinMediationMobileFuseAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Moloco.git" version="4070000.0.0">
+		<swiftPackage name="AppLovinMediationMolocoAdapter" replacesPod="AppLovinMediationMolocoAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Ogury.git" version="5020300.0.0">
+		<swiftPackage name="AppLovinMediationOguryPresageAdapter" replacesPod="AppLovinMediationOguryPresageAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Pangle.git" version="709010100.0.0">
+		<swiftPackage name="AppLovinMediationByteDanceAdapter" replacesPod="AppLovinMediationByteDanceAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-PubMatic.git" version="5010100.0.0">
+		<swiftPackage name="AppLovinMediationPubMaticAdapter" replacesPod="AppLovinMediationPubMaticAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Smaato.git" version="23020101.0.0">
+		<swiftPackage name="AppLovinMediationSmaatoAdapter" replacesPod="AppLovinMediationSmaatoAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-UnityAds.git" version="4200001.0.0">
+		<swiftPackage name="AppLovinMediationUnityAdsAdapter" replacesPod="AppLovinMediationUnityAdsAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Verve.git" version="3080100.0.0">
+		<swiftPackage name="AppLovinMediationVerveAdapter" replacesPod="AppLovinMediationVerveAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Liftoff.git" version="7070300.0.0">
+		<swiftPackage name="AppLovinMediationVungleAdapter" replacesPod="AppLovinMediationVungleAdapter" />
+	</remoteSwiftPackage>
+	<remoteSwiftPackage url="https://github.com/AppLovin/AppLovin-MAX-Swift-Package-Yandex.git" version="8030000.0.0">
+		<swiftPackage name="AppLovinMediationYandexAdapter" replacesPod="AppLovinMediationYandexAdapter" />
+	</remoteSwiftPackage>
 	<iosPods>
-		<iosPod id="appodeal" name="Appodeal" version="4.3.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal" name="Appodeal" version="4.4.0" minTargetSdk="15.0" />
 		<iosPod id="appodeal_adjust" name="AppodealAdjustAdapter" version="5.7.0.1" minTargetSdk="12.0" />
 		<iosPod id="appodeal_admob" name="AppodealGoogleAdMobAdapter" version="13.5.0.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_amazon" name="AppodealAmazonAdapter" version="5.5.0.0" minTargetSdk="12.0" />
-		<iosPod id="appodeal_applovin" name="AppodealAppLovinAdapter" version="13.6.2.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal_applovin" name="AppodealAppLovinAdapter" version="13.6.3.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_appsflyer" name="AppodealAppsFlyerAdapter" version="6.18.0.2" minTargetSdk="12.0" />
 		<iosPod id="appodeal_bidmachine" name="AppodealBidMachineAdapter" version="3.7.1.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_bidon" name="AppodealBidonAdapter" version="0.15.0.0" minTargetSdk="12.0" />
@@ -13,83 +127,80 @@
 		<iosPod id="appodeal_dt_exchange" name="AppodealDTExchangeAdapter" version="8.4.7.0" minTargetSdk="13.0" />
 		<iosPod id="appodeal_facebook_analytics" name="AppodealFacebookAdapter" version="18.0.3.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_firebase" name="AppodealFirebaseAdapter" version="12.15.0.1" minTargetSdk="15.0" />
-		<iosPod id="appodeal_iab" name="AppodealIABAdapter" version="3.5.2.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal_iab" name="AppodealIABAdapter" version="4.4.0.0" minTargetSdk="15.0" />
 		<iosPod id="appodeal_inmobi" name="AppodealInMobiAdapter" version="11.3.0.0" minTargetSdk="12.0" />
-		<iosPod id="appodeal_ironsource" name="AppodealIronSourceAdapter" version="9.4.0.0.0" minTargetSdk="13.0" />
-		<iosPod id="appodeal_levelplay" name="AppodealLevelPlayAdapter" version="9.4.0.0.0" minTargetSdk="13.0" />
-		<iosPod id="appodeal_max" name="AppodealAppLovinMAXAdapter" version="13.6.2.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal_ironsource" name="AppodealIronSourceAdapter" version="9.6.0.0.0" minTargetSdk="13.0" />
+		<iosPod id="appodeal_levelplay" name="AppodealLevelPlayAdapter" version="9.6.0.0.0" minTargetSdk="15.0" />
+		<iosPod id="appodeal_max" name="AppodealAppLovinMAXAdapter" version="13.6.3.0" minTargetSdk="15.0" />
 		<iosPod id="appodeal_meta_audience_network" name="AppodealMetaAudienceNetworkAdapter" version="6.21.1.0" minTargetSdk="13.0" />
-		<iosPod id="appodeal_mintegral" name="AppodealMintegralAdapter" version="8.1.3.0" minTargetSdk="12.0" />
+		<iosPod id="appodeal_mintegral" name="AppodealMintegralAdapter" version="8.1.6.0" minTargetSdk="12.0" />
 		<iosPod id="appodeal_my_target" name="AppodealMyTargetAdapter" version="5.43.0.0" minTargetSdk="14.0" />
 		<iosPod id="appodeal_sentry" name="AppodealSentryAdapter" version="8.57.2.1" minTargetSdk="12.0" />
-		<iosPod id="appodeal_unity_ads" name="AppodealUnityAdapter" version="4.17.0.0" minTargetSdk="13.0" />
+		<iosPod id="appodeal_unity_ads" name="AppodealUnityAdapter" version="4.20.0.0" minTargetSdk="15.0" />
 		<iosPod id="appodeal_vungle" name="AppodealVungleAdapter" version="7.7.3.0" minTargetSdk="12.0" />
-		<iosPod id="appodeal_yandex_ads" name="AppodealYandexAdapter" version="7.18.4.1" minTargetSdk="13.0" />
+		<iosPod id="appodeal_yandex_ads" name="AppodealYandexAdapter" version="8.3.0.1" minTargetSdk="15.0" />
 		<iosPod id="bidon_amazon" name="BidonAdapterAmazon" version="5.5.0.0" minTargetSdk="12.0" />
-		<iosPod id="bidon_applovin" name="BidonAdapterAppLovin" version="13.6.2.0" minTargetSdk="12.0" />
+		<iosPod id="bidon_applovin" name="BidonAdapterAppLovin" version="13.6.3.0" minTargetSdk="12.0" />
 		<iosPod id="bidon_bidmachine" name="BidonAdapterBidMachine" version="3.7.1.1" minTargetSdk="12.0" />
 		<iosPod id="bidon_bigo_ads" name="BidonAdapterBigoAds" version="5.2.1.0" minTargetSdk="12.0" />
-		<iosPod id="bidon_chartboost" name="BidonAdapterChartboost" version="9.10.1.0" minTargetSdk="12.0" />
 		<iosPod id="bidon_dt_exchange" name="BidonAdapterDTExchange" version="8.4.7.0" minTargetSdk="13.0" />
 		<iosPod id="bidon_inmobi" name="BidonAdapterInMobi" version="11.3.0.0" minTargetSdk="12.0" />
-		<iosPod id="bidon_ironsource" name="BidonAdapterIronSource" version="9.4.0.0.0" minTargetSdk="13.0" />
-		<iosPod id="bidon_meta_audience_network" name="BidonAdapterMetaAudienceNetwork" version="6.21.1.1" minTargetSdk="13.0" />
-		<iosPod id="bidon_mintegral" name="BidonAdapterMintegral" version="8.1.3.0" minTargetSdk="12.0" />
-		<iosPod id="bidon_mobilefuse" name="BidonAdapterMobileFuse" version="1.9.3.0" minTargetSdk="12.0" />
-		<iosPod id="bidon_moloco" name="BidonAdapterMoloco" version="4.3.0.0" minTargetSdk="13.0" />
+		<iosPod id="bidon_ironsource" name="BidonAdapterIronSource" version="9.6.0.0.0" minTargetSdk="13.0" />
+		<iosPod id="bidon_mobilefuse" name="BidonAdapterMobileFuse" version="1.11.0.0" minTargetSdk="12.0" />
+		<iosPod id="bidon_moloco" name="BidonAdapterMoloco" version="4.7.0.0" minTargetSdk="13.0" />
 		<iosPod id="bidon_my_target" name="BidonAdapterMyTarget" version="5.43.0.0" minTargetSdk="14.0" />
 		<iosPod id="bidon_startio" name="BidonAdapterStartIo" version="4.11.0.0" minTargetSdk="12.0" />
 		<iosPod id="bidon_taurusx" name="BidonAdapterTaurusX" version="1.9.2.0" minTargetSdk="12.0" />
-		<iosPod id="bidon_unity_ads" name="BidonAdapterUnityAds" version="4.17.0.0" minTargetSdk="13.0" />
+		<iosPod id="bidon_unity_ads" name="BidonAdapterUnityAds" version="4.20.0.0" minTargetSdk="13.0" />
 		<iosPod id="bidon_vungle" name="BidonAdapterVungle" version="7.7.3.0" minTargetSdk="12.0" />
-		<iosPod id="bidon_yandex_ads" name="BidonAdapterYandex" version="7.18.4.0" minTargetSdk="13.0" />
 		<iosPod id="bidon_zmaticoo" name="BidonAdapterZmaticoo" version="2.2.0.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_admob" name="IronSourceAdMobAdapter" version="5.10.0.0" minTargetSdk="13.0" />
-		<iosPod id="levelplay_applovin" name="IronSourceAppLovinAdapter" version="5.6.0.0" minTargetSdk="12.0" />
+		<iosPod id="levelplay_applovin" name="IronSourceAppLovinAdapter" version="5.7.0.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_bidmachine" name="IronSourceBidMachineAdapter" version="5.7.0.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_bigo_ads" name="IronSourceBigoAdapter" version="5.9.0.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_dt_exchange" name="IronSourceFyberAdapter" version="5.8.0.0" minTargetSdk="13.0" />
 		<iosPod id="levelplay_inmobi" name="IronSourceInMobiAdapter" version="5.7.0.0" minTargetSdk="12.0" />
-		<iosPod id="levelplay_meta_audience_network" name="IronSourceFacebookAdapter" version="5.3.0.0" minTargetSdk="13.0" />
-		<iosPod id="levelplay_mintegral" name="IronSourceMintegralAdapter" version="5.13.0.0" minTargetSdk="12.0" />
-		<iosPod id="levelplay_mobilefuse" name="IronSourceMobileFuseAdapter" version="5.0.0.0" minTargetSdk="12.0" />
-		<iosPod id="levelplay_moloco" name="IronSourceMolocoAdapter" version="5.5.0.0" minTargetSdk="12.0" />
+		<iosPod id="levelplay_mintegral" name="IronSourceMintegralAdapter" version="5.19.0.0" minTargetSdk="12.0" />
+		<iosPod id="levelplay_mobilefuse" name="IronSourceMobileFuseAdapter" version="5.3.0.0" minTargetSdk="12.0" />
+		<iosPod id="levelplay_moloco" name="IronSourceMolocoAdapter" version="5.13.0.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_my_target" name="IronSourceMyTargetAdapter" version="5.9.0.0" minTargetSdk="14.0" />
-		<iosPod id="levelplay_ogury" name="IronSourceOguryAdapter" version="5.0.0.0" minTargetSdk="12.0" />
-		<iosPod id="levelplay_pangle" name="IronSourcePangleAdapter" version="5.5.0.0" minTargetSdk="12.0" />
-		<iosPod id="levelplay_smaato" name="IronSourceSmaatoAdapter" version="5.3.0.0" minTargetSdk="12.0" />
-		<iosPod id="levelplay_unity_ads" name="IronSourceUnityAdsAdapter" version="5.6.0.0" minTargetSdk="13.0" />
-		<iosPod id="levelplay_verve" name="IronSourceVerveAdapter" version="5.1.0.0" minTargetSdk="12.0" />
+		<iosPod id="levelplay_ogury" name="IronSourceOguryAdapter" version="5.6.0.0" minTargetSdk="12.0" />
+		<iosPod id="levelplay_pangle" name="IronSourcePangleAdapter" version="5.19.0.0" minTargetSdk="12.0" />
+		<iosPod id="levelplay_smaato" name="IronSourceSmaatoAdapter" version="5.5.0.0" minTargetSdk="12.0" />
+		<iosPod id="levelplay_unity_ads" name="IronSourceUnityAdsAdapter" version="5.11.0.0" minTargetSdk="13.0" />
+		<iosPod id="levelplay_verve" name="IronSourceVerveAdapter" version="5.5.0.0" minTargetSdk="12.0" />
 		<iosPod id="levelplay_vungle" name="IronSourceVungleAdapter" version="5.9.0.0" minTargetSdk="12.0" />
-		<iosPod id="levelplay_yandex_ads" name="IronSourceYandexAdapter" version="5.7.0.0" minTargetSdk="13.0" />
+		<iosPod id="levelplay_yandex_ads" name="IronSourceYandexAdapter" version="5.12.0.0" minTargetSdk="13.0" />
 		<iosPod id="max_admob" name="AppLovinMediationGoogleAdapter" version="13.5.0.0" minTargetSdk="12.0" />
 		<iosPod id="max_amazon" name="AppLovinMediationAmazonAdMarketplaceAdapter" version="5.5.0.0" minTargetSdk="12.0" />
 		<iosPod id="max_bidmachine" name="AppLovinMediationBidMachineAdapter" version="3.7.1.0.0" minTargetSdk="12.0" />
 		<iosPod id="max_bigo_ads" name="AppLovinMediationBigoAdsAdapter" version="5.2.1.0" minTargetSdk="12.0" />
-		<iosPod id="max_chartboost" name="AppLovinMediationChartboostAdapter" version="9.10.1.0" minTargetSdk="12.0" />
+		<iosPod id="max_chartboost" name="AppLovinMediationChartboostAdapter" version="9.13.0.0" minTargetSdk="12.0" />
 		<iosPod id="max_dt_exchange" name="AppLovinMediationFyberAdapter" version="8.4.7.0" minTargetSdk="13.0" />
 		<iosPod id="max_gam" name="AppLovinMediationGoogleAdManagerAdapter" version="13.5.0.0" minTargetSdk="12.0" />
 		<iosPod id="max_inmobi" name="AppLovinMediationInMobiAdapter" version="11.3.0.1" minTargetSdk="12.0" />
-		<iosPod id="max_ironsource" name="AppLovinMediationIronSourceAdapter" version="9.4.0.0.0" minTargetSdk="12.0" />
+		<iosPod id="max_ironsource" name="AppLovinMediationIronSourceAdapter" version="9.6.0.0.1" minTargetSdk="12.0" />
 		<iosPod id="max_meta_audience_network" name="AppLovinMediationFacebookAdapter" version="6.21.1.0" minTargetSdk="13.0" />
-		<iosPod id="max_mintegral" name="AppLovinMediationMintegralAdapter" version="8.1.3.0.0" minTargetSdk="12.0" />
-		<iosPod id="max_mobilefuse" name="AppLovinMediationMobileFuseAdapter" version="1.9.3.0" minTargetSdk="12.0" />
-		<iosPod id="max_moloco" name="AppLovinMediationMolocoAdapter" version="4.3.0.0" minTargetSdk="12.0" />
-		<iosPod id="max_ogury" name="AppLovinMediationOguryPresageAdapter" version="5.1.1.0" minTargetSdk="12.0" />
-		<iosPod id="max_pangle" name="AppLovinMediationByteDanceAdapter" version="7.7.0.7.0" minTargetSdk="12.0" />
-		<iosPod id="max_pubmatic" name="AppLovinMediationPubMaticAdapter" version="4.10.0.0" minTargetSdk="12.0" />
-		<iosPod id="max_smaato" name="AppLovinMediationSmaatoAdapter" version="23.2.0.0" minTargetSdk="12.0" />
-		<iosPod id="max_unity_ads" name="AppLovinMediationUnityAdsAdapter" version="4.17.0.0" minTargetSdk="13.0" />
-		<iosPod id="max_verve" name="AppLovinMediationVerveAdapter" version="3.7.0.0" minTargetSdk="12.0" />
+		<iosPod id="max_mintegral" name="AppLovinMediationMintegralAdapter" version="8.1.6.0.0" minTargetSdk="12.0" />
+		<iosPod id="max_mobilefuse" name="AppLovinMediationMobileFuseAdapter" version="1.11.0.0" minTargetSdk="12.0" />
+		<iosPod id="max_moloco" name="AppLovinMediationMolocoAdapter" version="4.7.0.0" minTargetSdk="12.0" />
+		<iosPod id="max_ogury" name="AppLovinMediationOguryPresageAdapter" version="5.2.3.0" minTargetSdk="12.0" />
+		<iosPod id="max_pangle" name="AppLovinMediationByteDanceAdapter" version="7.9.1.1.0" minTargetSdk="12.0" />
+		<iosPod id="max_pubmatic" name="AppLovinMediationPubMaticAdapter" version="5.1.1.0" minTargetSdk="12.0" />
+		<iosPod id="max_smaato" name="AppLovinMediationSmaatoAdapter" version="23.2.1.1" minTargetSdk="12.0" />
+		<iosPod id="max_taurusx" name="TaurusxAdsSDK/AppLovinAdapter" version="1.9.2" minTargetSdk="12.0" />
+		<iosPod id="max_unity_ads" name="AppLovinMediationUnityAdsAdapter" version="4.20.0.0" minTargetSdk="13.0" />
+		<iosPod id="max_verve" name="AppLovinMediationVerveAdapter" version="3.8.1.0" minTargetSdk="12.0" />
 		<iosPod id="max_vungle" name="AppLovinMediationVungleAdapter" version="7.7.3.0" minTargetSdk="12.0" />
-		<iosPod id="max_yandex_ads" name="AppLovinMediationYandexAdapter" version="7.18.4.0" minTargetSdk="13.0" />
+		<iosPod id="max_yandex_ads" name="AppLovinMediationYandexAdapter" version="8.3.0.0" minTargetSdk="13.0" />
+		<iosPod id="max_zmaticoo" name="zMaticooMAXAdapter" version="2.2.0" minTargetSdk="12.0" />
 		<sources>
 			<source>https://github.com/appodeal/CocoaPods.git</source>
 			<source>https://github.com/bidon-io/CocoaPods-Specs.git</source>
 		</sources>
 	</iosPods>
 	<androidPackages>
-		<androidPackage id="appodeal" spec="com.appodeal.ads.sdk:core:4.3.0" />
+		<androidPackage id="appodeal" spec="com.appodeal.ads.sdk:core:4.4.0" />
 		<androidPackage id="appodeal_adjust" spec="com.appodeal.ads.sdk.adapters:adjust:5.7.0.0" />
 		<androidPackage id="appodeal_admob" spec="com.appodeal.ads.sdk.adapters:admob:25.2.0.0" />
 		<androidPackage id="appodeal_amazon" spec="com.appodeal.ads.sdk.adapters:amazon:12.0.0.0" />
@@ -106,8 +217,8 @@
 		<androidPackage id="appodeal_inmobi" spec="com.appodeal.ads.sdk.adapters:inmobi:11.3.0.0" />
 		<androidPackage id="appodeal_ironsource" spec="com.appodeal.ads.sdk.adapters:ironsource:9.4.4.0" />
 		<androidPackage id="appodeal_levelplay" spec="com.appodeal.ads.sdk.adapters:level_play:9.4.4.0" />
-		<androidPackage id="appodeal_max" spec="com.appodeal.ads.sdk.adapters:applovin_max:13.6.3.0" />
-		<androidPackage id="appodeal_meta_audience_network" spec="com.appodeal.ads.sdk.adapters:meta:6.20.0.0" />
+		<androidPackage id="appodeal_max" spec="com.appodeal.ads.sdk.adapters:applovin_max:13.6.3.1" />
+		<androidPackage id="appodeal_meta_audience_network" spec="com.appodeal.ads.sdk.adapters:meta:6.21.0.0" />
 		<androidPackage id="appodeal_mintegral" spec="com.appodeal.ads.sdk.adapters:mintegral:17.1.61.0" />
 		<androidPackage id="appodeal_mobilefuse" spec="com.appodeal.ads.sdk.adapters:mobilefuse:1.11.0.0" />
 		<androidPackage id="appodeal_moloco" spec="com.appodeal.ads.sdk.adapters:moloco:4.3.1.0" />
@@ -123,18 +234,19 @@
 		<androidPackage id="appodeal_vungle" spec="com.appodeal.ads.sdk.adapters:vungle:7.7.4.0" />
 		<androidPackage id="appodeal_yandex_ads" spec="com.appodeal.ads.sdk.adapters:yandex:7.17.0.0" />
 		<androidPackage id="bidmachine_amazon" spec="io.bidmachine:ads.networks.amazon:12.0.0.0" />
+		<androidPackage id="bidmachine_meta_audience_network" spec="io.bidmachine:ads.networks.meta_audience:6.21.0.1" />
 		<androidPackage id="bidmachine_mintegral" spec="io.bidmachine:ads.networks.mintegral:17.1.61.1" />
 		<androidPackage id="bidmachine_my_target" spec="io.bidmachine:ads.networks.my_target:5.47.1.2" />
 		<androidPackage id="bidmachine_vungle" spec="io.bidmachine:ads.networks.vungle:7.7.4.0" />
 		<androidPackage id="bidon_amazon" spec="org.bidon:amazon-adapter:12.0.0.0" />
 		<androidPackage id="bidon_applovin" spec="org.bidon:applovin-adapter:13.6.3.0" />
-		<androidPackage id="bidon_bidmachine" spec="org.bidon:bidmachine-adapter:3.7.1.0" />
+		<androidPackage id="bidon_bidmachine" spec="org.bidon:bidmachine-adapter:3.7.1.1" />
 		<androidPackage id="bidon_bigo_ads" spec="org.bidon:bigoads-adapter:5.9.0.0" />
 		<androidPackage id="bidon_chartboost" spec="org.bidon:chartboost-adapter:9.10.2.0" />
 		<androidPackage id="bidon_dt_exchange" spec="org.bidon:dtexchange-adapter:8.4.6.0" />
 		<androidPackage id="bidon_inmobi" spec="org.bidon:inmobi-adapter:11.3.0.0" />
 		<androidPackage id="bidon_ironsource" spec="org.bidon:ironsource-adapter:9.4.4.0" />
-		<androidPackage id="bidon_meta_audience_network" spec="org.bidon:meta-adapter:6.20.0.0" />
+		<androidPackage id="bidon_meta_audience_network" spec="org.bidon:meta-adapter:6.21.0.0" />
 		<androidPackage id="bidon_mintegral" spec="org.bidon:mintegral-adapter:17.1.61.0" />
 		<androidPackage id="bidon_mobilefuse" spec="org.bidon:mobilefuse-adapter:1.11.0.0" />
 		<androidPackage id="bidon_moloco" spec="org.bidon:moloco-adapter:4.3.1.0" />
@@ -144,14 +256,15 @@
 		<androidPackage id="bidon_unity_ads" spec="org.bidon:unityads-adapter:4.17.0.0" />
 		<androidPackage id="bidon_vungle" spec="org.bidon:vungle-adapter:7.7.4.0" />
 		<androidPackage id="bidon_yandex_ads" spec="org.bidon:yandex-adapter:7.17.0.0" />
-		<androidPackage id="bidon_zmaticoo" spec="org.bidon:zmaticoo-adapter:2.0.6.0.0" />
+		<androidPackage id="bidon_zmaticoo" spec="org.bidon:zmaticoo-adapter:2.0.7.1.0" />
 		<androidPackage id="levelplay_admob" spec="com.unity3d.ads-mediation:admob-adapter:5.7.0" />
 		<androidPackage id="levelplay_applovin" spec="com.unity3d.ads-mediation:applovin-adapter:5.8.0" />
 		<androidPackage id="levelplay_bidmachine" spec="com.unity3d.ads-mediation:bidmachine-adapter:5.7.0" />
 		<androidPackage id="levelplay_bigo_ads" spec="com.unity3d.ads-mediation:bigo-adapter:5.8.0" />
 		<androidPackage id="levelplay_dt_exchange" spec="com.unity3d.ads-mediation:fyber-adapter:5.9.0" />
 		<androidPackage id="levelplay_inmobi" spec="com.unity3d.ads-mediation:inmobi-adapter:5.7.0" />
-		<androidPackage id="levelplay_mintegral" spec="com.unity3d.ads-mediation:mintegral-adapter:5.17.0" />
+		<androidPackage id="levelplay_meta_audience_network" spec="com.unity3d.ads-mediation:facebook-adapter:5.3.0" />
+		<androidPackage id="levelplay_mintegral" spec="com.unity3d.ads-mediation:mintegral-adapter:5.18.0" />
 		<androidPackage id="levelplay_mobilefuse" spec="com.unity3d.ads-mediation:mobilefuse-adapter:5.3.0" />
 		<androidPackage id="levelplay_moloco" spec="com.unity3d.ads-mediation:moloco-adapter:5.6.0" />
 		<androidPackage id="levelplay_my_target" spec="com.unity3d.ads-mediation:mytarget-adapter:5.5.0" />
@@ -169,7 +282,7 @@
 		<androidPackage id="max_gam" spec="com.applovin.mediation:google-ad-manager-adapter:25.2.0.0" />
 		<androidPackage id="max_inmobi" spec="com.applovin.mediation:inmobi-adapter:11.3.0.1" />
 		<androidPackage id="max_ironsource" spec="com.applovin.mediation:ironsource-adapter:9.4.4.0.0" />
-		<androidPackage id="max_meta_audience_network" spec="com.applovin.mediation:facebook-adapter:6.20.0.0" />
+		<androidPackage id="max_meta_audience_network" spec="com.applovin.mediation:facebook-adapter:6.21.0.0" />
 		<androidPackage id="max_mintegral" spec="com.applovin.mediation:mintegral-adapter:17.1.61.0" />
 		<androidPackage id="max_mobilefuse" spec="com.applovin.mediation:mobilefuse-adapter:1.11.0.0" />
 		<androidPackage id="max_moloco" spec="com.applovin.mediation:moloco-adapter:4.3.1.0" />
@@ -183,6 +296,7 @@
 		<androidPackage id="max_yandex_ads" spec="com.applovin.mediation:yandex-adapter:7.17.0.0" />
 		<repositories>
 			<repository>https://artifactory.appodeal.com/appodeal</repository>
+			<repository>https://artifactory.appodeal.com/bidon</repository>
 			<repository>https://artifactory.bidon.org/bidon</repository>
 			<repository>https://repo1.maven.org/maven2</repository>
 		</repositories>
